@@ -7,7 +7,7 @@ tags:
 categories:
 - tableView
 ---
-> UITableView 是开发中最常用到的控件,可以说没有哪个 APP 离得开 UITableView 控件,使用时难免会遇到各种各样的问题,其中 cell 高度自适应是最让人头疼的,简单说一下我在开发中总结.
+ UITableView 是开发中最常用到的控件,可以说没有哪个 APP 离得开 UITableView 控件,使用时难免会遇到各种各样的问题,其中 cell 高度自适应是最让人头疼的,简单说一下我在开发中总结.
 <!-- more -->
 开发中面对 cell 的自适应有着各种各样的方法,无外乎以下几种:
 

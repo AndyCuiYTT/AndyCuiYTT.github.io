@@ -7,7 +7,7 @@ categories:
 tags:
 - network
 ---
-> 对 Alamofire与系统的网络请求进行简易封装
+对 Alamofire与系统的网络请求进行简易封装
 <!-- more -->
 
 # Alamofire
