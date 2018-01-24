@@ -4,16 +4,14 @@ date: 2017-10-14 12:57:30
 keywords: [slider,tag]
 tags: slider
 categories: 自定义视图
-description: 简单易用的滑动标签栏工具
 ---
-# [SliderViews](https://github.com/AndyCuiYTT/SliderViews)
+
+
+[SliderViews](https://github.com/AndyCuiYTT/SliderViews) : 简单易用的滑动标签工具,『标签栏工具』『滑动视图工具』可单独使用.
+<!-- more -->
 
 ![](https://img.shields.io/badge/language-swift-green.svg) [![CRAN](https://img.shields.io/cocoapods/l/SliderViews.svg)]() ![](https://img.shields.io/cocoapods/v/SliderViews.svg) [![](https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg)](http://andycui.top)
-# 简介
-
-SliderViews 简单易用的滑动标签工具,『标签栏工具』『滑动视图工具』可单独使用.
-
-![](SliderViews/sliderview-02.gif)
+![](sliderview-02.gif)
 
 # 安装
 
@@ -38,7 +36,7 @@ segmented.snp.makeConstraints { (make) in
 }
 ```
 
-![](SliderViews/sliderview-05.gif)
+![](sliderview-05.gif)
 
 ## SliderView 使用
  SliderView: 滑动视图工具,使用需要实现YTTSliderViewDelegate代理
@@ -59,7 +57,7 @@ segmented.snp.makeConstraints { (make) in
  }
  ```
  
- ![](SliderViews/sliderview-04.gif)
+ ![](sliderview-04.gif)
 
 ## TabSliderView 使用
  TabSliderView: SegmentedControl 与 SliderView 组合使用.
@@ -73,7 +71,7 @@ tabSliderView.snp.makeConstraints { (make) in
 }
 ```
 
-![](SliderViews/sliderview-03.gif)
+![](sliderview-03.gif)
 
 # 反馈
 

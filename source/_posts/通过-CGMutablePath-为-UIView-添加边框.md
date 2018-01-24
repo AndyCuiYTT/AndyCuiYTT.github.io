@@ -8,9 +8,10 @@ tags:
 - UIBezierPath
 - CAShapeLayer
 ---
-## 通过贝塞尔曲线与 CAShapeLayer 为 View 添加虚线边框,可设置宽度,颜色,圆角等,运行效果:
-![效果图](通过-CGMutablePath-为-UIView-添加边框/17-7-12.png)
+ 通过贝塞尔曲线与 CAShapeLayer 为 View 添加虚线边框,可设置宽度,颜色,圆角等
 <!-- more -->
+
+![效果图](17-7-12.png)
 ## 代码如下:
  ```swift
  	/// 为视图添加虚线边框
