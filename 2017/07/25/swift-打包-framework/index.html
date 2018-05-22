@@ -1,0 +1,957 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="NVSaoGnOoB" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="framework" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="AndyCuiの博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="在开发中我们常常会用到一些第三方 SDK 库，使用时只需将 framework 文件添加到项目中即可，十分方便。同样地，我们也可以创建自己的 framework 框架，用来封装一些常用的工具方法、框架类等。一来不会使源代码完全暴露在外，二来也便于代码复用。">
+<meta name="keywords" content="framework">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift 打包 framework">
+<meta property="og:url" content="http://andycui.top/2017/07/25/swift-打包-framework/index.html">
+<meta property="og:site_name" content="AndyCuiの博客">
+<meta property="og:description" content="在开发中我们常常会用到一些第三方 SDK 库，使用时只需将 framework 文件添加到项目中即可，十分方便。同样地，我们也可以创建自己的 framework 框架，用来封装一些常用的工具方法、框架类等。一来不会使源代码完全暴露在外，二来也便于代码复用。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://andycui.top/2017/07/25/swift-打包-framework/图-1.png">
+<meta property="og:image" content="http://andycui.top/2017/07/25/swift-打包-framework/图-2.png">
+<meta property="og:image" content="http://andycui.top/2017/07/25/swift-打包-framework/图-3.png">
+<meta property="og:image" content="http://andycui.top/2017/07/25/swift-打包-framework/图-4.png">
+<meta property="og:image" content="http://andycui.top/2017/07/25/swift-打包-framework/图-5.png">
+<meta property="og:image" content="http://andycui.top/2017/07/25/swift-打包-framework/图-6.png">
+<meta property="og:image" content="http://andycui.top/2017/07/25/swift-打包-framework/图-7.png">
+<meta property="og:image" content="http://andycui.top/2017/07/25/swift-打包-framework/图-8.png">
+<meta property="og:updated_time" content="2018-05-22T02:33:10.655Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swift 打包 framework">
+<meta name="twitter:description" content="在开发中我们常常会用到一些第三方 SDK 库，使用时只需将 framework 文件添加到项目中即可，十分方便。同样地，我们也可以创建自己的 framework 框架，用来封装一些常用的工具方法、框架类等。一来不会使源代码完全暴露在外，二来也便于代码复用。">
+<meta name="twitter:image" content="http://andycui.top/2017/07/25/swift-打包-framework/图-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://andycui.top/2017/07/25/swift-打包-framework/"/>
+
+
+
+
+
+  <title>swift 打包 framework | AndyCuiの博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9750942b8f833f09f3ea566f429f6799";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <!-- 添加自定义 fork me on github -->
+   
+
+
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AndyCuiの博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">既然认准了一条路，就不要去打听要走多久。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andycui.top/2017/07/25/swift-打包-framework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Andy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AndyCuiの博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">swift 打包 framework</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T09:40:48+08:00">
+                2017-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/swift/" itemprop="url" rel="index">
+                    <span itemprop="name">swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,065
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> 在开发中我们常常会用到一些第三方 SDK 库，使用时只需将 framework 文件添加到项目中即可，十分方便。同样地，我们也可以创建自己的 framework 框架，用来封装一些常用的工具方法、框架类等。一来不会使源代码完全暴露在外，二来也便于代码复用。<br><a id="more"></a></p>
+<h1 id="打包篇"><a href="#打包篇" class="headerlink" title=" 打包篇 "></a><center> 打包篇 </center></h1><h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><blockquote>
+<p>选择 File-&gt;New-&gt;Project-&gt;Framework&amp;Library-&gt;Cocoa Touch Framework, 点击 Next,语言选择 swift 如图:<br><img src="图-1.png" alt="创建"><br><strong> 创建完成生成以下目录: </strong><br><img src="图-2.png" alt="项目结构"></p>
+<ul>
+<li>xxx.h 文件的作用是整个包对外提供的入口头文件，除了正常定义参数属性之外还提供 Swift项目内引用的OC文件的import引用</li>
+<li>info.plist 文件的作用就如同正常项目的plist文件作用，用来定义或添加一些属性。</li>
+</ul>
+</blockquote>
+<h2 id="添加文件"><a href="#添加文件" class="headerlink" title="添加文件"></a>添加文件</h2><blockquote>
+<p>可以新建文件也可以在已有项目拷贝<br>这里要注意一下：由于打包类库工程不是一个完整项目工程，所以并没有AppDelegate等文件，所以涉及到这些的文件要额外处理，或改代码，或适当改变功能。<br>注意：工程如果有桥接文件，是不能拷贝过来的，否则编译不通过。桥接文件下的 import 引用应该放到 xxx.h 文件中<br><strong>注意:</strong> 如果 swift 文件想要暴露给外部使用,类及方法要用 public 修饰</p>
+</blockquote>
+<h2 id="经过以上操作本库已基本完成"><a href="#经过以上操作本库已基本完成" class="headerlink" title="经过以上操作本库已基本完成"></a>经过以上操作本库已基本完成</h2><blockquote>
+<p><img src="图-3.png" alt="框架图"><br>注意: 如果用到资源文件,如:图片,视频,音频等直接用Assets.xcassets是无效的,我们要新建文件夹,将图片放入其中,添加后缀名.bundle,例如 xxx.bundle,使用图片时图片名:xxx.bundle/icon.png.</p>
+</blockquote>
+<h2 id="文件添加完毕就可以尝试-build-一下了"><a href="#文件添加完毕就可以尝试-build-一下了" class="headerlink" title="文件添加完毕就可以尝试 build 一下了"></a>文件添加完毕就可以尝试 build 一下了</h2><blockquote>
+<p>正常情况下，如果我们swift项目引入了oc文件，我们必须通过一个桥接文件来处理两者之间的转换，而我们在新建类库包的时候，是禁止桥接文件存在的，即使你添加了，也会永远编译不过，打包不了。<br>所以这里就用到这个 xxx.h 头文件了。<br>我们可以通过这个文件来实现两者之间的转换，前提就是必须先将oc的.h暴露出来，否则即使你import，也会报错找不到.h 文件。</p>
+</blockquote>
+<h2 id="暴露文件给外部使用"><a href="#暴露文件给外部使用" class="headerlink" title="暴露文件给外部使用"></a>暴露文件给外部使用</h2><blockquote>
+<p>选择 target-&gt;Build Phases-&gt;Header, 将要暴露给外部使用OC 的.h 的文件拖到 public 下,如果是 swift 只需要将类和方法声明成 public<br><img src="图-4.png" alt=""></p>
+</blockquote>
+<h2 id="编译通过，查看这里"><a href="#编译通过，查看这里" class="headerlink" title="编译通过，查看这里"></a>编译通过，查看这里</h2><blockquote>
+<p><img src="图-5.png" alt=""><br>红框内就是最终我们得到的Framework包。<br>右击本地查看，会看到本类库以及对应的依赖第三方库包，后面在其他项目引用的时候，这些都是需要的（需要一起拷贝添加）。</p>
+</blockquote>
+<h1 id="合并真机和模拟器framework"><a href="#合并真机和模拟器framework" class="headerlink" title=" 合并真机和模拟器framework "></a><center> 合并真机和模拟器framework </center></h1><blockquote>
+<h2 id="包的分类"><a href="#包的分类" class="headerlink" title="包的分类"></a>包的分类</h2><p>编译得到的包可分为 debug 包和 release包, debug 包一般用于测试,如果要发布务必打 release 包.<br><img src="图-6.png" alt=""><br>release 包又包含模拟器包和真机包,发布时需要将模拟器包与真机包合并<br>去包文件夹<br><img src="图-7.png" alt=""><img src="图-8.png" alt=""></p>
+<h2 id="合并包"><a href="#合并包" class="headerlink" title="合并包"></a>合并包</h2><p>终端输入 lipo -create 真机路径 模拟器路径 -output 真机路径（ps：这几个路径就是上图拖动到终端后的路径）<br>但是并没有完，不知道为什么，终端这样合并只是假象，你需要手动去将Modules里的的 xxx.swiftmodule文件合并到一起</p>
+</blockquote>
+<h1 id="引用篇"><a href="#引用篇" class="headerlink" title=" 引用篇 "></a><center> 引用篇 </center></h1><blockquote>
+<ul>
+<li>新建空白工程</li>
+<li>将之前所得到 framework 拷贝到项目</li>
+<li>在工程Targets－General－EmbeddedBinaries内添加Frameworks包</li>
+</ul>
+</blockquote>
+<h1 id="附加"><a href="#附加" class="headerlink" title=" 附加 "></a><center> 附加 </center></h1><blockquote>
+<h2 id="引用-CommonCrypto"><a href="#引用-CommonCrypto" class="headerlink" title="引用 CommonCrypto"></a>引用 CommonCrypto</h2><p>项目中用到了 MD5加密, swift 是无法调用 C语言库的,在 xxx.h 中添加#import <commoncrypto commoncrypto.h=""> 报错,解决方法:<br>新建 module.modulemap 文件,在里边添加<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> module <span class="type">CommonCrypto</span> [system] &#123;</span><br><span class="line">    header <span class="string">"/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include/CommonCrypto/CommonCrypto.h"</span></span><br><span class="line">    export *</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></commoncrypto></p>
+</blockquote>
+<p>选择 target-&gt;Build Settings, 找到 swift compler-Search Paths, 在 Import paths 添加创建文件路径<br>在需要 MD5机密的文件中 import CommonCrypto</p>
+<h2 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h2><blockquote>
+<p><a href="http://www.cnblogs.com/yajunLi/p/5987687.html" target="_blank" rel="noopener">iOS打包framework - Swift完整项目打包Framework，嵌入OC项目使用</a><br><a href="http://www.cnblogs.com/yajunLi/p/6005077.html" target="_blank" rel="noopener">iOS打包Framework真机和模拟器兼容合并版本 - 详细攻略步骤</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/weChatQR.png" alt="Andy WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/aliPayQR.png" alt="Andy Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Andy
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andycui.top/2017/07/25/swift-打包-framework/" title="swift 打包 framework">http://andycui.top/2017/07/25/swift-打包-framework/</a>
+    </li>
+    <!-- <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li> -->
+    <!-- 自定义添加邮箱联系 -->
+    <li class="post-copyright-link">
+      <strong>联系作者：</strong>
+      <a href="mailto:AndyCuiYTT@163.com" title="Andy"> AndyCuiYTT@163.com </a>
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/framework/" rel="tag"><i class="fa fa-tag"></i> framework</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/18/network-swift/" rel="next" title="swift 网络请求">
+                <i class="fa fa-chevron-left"></i> swift 网络请求
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/01/浅谈-tableViewCell高度自适应/" rel="prev" title="浅谈 tableViewCell高度自适应">
+                浅谈 tableViewCell高度自适应 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzUyOC8xMDA4NA=="></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div id="sidebar-dimmer"></div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Andy" />
+          <p class="site-author-name" itemprop="name">Andy</p>
+           
+              <p class="site-description motion-element" itemprop="description">既然认准了一条路，就不要去打听要走多久。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/AndyCuiYTT" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://my.oschina.net/AngeloTsui/blog" title="别情花如依丶" target="_blank">别情花如依丶</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#打包篇"><span class="nav-number">1.</span> <span class="nav-text"> 打包篇 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建项目"><span class="nav-number">1.1.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加文件"><span class="nav-number">1.2.</span> <span class="nav-text">添加文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#经过以上操作本库已基本完成"><span class="nav-number">1.3.</span> <span class="nav-text">经过以上操作本库已基本完成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件添加完毕就可以尝试-build-一下了"><span class="nav-number">1.4.</span> <span class="nav-text">文件添加完毕就可以尝试 build 一下了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#暴露文件给外部使用"><span class="nav-number">1.5.</span> <span class="nav-text">暴露文件给外部使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译通过，查看这里"><span class="nav-number">1.6.</span> <span class="nav-text">编译通过，查看这里</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#合并真机和模拟器framework"><span class="nav-number">2.</span> <span class="nav-text"> 合并真机和模拟器framework </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#包的分类"><span class="nav-number">2.1.</span> <span class="nav-text">包的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并包"><span class="nav-number">2.2.</span> <span class="nav-text">合并包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用篇"><span class="nav-number">3.</span> <span class="nav-text"> 引用篇 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附加"><span class="nav-number">4.</span> <span class="nav-text"> 附加 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引用-CommonCrypto"><span class="nav-number">4.1.</span> <span class="nav-text">引用 CommonCrypto</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考博客"><span class="nav-number">4.2.</span> <span class="nav-text">参考博客</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Andy</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
