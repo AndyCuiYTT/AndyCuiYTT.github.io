@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Coder,Codable" />
+  <meta name="keywords" content="Carthage" />
 
 
 
@@ -97,22 +97,26 @@
 
 
 
-<meta name="description" content="最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中) YTTCoder : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等">
-<meta name="keywords" content="Coder,Codable">
+<meta name="description" content="本人从事 iOS 开发已有2年多,用 swift 开发也有一年多的时间了,此前一直利用 cocopods 管理三方框架和依赖,最近了解到 Carthage 这个工具,本着学习的态度对这工具进行了了解.   官方地址: https://github.com/Carthage/Carthage">
+<meta name="keywords" content="Carthage">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YTTCoder">
-<meta property="og:url" content="http://andycui.top/2018/01/24/YTTCoder/index.html">
+<meta property="og:title" content="Carthage 安装以及初步实用">
+<meta property="og:url" content="http://andycui.top/2018/05/22/Carthage安装以及初步实用/index.html">
 <meta property="og:site_name" content="AndyCuiの博客">
-<meta property="og:description" content="最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中) YTTCoder : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等">
+<meta property="og:description" content="本人从事 iOS 开发已有2年多,用 swift 开发也有一年多的时间了,此前一直利用 cocopods 管理三方框架和依赖,最近了解到 Carthage 这个工具,本着学习的态度对这工具进行了了解.   官方地址: https://github.com/Carthage/Carthage">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img.shields.io/badge/language-swift-green.svg">
-<meta property="og:image" content="https://img.shields.io/cocoapods/v/YTTCoder.svg">
-<meta property="og:image" content="https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg">
-<meta property="og:updated_time" content="2018-05-22T02:33:10.653Z">
+<meta property="og:image" content="https://github.com/Carthage/Carthage/raw/master/Logo/PNG/header.png">
+<meta property="og:image" content="http://andycui.top/2018/05/22/Carthage安装以及初步实用/Carthage_1.png">
+<meta property="og:image" content="http://andycui.top/2018/05/22/Carthage安装以及初步实用/Carthage_2.png">
+<meta property="og:image" content="http://andycui.top/2018/05/22/Carthage安装以及初步实用/Carthage_3.png">
+<meta property="og:image" content="http://andycui.top/2018/05/22/Carthage安装以及初步实用/Carthage_4.png">
+<meta property="og:image" content="http://andycui.top/2018/05/22/Carthage安装以及初步实用/Carthage_5.png">
+<meta property="og:image" content="http://andycui.top/2018/05/22/Carthage安装以及初步实用/Carthage_6.png">
+<meta property="og:updated_time" content="2018-05-22T06:51:27.230Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YTTCoder">
-<meta name="twitter:description" content="最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中) YTTCoder : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等">
-<meta name="twitter:image" content="https://img.shields.io/badge/language-swift-green.svg">
+<meta name="twitter:title" content="Carthage 安装以及初步实用">
+<meta name="twitter:description" content="本人从事 iOS 开发已有2年多,用 swift 开发也有一年多的时间了,此前一直利用 cocopods 管理三方框架和依赖,最近了解到 Carthage 这个工具,本着学习的态度对这工具进行了了解.   官方地址: https://github.com/Carthage/Carthage">
+<meta name="twitter:image" content="https://github.com/Carthage/Carthage/raw/master/Logo/PNG/header.png">
 
 
 
@@ -140,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://andycui.top/2018/01/24/YTTCoder/"/>
+  <link rel="canonical" href="http://andycui.top/2018/05/22/Carthage安装以及初步实用/"/>
 
 
 
 
 
-  <title>YTTCoder | AndyCuiの博客</title>
+  <title>Carthage 安装以及初步实用 | AndyCuiの博客</title>
   
 
 
@@ -300,7 +304,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andycui.top/2018/01/24/YTTCoder/">
+    <link itemprop="mainEntityOfPage" href="http://andycui.top/2018/05/22/Carthage安装以及初步实用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Andy">
@@ -317,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">YTTCoder</h1>
+          <h1 class="post-title" itemprop="name headline">Carthage 安装以及初步实用</h1>
         
 
         <div class="post-meta">
@@ -329,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-24T10:17:18+08:00">
-                2018-01-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T10:49:52+08:00">
+                2018-05-22
               </time>
             
 
@@ -352,8 +356,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据处理/" itemprop="url" rel="index">
-                    <span itemprop="name">数据处理</span>
+                  <a href="/categories/开发工具/" itemprop="url" rel="index">
+                    <span itemprop="name">开发工具</span>
                   </a>
                 </span>
 
@@ -385,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  294
+                  689
                 </span>
               
 
@@ -401,7 +405,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -419,43 +423,69 @@
       
 
       
-        <p>最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中)</p>
-<p><a href="https://github.com/AndyCuiYTT/YTTCoder" target="_blank" rel="noopener">YTTCoder</a> : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等<br><a id="more"></a></p>
-<p><img src="https://img.shields.io/badge/language-swift-green.svg" alt=""> <img src="https://img.shields.io/cocoapods/v/YTTCoder.svg" alt=""> <a href="http://andycui.top"><img src="https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg" alt=""></a></p>
-<h4 id="YTTJsonCodable-JSON-与-Model-之间相互转化的工具类"><a href="#YTTJsonCodable-JSON-与-Model-之间相互转化的工具类" class="headerlink" title="YTTJsonCodable: JSON 与 Model 之间相互转化的工具类"></a>YTTJsonCodable: JSON 与 Model 之间相互转化的工具类</h4><blockquote>
-<p>提供数据转化的类方法,可直接调用.</p>
-</blockquote>
-<h4 id="YTTJson-协议-继承Codable协议"><a href="#YTTJson-协议-继承Codable协议" class="headerlink" title="YTTJson: 协议,继承Codable协议"></a>YTTJson: 协议,继承Codable协议</h4><blockquote>
-<p>定义 Model 实体类只需遵守该协议即可调用装换方法.</p>
-</blockquote>
-<h4 id="YTTArrayCoder-数组扩展类"><a href="#YTTArrayCoder-数组扩展类" class="headerlink" title="YTTArrayCoder: 数组扩展类"></a>YTTArrayCoder: 数组扩展类</h4><blockquote>
-<p>调用使用 obj.ytt.toJson() 形式调用</p>
-<ul>
-<li>toJson: 数组转 JSON 字符串</li>
+        <p><img src="https://github.com/Carthage/Carthage/raw/master/Logo/PNG/header.png" alt="Carthage"></p>
+<p>本人从事 iOS 开发已有2年多,用 swift 开发也有一年多的时间了,此前一直利用 cocopods 管理三方框架和依赖,最近了解到 Carthage 这个工具,本着学习的态度对这工具进行了了解.  </p>
+<p>官方地址: <a href="https://github.com/Carthage/Carthage" target="_blank" rel="noopener">https://github.com/Carthage/Carthage</a></p>
+<a id="more"></a>
+<h2 id="Carthage-简介"><a href="#Carthage-简介" class="headerlink" title="Carthage 简介"></a>Carthage 简介</h2><ul>
+<li>Carthage 类似于 CocoaPods，为用户管理第三方框架和依赖，但不会自动修改项目文件和生成配置</li>
+<li>Carthage 是去中心化的依赖管理工具，安装依赖时不需要去中心仓库获取 CocoaPods 所有依赖的索引，节省时间</li>
+<li>对项目无侵入性，Carthage 设计上也比较简单，利用的都是 Xcode 自身的功能，开发者在创建依赖时，相比 CocoaPods 也简单许多</li>
+<li>Carthage 管理的依赖只需编译一次，项目干净编译时，不会再去重新编译依赖，节省时间</li>
+<li>自动将第三方框架编程为 Dynamic framework( 动态库 )<br>与 CocoaPods 无缝集成，一个项目能同时拥有 CocoaPods 和 Carthage</li>
+<li>缺点： <ul>
+<li>仅支持 iOS8 +</li>
+<li>它只支持框架，所以不能用来针对 iOS 8 以前的系统版本进行开发<br>支持的 Carthage 安装的第三方框架和依赖不如 CocoaPods 丰富</li>
+<li>无法在 Xcode 里定位到源码</li>
+<li>安装包的大小比用CocoaPods安装的包大</li>
 </ul>
-</blockquote>
-<h4 id="YTTDictionaryCoder-字典扩展类"><a href="#YTTDictionaryCoder-字典扩展类" class="headerlink" title="YTTDictionaryCoder: 字典扩展类"></a>YTTDictionaryCoder: 字典扩展类</h4><blockquote>
-<p>调用使用 obj.ytt.toJson() 形式调用</p>
-<ul>
-<li>toJson: 字典转 JSON 字符串</li>
-<li>getValue(withKeyPath): 根据路径获取值</li>
+</li>
 </ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p>使用 <a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew</a> 安装 Carthage.</p>
 </blockquote>
-<h4 id="YTTStringCoder-字符串扩展类"><a href="#YTTStringCoder-字符串扩展类" class="headerlink" title="YTTStringCoder: 字符串扩展类"></a>YTTStringCoder: 字符串扩展类</h4><blockquote>
-<p>调用使用 obj.ytt.toDictionary() 形式调用</p>
+<h3 id="安装-Homebrew"><a href="#安装-Homebrew" class="headerlink" title="安装 Homebrew"></a>安装 Homebrew</h3><ul>
+<li><p>Install Homebrew:<br><img src="Carthage_1.png" alt="Install Homebrew"></p>
+</li>
+<li><p>获取 Homebrew 最新版本<br><code>$ brew update</code></p>
+</li>
+<li><p>Homebrew 常用命令</p>
 <ul>
-<li>toDictionary: JSON 字符串转字典</li>
-<li>toArray: JSON 字符串转数组</li>
-<li>toDate: 时间字符串转 Date 对象</li>
+<li>搜索<br><code>$ brew search &lt;packageName&gt;</code></li>
+<li>安装<br><code>$ brew install &lt;packageName&gt;</code></li>
+<li>卸载<br><code>$ brew uninstall &lt;packageName&gt;</code></li>
+<li>查看已安装包列表<br><code>$ brew list</code></li>
+<li>查看包信息<br><code>$ brew info &lt;packageName&gt;</code></li>
+<li>查看Homebrew版本<br><code>$ brew -v</code></li>
 </ul>
-</blockquote>
-<h4 id="YTTDateCoder-Date-扩展类"><a href="#YTTDateCoder-Date-扩展类" class="headerlink" title="YTTDateCoder: Date 扩展类"></a>YTTDateCoder: Date 扩展类</h4><blockquote>
-<p>调用使用 obj.ytt.toString() 形式调用</p>
-<ul>
-<li>toString: Date 格式化</li>
+</li>
 </ul>
-</blockquote>
-<h4 id="反馈"><a href="#反馈" class="headerlink" title="反馈"></a>反馈</h4><p>如果您有什么好的修改建议,可以发邮件到<a href="mailto://AndyCuiYTT@163.com" target="_blank" rel="noopener">AndyCuiYTT@163.com</a>, 也欢迎到我的博客<a href="http://andycui.top">AndyCuiの博客</a>一起讨论学习~</p>
+<h3 id="安装-Cartgage"><a href="#安装-Cartgage" class="headerlink" title="安装 Cartgage"></a>安装 Cartgage</h3><ul>
+<li>安装<br><code>$ brew install carthage</code></li>
+<li>查看 Cartgage 版本<br><code>$ carthage version</code></li>
+<li>更新 carthage 版本<br><code>brew upgrade carthage</code></li>
+<li>删除carthage旧版本<br><code>brew cleanup carthage</code></li>
+</ul>
+<h2 id="使用-Cartgage-安装依赖"><a href="#使用-Cartgage-安装依赖" class="headerlink" title="使用 Cartgage 安装依赖"></a>使用 Cartgage 安装依赖</h2><ul>
+<li>进入项目所在路径<br><code>$ cd ~/路径/项目文件夹</code>  </li>
+<li>创建空的 Carthage 文件 Cartfile<br><code>$ touch Cartfile</code></li>
+<li>使用 Xcode 打开 Cartfile 文件<br><code>$ open -a Xcode Cartfile</code></li>
+<li>编辑 Carfile 文件(以Alamofire为例)<br><code>github &quot;Alamofire/Alamofire&quot; == 4.4.0</code></li>
+<li>执行更新命令,获取类库<br><code>$ carthage update --platform iOS</code></li>
+<li>更新完成,检查目录结构<br><code>更新完成后项目根路径会多出两个文件(Cartfile.resolved,Cartfile)和一个文件夹(Carthage), Carthage下又有两个文件夹(Checkouts 和 Build), Checkouts 从github获取的源代码, Build 编译出来的Framework二进制代码库.</code><br><img src="Carthage_2.png" alt=""></li>
+</ul>
+<h2 id="添加-Frameworks-到项目中"><a href="#添加-Frameworks-到项目中" class="headerlink" title="添加 Frameworks 到项目中"></a>添加 Frameworks 到项目中</h2><ul>
+<li><p>点击’项目名’ –&gt; ‘TARGETS’ –&gt; ‘General’, 在最下边找到’Linked Framework and Libraries’.<br><img src="Carthage_3.png" alt=""></p>
+</li>
+<li><p>点击’+’ –&gt; ‘Add Other ..’, 选择’Carthage/Build/iOS/Alamofire.framework’,点击 ‘Open’ 导入.<br><img src="Carthage_4.png" alt=""></p>
+</li>
+<li><p>选择菜单选项 ‘Build Phases’ –&gt; 点击 ‘+’ –&gt; ‘New Run Script Phase’, 添加以下命令:<br><code>/usr/local/bin/carthage copy-frameworks</code><br><img src="Carthage_5.png" alt=""></p>
+</li>
+<li><p>点击 ‘Input Files’ 下的 ‘+’,为每个 Framework 添加访问路径:<br><code>$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework</code><br><img src="Carthage_6.png" alt=""></p>
+</li>
+<li><p>在项目中 import 所需包就可以使用了.<br><code>import Alamofire</code></p>
+</li>
+</ul>
 
       
     </div>
@@ -505,7 +535,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andycui.top/2018/01/24/YTTCoder/" title="YTTCoder">http://andycui.top/2018/01/24/YTTCoder/</a>
+      <a href="http://andycui.top/2018/05/22/Carthage安装以及初步实用/" title="Carthage 安装以及初步实用">http://andycui.top/2018/05/22/Carthage安装以及初步实用/</a>
     </li>
     <!-- <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -526,7 +556,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数据处理/" rel="tag"><i class="fa fa-tag"></i> 数据处理</a>
+            <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/开发工具/" rel="tag"><i class="fa fa-tag"></i> 开发工具</a>
           
         </div>
       
@@ -539,8 +571,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/20/hexo-version-control/" rel="next" title="多台电脑共同管理hexo博客">
-                <i class="fa fa-chevron-left"></i> 多台电脑共同管理hexo博客
+              <a href="/2018/01/24/YTTCoder/" rel="next" title="YTTCoder">
+                <i class="fa fa-chevron-left"></i> YTTCoder
               </a>
             
           </div>
@@ -548,10 +580,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/22/Carthage安装以及初步实用/" rel="prev" title="Carthage 安装以及初步实用">
-                Carthage 安装以及初步实用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -737,7 +765,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTJsonCodable-JSON-与-Model-之间相互转化的工具类"><span class="nav-number">1.</span> <span class="nav-text">YTTJsonCodable: JSON 与 Model 之间相互转化的工具类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTJson-协议-继承Codable协议"><span class="nav-number">2.</span> <span class="nav-text">YTTJson: 协议,继承Codable协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTArrayCoder-数组扩展类"><span class="nav-number">3.</span> <span class="nav-text">YTTArrayCoder: 数组扩展类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTDictionaryCoder-字典扩展类"><span class="nav-number">4.</span> <span class="nav-text">YTTDictionaryCoder: 字典扩展类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTStringCoder-字符串扩展类"><span class="nav-number">5.</span> <span class="nav-text">YTTStringCoder: 字符串扩展类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTDateCoder-Date-扩展类"><span class="nav-number">6.</span> <span class="nav-text">YTTDateCoder: Date 扩展类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反馈"><span class="nav-number">7.</span> <span class="nav-text">反馈</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Carthage-简介"><span class="nav-number">1.</span> <span class="nav-text">Carthage 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Homebrew"><span class="nav-number">2.1.</span> <span class="nav-text">安装 Homebrew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Cartgage"><span class="nav-number">2.2.</span> <span class="nav-text">安装 Cartgage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Cartgage-安装依赖"><span class="nav-number">3.</span> <span class="nav-text">使用 Cartgage 安装依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-Frameworks-到项目中"><span class="nav-number">4.</span> <span class="nav-text">添加 Frameworks 到项目中</span></a></li></ol></div>
             
 
           </div>

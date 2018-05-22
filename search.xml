@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Carthage 安装以及初步实用]]></title>
+    <url>%2F2018%2F05%2F22%2FCarthage%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E5%88%9D%E6%AD%A5%E5%AE%9E%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[本人从事 iOS 开发已有2年多,用 swift 开发也有一年多的时间了,此前一直利用 cocopods 管理三方框架和依赖,最近了解到 Carthage 这个工具,本着学习的态度对这工具进行了了解. 官方地址: https://github.com/Carthage/Carthage Carthage 简介 Carthage 类似于 CocoaPods，为用户管理第三方框架和依赖，但不会自动修改项目文件和生成配置 Carthage 是去中心化的依赖管理工具，安装依赖时不需要去中心仓库获取 CocoaPods 所有依赖的索引，节省时间 对项目无侵入性，Carthage 设计上也比较简单，利用的都是 Xcode 自身的功能，开发者在创建依赖时，相比 CocoaPods 也简单许多 Carthage 管理的依赖只需编译一次，项目干净编译时，不会再去重新编译依赖，节省时间 自动将第三方框架编程为 Dynamic framework( 动态库 )与 CocoaPods 无缝集成，一个项目能同时拥有 CocoaPods 和 Carthage 缺点： 仅支持 iOS8 + 它只支持框架，所以不能用来针对 iOS 8 以前的系统版本进行开发支持的 Carthage 安装的第三方框架和依赖不如 CocoaPods 丰富 无法在 Xcode 里定位到源码 安装包的大小比用CocoaPods安装的包大 安装 使用 Homebrew 安装 Carthage. 安装 Homebrew Install Homebrew: 获取 Homebrew 最新版本$ brew update Homebrew 常用命令 搜索$ brew search &lt;packageName&gt; 安装$ brew install &lt;packageName&gt; 卸载$ brew uninstall &lt;packageName&gt; 查看已安装包列表$ brew list 查看包信息$ brew info &lt;packageName&gt; 查看Homebrew版本$ brew -v 安装 Cartgage 安装$ brew install carthage 查看 Cartgage 版本$ carthage version 更新 carthage 版本brew upgrade carthage 删除carthage旧版本brew cleanup carthage 使用 Cartgage 安装依赖 进入项目所在路径$ cd ~/路径/项目文件夹 创建空的 Carthage 文件 Cartfile$ touch Cartfile 使用 Xcode 打开 Cartfile 文件$ open -a Xcode Cartfile 编辑 Carfile 文件(以Alamofire为例)github &quot;Alamofire/Alamofire&quot; == 4.4.0 执行更新命令,获取类库$ carthage update --platform iOS 更新完成,检查目录结构更新完成后项目根路径会多出两个文件(Cartfile.resolved,Cartfile)和一个文件夹(Carthage), Carthage下又有两个文件夹(Checkouts 和 Build), Checkouts 从github获取的源代码, Build 编译出来的Framework二进制代码库. 添加 Frameworks 到项目中 点击’项目名’ –&gt; ‘TARGETS’ –&gt; ‘General’, 在最下边找到’Linked Framework and Libraries’. 点击’+’ –&gt; ‘Add Other ..’, 选择’Carthage/Build/iOS/Alamofire.framework’,点击 ‘Open’ 导入. 选择菜单选项 ‘Build Phases’ –&gt; 点击 ‘+’ –&gt; ‘New Run Script Phase’, 添加以下命令:/usr/local/bin/carthage copy-frameworks 点击 ‘Input Files’ 下的 ‘+’,为每个 Framework 添加访问路径:$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework 在项目中 import 所需包就可以使用了.import Alamofire]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>swift</tag>
+        <tag>开发工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[YTTCoder]]></title>
     <url>%2F2018%2F01%2F24%2FYTTCoder%2F</url>
     <content type="text"><![CDATA[最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中) YTTCoder : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等 YTTJsonCodable: JSON 与 Model 之间相互转化的工具类 提供数据转化的类方法,可直接调用. YTTJson: 协议,继承Codable协议 定义 Model 实体类只需遵守该协议即可调用装换方法. YTTArrayCoder: 数组扩展类 调用使用 obj.ytt.toJson() 形式调用 toJson: 数组转 JSON 字符串 YTTDictionaryCoder: 字典扩展类 调用使用 obj.ytt.toJson() 形式调用 toJson: 字典转 JSON 字符串 getValue(withKeyPath): 根据路径获取值 YTTStringCoder: 字符串扩展类 调用使用 obj.ytt.toDictionary() 形式调用 toDictionary: JSON 字符串转字典 toArray: JSON 字符串转数组 toDate: 时间字符串转 Date 对象 YTTDateCoder: Date 扩展类 调用使用 obj.ytt.toString() 形式调用 toString: Date 格式化 反馈如果您有什么好的修改建议,可以发邮件到AndyCuiYTT@163.com, 也欢迎到我的博客AndyCuiの博客一起讨论学习~]]></content>
