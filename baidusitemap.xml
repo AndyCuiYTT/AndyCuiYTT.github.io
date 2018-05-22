@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://andycui.top/2018/05/22/%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E5%88%9D%E6%AD%A5%E5%AE%9E%E7%94%A8/</loc>
+    <lastmod>2018-05-22T02:38:23.174Z</lastmod>
+    <data>
+        <display>
+        <title>安装以及初步实用</title>
+        <pubTime>2018-05-22T02:38:23.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+  <url>
+    <loc>http://andycui.top/2017/07/12/%E9%80%9A%E8%BF%87-CGMutablePath-%E4%B8%BA-UIView-%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86/</loc>
+    <lastmod>2018-05-22T02:33:10.666Z</lastmod>
+    <data>
+        <display>
+        <title>通过 UIBezierPath 与 CAShapeLayer 为 UIView 添加边框</title>
+        <pubTime>2017-07-12T06:44:15.000Z</pubTime>
+        
+        <tag>UIBezierPath</tag>
+         
+        <tag>CAShapeLayer</tag>
+         
+         
+           
+             
+              <breadCrumb title="swift" url="http://andycui.top/categories/swift/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2017/08/01/%E6%B5%85%E8%B0%88-tableViewCell%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94/</loc>
+    <lastmod>2018-05-22T02:33:10.666Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈 tableViewCell高度自适应</title>
+        <pubTime>2017-08-01T10:10:43.000Z</pubTime>
+        
+        <tag>cell自适应</tag>
+         
+         
+           
+             
+              <breadCrumb title="tableView" url="http://andycui.top/categories/tableView/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2017/05/20/%E5%B8%B8%E9%98%85%E8%AF%BB%E7%9A%84%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2018-05-22T02:33:10.665Z</lastmod>
+    <data>
+        <display>
+        <title>常阅读的博客</title>
+        <pubTime>2017-05-20T08:55:18.000Z</pubTime>
+        
+        <tag>Other</tag>
+         
+        <tag>Blog</tag>
+         
+         
+           
+             
+              <breadCrumb title="Other" url="http://andycui.top/categories/Other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2017/07/13/swift-%E6%98%9F%E7%BA%A7%E8%AF%84%E5%88%86/</loc>
+    <lastmod>2018-05-22T02:33:10.664Z</lastmod>
+    <data>
+        <display>
+        <title>[swift] 星级评分</title>
+        <pubTime>2017-07-13T03:39:29.000Z</pubTime>
+        
+        <tag>自定义视图</tag>
+         
+         
+           
+             
+              <breadCrumb title="自定义视图" url="http://andycui.top/categories/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2017/07/25/swift-%E6%89%93%E5%8C%85-framework/</loc>
+    <lastmod>2018-05-22T02:33:10.655Z</lastmod>
+    <data>
+        <display>
+        <title>swift 打包 framework</title>
+        <pubTime>2017-07-25T01:40:48.000Z</pubTime>
+        
+        <tag>framework</tag>
+         
+         
+           
+             
+              <breadCrumb title="swift" url="http://andycui.top/categories/swift/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2017/07/18/network-swift/</loc>
+    <lastmod>2018-05-22T02:33:10.654Z</lastmod>
+    <data>
+        <display>
+        <title>swift 网络请求</title>
+        <pubTime>2017-07-18T02:13:11.000Z</pubTime>
+        
+        <tag>network</tag>
+         
+         
+           
+             
+              <breadCrumb title="swift" url="http://andycui.top/categories/swift/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2017/10/20/hexo-version-control/</loc>
+    <lastmod>2018-05-22T02:33:10.654Z</lastmod>
+    <data>
+        <display>
+        <title>多台电脑共同管理hexo博客</title>
+        <pubTime>2017-10-20T01:57:30.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Other" url="http://andycui.top/categories/Other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2018/01/24/YTTCoder/</loc>
+    <lastmod>2018-05-22T02:33:10.653Z</lastmod>
+    <data>
+        <display>
+        <title>YTTCoder</title>
+        <pubTime>2018-01-24T02:17:18.000Z</pubTime>
+        
+        <tag>数据处理</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据处理" url="http://andycui.top/categories/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2017/08/29/Swift%E5%A4%84%E7%90%86JSON%20-%20%E8%BD%AC%E6%8D%A2JSON%E5%92%8CModel/</loc>
+    <lastmod>2018-05-22T02:33:10.652Z</lastmod>
+    <data>
+        <display>
+        <title>Swift处理JSON - 转换JSON和Model</title>
+        <pubTime>2017-08-29T01:28:19.000Z</pubTime>
+        
+        <tag>swift</tag>
+         
+        <tag>model</tag>
+         
+        <tag>JSON</tag>
+         
+         
+           
+             
+              <breadCrumb title="swift" url="http://andycui.top/categories/swift/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2017/10/14/SliderViews/</loc>
+    <lastmod>2018-05-22T02:33:10.631Z</lastmod>
+    <data>
+        <display>
+        <title>SliderView</title>
+        <pubTime>2017-10-14T04:57:30.000Z</pubTime>
+        
+        <tag>slider</tag>
+         
+         
+           
+             
+              <breadCrumb title="自定义视图" url="http://andycui.top/categories/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2017/07/14/PayDemo/</loc>
+    <lastmod>2018-05-22T02:33:10.630Z</lastmod>
+    <data>
+        <display>
+        <title>支付宝微信简单封装</title>
+        <pubTime>2017-07-14T10:57:25.000Z</pubTime>
+        
+        <tag>pay</tag>
+         
+        <tag>alipay</tag>
+         
+        <tag>wechatpay</tag>
+         
+         
+           
+             
+              <breadCrumb title="swift" url="http://andycui.top/categories/swift/"/>
+          
+        </display>
+    </data>
+    </url>
+
+</urlset>
