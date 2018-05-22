@@ -29,6 +29,26 @@
     
     
   <url>
+    <loc>http://andycui.top/2017/08/01/%E6%B5%85%E8%B0%88-tableViewCell%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94/</loc>
+    <lastmod>2018-05-22T02:33:10.666Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈 tableViewCell高度自适应</title>
+        <pubTime>2017-08-01T10:10:43.000Z</pubTime>
+        
+        <tag>cell自适应</tag>
+         
+         
+           
+             
+              <breadCrumb title="tableView" url="http://andycui.top/categories/tableView/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://andycui.top/2017/07/12/%E9%80%9A%E8%BF%87-CGMutablePath-%E4%B8%BA-UIView-%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86/</loc>
     <lastmod>2018-05-22T02:33:10.666Z</lastmod>
     <data>
@@ -44,26 +64,6 @@
            
              
               <breadCrumb title="swift" url="http://andycui.top/categories/swift/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://andycui.top/2017/08/01/%E6%B5%85%E8%B0%88-tableViewCell%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94/</loc>
-    <lastmod>2018-05-22T02:33:10.666Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈 tableViewCell高度自适应</title>
-        <pubTime>2017-08-01T10:10:43.000Z</pubTime>
-        
-        <tag>cell自适应</tag>
-         
-         
-           
-             
-              <breadCrumb title="tableView" url="http://andycui.top/categories/tableView/"/>
           
         </display>
     </data>
