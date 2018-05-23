@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andycui.top/"/>
-  <updated>2018-05-22T06:51:27.230Z</updated>
+  <updated>2018-05-23T08:14:15.508Z</updated>
   <id>http://andycui.top/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>实现 cell 加载网络图片自适应方案</title>
+    <link href="http://andycui.top/2018/05/23/%E5%AE%9E%E7%8E%B0cell%E5%9B%BE%E7%89%87%E8%87%AA%E9%80%82%E5%BA%94%E6%96%B9%E6%A1%88/"/>
+    <id>http://andycui.top/2018/05/23/实现cell图片自适应方案/</id>
+    <published>2018-05-23T06:57:56.000Z</published>
+    <updated>2018-05-23T08:14:15.508Z</updated>
+    
+    <content type="html"><![CDATA[<p>UITableView 是 iOS 开发中最常用的控件之一,使用 UITaleView 时最头疼的莫过于 cell 高度的计算,虽说在 iOS8.0 以后引入了自适应方法,但在适配过程中任然会遇到各种难题,尤其是为了满足产品需求进行复杂 cell 自定义时,高度计算可谓是难上加难.这里主要对开发中遇到的自定义 cell 是加载网络图片适配问题进行总结.<br><a id="more"></a></p>
+<p>在开发中为了用户能有更好体验,对网络请求多采用异步请求的方式,更有甚者对请求数据做了本地缓存.图片作为 app 中最常见的展现形式无疑是最耗流量的,对图片的处理直接影响到用户的体验,好在有大神为我们提供了好的框架(<a href="https://github.com/onevcat/Kingfisher" target="_blank" rel="noopener">Kingfisher</a>,<a href="https://github.com/rs/SDWebImage" target="_blank" rel="noopener">SDWebImage</a>),大大提高了我们的开发效率.</p>
+<p>图片的异步加载提高了用户体验,却在开发中遇到了新的难题,因为图片异步加载你无法提前预知图片的尺寸,在布局时难以控制 UIImageView 的大小,如果将 UIImageView 固定大小势必会造成图片的压缩或拉伸,现在主要针对于自定义 cell 时对图片自适应布局提一些建议.</p>
+<h3 id="固定-UIImageView-大小"><a href="#固定-UIImageView-大小" class="headerlink" title="固定 UIImageView 大小"></a>固定 UIImageView 大小</h3><p>在开发中我们时常会将 UIImageView 固定大小或者固定宽高比例,通过设置 ImageView 的 contentMode 属性设置图片的显示风格.<br>该方法简单容易造成图片压缩拉伸或显示不全问题.<br>contentMode 取值:  </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">UIViewContentMode</span> : <span class="title">Int</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> scaleToFill <span class="comment">//缩放内容到合适比例大小</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> scaleAspectFit <span class="comment">//缩放内容到合适的大小，边界多余部分透明</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> scaleAspectFill  <span class="comment">//缩放内容填充到指定大小，边界多余的部分省略</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> redraw <span class="comment">//重绘视图边界</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> center <span class="comment">//视图保持等比缩放,居中</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> top <span class="comment">//视图顶部对齐</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> bottom <span class="comment">//视图底部对齐</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">left</span> <span class="comment">//视图左侧对齐</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">right</span> <span class="comment">//视图右侧对齐</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> topLeft <span class="comment">//视图左上角对齐</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> topRight <span class="comment">//视图右上角对齐</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> bottomLeft <span class="comment">//视图左下角对齐</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> bottomRight <span class="comment">//视图右下角对齐</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="通过获取服务器存储的图片尺寸布局"><a href="#通过获取服务器存储的图片尺寸布局" class="headerlink" title="通过获取服务器存储的图片尺寸布局"></a>通过获取服务器存储的图片尺寸布局</h3><p>在上传图片时可以将图片的大小一起上传服务器保存,在用户加载图片时将图片信息和图片 URL 地址一起返回,根据返回的图片信息计算 UIImageView 的 size 进行布局.<br>该方法比较简单,但需要后台配合使用.</p>
+<h3 id="通过监听图片加载刷新-cell-实现-配合-cell-自适应"><a href="#通过监听图片加载刷新-cell-实现-配合-cell-自适应" class="headerlink" title="通过监听图片加载刷新 cell 实现(配合 cell 自适应)"></a>通过监听图片加载刷新 cell 实现(配合 cell 自适应)</h3><p>无论 SDWebiamge 还是 Kingfisher,作者都给我们提供了图片加载完回调方法,我们可以在图片加载完后重新计算 cell 高度.<br>该方法大大加大了 cell 的刷新频率.<br>具体步骤:  </p>
+<ul>
+<li>在自定义 cell 中定义闭包变量.<br><code>var refreshCell: ((IndexPath) -&gt; Void)?</code></li>
+<li><p>在图片加载完成的回调中调用闭包,为了减少 cell 的刷新,判断是拉取网络数据还是加载的缓存数据,如果是网络数据调整图片大小并将调整后图片覆盖网络加载图片,如果是缓存图片不处理.  </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">iconImageView.kf.setImage(with: <span class="type">URL</span>(string: iconImageURL), placeholder: <span class="type">UIImage</span>(named: <span class="string">"tmp"</span>)) &#123; [<span class="keyword">weak</span> <span class="keyword">self</span>](image, error, type, url) <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">if</span> type == .<span class="keyword">none</span> &#123;</span><br><span class="line">        <span class="keyword">self</span>?.iconImageView.image =  <span class="keyword">self</span>?.iconImageView.image?.ytt.resetImageSizeWithWidth(<span class="type">UIScreen</span>.main.bounds.width)</span><br><span class="line">        <span class="type">ImageCache</span>.<span class="keyword">default</span>.store((image?.ytt.resetImageSizeWithWidth(<span class="type">UIScreen</span>.main.bounds.width))!, forKey: (url?.absoluteString)!)</span><br><span class="line">        <span class="keyword">self</span>?.refreshCell?(indexPath)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 TableView 回调方法中实现闭包,仅当 cell 展现在屏幕时刷新</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cell.refreshCell = &#123;(index) <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">if</span> (tableView.indexPathsForVisibleRows?.<span class="built_in">contains</span>(index))! &#123;</span><br><span class="line">        tableView.reloadRows(at: [index], with: .automatic)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="通过-ImageIO-框架获取图片信息"><a href="#通过-ImageIO-框架获取图片信息" class="headerlink" title="通过 ImageIO 框架获取图片信息"></a>通过 ImageIO 框架获取图片信息</h3><p>在给 UIImageView 赋值时通过 ImageIO 获取 image 的尺寸,修改 UIImageView 的大小.<br>该方法需要在网络请求数据,加大了数据请求量.<br>实现代码:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> imageSource = <span class="type">CGImageSourceCreateWithURL</span>(<span class="type">URL</span>(string: iconImageURL)! <span class="keyword">as</span> <span class="type">CFURL</span>, <span class="literal">nil</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> result = <span class="type">CGImageSourceCopyPropertiesAtIndex</span>(imageSource!, <span class="number">0</span>, <span class="literal">nil</span>) <span class="keyword">as</span>? <span class="type">Dictionary</span>&lt;<span class="type">String</span>, <span class="type">Any</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> width = result[<span class="string">"PixelWidth"</span>] <span class="keyword">as</span>? <span class="type">CGFloat</span>, <span class="keyword">let</span> height = result[<span class="string">"PixelHeight"</span>] <span class="keyword">as</span>? <span class="type">CGFloat</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> h =  (<span class="type">UIScreen</span>.main.bounds.width - <span class="number">20</span>) / (width / height)</span><br><span class="line">        iconImageView.snp.remakeConstraints &#123; (make) <span class="keyword">in</span></span><br><span class="line">            make.height.equalTo(h)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;UITableView 是 iOS 开发中最常用的控件之一,使用 UITaleView 时最头疼的莫过于 cell 高度的计算,虽说在 iOS8.0 以后引入了自适应方法,但在适配过程中任然会遇到各种难题,尤其是为了满足产品需求进行复杂 cell 自定义时,高度计算可谓是难上加难.这里主要对开发中遇到的自定义 cell 是加载网络图片适配问题进行总结.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="TableView" scheme="http://andycui.top/categories/TableView/"/>
+    
+    
+      <category term="cell 自适应" scheme="http://andycui.top/tags/cell-%E8%87%AA%E9%80%82%E5%BA%94/"/>
+    
+  </entry>
   
   <entry>
     <title>Carthage 安装以及初步实用</title>
@@ -367,7 +406,7 @@
     <link href="http://andycui.top/2017/08/01/%E6%B5%85%E8%B0%88-tableViewCell%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94/"/>
     <id>http://andycui.top/2017/08/01/浅谈-tableViewCell高度自适应/</id>
     <published>2017-08-01T10:10:43.000Z</published>
-    <updated>2018-05-22T02:33:10.666Z</updated>
+    <updated>2018-05-23T07:03:15.821Z</updated>
     
     <content type="html"><![CDATA[<p> UITableView 是开发中最常用到的控件,可以说没有哪个 APP 离得开 UITableView 控件,使用时难免会遇到各种各样的问题,其中 cell 高度自适应是最让人头疼的,简单说一下我在开发中总结.<br><a id="more"></a><br>开发中面对 cell 的自适应有着各种各样的方法,无外乎以下几种:</p>
 <h2 id="根据数据源计算"><a href="#根据数据源计算" class="headerlink" title="根据数据源计算"></a>根据数据源计算</h2><blockquote>
@@ -387,10 +426,10 @@
     
     </summary>
     
-      <category term="tableView" scheme="http://andycui.top/categories/tableView/"/>
+      <category term="TableView" scheme="http://andycui.top/categories/TableView/"/>
     
     
-      <category term="cell自适应" scheme="http://andycui.top/tags/cell%E8%87%AA%E9%80%82%E5%BA%94/"/>
+      <category term="cell 自适应" scheme="http://andycui.top/tags/cell-%E8%87%AA%E9%80%82%E5%BA%94/"/>
     
   </entry>
   
