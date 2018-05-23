@@ -1,11 +1,11 @@
 ---
 title: 浅谈 tableViewCell高度自适应
 date: 2017-08-01 18:10:43
-keywords: [tableViewCell,自适应]
+keywords: [TableViewCell,自适应]
 tags:
-- cell自适应
+- cell 自适应
 categories:
-- tableView
+- TableView
 ---
  UITableView 是开发中最常用到的控件,可以说没有哪个 APP 离得开 UITableView 控件,使用时难免会遇到各种各样的问题,其中 cell 高度自适应是最让人头疼的,简单说一下我在开发中总结.
 <!-- more -->
