@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andycui.top/"/>
-  <updated>2018-05-23T08:14:15.508Z</updated>
+  <updated>2018-05-30T04:39:55.964Z</updated>
   <id>http://andycui.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://andycui.top/2018/05/23/%E5%AE%9E%E7%8E%B0cell%E5%9B%BE%E7%89%87%E8%87%AA%E9%80%82%E5%BA%94%E6%96%B9%E6%A1%88/"/>
     <id>http://andycui.top/2018/05/23/实现cell图片自适应方案/</id>
     <published>2018-05-23T06:57:56.000Z</published>
-    <updated>2018-05-23T08:14:15.508Z</updated>
+    <updated>2018-05-30T04:39:55.964Z</updated>
     
     <content type="html"><![CDATA[<p>UITableView 是 iOS 开发中最常用的控件之一,使用 UITaleView 时最头疼的莫过于 cell 高度的计算,虽说在 iOS8.0 以后引入了自适应方法,但在适配过程中任然会遇到各种难题,尤其是为了满足产品需求进行复杂 cell 自定义时,高度计算可谓是难上加难.这里主要对开发中遇到的自定义 cell 是加载网络图片适配问题进行总结.<br><a id="more"></a></p>
 <p>在开发中为了用户能有更好体验,对网络请求多采用异步请求的方式,更有甚者对请求数据做了本地缓存.图片作为 app 中最常见的展现形式无疑是最耗流量的,对图片的处理直接影响到用户的体验,好在有大神为我们提供了好的框架(<a href="https://github.com/onevcat/Kingfisher" target="_blank" rel="noopener">Kingfisher</a>,<a href="https://github.com/rs/SDWebImage" target="_blank" rel="noopener">SDWebImage</a>),大大提高了我们的开发效率.</p>
@@ -47,7 +47,9 @@
     
     </summary>
     
-      <category term="TableView" scheme="http://andycui.top/categories/TableView/"/>
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+    
+      <category term="TableView" scheme="http://andycui.top/categories/iOS/TableView/"/>
     
     
       <category term="cell 自适应" scheme="http://andycui.top/tags/cell-%E8%87%AA%E9%80%82%E5%BA%94/"/>
@@ -59,7 +61,7 @@
     <link href="http://andycui.top/2018/05/22/Carthage%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E5%88%9D%E6%AD%A5%E5%AE%9E%E7%94%A8/"/>
     <id>http://andycui.top/2018/05/22/Carthage安装以及初步实用/</id>
     <published>2018-05-22T02:49:52.000Z</published>
-    <updated>2018-05-22T06:51:27.230Z</updated>
+    <updated>2018-05-30T04:37:54.536Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://github.com/Carthage/Carthage/raw/master/Logo/PNG/header.png" alt="Carthage"></p>
 <p>本人从事 iOS 开发已有2年多,用 swift 开发也有一年多的时间了,此前一直利用 cocopods 管理三方框架和依赖,最近了解到 Carthage 这个工具,本着学习的态度对这工具进行了了解.  </p>
@@ -134,7 +136,9 @@
     
     </summary>
     
-      <category term="开发工具" scheme="http://andycui.top/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+      <category term="Other" scheme="http://andycui.top/categories/Other/"/>
+    
+      <category term="开发工具" scheme="http://andycui.top/categories/Other/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
     
       <category term="swift" scheme="http://andycui.top/tags/swift/"/>
@@ -148,7 +152,7 @@
     <link href="http://andycui.top/2018/01/24/YTTCoder/"/>
     <id>http://andycui.top/2018/01/24/YTTCoder/</id>
     <published>2018-01-24T02:17:18.000Z</published>
-    <updated>2018-05-22T02:33:10.653Z</updated>
+    <updated>2018-05-30T04:46:26.446Z</updated>
     
     <content type="html"><![CDATA[<p>最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中)</p>
 <p><a href="https://github.com/AndyCuiYTT/YTTCoder" target="_blank" rel="noopener">YTTCoder</a> : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等<br><a id="more"></a></p>
@@ -196,7 +200,9 @@
     
     </summary>
     
-      <category term="数据处理" scheme="http://andycui.top/categories/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+    
+      <category term="数据处理" scheme="http://andycui.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
     
       <category term="数据处理" scheme="http://andycui.top/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
@@ -208,7 +214,7 @@
     <link href="http://andycui.top/2017/10/20/hexo-version-control/"/>
     <id>http://andycui.top/2017/10/20/hexo-version-control/</id>
     <published>2017-10-20T01:57:30.000Z</published>
-    <updated>2018-05-22T02:33:10.654Z</updated>
+    <updated>2018-05-30T04:41:42.154Z</updated>
     
     <content type="html"><![CDATA[<p>使用hexo搭建博客，如果换了电脑怎么更新博客？如果你有备份源文件那还好，但是每次都要备份感觉太麻烦了。<br>这里介绍一种方法就是使用github分支。一个分支用来存放Hexo生成的网站原始的文件，另一个分支用来存放生成的静态网页。<br>网上也有其他的方法，大家可以去搜一下，自己看看哪种适合自己，我用这种方法一方面我git命令也不太熟，所以想多写写，多学学。<br><a id="more"></a></p>
 <p>先删除主题文件下的.git文件，<br>可以直接删除或者执行下面的命令</p>
@@ -245,7 +251,7 @@
     <link href="http://andycui.top/2017/10/14/SliderViews/"/>
     <id>http://andycui.top/2017/10/14/SliderViews/</id>
     <published>2017-10-14T04:57:30.000Z</published>
-    <updated>2018-05-22T02:33:10.631Z</updated>
+    <updated>2018-05-30T04:44:38.523Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://github.com/AndyCuiYTT/SliderViews" target="_blank" rel="noopener">SliderViews</a> : 简单易用的滑动标签工具,『标签栏工具』『滑动视图工具』可单独使用.<br><a id="more"></a></p>
 <p><img src="https://img.shields.io/badge/language-swift-green.svg" alt=""> <a href=""><img src="https://img.shields.io/cocoapods/l/SliderViews.svg" alt="CRAN"></a> <img src="https://img.shields.io/cocoapods/v/SliderViews.svg" alt=""> <a href="http://andycui.top"><img src="https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg" alt=""></a><br><img src="sliderview-02.gif" alt=""></p>
@@ -268,7 +274,9 @@
     
     </summary>
     
-      <category term="自定义视图" scheme="http://andycui.top/categories/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+    
+      <category term="自定义视图" scheme="http://andycui.top/categories/iOS/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
     
     
       <category term="slider" scheme="http://andycui.top/tags/slider/"/>
@@ -280,7 +288,7 @@
     <link href="http://andycui.top/2017/08/29/Swift%E5%A4%84%E7%90%86JSON%20-%20%E8%BD%AC%E6%8D%A2JSON%E5%92%8CModel/"/>
     <id>http://andycui.top/2017/08/29/Swift处理JSON - 转换JSON和Model/</id>
     <published>2017-08-29T01:28:19.000Z</published>
-    <updated>2018-05-22T02:33:10.652Z</updated>
+    <updated>2018-05-30T04:45:59.419Z</updated>
     
     <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>&emsp;&emsp;很多时候我们再服务端请求下来的数据都是<a href="https://baike.baidu.com/item/JSON/2462549" target="_blank" rel="noopener">JSON</a>格式，我们需要将这些数据展示在UI界面。我们一般都会先将JSON转化为数据模型或字典进行使用。<br>&emsp;&emsp;为了更快的开发我们时常会用到一些开源库，其中JSON解析的库必不可少，在OC开发中我们常用的JSON解析库如<a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="noopener">MJExtension</a>，<a href="https://github.com/jsonmodel/jsonmodel" target="_blank" rel="noopener">JSONModel</a>等,这些库基本都是利用runtime实现读取属性并利用kvc赋值的。在swift中由于runtime的局限性，产生了一些通过反射等机制实现的库，比如<a href="https://github.com/SwiftyJSON/SwiftyJSON" target="_blank" rel="noopener">SwiftyJSON</a>，<a href="https://github.com/Hearst-DD/ObjectMapper" target="_blank" rel="noopener">ObjectMapper</a>，<a href="https://github.com/alibaba/handyjson" target="_blank" rel="noopener">HandyJSON</a>等，而 HandyJSON 是其中使用最舒服的一个库，本文将介绍用  HandyJSON 来进行Model和JSON间的互相转换。</p>
 <h1 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h1><h2 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BasicTypes</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> int: <span class="type">Int</span> = <span class="number">2</span></span><br><span class="line">    <span class="keyword">var</span> doubleOptional: <span class="type">Double</span>?</span><br><span class="line">    <span class="keyword">var</span> stringImplicitlyUnwrapped: <span class="type">String</span>!</span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jsonString = <span class="string">"&#123;\"doubleOptional\":1.1,\"stringImplicitlyUnwrapped\":\"hello\",\"int\":1&#125;"</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> object = <span class="type">BasicTypes</span>.deserialize(from: jsonString) &#123;</span><br><span class="line">    <span class="built_in">print</span>(object.int)</span><br><span class="line">    <span class="built_in">print</span>(object.doubleOptional!)</span><br><span class="line">    <span class="built_in">print</span>(object.stringImplicitlyUnwrapped)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -390,7 +398,9 @@
     
     </summary>
     
-      <category term="swift" scheme="http://andycui.top/categories/swift/"/>
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+    
+      <category term="swift" scheme="http://andycui.top/categories/iOS/swift/"/>
     
     
       <category term="swift" scheme="http://andycui.top/tags/swift/"/>
@@ -406,7 +416,7 @@
     <link href="http://andycui.top/2017/08/01/%E6%B5%85%E8%B0%88-tableViewCell%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94/"/>
     <id>http://andycui.top/2017/08/01/浅谈-tableViewCell高度自适应/</id>
     <published>2017-08-01T10:10:43.000Z</published>
-    <updated>2018-05-23T07:03:15.821Z</updated>
+    <updated>2018-05-30T04:40:29.260Z</updated>
     
     <content type="html"><![CDATA[<p> UITableView 是开发中最常用到的控件,可以说没有哪个 APP 离得开 UITableView 控件,使用时难免会遇到各种各样的问题,其中 cell 高度自适应是最让人头疼的,简单说一下我在开发中总结.<br><a id="more"></a><br>开发中面对 cell 的自适应有着各种各样的方法,无外乎以下几种:</p>
 <h2 id="根据数据源计算"><a href="#根据数据源计算" class="headerlink" title="根据数据源计算"></a>根据数据源计算</h2><blockquote>
@@ -426,7 +436,9 @@
     
     </summary>
     
-      <category term="TableView" scheme="http://andycui.top/categories/TableView/"/>
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+    
+      <category term="TableView" scheme="http://andycui.top/categories/iOS/TableView/"/>
     
     
       <category term="cell 自适应" scheme="http://andycui.top/tags/cell-%E8%87%AA%E9%80%82%E5%BA%94/"/>
@@ -438,7 +450,7 @@
     <link href="http://andycui.top/2017/07/25/swift-%E6%89%93%E5%8C%85-framework/"/>
     <id>http://andycui.top/2017/07/25/swift-打包-framework/</id>
     <published>2017-07-25T01:40:48.000Z</published>
-    <updated>2018-05-22T02:33:10.655Z</updated>
+    <updated>2018-05-30T04:45:06.039Z</updated>
     
     <content type="html"><![CDATA[<p> 在开发中我们常常会用到一些第三方 SDK 库，使用时只需将 framework 文件添加到项目中即可，十分方便。同样地，我们也可以创建自己的 framework 框架，用来封装一些常用的工具方法、框架类等。一来不会使源代码完全暴露在外，二来也便于代码复用。<br><a id="more"></a></p>
 <h1 id="打包篇"><a href="#打包篇" class="headerlink" title=" 打包篇 "></a><center> 打包篇 </center></h1><h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><blockquote>
@@ -489,7 +501,7 @@
     
     </summary>
     
-      <category term="swift" scheme="http://andycui.top/categories/swift/"/>
+      <category term="Other" scheme="http://andycui.top/categories/Other/"/>
     
     
       <category term="framework" scheme="http://andycui.top/tags/framework/"/>
@@ -501,7 +513,7 @@
     <link href="http://andycui.top/2017/07/18/network-swift/"/>
     <id>http://andycui.top/2017/07/18/network-swift/</id>
     <published>2017-07-18T02:13:11.000Z</published>
-    <updated>2018-05-22T02:33:10.654Z</updated>
+    <updated>2018-05-30T04:43:17.295Z</updated>
     
     <content type="html"><![CDATA[<p>对 Alamofire与系统的网络请求进行简易封装<br><a id="more"></a></p>
 <h1 id="Alamofire"><a href="#Alamofire" class="headerlink" title="Alamofire"></a>Alamofire</h1><blockquote>
@@ -535,7 +547,7 @@
     
     </summary>
     
-      <category term="swift" scheme="http://andycui.top/categories/swift/"/>
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
     
     
       <category term="network" scheme="http://andycui.top/tags/network/"/>
@@ -547,7 +559,7 @@
     <link href="http://andycui.top/2017/07/14/PayDemo/"/>
     <id>http://andycui.top/2017/07/14/PayDemo/</id>
     <published>2017-07-14T10:57:25.000Z</published>
-    <updated>2018-05-22T02:33:10.630Z</updated>
+    <updated>2018-05-30T04:44:13.108Z</updated>
     
     <content type="html"><![CDATA[<p>封装支付宝与微信支付,采用代理的方式接收支付结果.<br><a id="more"></a></p>
 <h1 id="支付宝支付"><a href="#支付宝支付" class="headerlink" title="支付宝支付"></a>支付宝支付</h1><blockquote>
@@ -579,7 +591,9 @@
     
     </summary>
     
-      <category term="swift" scheme="http://andycui.top/categories/swift/"/>
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+    
+      <category term="三方接入" scheme="http://andycui.top/categories/iOS/%E4%B8%89%E6%96%B9%E6%8E%A5%E5%85%A5/"/>
     
     
       <category term="pay" scheme="http://andycui.top/tags/pay/"/>
@@ -595,7 +609,7 @@
     <link href="http://andycui.top/2017/07/13/swift-%E6%98%9F%E7%BA%A7%E8%AF%84%E5%88%86/"/>
     <id>http://andycui.top/2017/07/13/swift-星级评分/</id>
     <published>2017-07-13T03:39:29.000Z</published>
-    <updated>2018-05-22T02:33:10.664Z</updated>
+    <updated>2018-05-30T04:45:30.090Z</updated>
     
     <content type="html"><![CDATA[<p>许多App都会有评价功能，这个时候或许会需要实现星级评分，下面我们来简单的实现一个星级评分功能。<br><a id="more"></a></p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><blockquote>
@@ -620,7 +634,9 @@
     
     </summary>
     
-      <category term="自定义视图" scheme="http://andycui.top/categories/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+    
+      <category term="自定义视图" scheme="http://andycui.top/categories/iOS/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
     
     
       <category term="自定义视图" scheme="http://andycui.top/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
@@ -632,7 +648,7 @@
     <link href="http://andycui.top/2017/07/12/%E9%80%9A%E8%BF%87-CGMutablePath-%E4%B8%BA-UIView-%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86/"/>
     <id>http://andycui.top/2017/07/12/通过-CGMutablePath-为-UIView-添加边框/</id>
     <published>2017-07-12T06:44:15.000Z</published>
-    <updated>2018-05-22T02:33:10.666Z</updated>
+    <updated>2018-05-30T04:41:24.589Z</updated>
     
     <content type="html"><![CDATA[<p> 通过贝塞尔曲线与 CAShapeLayer 为 View 添加虚线边框,可设置宽度,颜色,圆角等<br><a id="more"></a></p>
 <p><img src="17-7-12.png" alt="效果图"></p>
@@ -645,7 +661,9 @@
     
     </summary>
     
-      <category term="swift" scheme="http://andycui.top/categories/swift/"/>
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+    
+      <category term="绘图" scheme="http://andycui.top/categories/iOS/%E7%BB%98%E5%9B%BE/"/>
     
     
       <category term="UIBezierPath" scheme="http://andycui.top/tags/UIBezierPath/"/>
@@ -659,7 +677,7 @@
     <link href="http://andycui.top/2017/05/20/%E5%B8%B8%E9%98%85%E8%AF%BB%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
     <id>http://andycui.top/2017/05/20/常阅读的博客/</id>
     <published>2017-05-20T08:55:18.000Z</published>
-    <updated>2018-05-22T02:33:10.665Z</updated>
+    <updated>2018-05-30T04:37:42.871Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>我要申明，排名不分前后</p>
@@ -695,6 +713,8 @@
     </summary>
     
       <category term="Other" scheme="http://andycui.top/categories/Other/"/>
+    
+      <category term="阅读列表" scheme="http://andycui.top/categories/Other/%E9%98%85%E8%AF%BB%E5%88%97%E8%A1%A8/"/>
     
     
       <category term="Other" scheme="http://andycui.top/tags/Other/"/>
