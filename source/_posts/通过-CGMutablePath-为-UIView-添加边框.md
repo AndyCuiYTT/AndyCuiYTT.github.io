@@ -3,10 +3,11 @@ title: 通过 UIBezierPath 与 CAShapeLayer 为 UIView 添加边框
 date: 2017-07-12 14:44:15
 keywords: swift,UIBezierPath
 categories:
-- swift
+    - iOS
+    - 绘图
 tags:
-- UIBezierPath
-- CAShapeLayer
+    - UIBezierPath
+    - CAShapeLayer
 ---
  通过贝塞尔曲线与 CAShapeLayer 为 View 添加虚线边框,可设置宽度,颜色,圆角等
 <!-- more -->

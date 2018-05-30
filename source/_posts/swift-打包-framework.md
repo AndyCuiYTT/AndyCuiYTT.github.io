@@ -5,7 +5,7 @@ keywords: framework
 tags:
 - framework
 categories:
-- swift
+    - Other
 ---
  在开发中我们常常会用到一些第三方 SDK 库，使用时只需将 framework 文件添加到项目中即可，十分方便。同样地，我们也可以创建自己的 framework 框架，用来封装一些常用的工具方法、框架类等。一来不会使源代码完全暴露在外，二来也便于代码复用。
 <!-- more -->

@@ -1,8 +1,10 @@
 ---
 title: 多台电脑共同管理hexo博客
 date: 2017-10-20 9:57:30
-tags: hexo
-categories: Other
+tags: 
+    - hexo
+categories:
+    - Other
 ---
 
 使用hexo搭建博客，如果换了电脑怎么更新博客？如果你有备份源文件那还好，但是每次都要备份感觉太麻烦了。

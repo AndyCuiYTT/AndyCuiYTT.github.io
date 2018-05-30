@@ -2,8 +2,12 @@
 title: Carthage 安装以及初步实用
 date: 2018-05-22 10:49:52
 keywords: Carthage
-tags: [swift,开发工具]
-categories: 开发工具
+tags:
+    - swift
+    - 开发工具
+categories:
+    - Other
+    - 开发工具
 ---
 ![Carthage](https://github.com/Carthage/Carthage/raw/master/Logo/PNG/header.png)
 

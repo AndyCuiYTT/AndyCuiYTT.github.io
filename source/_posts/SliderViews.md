@@ -2,8 +2,11 @@
 title: SliderView
 date: 2017-10-14 12:57:30
 keywords: [slider,tag]
-tags: slider
-categories: 自定义视图
+tags:
+    - slider
+categories: 
+    - iOS
+    - 自定义视图
 ---
 
 

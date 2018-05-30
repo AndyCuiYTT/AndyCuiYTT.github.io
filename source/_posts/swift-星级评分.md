@@ -1,9 +1,13 @@
 ---
 title: '[swift] 星级评分'
 date: 2017-07-13 11:39:29
-keywords: 星级评分
-categories: 自定义视图
-tags: 自定义视图
+keywords:
+    - 星级评分
+categories:
+    - iOS
+    - 自定义视图
+tags:
+    - 自定义视图
 ---
 许多App都会有评价功能，这个时候或许会需要实现星级评分，下面我们来简单的实现一个星级评分功能。
 <!-- more -->

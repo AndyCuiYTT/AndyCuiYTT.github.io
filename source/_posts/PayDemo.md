@@ -3,7 +3,8 @@ title: 支付宝微信简单封装
 date: 2017-07-14 18:57:25
 keywords: 支付
 categories:
-- swift
+    - iOS
+    - 三方接入
 tags:
 - pay
 - alipay
