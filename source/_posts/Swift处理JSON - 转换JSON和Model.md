@@ -5,7 +5,7 @@ keywords: [JSON,Model]
 tags: [swift,model,JSON]
 categories:
     - iOS
-    - swift
+    - 数据处理
 description: iOS 开发中 model 数据模型是最长的一种数据处理方式，通常与服务器端数据交互时，服务端返回JSON文本，然后由客户端对JSON数据进行解析转化为model类型进行使用。主要针对与JSON转model进行简单描述。
 ---
 # 背景
