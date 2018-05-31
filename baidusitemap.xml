@@ -4,22 +4,19 @@
 
     
   <url>
-    <loc>http://andycui.top/2018/01/24/YTTCoder/</loc>
-    <lastmod>2018-05-30T04:46:26.446Z</lastmod>
+    <loc>http://andycui.top/2018/05/31/iOS%20%E6%B2%99%E7%9B%92%E6%9C%BA%E5%88%B6/</loc>
+    <lastmod>2018-05-31T07:59:04.596Z</lastmod>
     <data>
         <display>
-        <title>YTTCoder</title>
-        <pubTime>2018-01-24T02:17:18.000Z</pubTime>
+        <title>iOS 沙盒机制</title>
+        <pubTime>2018-05-31T07:02:15.000Z</pubTime>
         
-        <tag>数据处理</tag>
+        <tag>iOS</tag>
          
          
            
              
               <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
-          
-             
-              <breadCrumb title="数据处理" url="http://andycui.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
           
         </display>
     </data>
@@ -28,7 +25,7 @@
     
   <url>
     <loc>http://andycui.top/2017/08/29/Swift%E5%A4%84%E7%90%86JSON%20-%20%E8%BD%AC%E6%8D%A2JSON%E5%92%8CModel/</loc>
-    <lastmod>2018-05-30T04:45:59.419Z</lastmod>
+    <lastmod>2018-05-31T07:00:26.068Z</lastmod>
     <data>
         <display>
         <title>Swift处理JSON - 转换JSON和Model</title>
@@ -46,7 +43,76 @@
               <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
           
              
-              <breadCrumb title="swift" url="http://andycui.top/categories/iOS/swift/"/>
+              <breadCrumb title="数据处理" url="http://andycui.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2018/05/23/%E5%AE%9E%E7%8E%B0cell%E5%9B%BE%E7%89%87%E8%87%AA%E9%80%82%E5%BA%94%E6%96%B9%E6%A1%88/</loc>
+    <lastmod>2018-05-31T06:59:43.545Z</lastmod>
+    <data>
+        <display>
+        <title>实现 cell 加载网络图片自适应方案</title>
+        <pubTime>2018-05-23T06:57:56.000Z</pubTime>
+        
+        <tag>cell 自适应</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
+          
+             
+              <breadCrumb title="TableView" url="http://andycui.top/categories/iOS/TableView/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2017/08/01/%E6%B5%85%E8%B0%88-tableViewCell%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94/</loc>
+    <lastmod>2018-05-31T06:59:35.788Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈 tableViewCell高度自适应</title>
+        <pubTime>2017-08-01T10:10:43.000Z</pubTime>
+        
+        <tag>cell 自适应</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
+          
+             
+              <breadCrumb title="TableView" url="http://andycui.top/categories/iOS/TableView/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2018/01/24/YTTCoder/</loc>
+    <lastmod>2018-05-30T04:46:26.446Z</lastmod>
+    <data>
+        <display>
+        <title>YTTCoder</title>
+        <pubTime>2018-01-24T02:17:18.000Z</pubTime>
+        
+        <tag>数据处理</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
+          
+             
+              <breadCrumb title="数据处理" url="http://andycui.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
           
         </display>
     </data>
@@ -205,52 +271,6 @@
           
              
               <breadCrumb title="绘图" url="http://andycui.top/categories/iOS/%E7%BB%98%E5%9B%BE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://andycui.top/2017/08/01/%E6%B5%85%E8%B0%88-tableViewCell%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94/</loc>
-    <lastmod>2018-05-30T04:40:29.260Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈 tableViewCell高度自适应</title>
-        <pubTime>2017-08-01T10:10:43.000Z</pubTime>
-        
-        <tag>cell 自适应</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
-          
-             
-              <breadCrumb title="TableView" url="http://andycui.top/categories/iOS/TableView/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://andycui.top/2018/05/23/%E5%AE%9E%E7%8E%B0cell%E5%9B%BE%E7%89%87%E8%87%AA%E9%80%82%E5%BA%94%E6%96%B9%E6%A1%88/</loc>
-    <lastmod>2018-05-30T04:39:55.964Z</lastmod>
-    <data>
-        <display>
-        <title>实现 cell 加载网络图片自适应方案</title>
-        <pubTime>2018-05-23T06:57:56.000Z</pubTime>
-        
-        <tag>cell 自适应</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
-          
-             
-              <breadCrumb title="TableView" url="http://andycui.top/categories/iOS/TableView/"/>
           
         </display>
     </data>

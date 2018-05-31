@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="星级评分" />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -97,18 +97,18 @@
 
 
 
-<meta name="description" content="许多App都会有评价功能，这个时候或许会需要实现星级评分，下面我们来简单的实现一个星级评分功能。">
-<meta name="keywords" content="星级评分">
+<meta name="description" content="iOS 每个 APP 都有自己的存储空间,这个存储空间叫做沙盒. APP可以在自己的沙盒中进行数据存取操作,但不能访问其他 app 的沙盒空间.对 app 做一些数据存储或者文件缓存时,一般都保存在沙盒中.">
+<meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[swift] 星级评分">
-<meta property="og:url" content="http://andycui.top/2017/07/13/swift-星级评分/index.html">
+<meta property="og:title" content="iOS 沙盒机制">
+<meta property="og:url" content="http://andycui.top/2018/05/31/iOS 沙盒机制/index.html">
 <meta property="og:site_name" content="AndyCuiの博客">
-<meta property="og:description" content="许多App都会有评价功能，这个时候或许会需要实现星级评分，下面我们来简单的实现一个星级评分功能。">
+<meta property="og:description" content="iOS 每个 APP 都有自己的存储空间,这个存储空间叫做沙盒. APP可以在自己的沙盒中进行数据存取操作,但不能访问其他 app 的沙盒空间.对 app 做一些数据存储或者文件缓存时,一般都保存在沙盒中.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-30T04:45:30.090Z">
+<meta property="og:updated_time" content="2018-05-31T07:59:04.596Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[swift] 星级评分">
-<meta name="twitter:description" content="许多App都会有评价功能，这个时候或许会需要实现星级评分，下面我们来简单的实现一个星级评分功能。">
+<meta name="twitter:title" content="iOS 沙盒机制">
+<meta name="twitter:description" content="iOS 每个 APP 都有自己的存储空间,这个存储空间叫做沙盒. APP可以在自己的沙盒中进行数据存取操作,但不能访问其他 app 的沙盒空间.对 app 做一些数据存储或者文件缓存时,一般都保存在沙盒中.">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://andycui.top/2017/07/13/swift-星级评分/"/>
+  <link rel="canonical" href="http://andycui.top/2018/05/31/iOS 沙盒机制/"/>
 
 
 
 
 
-  <title>[swift] 星级评分 | AndyCuiの博客</title>
+  <title>iOS 沙盒机制 | AndyCuiの博客</title>
   
 
 
@@ -296,7 +296,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andycui.top/2017/07/13/swift-星级评分/">
+    <link itemprop="mainEntityOfPage" href="http://andycui.top/2018/05/31/iOS 沙盒机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Andy">
@@ -313,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[swift] 星级评分</h1>
+          <h1 class="post-title" itemprop="name headline">iOS 沙盒机制</h1>
         
 
         <div class="post-meta">
@@ -325,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-13T11:39:29+08:00">
-                2017-07-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T15:02:15+08:00">
+                2018-05-31
               </time>
             
 
@@ -350,17 +350,6 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/iOS/" itemprop="url" rel="index">
                     <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/自定义视图/" itemprop="url" rel="index">
-                    <span itemprop="name">自定义视图</span>
                   </a>
                 </span>
 
@@ -392,7 +381,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  474
+                  674
                 </span>
               
 
@@ -408,7 +397,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -426,21 +415,45 @@
       
 
       
-        <p>许多App都会有评价功能，这个时候或许会需要实现星级评分，下面我们来简单的实现一个星级评分功能。<br><a id="more"></a></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><blockquote>
-<p>通过添加图片形式实现星级打分功能.创建两个视图,其中一个添加灰色星星图片,另一个添加橘色星星图片.橘色星星视图覆盖灰色星星视图,通过修改橘色星星视图的宽度实现评分的展现.</p>
-<ol>
-<li>创建一个继承于 UIView 的类,作为星级打分的显示视图</li>
-<li>创建灰色星星视图,并添加到父视图.</li>
-<li>创建橘色星星视图,添加到父视图,保证橘色视图覆盖灰色星星视图.</li>
-<li>通过修改橘色星星视图宽度实现评分.</li>
-<li>可通过手势等方式实现打分功能.</li>
-</ol>
+        <p>iOS 每个 APP 都有自己的存储空间,这个存储空间叫做沙盒. APP可以在自己的沙盒中进行数据存取操作,但不能访问其他 app 的沙盒空间.对 app 做一些数据存储或者文件缓存时,一般都保存在沙盒中.<br><a id="more"></a></p>
+<h1 id="沙盒机制简介"><a href="#沙盒机制简介" class="headerlink" title="沙盒机制简介"></a>沙盒机制简介</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>沙盒机制根据访问权限和功能区别分为不同的目录: document,library,temp,.app, library又包含 caches 和preferences.</p>
+<ul>
+<li>document: 保存应用运行时生成的需要持久化的数据iTunes会自动备份该目录。苹果建议将在应用程序中浏览到的文件数据保存在该目录下.</li>
+<li><p>library: 这个目录下有两个目录  </p>
+<blockquote>
+<ul>
+<li>caches: 一般存储的是缓存文件，例如图片视频等，此目录下的文件不会再应用程序退出时删除，在手机备份的时候，iTunes不会备份该目录。  </li>
+<li>preferences: 保存应用程序的所有偏好设置iOS的Settings(设置)，我们不应该直接在这里创建文件，而是需要通过NSUserDefault这个类来访问应用程序的偏好设置。iTunes会自动备份该文件目录下的内容.</li>
+</ul>
 </blockquote>
-<h2 id="主要代码"><a href="#主要代码" class="headerlink" title="主要代码"></a>主要代码</h2><h3 id="创建子视图代码"><a href="#创建子视图代码" class="headerlink" title="创建子视图代码:"></a>创建子视图代码:</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">ay_creatStartView</span><span class="params">(<span class="number">_</span> imageName: String)</span></span> -&gt; <span class="type">UIView</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> starView = <span class="type">UIView</span>(frame: <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: <span class="keyword">self</span>.frame.width, height: <span class="keyword">self</span>.frame.height))</span><br><span class="line">        starView.clipsToBounds = <span class="literal">true</span></span><br><span class="line">        starView.backgroundColor = <span class="type">UIColor</span>.clear</span><br><span class="line">        starView.isUserInteractionEnabled = <span class="literal">false</span></span><br><span class="line">        <span class="keyword">let</span> imgViewWidth = (<span class="keyword">self</span>.frame.width - <span class="type">CGFloat</span>(totalStarNumber - <span class="number">1</span>) * <span class="number">3</span>) / <span class="type">CGFloat</span>(totalStarNumber)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span> ..&lt; totalStarNumber &#123;</span><br><span class="line">            <span class="keyword">let</span> imageView = <span class="type">UIImageView</span>(image: <span class="type">UIImage</span>(named: imageName))</span><br><span class="line">            imageView.frame = <span class="type">CGRect</span>(x: <span class="type">CGFloat</span>(i) * (imgViewWidth + <span class="number">3</span>), y: <span class="number">0</span>, width: imgViewWidth, height: <span class="keyword">self</span>.frame.height)</span><br><span class="line">            imageView.contentMode = .scaleAspectFit</span><br><span class="line">            starView.addSubview(imageView)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> starView</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="手指滑动打分代码"><a href="#手指滑动打分代码" class="headerlink" title="手指滑动打分代码"></a>手指滑动打分代码</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesMoved</span><span class="params">(<span class="number">_</span> touches: Set&lt;UITouch&gt;, with event: UIEvent?)</span></span> &#123;</span><br><span class="line">       <span class="keyword">let</span> touch = touches.first</span><br><span class="line">       <span class="keyword">let</span> point = touch?.location(<span class="keyword">in</span>: <span class="keyword">self</span>)</span><br><span class="line">       <span class="keyword">if</span> (point?.x)! &gt;= <span class="type">CGFloat</span>(<span class="number">0</span>) &amp;&amp; (point?.x)! &lt;= <span class="keyword">self</span>.frame.width &#123;</span><br><span class="line">           rate = (point?.x)! / <span class="keyword">self</span>.frame.width</span><br><span class="line">           delegate?.ay_starRateChange(rate: rate)</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesBegan</span><span class="params">(<span class="number">_</span> touches: Set&lt;UITouch&gt;, with event: UIEvent?)</span></span> &#123;</span><br><span class="line">       <span class="keyword">let</span> touch = touches.first</span><br><span class="line">       <span class="keyword">let</span> point = touch?.location(<span class="keyword">in</span>: <span class="keyword">self</span>)</span><br><span class="line">       rate = (point?.x)! / <span class="keyword">self</span>.frame.width</span><br><span class="line">       delegate?.ay_starRateChange(rate: rate)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://github.com/AndyCuiYTT/StarRating" target="_blank" rel="noopener">具体实现参考Demo</a></p>
-<h2 id="附加"><a href="#附加" class="headerlink" title="附加"></a>附加</h2><p>星级评分通过图片实现是最简单的办法,当然也可以通过其他方式实现.例如通过 UIBezierPath 绘制,具体可参考<a href="https://git.oschina.net/soyeon/CPSliderView" target="_blank" rel="noopener">CPSliderView</a></p>
+</li>
+<li><p>temp: 临时文件目录，在程序重新运行的时候，和开机的时候，会清空tmp文件夹。</p>
+</li>
+<li>.app: 这个就是可运行的应用文件，带有签名的文件包，包含应用程序代码和静态数据.  </li>
+</ul>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>每个应用程序都在自己的沙盒内.</li>
+<li>不能随意跨越自己的沙盒去访问别的应用程序沙盒的内容.</li>
+<li>应用程序向外请求或接收数据都需要经过权限认证.</li>
+</ul>
+<h1 id="沙盒操作"><a href="#沙盒操作" class="headerlink" title="沙盒操作"></a>沙盒操作</h1><h2 id="获取沙盒路径"><a href="#获取沙盒路径" class="headerlink" title="获取沙盒路径"></a>获取沙盒路径</h2><h2 id="获取沙盒根路径"><a href="#获取沙盒根路径" class="headerlink" title="获取沙盒根路径"></a>获取沙盒根路径</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> homePath = <span class="type">NSHomeDirectory</span>()</span><br></pre></td></tr></table></figure>
+<h3 id="获取-document-路径"><a href="#获取-document-路径" class="headerlink" title="获取 document 路径"></a>获取 document 路径</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> documentPath = <span class="type">NSSearchPathForDirectoriesInDomains</span>(.documentDirectory, .userDomainMask, <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="获取-library-路径"><a href="#获取-library-路径" class="headerlink" title="获取 library 路径"></a>获取 library 路径</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> libraryPath = <span class="type">NSSearchPathForDirectoriesInDomains</span>(.libraryDirectory, .userDomainMask, <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="获取-cache-路径"><a href="#获取-cache-路径" class="headerlink" title="获取 cache 路径"></a>获取 cache 路径</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cachePath = <span class="type">NSSearchPathForDirectoriesInDomains</span>(.cachesDirectory, .userDomainMask, <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="获取-preferences-路径"><a href="#获取-preferences-路径" class="headerlink" title="获取 preferences 路径"></a>获取 preferences 路径</h3><p>由系统维护,不需要我们手动获取文件目录.可借助 UserDefault 维护</p>
+<h3 id="获取-tmp-路径"><a href="#获取-tmp-路径" class="headerlink" title="获取 tmp 路径"></a>获取 tmp 路径</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tmpPath = <span class="type">NSTemporaryDirectory</span>()</span><br></pre></td></tr></table></figure>
+<h3 id="获取程序目录和内容"><a href="#获取程序目录和内容" class="headerlink" title="获取程序目录和内容"></a>获取程序目录和内容</h3><ul>
+<li>获取程序包路径<br><code>let path = Bundle.main.resourcePath</code></li>
+<li>获取图片资源路径<br><code>let imagePath = Bundle.main.path(forResource: &quot;temp&quot;, ofType: &quot;png&quot;)</code></li>
+</ul>
+<h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><p>iOS 对文件进行管理需要用到文件管理器: FileManager.</p>
+<h3 id="检测文件是否存在"><a href="#检测文件是否存在" class="headerlink" title="检测文件是否存在"></a>检测文件是否存在</h3><p><code>FileManager.default.fileExists(atPath: filePath)</code></p>
+<h3 id="创建文件路径"><a href="#创建文件路径" class="headerlink" title="创建文件路径"></a>创建文件路径</h3><p><code>FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)</code></p>
+<h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><p><code>FileManager.default.createFile(atPath: path, contents: data, attributes: nil)</code></p>
+<h3 id="文件删除"><a href="#文件删除" class="headerlink" title="文件删除"></a>文件删除</h3><p><code>FileManager.default.removeItem(atPath: path)</code></p>
+<h3 id="文件移动"><a href="#文件移动" class="headerlink" title="文件移动"></a>文件移动</h3><p><code>FileManager.default.moveItem(atPath: oldPath, toPath: newPath)</code></p>
+<h3 id="文件复制"><a href="#文件复制" class="headerlink" title="文件复制"></a>文件复制</h3><p><code>FileManager.default.copyItem(atPath: oldPath, toPath: newPath)</code></p>
+<h3 id="获取文件属性"><a href="#获取文件属性" class="headerlink" title="获取文件属性"></a>获取文件属性</h3><p><code>FileManager.default.attributesOfItem(atPath: filePath)</code></p>
 
       
     </div>
@@ -490,7 +503,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andycui.top/2017/07/13/swift-星级评分/" title="[swift] 星级评分">http://andycui.top/2017/07/13/swift-星级评分/</a>
+      <a href="http://andycui.top/2018/05/31/iOS 沙盒机制/" title="iOS 沙盒机制">http://andycui.top/2018/05/31/iOS 沙盒机制/</a>
     </li>
     <!-- <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -511,7 +524,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/自定义视图/" rel="tag"><i class="fa fa-tag"></i> 自定义视图</a>
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
           
         </div>
       
@@ -524,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/12/通过-CGMutablePath-为-UIView-添加边框/" rel="next" title="通过 UIBezierPath 与 CAShapeLayer 为 UIView 添加边框">
-                <i class="fa fa-chevron-left"></i> 通过 UIBezierPath 与 CAShapeLayer 为 UIView 添加边框
+              <a href="/2018/05/23/实现cell图片自适应方案/" rel="next" title="实现 cell 加载网络图片自适应方案">
+                <i class="fa fa-chevron-left"></i> 实现 cell 加载网络图片自适应方案
               </a>
             
           </div>
@@ -533,10 +546,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/14/PayDemo/" rel="prev" title="支付宝微信简单封装">
-                支付宝微信简单封装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -737,7 +746,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要代码"><span class="nav-number">2.</span> <span class="nav-text">主要代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建子视图代码"><span class="nav-number">2.1.</span> <span class="nav-text">创建子视图代码:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手指滑动打分代码"><span class="nav-number">2.2.</span> <span class="nav-text">手指滑动打分代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附加"><span class="nav-number">3.</span> <span class="nav-text">附加</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#沙盒机制简介"><span class="nav-number">1.</span> <span class="nav-text">沙盒机制简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录结构"><span class="nav-number">1.1.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">1.2.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#沙盒操作"><span class="nav-number">2.</span> <span class="nav-text">沙盒操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取沙盒路径"><span class="nav-number">2.1.</span> <span class="nav-text">获取沙盒路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取沙盒根路径"><span class="nav-number">2.2.</span> <span class="nav-text">获取沙盒根路径</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-document-路径"><span class="nav-number">2.2.1.</span> <span class="nav-text">获取 document 路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-library-路径"><span class="nav-number">2.2.2.</span> <span class="nav-text">获取 library 路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-cache-路径"><span class="nav-number">2.2.3.</span> <span class="nav-text">获取 cache 路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-preferences-路径"><span class="nav-number">2.2.4.</span> <span class="nav-text">获取 preferences 路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-tmp-路径"><span class="nav-number">2.2.5.</span> <span class="nav-text">获取 tmp 路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取程序目录和内容"><span class="nav-number">2.2.6.</span> <span class="nav-text">获取程序目录和内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件管理"><span class="nav-number">2.3.</span> <span class="nav-text">文件管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检测文件是否存在"><span class="nav-number">2.3.1.</span> <span class="nav-text">检测文件是否存在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建文件路径"><span class="nav-number">2.3.2.</span> <span class="nav-text">创建文件路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建文件"><span class="nav-number">2.3.3.</span> <span class="nav-text">创建文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件删除"><span class="nav-number">2.3.4.</span> <span class="nav-text">文件删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件移动"><span class="nav-number">2.3.5.</span> <span class="nav-text">文件移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件复制"><span class="nav-number">2.3.6.</span> <span class="nav-text">文件复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取文件属性"><span class="nav-number">2.3.7.</span> <span class="nav-text">获取文件属性</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

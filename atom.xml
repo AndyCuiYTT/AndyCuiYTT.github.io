@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andycui.top/"/>
-  <updated>2018-05-30T04:39:55.964Z</updated>
+  <updated>2018-05-31T07:59:04.596Z</updated>
   <id>http://andycui.top/</id>
   
   <author>
@@ -16,11 +16,72 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS 沙盒机制</title>
+    <link href="http://andycui.top/2018/05/31/iOS%20%E6%B2%99%E7%9B%92%E6%9C%BA%E5%88%B6/"/>
+    <id>http://andycui.top/2018/05/31/iOS 沙盒机制/</id>
+    <published>2018-05-31T07:02:15.000Z</published>
+    <updated>2018-05-31T07:59:04.596Z</updated>
+    
+    <content type="html"><![CDATA[<p>iOS 每个 APP 都有自己的存储空间,这个存储空间叫做沙盒. APP可以在自己的沙盒中进行数据存取操作,但不能访问其他 app 的沙盒空间.对 app 做一些数据存储或者文件缓存时,一般都保存在沙盒中.<br><a id="more"></a></p>
+<h1 id="沙盒机制简介"><a href="#沙盒机制简介" class="headerlink" title="沙盒机制简介"></a>沙盒机制简介</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>沙盒机制根据访问权限和功能区别分为不同的目录: document,library,temp,.app, library又包含 caches 和preferences.</p>
+<ul>
+<li>document: 保存应用运行时生成的需要持久化的数据iTunes会自动备份该目录。苹果建议将在应用程序中浏览到的文件数据保存在该目录下.</li>
+<li><p>library: 这个目录下有两个目录  </p>
+<blockquote>
+<ul>
+<li>caches: 一般存储的是缓存文件，例如图片视频等，此目录下的文件不会再应用程序退出时删除，在手机备份的时候，iTunes不会备份该目录。  </li>
+<li>preferences: 保存应用程序的所有偏好设置iOS的Settings(设置)，我们不应该直接在这里创建文件，而是需要通过NSUserDefault这个类来访问应用程序的偏好设置。iTunes会自动备份该文件目录下的内容.</li>
+</ul>
+</blockquote>
+</li>
+<li><p>temp: 临时文件目录，在程序重新运行的时候，和开机的时候，会清空tmp文件夹。</p>
+</li>
+<li>.app: 这个就是可运行的应用文件，带有签名的文件包，包含应用程序代码和静态数据.  </li>
+</ul>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>每个应用程序都在自己的沙盒内.</li>
+<li>不能随意跨越自己的沙盒去访问别的应用程序沙盒的内容.</li>
+<li>应用程序向外请求或接收数据都需要经过权限认证.</li>
+</ul>
+<h1 id="沙盒操作"><a href="#沙盒操作" class="headerlink" title="沙盒操作"></a>沙盒操作</h1><h2 id="获取沙盒路径"><a href="#获取沙盒路径" class="headerlink" title="获取沙盒路径"></a>获取沙盒路径</h2><h2 id="获取沙盒根路径"><a href="#获取沙盒根路径" class="headerlink" title="获取沙盒根路径"></a>获取沙盒根路径</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> homePath = <span class="type">NSHomeDirectory</span>()</span><br></pre></td></tr></table></figure>
+<h3 id="获取-document-路径"><a href="#获取-document-路径" class="headerlink" title="获取 document 路径"></a>获取 document 路径</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> documentPath = <span class="type">NSSearchPathForDirectoriesInDomains</span>(.documentDirectory, .userDomainMask, <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="获取-library-路径"><a href="#获取-library-路径" class="headerlink" title="获取 library 路径"></a>获取 library 路径</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> libraryPath = <span class="type">NSSearchPathForDirectoriesInDomains</span>(.libraryDirectory, .userDomainMask, <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="获取-cache-路径"><a href="#获取-cache-路径" class="headerlink" title="获取 cache 路径"></a>获取 cache 路径</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cachePath = <span class="type">NSSearchPathForDirectoriesInDomains</span>(.cachesDirectory, .userDomainMask, <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="获取-preferences-路径"><a href="#获取-preferences-路径" class="headerlink" title="获取 preferences 路径"></a>获取 preferences 路径</h3><p>由系统维护,不需要我们手动获取文件目录.可借助 UserDefault 维护</p>
+<h3 id="获取-tmp-路径"><a href="#获取-tmp-路径" class="headerlink" title="获取 tmp 路径"></a>获取 tmp 路径</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tmpPath = <span class="type">NSTemporaryDirectory</span>()</span><br></pre></td></tr></table></figure>
+<h3 id="获取程序目录和内容"><a href="#获取程序目录和内容" class="headerlink" title="获取程序目录和内容"></a>获取程序目录和内容</h3><ul>
+<li>获取程序包路径<br><code>let path = Bundle.main.resourcePath</code></li>
+<li>获取图片资源路径<br><code>let imagePath = Bundle.main.path(forResource: &quot;temp&quot;, ofType: &quot;png&quot;)</code></li>
+</ul>
+<h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><p>iOS 对文件进行管理需要用到文件管理器: FileManager.</p>
+<h3 id="检测文件是否存在"><a href="#检测文件是否存在" class="headerlink" title="检测文件是否存在"></a>检测文件是否存在</h3><p><code>FileManager.default.fileExists(atPath: filePath)</code></p>
+<h3 id="创建文件路径"><a href="#创建文件路径" class="headerlink" title="创建文件路径"></a>创建文件路径</h3><p><code>FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)</code></p>
+<h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><p><code>FileManager.default.createFile(atPath: path, contents: data, attributes: nil)</code></p>
+<h3 id="文件删除"><a href="#文件删除" class="headerlink" title="文件删除"></a>文件删除</h3><p><code>FileManager.default.removeItem(atPath: path)</code></p>
+<h3 id="文件移动"><a href="#文件移动" class="headerlink" title="文件移动"></a>文件移动</h3><p><code>FileManager.default.moveItem(atPath: oldPath, toPath: newPath)</code></p>
+<h3 id="文件复制"><a href="#文件复制" class="headerlink" title="文件复制"></a>文件复制</h3><p><code>FileManager.default.copyItem(atPath: oldPath, toPath: newPath)</code></p>
+<h3 id="获取文件属性"><a href="#获取文件属性" class="headerlink" title="获取文件属性"></a>获取文件属性</h3><p><code>FileManager.default.attributesOfItem(atPath: filePath)</code></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;iOS 每个 APP 都有自己的存储空间,这个存储空间叫做沙盒. APP可以在自己的沙盒中进行数据存取操作,但不能访问其他 app 的沙盒空间.对 app 做一些数据存储或者文件缓存时,一般都保存在沙盒中.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="http://andycui.top/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>实现 cell 加载网络图片自适应方案</title>
     <link href="http://andycui.top/2018/05/23/%E5%AE%9E%E7%8E%B0cell%E5%9B%BE%E7%89%87%E8%87%AA%E9%80%82%E5%BA%94%E6%96%B9%E6%A1%88/"/>
     <id>http://andycui.top/2018/05/23/实现cell图片自适应方案/</id>
     <published>2018-05-23T06:57:56.000Z</published>
-    <updated>2018-05-30T04:39:55.964Z</updated>
+    <updated>2018-05-31T06:59:43.545Z</updated>
     
     <content type="html"><![CDATA[<p>UITableView 是 iOS 开发中最常用的控件之一,使用 UITaleView 时最头疼的莫过于 cell 高度的计算,虽说在 iOS8.0 以后引入了自适应方法,但在适配过程中任然会遇到各种难题,尤其是为了满足产品需求进行复杂 cell 自定义时,高度计算可谓是难上加难.这里主要对开发中遇到的自定义 cell 是加载网络图片适配问题进行总结.<br><a id="more"></a></p>
 <p>在开发中为了用户能有更好体验,对网络请求多采用异步请求的方式,更有甚者对请求数据做了本地缓存.图片作为 app 中最常见的展现形式无疑是最耗流量的,对图片的处理直接影响到用户的体验,好在有大神为我们提供了好的框架(<a href="https://github.com/onevcat/Kingfisher" target="_blank" rel="noopener">Kingfisher</a>,<a href="https://github.com/rs/SDWebImage" target="_blank" rel="noopener">SDWebImage</a>),大大提高了我们的开发效率.</p>
@@ -288,7 +349,7 @@
     <link href="http://andycui.top/2017/08/29/Swift%E5%A4%84%E7%90%86JSON%20-%20%E8%BD%AC%E6%8D%A2JSON%E5%92%8CModel/"/>
     <id>http://andycui.top/2017/08/29/Swift处理JSON - 转换JSON和Model/</id>
     <published>2017-08-29T01:28:19.000Z</published>
-    <updated>2018-05-30T04:45:59.419Z</updated>
+    <updated>2018-05-31T07:00:26.068Z</updated>
     
     <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>&emsp;&emsp;很多时候我们再服务端请求下来的数据都是<a href="https://baike.baidu.com/item/JSON/2462549" target="_blank" rel="noopener">JSON</a>格式，我们需要将这些数据展示在UI界面。我们一般都会先将JSON转化为数据模型或字典进行使用。<br>&emsp;&emsp;为了更快的开发我们时常会用到一些开源库，其中JSON解析的库必不可少，在OC开发中我们常用的JSON解析库如<a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="noopener">MJExtension</a>，<a href="https://github.com/jsonmodel/jsonmodel" target="_blank" rel="noopener">JSONModel</a>等,这些库基本都是利用runtime实现读取属性并利用kvc赋值的。在swift中由于runtime的局限性，产生了一些通过反射等机制实现的库，比如<a href="https://github.com/SwiftyJSON/SwiftyJSON" target="_blank" rel="noopener">SwiftyJSON</a>，<a href="https://github.com/Hearst-DD/ObjectMapper" target="_blank" rel="noopener">ObjectMapper</a>，<a href="https://github.com/alibaba/handyjson" target="_blank" rel="noopener">HandyJSON</a>等，而 HandyJSON 是其中使用最舒服的一个库，本文将介绍用  HandyJSON 来进行Model和JSON间的互相转换。</p>
 <h1 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h1><h2 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BasicTypes</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> int: <span class="type">Int</span> = <span class="number">2</span></span><br><span class="line">    <span class="keyword">var</span> doubleOptional: <span class="type">Double</span>?</span><br><span class="line">    <span class="keyword">var</span> stringImplicitlyUnwrapped: <span class="type">String</span>!</span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jsonString = <span class="string">"&#123;\"doubleOptional\":1.1,\"stringImplicitlyUnwrapped\":\"hello\",\"int\":1&#125;"</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> object = <span class="type">BasicTypes</span>.deserialize(from: jsonString) &#123;</span><br><span class="line">    <span class="built_in">print</span>(object.int)</span><br><span class="line">    <span class="built_in">print</span>(object.doubleOptional!)</span><br><span class="line">    <span class="built_in">print</span>(object.stringImplicitlyUnwrapped)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -400,7 +461,7 @@
     
       <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
     
-      <category term="swift" scheme="http://andycui.top/categories/iOS/swift/"/>
+      <category term="数据处理" scheme="http://andycui.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
     
       <category term="swift" scheme="http://andycui.top/tags/swift/"/>
@@ -416,7 +477,7 @@
     <link href="http://andycui.top/2017/08/01/%E6%B5%85%E8%B0%88-tableViewCell%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94/"/>
     <id>http://andycui.top/2017/08/01/浅谈-tableViewCell高度自适应/</id>
     <published>2017-08-01T10:10:43.000Z</published>
-    <updated>2018-05-30T04:40:29.260Z</updated>
+    <updated>2018-05-31T06:59:35.788Z</updated>
     
     <content type="html"><![CDATA[<p> UITableView 是开发中最常用到的控件,可以说没有哪个 APP 离得开 UITableView 控件,使用时难免会遇到各种各样的问题,其中 cell 高度自适应是最让人头疼的,简单说一下我在开发中总结.<br><a id="more"></a><br>开发中面对 cell 的自适应有着各种各样的方法,无外乎以下几种:</p>
 <h2 id="根据数据源计算"><a href="#根据数据源计算" class="headerlink" title="根据数据源计算"></a>根据数据源计算</h2><blockquote>
