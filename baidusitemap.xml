@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>http://andycui.top/2018/05/23/%E5%AE%9E%E7%8E%B0cell%E5%9B%BE%E7%89%87%E8%87%AA%E9%80%82%E5%BA%94%E6%96%B9%E6%A1%88/</loc>
+    <lastmod>2018-08-09T01:46:21.271Z</lastmod>
+    <data>
+        <display>
+        <title>实现 cell 加载网络图片自适应方案</title>
+        <pubTime>2018-05-23T06:57:56.000Z</pubTime>
+        
+        <tag>cell 自适应</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
+          
+             
+              <breadCrumb title="TableView" url="http://andycui.top/categories/iOS/TableView/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://andycui.top/2018/08/09/git%E5%BF%BD%E7%95%A5%E4%B8%8D%E5%BF%85%E8%A6%81%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2018-08-09T01:40:01.523Z</lastmod>
     <data>
@@ -157,29 +180,6 @@
           
              
               <breadCrumb title="数据处理" url="http://andycui.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://andycui.top/2018/05/23/%E5%AE%9E%E7%8E%B0cell%E5%9B%BE%E7%89%87%E8%87%AA%E9%80%82%E5%BA%94%E6%96%B9%E6%A1%88/</loc>
-    <lastmod>2018-05-31T06:59:43.545Z</lastmod>
-    <data>
-        <display>
-        <title>实现 cell 加载网络图片自适应方案</title>
-        <pubTime>2018-05-23T06:57:56.000Z</pubTime>
-        
-        <tag>cell 自适应</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
-          
-             
-              <breadCrumb title="TableView" url="http://andycui.top/categories/iOS/TableView/"/>
           
         </display>
     </data>

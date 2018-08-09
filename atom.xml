@@ -613,7 +613,7 @@
     <link href="http://andycui.top/2018/05/23/%E5%AE%9E%E7%8E%B0cell%E5%9B%BE%E7%89%87%E8%87%AA%E9%80%82%E5%BA%94%E6%96%B9%E6%A1%88/"/>
     <id>http://andycui.top/2018/05/23/实现cell图片自适应方案/</id>
     <published>2018-05-23T06:57:56.000Z</published>
-    <updated>2018-05-31T06:59:43.545Z</updated>
+    <updated>2018-08-09T01:46:21.271Z</updated>
     
     <content type="html"><![CDATA[<p>UITableView 是 iOS 开发中最常用的控件之一,使用 UITaleView 时最头疼的莫过于 cell 高度的计算,虽说在 iOS8.0 以后引入了自适应方法,但在适配过程中任然会遇到各种难题,尤其是为了满足产品需求进行复杂 cell 自定义时,高度计算可谓是难上加难.这里主要对开发中遇到的自定义 cell 是加载网络图片适配问题进行总结.<br><a id="more"></a></p>
 <p>在开发中为了用户能有更好体验,对网络请求多采用异步请求的方式,更有甚者对请求数据做了本地缓存.图片作为 app 中最常见的展现形式无疑是最耗流量的,对图片的处理直接影响到用户的体验,好在有大神为我们提供了好的框架(<a href="https://github.com/onevcat/Kingfisher" target="_blank" rel="noopener">Kingfisher</a>,<a href="https://github.com/rs/SDWebImage" target="_blank" rel="noopener">SDWebImage</a>),大大提高了我们的开发效率.</p>
