@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andycui.top/"/>
-  <updated>2018-08-09T01:40:01.523Z</updated>
+  <updated>2018-08-10T02:53:27.163Z</updated>
   <id>http://andycui.top/</id>
   
   <author>
@@ -16,11 +16,52 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>UIButton 设置图片与文字位置</title>
+    <link href="http://andycui.top/2018/08/10/UIButton%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E4%B8%8E%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE/"/>
+    <id>http://andycui.top/2018/08/10/UIButton设置图片与文字位置/</id>
+    <published>2018-08-10T01:52:00.000Z</published>
+    <updated>2018-08-10T02:53:27.163Z</updated>
+    
+    <content type="html"><![CDATA[<p>UIButton 可谓是 iOS 开发中使用频率最多的控件了,然而很多时候系统为我们提供的 UIButton 样式不能满足我们的需求,需要我们对样式进行调整,主要对文字图片的位置进行总结.<br><a href="http://andycui.top/2017/10/14/SliderViews/CustomButton.zip"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=download" alt="Website"></a></p>
+<a id="more"></a>
+<h2 id="以-UIButton-为跟视图-添加-UIImageView-与-UILabel"><a href="#以-UIButton-为跟视图-添加-UIImageView-与-UILabel" class="headerlink" title="以 UIButton 为跟视图,添加 UIImageView 与 UILabel"></a>以 UIButton 为跟视图,添加 UIImageView 与 UILabel</h2><ul>
+<li>优点: 处理简单,可以很便捷的进行布局.</li>
+<li>缺点: UIButton 本身自带有 UIImageView 与 UILabel 控件,重复.</li>
+</ul>
+<h2 id="通过设置-titleEdgeInsets-与-imageEdgeInsets-属性"><a href="#通过设置-titleEdgeInsets-与-imageEdgeInsets-属性" class="headerlink" title="通过设置 titleEdgeInsets 与 imageEdgeInsets 属性"></a>通过设置 titleEdgeInsets 与 imageEdgeInsets 属性</h2><ul>
+<li>优点: 可以直接调整 UIButton 的 UIImageView 与 UILabel,不必再次添加.</li>
+<li>确定: 便宜量计算比较复杂.  </li>
+</ul>
+<p><font color="red">注意:</font> 设置 titleEdgeInsets 与 imageEdgeInsets 属性并不会调整 UIButton, UIImageView, UILabel 的 frame, 如果偏移后超出父视图范围则不会响应.</p>
+<h2 id="自定义-UIButton-实现"><a href="#自定义-UIButton-实现" class="headerlink" title="自定义 UIButton 实现"></a>自定义 UIButton 实现</h2><p>新建 YTTCustomButton 类,继承与 UIButton, 通过重写 layoutSubviews 方法进行调整.  </p>
+<ul>
+<li>imageAlignment属性: YTTButtonImageAlignment 类型 ( top, bottom, right, left 图片位置)</li>
+<li>spaceBetweenTitleAndImage: CGFloat 类型, 图片文字间距  </li>
+</ul>
+<p><a href="CustomButton.zip">CustomButton 下载</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;UIButton 可谓是 iOS 开发中使用频率最多的控件了,然而很多时候系统为我们提供的 UIButton 样式不能满足我们的需求,需要我们对样式进行调整,主要对文字图片的位置进行总结.&lt;br&gt;&lt;a href=&quot;http://andycui.top/2017/10/14/SliderViews/CustomButton.zip&quot;&gt;&lt;img src=&quot;https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=download&quot; alt=&quot;Website&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+    
+      <category term="个人整理" scheme="http://andycui.top/categories/iOS/%E4%B8%AA%E4%BA%BA%E6%95%B4%E7%90%86/"/>
+    
+    
+      <category term="自定义视图" scheme="http://andycui.top/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Git 忽略不必要提交的文件</title>
     <link href="http://andycui.top/2018/08/09/git%E5%BF%BD%E7%95%A5%E4%B8%8D%E5%BF%85%E8%A6%81%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6/"/>
     <id>http://andycui.top/2018/08/09/git忽略不必要提交的文件/</id>
     <published>2018-08-09T01:15:29.000Z</published>
-    <updated>2018-08-09T01:40:01.523Z</updated>
+    <updated>2018-08-10T01:38:39.200Z</updated>
     
     <content type="html"><![CDATA[<p>在开发中版本控制是开发人员必不可少的,现在常用的版本控制主要是 git/svn.在实际开发过程中会产生一些中间文件或者项目中有些文件是不需要进行版本管理的,我们可以通过设置 .gitignore 文件忽略这些文件.<br><a id="more"></a></p>
 <h2 id="创建-gitignore-文件"><a href="#创建-gitignore-文件" class="headerlink" title="创建 .gitignore 文件"></a>创建 .gitignore 文件</h2><blockquote>
@@ -36,8 +77,9 @@
 <li>可以使用Linux通配符。 </li>
 <li>如果名称的最前面有一个感叹号(!)，表示例外规则，将不被忽略 </li>
 <li>如果名称的最前面有一个路径分隔符（/）,表示将忽略的文件在此目录下，而子目录中的文件不忽略 </li>
-<li>如果名称的最后面有一个路径分隔符（/）,表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）</li>
+<li>如果名称的最后面有一个路径分隔符（/）,表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）  </li>
 </ul>
+<p><strong><a href="https://github.com/github/gitignore" target="_blank" rel="noopener">gitignore 配置例子</a></strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"># Xcode</span><br><span class="line">#</span><br><span class="line"># gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore &amp; Swift.gitignore</span><br><span class="line"></span><br><span class="line">## Build generated</span><br><span class="line">build/</span><br><span class="line">DerivedData/</span><br><span class="line"></span><br><span class="line">## Various settings</span><br><span class="line">*.pbxuser</span><br><span class="line">!default.pbxuser</span><br><span class="line">*.mode1v3</span><br><span class="line">!default.mode1v3</span><br><span class="line">*.mode2v3</span><br><span class="line">!default.mode2v3</span><br><span class="line">*.perspectivev3</span><br><span class="line">!default.perspectivev3</span><br><span class="line">xcuserdata/</span><br><span class="line"></span><br><span class="line">## Other</span><br><span class="line">*.moved-aside</span><br><span class="line">*.xccheckout</span><br><span class="line">*.xcscmblueprint</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Obj-C/Swift specific</span><br><span class="line">*.hmap</span><br><span class="line">*.ipa</span><br><span class="line">*.dSYM.zip</span><br><span class="line">*.dSYM</span><br><span class="line"></span><br><span class="line"># CocoaPods</span><br><span class="line">#</span><br><span class="line"># We recommend against adding the Pods directory to your .gitignore. However</span><br><span class="line"># you should judge for yourself, the pros and cons are mentioned at:</span><br><span class="line"># https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control</span><br><span class="line"></span><br><span class="line">Pods/</span><br><span class="line"></span><br><span class="line"># Carthage</span><br><span class="line">#</span><br><span class="line"># Add this line if you want to avoid checking in source code from Carthage dependencies.</span><br><span class="line"></span><br><span class="line"># Carthage/Checkouts</span><br><span class="line">Carthage/Build</span><br><span class="line"></span><br><span class="line"># fastlane</span><br><span class="line">#</span><br><span class="line"># It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the</span><br><span class="line"># screenshots whenever they are needed.</span><br><span class="line"># For more information about the recommended setup visit:</span><br><span class="line"># https://docs.fastlane.tools/best-practices/source-control/#source-control</span><br><span class="line"></span><br><span class="line">fastlane/report.xml</span><br><span class="line">fastlane/Preview.html</span><br><span class="line">fastlane/screenshots</span><br><span class="line">fastlane/test_output</span><br><span class="line"></span><br><span class="line"># Code Injection</span><br><span class="line">#</span><br><span class="line"># After new code Injection tools there&apos;s a generated folder /iOSInjectionProject</span><br><span class="line"># https://github.com/johnno1962/injectionforxcode</span><br><span class="line"></span><br><span class="line">iOSInjectionProject/</span><br><span class="line"></span><br><span class="line"># fastlane</span><br><span class="line">fastlane</span><br></pre></td></tr></table></figure>
 ]]></content>
     

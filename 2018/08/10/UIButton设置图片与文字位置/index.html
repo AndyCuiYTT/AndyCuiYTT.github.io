@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="TableViewCell,自适应" />
+  <meta name="keywords" content="UIButton左文字右图片,UIButton设置图片与文字位置" />
 
 
 
@@ -97,18 +97,20 @@
 
 
 
-<meta name="description" content="UITableView 是开发中最常用到的控件,可以说没有哪个 APP 离得开 UITableView 控件,使用时难免会遇到各种各样的问题,其中 cell 高度自适应是最让人头疼的,简单说一下我在开发中总结.">
-<meta name="keywords" content="TableViewCell,自适应">
+<meta name="description" content="UIButton 可谓是 iOS 开发中使用频率最多的控件了,然而很多时候系统为我们提供的 UIButton 样式不能满足我们的需求,需要我们对样式进行调整,主要对文字图片的位置进行总结.">
+<meta name="keywords" content="UIButton左文字右图片,UIButton设置图片与文字位置">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈 tableViewCell高度自适应">
-<meta property="og:url" content="http://andycui.top/2017/08/01/浅谈-tableViewCell高度自适应/index.html">
+<meta property="og:title" content="UIButton 设置图片与文字位置">
+<meta property="og:url" content="http://andycui.top/2018/08/10/UIButton设置图片与文字位置/index.html">
 <meta property="og:site_name" content="AndyCuiの博客">
-<meta property="og:description" content="UITableView 是开发中最常用到的控件,可以说没有哪个 APP 离得开 UITableView 控件,使用时难免会遇到各种各样的问题,其中 cell 高度自适应是最让人头疼的,简单说一下我在开发中总结.">
+<meta property="og:description" content="UIButton 可谓是 iOS 开发中使用频率最多的控件了,然而很多时候系统为我们提供的 UIButton 样式不能满足我们的需求,需要我们对样式进行调整,主要对文字图片的位置进行总结.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-31T06:59:35.788Z">
+<meta property="og:image" content="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=download">
+<meta property="og:updated_time" content="2018-08-10T02:53:27.163Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈 tableViewCell高度自适应">
-<meta name="twitter:description" content="UITableView 是开发中最常用到的控件,可以说没有哪个 APP 离得开 UITableView 控件,使用时难免会遇到各种各样的问题,其中 cell 高度自适应是最让人头疼的,简单说一下我在开发中总结.">
+<meta name="twitter:title" content="UIButton 设置图片与文字位置">
+<meta name="twitter:description" content="UIButton 可谓是 iOS 开发中使用频率最多的控件了,然而很多时候系统为我们提供的 UIButton 样式不能满足我们的需求,需要我们对样式进行调整,主要对文字图片的位置进行总结.">
+<meta name="twitter:image" content="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=download">
 
 
 
@@ -136,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://andycui.top/2017/08/01/浅谈-tableViewCell高度自适应/"/>
+  <link rel="canonical" href="http://andycui.top/2018/08/10/UIButton设置图片与文字位置/"/>
 
 
 
 
 
-  <title>浅谈 tableViewCell高度自适应 | AndyCuiの博客</title>
+  <title>UIButton 设置图片与文字位置 | AndyCuiの博客</title>
   
 
 
@@ -296,7 +298,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andycui.top/2017/08/01/浅谈-tableViewCell高度自适应/">
+    <link itemprop="mainEntityOfPage" href="http://andycui.top/2018/08/10/UIButton设置图片与文字位置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Andy">
@@ -313,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浅谈 tableViewCell高度自适应</h1>
+          <h1 class="post-title" itemprop="name headline">UIButton 设置图片与文字位置</h1>
         
 
         <div class="post-meta">
@@ -325,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-01T18:10:43+08:00">
-                2017-08-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-10T09:52:00+08:00">
+                2018-08-10
               </time>
             
 
@@ -359,8 +361,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/TableView/" itemprop="url" rel="index">
-                    <span itemprop="name">TableView</span>
+                  <a href="/categories/iOS/个人整理/" itemprop="url" rel="index">
+                    <span itemprop="name">个人整理</span>
                   </a>
                 </span>
 
@@ -392,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  372
+                  238
                 </span>
               
 
@@ -426,16 +428,23 @@
       
 
       
-        <p> UITableView 是开发中最常用到的控件,可以说没有哪个 APP 离得开 UITableView 控件,使用时难免会遇到各种各样的问题,其中 cell 高度自适应是最让人头疼的,简单说一下我在开发中总结.<br><a id="more"></a><br>开发中面对 cell 的自适应有着各种各样的方法,无外乎以下几种:</p>
-<h2 id="根据数据源计算"><a href="#根据数据源计算" class="headerlink" title="根据数据源计算"></a>根据数据源计算</h2><blockquote>
-<p>通常做法为自定义 cell 添加类方法,传入当前 cell 的数据源,计算除 cell 的高度,返回.然后在 tableView 的代理方法中设置 cell 高度.<br>这种方法计算 cell 高度是需要注意:但计算 label 的高度时,要留意 label 的宽度和字体大小的设置,否则将会得到错误的高度</p>
-</blockquote>
-<h2 id="调用-tableView-的代理方法-拿到-cell-获取高度"><a href="#调用-tableView-的代理方法-拿到-cell-获取高度" class="headerlink" title="调用 tableView 的代理方法,拿到 cell 获取高度"></a>调用 tableView 的代理方法,拿到 cell 获取高度</h2><blockquote>
-<p>这种做法的缺点使cell 的生成代码重复执行.</p>
-</blockquote>
-<h2 id="iOS-8-0-以后可以与新引入-cell-自适应方法-在-xib-下使用"><a href="#iOS-8-0-以后可以与新引入-cell-自适应方法-在-xib-下使用" class="headerlink" title="iOS 8.0 以后可以与新引入 cell 自适应方法(在 xib 下使用)"></a>iOS 8.0 以后可以与新引入 cell 自适应方法(在 xib 下使用)</h2><blockquote>
-<p>需要设置 rowHeight( = UITableViewAutomaticDimension) 与 estimatedRowHeight 两个属性, rowHeight 设置表明使用自适应, estimatedRowHeight 一个参考值.<br>使用自适应如果 cell 中有图片,最好对 ImageView 的宽高进行限定,否则适配将会根据图片大小自适应.<br>当加载图片张数不确定时,可以添加一个 View, 在给 cell 赋值时用代码添加 ImgView, 将 view 的高度约束拖成属性,在图片添加完成后修改 view 的高度.</p>
-</blockquote>
+        <p>UIButton 可谓是 iOS 开发中使用频率最多的控件了,然而很多时候系统为我们提供的 UIButton 样式不能满足我们的需求,需要我们对样式进行调整,主要对文字图片的位置进行总结.<br><a href="http://andycui.top/2017/10/14/SliderViews/CustomButton.zip"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=download" alt="Website"></a></p>
+<a id="more"></a>
+<h2 id="以-UIButton-为跟视图-添加-UIImageView-与-UILabel"><a href="#以-UIButton-为跟视图-添加-UIImageView-与-UILabel" class="headerlink" title="以 UIButton 为跟视图,添加 UIImageView 与 UILabel"></a>以 UIButton 为跟视图,添加 UIImageView 与 UILabel</h2><ul>
+<li>优点: 处理简单,可以很便捷的进行布局.</li>
+<li>缺点: UIButton 本身自带有 UIImageView 与 UILabel 控件,重复.</li>
+</ul>
+<h2 id="通过设置-titleEdgeInsets-与-imageEdgeInsets-属性"><a href="#通过设置-titleEdgeInsets-与-imageEdgeInsets-属性" class="headerlink" title="通过设置 titleEdgeInsets 与 imageEdgeInsets 属性"></a>通过设置 titleEdgeInsets 与 imageEdgeInsets 属性</h2><ul>
+<li>优点: 可以直接调整 UIButton 的 UIImageView 与 UILabel,不必再次添加.</li>
+<li>确定: 便宜量计算比较复杂.  </li>
+</ul>
+<p><font color="red">注意:</font> 设置 titleEdgeInsets 与 imageEdgeInsets 属性并不会调整 UIButton, UIImageView, UILabel 的 frame, 如果偏移后超出父视图范围则不会响应.</p>
+<h2 id="自定义-UIButton-实现"><a href="#自定义-UIButton-实现" class="headerlink" title="自定义 UIButton 实现"></a>自定义 UIButton 实现</h2><p>新建 YTTCustomButton 类,继承与 UIButton, 通过重写 layoutSubviews 方法进行调整.  </p>
+<ul>
+<li>imageAlignment属性: YTTButtonImageAlignment 类型 ( top, bottom, right, left 图片位置)</li>
+<li>spaceBetweenTitleAndImage: CGFloat 类型, 图片文字间距  </li>
+</ul>
+<p><a href="CustomButton.zip">CustomButton 下载</a></p>
 
       
     </div>
@@ -464,7 +473,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andycui.top/2017/08/01/浅谈-tableViewCell高度自适应/" title="浅谈 tableViewCell高度自适应">http://andycui.top/2017/08/01/浅谈-tableViewCell高度自适应/</a>
+      <a href="http://andycui.top/2018/08/10/UIButton设置图片与文字位置/" title="UIButton 设置图片与文字位置">http://andycui.top/2018/08/10/UIButton设置图片与文字位置/</a>
     </li>
     <!-- <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -485,7 +494,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/cell-自适应/" rel="tag"><i class="fa fa-tag"></i> cell 自适应</a>
+            <a href="/tags/自定义视图/" rel="tag"><i class="fa fa-tag"></i> 自定义视图</a>
           
         </div>
       
@@ -498,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/25/swift-打包-framework/" rel="next" title="swift 打包 framework">
-                <i class="fa fa-chevron-left"></i> swift 打包 framework
+              <a href="/2018/08/09/git忽略不必要提交的文件/" rel="next" title="Git 忽略不必要提交的文件">
+                <i class="fa fa-chevron-left"></i> Git 忽略不必要提交的文件
               </a>
             
           </div>
@@ -507,10 +516,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/29/Swift处理JSON - 转换JSON和Model/" rel="prev" title="Swift处理JSON - 转换JSON和Model">
-                Swift处理JSON - 转换JSON和Model <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -711,7 +716,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#根据数据源计算"><span class="nav-number">1.</span> <span class="nav-text">根据数据源计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用-tableView-的代理方法-拿到-cell-获取高度"><span class="nav-number">2.</span> <span class="nav-text">调用 tableView 的代理方法,拿到 cell 获取高度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS-8-0-以后可以与新引入-cell-自适应方法-在-xib-下使用"><span class="nav-number">3.</span> <span class="nav-text">iOS 8.0 以后可以与新引入 cell 自适应方法(在 xib 下使用)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#以-UIButton-为跟视图-添加-UIImageView-与-UILabel"><span class="nav-number">1.</span> <span class="nav-text">以 UIButton 为跟视图,添加 UIImageView 与 UILabel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过设置-titleEdgeInsets-与-imageEdgeInsets-属性"><span class="nav-number">2.</span> <span class="nav-text">通过设置 titleEdgeInsets 与 imageEdgeInsets 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义-UIButton-实现"><span class="nav-number">3.</span> <span class="nav-text">自定义 UIButton 实现</span></a></li></ol></div>
             
 
           </div>
