@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andycui.top/"/>
-  <updated>2018-08-10T02:55:54.829Z</updated>
+  <updated>2018-08-10T02:58:30.262Z</updated>
   <id>http://andycui.top/</id>
   
   <author>
@@ -20,10 +20,9 @@
     <link href="http://andycui.top/2018/08/10/UIButton%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E4%B8%8E%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE/"/>
     <id>http://andycui.top/2018/08/10/UIButton设置图片与文字位置/</id>
     <published>2018-08-10T01:52:00.000Z</published>
-    <updated>2018-08-10T02:55:54.829Z</updated>
+    <updated>2018-08-10T02:58:30.262Z</updated>
     
-    <content type="html"><![CDATA[<p>UIButton 可谓是 iOS 开发中使用频率最多的控件了,然而很多时候系统为我们提供的 UIButton 样式不能满足我们的需求,需要我们对样式进行调整,主要对文字图片的位置进行总结.<br><a href="CustomButton.zip"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=download" alt="Website"></a></p>
-<a id="more"></a>
+    <content type="html"><![CDATA[<p>UIButton 可谓是 iOS 开发中使用频率最多的控件了,然而很多时候系统为我们提供的 UIButton 样式不能满足我们的需求,需要我们对样式进行调整,主要对文字图片的位置进行总结.<br><a id="more"></a></p>
 <h2 id="以-UIButton-为跟视图-添加-UIImageView-与-UILabel"><a href="#以-UIButton-为跟视图-添加-UIImageView-与-UILabel" class="headerlink" title="以 UIButton 为跟视图,添加 UIImageView 与 UILabel"></a>以 UIButton 为跟视图,添加 UIImageView 与 UILabel</h2><ul>
 <li>优点: 处理简单,可以很便捷的进行布局.</li>
 <li>缺点: UIButton 本身自带有 UIImageView 与 UILabel 控件,重复.</li>
@@ -43,7 +42,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;UIButton 可谓是 iOS 开发中使用频率最多的控件了,然而很多时候系统为我们提供的 UIButton 样式不能满足我们的需求,需要我们对样式进行调整,主要对文字图片的位置进行总结.&lt;br&gt;&lt;a href=&quot;CustomButton.zip&quot;&gt;&lt;img src=&quot;https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=download&quot; alt=&quot;Website&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;UIButton 可谓是 iOS 开发中使用频率最多的控件了,然而很多时候系统为我们提供的 UIButton 样式不能满足我们的需求,需要我们对样式进行调整,主要对文字图片的位置进行总结.&lt;br&gt;
     
     </summary>
     
