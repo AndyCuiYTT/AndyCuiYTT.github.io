@@ -2,13 +2,13 @@
 title: 实现 cell 加载网络图片自适应方案
 date: 2018-05-23 14:57:56
 keywords: 
-    - TableViewCell
-    - 自适应
+- TableViewCell
+- 自适应
 tags: 
-    - cell 自适应
+- cell 自适应
 categories: 
-    - iOS
-    - TableView
+- iOS
+- TableView
 ---
 UITableView 是 iOS 开发中最常用的控件之一,使用 UITaleView 时最头疼的莫过于 cell 高度的计算,虽说在 iOS8.0 以后引入了自适应方法,但在适配过程中任然会遇到各种难题,尤其是为了满足产品需求进行复杂 cell 自定义时,高度计算可谓是难上加难.这里主要对开发中遇到的自定义 cell 是加载网络图片适配问题进行总结.
 <!--more-->
