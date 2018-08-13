@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[UILabel 加载 HTML]]></title>
+    <url>%2F2018%2F08%2F13%2FUILabel%E5%8A%A0%E8%BD%BDHTML%2F</url>
+    <content type="text"><![CDATA[iOS 开发中为了开发方便时长会加载一些 HTML 静态页面,目前主要使用 UIWebView 与 WKWebView 进行加载,但仅仅作为页面展示我认为没有必要使用他们,且他们高度自适应比较繁琐,因此比较推荐使用 UILabel 加载富文本形式展现 HTML 页面. OC 代码12NSAttributedString * attrStr = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@&#123; NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType &#125; documentAttributes:nil error:nil];label.attributedText = attrStr; swift 代码123if let data = htmlStr.data(using: String.Encoding.unicode), let attributedStr = try? NSAttributedString(data: data, options: [NSAttributedString.DocumentReadingOptionKey.documentType : NSAttributedString.DocumentType.html], documentAttributes: nil) &#123; label.attributedText = attributedStr&#125;]]></content>
+      <categories>
+        <category>iOS</category>
+        <category>总结</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+        <tag>富文本</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[UIButton 设置图片与文字位置]]></title>
     <url>%2F2018%2F08%2F10%2FUIButton%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E4%B8%8E%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[UIButton 可谓是 iOS 开发中使用频率最多的控件了,然而很多时候系统为我们提供的 UIButton 样式不能满足我们的需求,需要我们对样式进行调整,主要对文字图片的位置进行总结. 以 UIButton 为跟视图,添加 UIImageView 与 UILabel 优点: 处理简单,可以很便捷的进行布局. 缺点: UIButton 本身自带有 UIImageView 与 UILabel 控件,重复. 通过设置 titleEdgeInsets 与 imageEdgeInsets 属性 优点: 可以直接调整 UIButton 的 UIImageView 与 UILabel,不必再次添加. 确定: 便宜量计算比较复杂. 注意: 设置 titleEdgeInsets 与 imageEdgeInsets 属性并不会调整 UIButton, UIImageView, UILabel 的 frame, 如果偏移后超出父视图范围则不会响应. 自定义 UIButton新建 YTTCustomButton 类,继承与 UIButton, 通过重写 layoutSubviews 方法进行调整. imageAlignment属性: YTTButtonImageAlignment 类型 ( top, bottom, right, left 图片位置) spaceBetweenTitleAndImage: CGFloat 类型, 图片文字间距 CustomButton 下载]]></content>
       <categories>
         <category>iOS</category>
-        <category>个人整理</category>
+        <category>总结</category>
       </categories>
       <tags>
         <tag>自定义视图</tag>

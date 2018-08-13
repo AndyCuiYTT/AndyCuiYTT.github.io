@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andycui.top/"/>
-  <updated>2018-08-10T03:01:04.211Z</updated>
+  <updated>2018-08-13T08:16:49.048Z</updated>
   <id>http://andycui.top/</id>
   
   <author>
@@ -16,11 +16,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>UILabel 加载 HTML</title>
+    <link href="http://andycui.top/2018/08/13/UILabel%E5%8A%A0%E8%BD%BDHTML/"/>
+    <id>http://andycui.top/2018/08/13/UILabel加载HTML/</id>
+    <published>2018-08-13T08:04:32.000Z</published>
+    <updated>2018-08-13T08:16:49.048Z</updated>
+    
+    <content type="html"><![CDATA[<p>iOS 开发中为了开发方便时长会加载一些 HTML 静态页面,目前主要使用 UIWebView 与 WKWebView 进行加载,但仅仅作为页面展示我认为没有必要使用他们,且他们高度自适应比较繁琐,因此比较推荐使用 UILabel 加载富文本形式展现 HTML 页面.<br><a id="more"></a></p>
+<h2 id="OC-代码"><a href="#OC-代码" class="headerlink" title="OC 代码"></a>OC 代码</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">NSAttributedString</span> * attrStr = [[<span class="type">NSAttributedString</span> alloc] initWithData:[htmlString dataUsingEncoding:<span class="type">NSUnicodeStringEncoding</span>] options:@&#123; <span class="type">NSDocumentTypeDocumentAttribute</span>: <span class="type">NSHTMLTextDocumentType</span> &#125; documentAttributes:<span class="literal">nil</span> error:<span class="literal">nil</span>];</span><br><span class="line">label.attributedText = attrStr;</span><br></pre></td></tr></table></figure>
+<h2 id="swift-代码"><a href="#swift-代码" class="headerlink" title="swift 代码"></a>swift 代码</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> data = htmlStr.data(using: <span class="type">String</span>.<span class="type">Encoding</span>.unicode), <span class="keyword">let</span> attributedStr = <span class="keyword">try</span>? <span class="type">NSAttributedString</span>(data: data, options: [<span class="type">NSAttributedString</span>.<span class="type">DocumentReadingOptionKey</span>.documentType : <span class="type">NSAttributedString</span>.<span class="type">DocumentType</span>.html], documentAttributes: <span class="literal">nil</span>) &#123;</span><br><span class="line">    label.attributedText = attributedStr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;iOS 开发中为了开发方便时长会加载一些 HTML 静态页面,目前主要使用 UIWebView 与 WKWebView 进行加载,但仅仅作为页面展示我认为没有必要使用他们,且他们高度自适应比较繁琐,因此比较推荐使用 UILabel 加载富文本形式展现 HTML 页面.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+    
+      <category term="总结" scheme="http://andycui.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="HTML" scheme="http://andycui.top/tags/HTML/"/>
+    
+      <category term="富文本" scheme="http://andycui.top/tags/%E5%AF%8C%E6%96%87%E6%9C%AC/"/>
+    
+  </entry>
+  
+  <entry>
     <title>UIButton 设置图片与文字位置</title>
     <link href="http://andycui.top/2018/08/10/UIButton%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E4%B8%8E%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE/"/>
     <id>http://andycui.top/2018/08/10/UIButton设置图片与文字位置/</id>
     <published>2018-08-10T01:52:00.000Z</published>
-    <updated>2018-08-10T03:01:04.211Z</updated>
+    <updated>2018-08-13T08:06:56.005Z</updated>
     
     <content type="html"><![CDATA[<p>UIButton 可谓是 iOS 开发中使用频率最多的控件了,然而很多时候系统为我们提供的 UIButton 样式不能满足我们的需求,需要我们对样式进行调整,主要对文字图片的位置进行总结.<br><a id="more"></a></p>
 <h2 id="以-UIButton-为跟视图-添加-UIImageView-与-UILabel"><a href="#以-UIButton-为跟视图-添加-UIImageView-与-UILabel" class="headerlink" title="以 UIButton 为跟视图,添加 UIImageView 与 UILabel"></a>以 UIButton 为跟视图,添加 UIImageView 与 UILabel</h2><ul>
@@ -48,7 +77,7 @@
     
       <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
     
-      <category term="个人整理" scheme="http://andycui.top/categories/iOS/%E4%B8%AA%E4%BA%BA%E6%95%B4%E7%90%86/"/>
+      <category term="总结" scheme="http://andycui.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
     
     
       <category term="自定义视图" scheme="http://andycui.top/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
