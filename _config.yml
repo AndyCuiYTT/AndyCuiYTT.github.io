@@ -17,7 +17,7 @@ keywords: Andy,AndyCui,AndyCuiYTT,AndyCuiの博客
 url: http://andycui.top #https://andycuiytt.github.io #http://yoursite.com
 root: /
 permalink: :year/:month/:day/:title/
-permalink_defaults: true
+permalink_defaults:
 
 # Directory
 source_dir: source
@@ -37,7 +37,7 @@ external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
 post_asset_folder: true
-relative_link: true
+relative_link:
 future: true
 highlight:
   enable: true
