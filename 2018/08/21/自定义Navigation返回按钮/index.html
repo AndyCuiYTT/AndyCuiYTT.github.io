@@ -79,7 +79,7 @@
 <link href="../../../../css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Coder,Codable" />
+  <meta name="keywords" content="navigation,backBarButtonItem" />
 
 
 
@@ -97,22 +97,18 @@
 
 
 
-<meta name="description" content="最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中) YTTCoder : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等">
-<meta name="keywords" content="Coder,Codable">
+<meta name="description" content="UINavigationController 是 iOS 开发中常用的空间,在开发中难免会遇到一些样式与我们需求不相符合,这里针对于返回按钮(backBarButtonItem)进行总结.">
+<meta name="keywords" content="navigation,backBarButtonItem">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YTTCoder">
-<meta property="og:url" content="http://andycui.top/2018/01/24/YTTCoder/index.html">
+<meta property="og:title" content="自定义 Navigation 返回按钮">
+<meta property="og:url" content="http://andycui.top/2018/08/21/自定义Navigation返回按钮/index.html">
 <meta property="og:site_name" content="AndyCuiの博客">
-<meta property="og:description" content="最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中) YTTCoder : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等">
+<meta property="og:description" content="UINavigationController 是 iOS 开发中常用的空间,在开发中难免会遇到一些样式与我们需求不相符合,这里针对于返回按钮(backBarButtonItem)进行总结.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img.shields.io/badge/language-swift-green.svg">
-<meta property="og:image" content="https://img.shields.io/cocoapods/v/YTTCoder.svg">
-<meta property="og:image" content="https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg">
-<meta property="og:updated_time" content="2018-05-30T04:46:26.446Z">
+<meta property="og:updated_time" content="2018-08-21T03:06:28.708Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YTTCoder">
-<meta name="twitter:description" content="最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中) YTTCoder : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等">
-<meta name="twitter:image" content="https://img.shields.io/badge/language-swift-green.svg">
+<meta name="twitter:title" content="自定义 Navigation 返回按钮">
+<meta name="twitter:description" content="UINavigationController 是 iOS 开发中常用的空间,在开发中难免会遇到一些样式与我们需求不相符合,这里针对于返回按钮(backBarButtonItem)进行总结.">
 
 
 
@@ -140,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://andycui.top/2018/01/24/YTTCoder/"/>
+  <link rel="canonical" href="http://andycui.top/2018/08/21/自定义Navigation返回按钮/"/>
 
 
 
 
 
-  <title>YTTCoder | AndyCuiの博客</title>
+  <title>自定义 Navigation 返回按钮 | AndyCuiの博客</title>
   
 
 
@@ -317,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">YTTCoder</h1>
+          <h1 class="post-title" itemprop="name headline">自定义 Navigation 返回按钮</h1>
         
 
         <div class="post-meta">
@@ -329,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-24T10:17:18+08:00">
-                2018-01-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-21T10:27:52+08:00">
+                2018-08-21
               </time>
             
 
@@ -363,8 +359,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="../../../../categories/iOS/数据处理/" itemprop="url" rel="index">
-                    <span itemprop="name">数据处理</span>
+                  <a href="../../../../categories/iOS/总结/" itemprop="url" rel="index">
+                    <span itemprop="name">总结</span>
                   </a>
                 </span>
 
@@ -396,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  294
+                  204
                 </span>
               
 
@@ -430,43 +426,18 @@
       
 
       
-        <p>最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中)</p>
-<p><a href="https://github.com/AndyCuiYTT/YTTCoder" target="_blank" rel="noopener">YTTCoder</a> : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等<br><a id="more"></a></p>
-<p><img src="https://img.shields.io/badge/language-swift-green.svg" alt=""> <img src="https://img.shields.io/cocoapods/v/YTTCoder.svg" alt=""> <a href="http://andycui.top"><img src="https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg" alt=""></a></p>
-<h4 id="YTTJsonCodable-JSON-与-Model-之间相互转化的工具类"><a href="#YTTJsonCodable-JSON-与-Model-之间相互转化的工具类" class="headerlink" title="YTTJsonCodable: JSON 与 Model 之间相互转化的工具类"></a>YTTJsonCodable: JSON 与 Model 之间相互转化的工具类</h4><blockquote>
-<p>提供数据转化的类方法,可直接调用.</p>
-</blockquote>
-<h4 id="YTTJson-协议-继承Codable协议"><a href="#YTTJson-协议-继承Codable协议" class="headerlink" title="YTTJson: 协议,继承Codable协议"></a>YTTJson: 协议,继承Codable协议</h4><blockquote>
-<p>定义 Model 实体类只需遵守该协议即可调用装换方法.</p>
-</blockquote>
-<h4 id="YTTArrayCoder-数组扩展类"><a href="#YTTArrayCoder-数组扩展类" class="headerlink" title="YTTArrayCoder: 数组扩展类"></a>YTTArrayCoder: 数组扩展类</h4><blockquote>
-<p>调用使用 obj.ytt.toJson() 形式调用</p>
-<ul>
-<li>toJson: 数组转 JSON 字符串</li>
+        <p>UINavigationController 是 iOS 开发中常用的空间,在开发中难免会遇到一些样式与我们需求不相符合,这里针对于返回按钮(backBarButtonItem)进行总结.<br><a id="more"></a></p>
+<h2 id="通过继承与-NavigationController-的子类实现自定义返回按钮"><a href="#通过继承与-NavigationController-的子类实现自定义返回按钮" class="headerlink" title="通过继承与 NavigationController 的子类实现自定义返回按钮"></a>通过继承与 NavigationController 的子类实现自定义返回按钮</h2><ul>
+<li>新建类继承与 UINavigationController</li>
+<li>通过重写 pushViewController,方法设置返回按钮<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">pushViewController</span><span class="params">(<span class="number">_</span> viewController: UIViewController, animated: Bool)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">self</span>.viewControllers.<span class="built_in">count</span> &gt; <span class="number">0</span> &#123;</span><br><span class="line">        viewController.hidesBottomBarWhenPushed = <span class="literal">true</span></span><br><span class="line">        viewController.navigationItem.leftBarButtonItem = <span class="type">UIBarButtonItem</span>(image: <span class="type">UIImage</span>(named: <span class="string">"icon_nav_back"</span>)?.withRenderingMode(.alwaysOriginal), style: .plain, target: <span class="keyword">self</span>, action: #selector(back))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">super</span>.pushViewController(viewController, animated: <span class="literal">true</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-</blockquote>
-<h4 id="YTTDictionaryCoder-字典扩展类"><a href="#YTTDictionaryCoder-字典扩展类" class="headerlink" title="YTTDictionaryCoder: 字典扩展类"></a>YTTDictionaryCoder: 字典扩展类</h4><blockquote>
-<p>调用使用 obj.ytt.toJson() 形式调用</p>
+<h2 id="设置滑动返回"><a href="#设置滑动返回" class="headerlink" title="设置滑动返回"></a>设置滑动返回</h2><p>如果使用系统的返回按钮是有轻扫左边缘返回的操作的,如果设置了 leftBarButtonItem 滑动返回将消失.</p>
 <ul>
-<li>toJson: 字典转 JSON 字符串</li>
-<li>getValue(withKeyPath): 根据路径获取值</li>
+<li>设置 interactivePopGestureRecognizer 的代理为当前类</li>
+<li>实现 gestureRecognizerShouldBegin 代理方法<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">gestureRecognizerShouldBegin</span><span class="params">(<span class="number">_</span> gestureRecognizer: UIGestureRecognizer)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>.viewControllers.<span class="built_in">count</span> &gt; <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-</blockquote>
-<h4 id="YTTStringCoder-字符串扩展类"><a href="#YTTStringCoder-字符串扩展类" class="headerlink" title="YTTStringCoder: 字符串扩展类"></a>YTTStringCoder: 字符串扩展类</h4><blockquote>
-<p>调用使用 obj.ytt.toDictionary() 形式调用</p>
-<ul>
-<li>toDictionary: JSON 字符串转字典</li>
-<li>toArray: JSON 字符串转数组</li>
-<li>toDate: 时间字符串转 Date 对象</li>
-</ul>
-</blockquote>
-<h4 id="YTTDateCoder-Date-扩展类"><a href="#YTTDateCoder-Date-扩展类" class="headerlink" title="YTTDateCoder: Date 扩展类"></a>YTTDateCoder: Date 扩展类</h4><blockquote>
-<p>调用使用 obj.ytt.toString() 形式调用</p>
-<ul>
-<li>toString: Date 格式化</li>
-</ul>
-</blockquote>
-<h4 id="反馈"><a href="#反馈" class="headerlink" title="反馈"></a>反馈</h4><p>如果您有什么好的修改建议,可以发邮件到<a href="mailto://AndyCuiYTT@163.com" target="_blank" rel="noopener">AndyCuiYTT@163.com</a>, 也欢迎到我的博客<a href="http://andycui.top">AndyCuiの博客</a>一起讨论学习~</p>
 
       
     </div>
@@ -495,7 +466,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andycui.top/2018/01/24/YTTCoder/" title="YTTCoder">http://andycui.top/2018/01/24/YTTCoder/</a>
+      <a href="http://andycui.top/2018/08/21/自定义Navigation返回按钮/" title="自定义 Navigation 返回按钮">http://andycui.top/2018/08/21/自定义Navigation返回按钮/</a>
     </li>
     <!-- <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -516,7 +487,7 @@
       
         <div class="post-tags">
           
-            <a href="../../../../tags/数据处理/" rel="tag"><i class="fa fa-tag"></i> 数据处理</a>
+            <a href="../../../../tags/navigation/" rel="tag"><i class="fa fa-tag"></i> navigation</a>
           
         </div>
       
@@ -529,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="../../../../2017/10/20/hexo-version-control/" rel="next" title="多台电脑共同管理hexo博客">
-                <i class="fa fa-chevron-left"></i> 多台电脑共同管理hexo博客
+              <a href="../../13/UILabel加载HTML/" rel="next" title="UILabel 加载 HTML">
+                <i class="fa fa-chevron-left"></i> UILabel 加载 HTML
               </a>
             
           </div>
@@ -538,10 +509,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="../../../05/22/Carthage安装以及初步实用/" rel="prev" title="Carthage 安装以及初步实用">
-                Carthage 安装以及初步实用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -742,7 +709,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTJsonCodable-JSON-与-Model-之间相互转化的工具类"><span class="nav-number">1.</span> <span class="nav-text">YTTJsonCodable: JSON 与 Model 之间相互转化的工具类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTJson-协议-继承Codable协议"><span class="nav-number">2.</span> <span class="nav-text">YTTJson: 协议,继承Codable协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTArrayCoder-数组扩展类"><span class="nav-number">3.</span> <span class="nav-text">YTTArrayCoder: 数组扩展类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTDictionaryCoder-字典扩展类"><span class="nav-number">4.</span> <span class="nav-text">YTTDictionaryCoder: 字典扩展类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTStringCoder-字符串扩展类"><span class="nav-number">5.</span> <span class="nav-text">YTTStringCoder: 字符串扩展类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTDateCoder-Date-扩展类"><span class="nav-number">6.</span> <span class="nav-text">YTTDateCoder: Date 扩展类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反馈"><span class="nav-number">7.</span> <span class="nav-text">反馈</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过继承与-NavigationController-的子类实现自定义返回按钮"><span class="nav-number">1.</span> <span class="nav-text">通过继承与 NavigationController 的子类实现自定义返回按钮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置滑动返回"><span class="nav-number">2.</span> <span class="nav-text">设置滑动返回</span></a></li></ol></div>
             
 
           </div>

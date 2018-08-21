@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andycui.top/"/>
-  <updated>2018-08-13T08:16:49.048Z</updated>
+  <updated>2018-08-21T03:06:28.708Z</updated>
   <id>http://andycui.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>自定义 Navigation 返回按钮</title>
+    <link href="http://andycui.top/2018/08/21/%E8%87%AA%E5%AE%9A%E4%B9%89Navigation%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE/"/>
+    <id>http://andycui.top/2018/08/21/自定义Navigation返回按钮/</id>
+    <published>2018-08-21T02:27:52.000Z</published>
+    <updated>2018-08-21T03:06:28.708Z</updated>
+    
+    <content type="html"><![CDATA[<p>UINavigationController 是 iOS 开发中常用的空间,在开发中难免会遇到一些样式与我们需求不相符合,这里针对于返回按钮(backBarButtonItem)进行总结.<br><a id="more"></a></p><h2 id="通过继承与-NavigationController-的子类实现自定义返回按钮"><a href="#通过继承与-NavigationController-的子类实现自定义返回按钮" class="headerlink" title="通过继承与 NavigationController 的子类实现自定义返回按钮"></a>通过继承与 NavigationController 的子类实现自定义返回按钮</h2><ul><li>新建类继承与 UINavigationController</li><li>通过重写 pushViewController,方法设置返回按钮<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">pushViewController</span><span class="params">(<span class="number">_</span> viewController: UIViewController, animated: Bool)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">self</span>.viewControllers.<span class="built_in">count</span> &gt; <span class="number">0</span> &#123;</span><br><span class="line">        viewController.hidesBottomBarWhenPushed = <span class="literal">true</span></span><br><span class="line">        viewController.navigationItem.leftBarButtonItem = <span class="type">UIBarButtonItem</span>(image: <span class="type">UIImage</span>(named: <span class="string">"icon_nav_back"</span>)?.withRenderingMode(.alwaysOriginal), style: .plain, target: <span class="keyword">self</span>, action: #selector(back))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">super</span>.pushViewController(viewController, animated: <span class="literal">true</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><h2 id="设置滑动返回"><a href="#设置滑动返回" class="headerlink" title="设置滑动返回"></a>设置滑动返回</h2><p>如果使用系统的返回按钮是有轻扫左边缘返回的操作的,如果设置了 leftBarButtonItem 滑动返回将消失.</p><ul><li>设置 interactivePopGestureRecognizer 的代理为当前类</li><li>实现 gestureRecognizerShouldBegin 代理方法<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">gestureRecognizerShouldBegin</span><span class="params">(<span class="number">_</span> gestureRecognizer: UIGestureRecognizer)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>.viewControllers.<span class="built_in">count</span> &gt; <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;UINavigationController 是 iOS 开发中常用的空间,在开发中难免会遇到一些样式与我们需求不相符合,这里针对于返回按钮(backBarButtonItem)进行总结.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+    
+      <category term="总结" scheme="http://andycui.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="navigation" scheme="http://andycui.top/tags/navigation/"/>
+    
+  </entry>
   
   <entry>
     <title>UILabel 加载 HTML</title>
