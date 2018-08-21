@@ -6,9 +6,9 @@
 title: AndyCuiの博客
 subtitle: 既然认准了一条路，就不要去打听要走多久。
 description: 既然认准了一条路，就不要去打听要走多久。
-author: Andy
+author: AndyCui
 language: zh-Hans
-timezone:
+timezone: Asia/Shanghai
 email: AndyCuiYTT@163.com
 keywords: Andy,AndyCui,AndyCuiYTT,AndyCuiの博客
 
@@ -17,7 +17,7 @@ keywords: Andy,AndyCui,AndyCuiYTT,AndyCuiの博客
 url: http://andycui.top #https://andycuiytt.github.io #http://yoursite.com
 root: /
 permalink: :year/:month/:day/:title/
-permalink_defaults:
+permalink_defaults: true
 
 # Directory
 source_dir: source
@@ -37,13 +37,13 @@ external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
 post_asset_folder: true
-relative_link: false
+relative_link: true
 future: true
 highlight:
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace:
+  tab_replace: true
 
 # Category & Tag
 default_category: uncategorized
@@ -62,6 +62,32 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
+# Extensions 拓展插件配置
+## Plugins: https://hexo.io/plugins/
+plugins:
+baidusitemap:
+  path: baidusitemap.xml
+sitemap:
+  path: sitemap.xml
+
+# 配置RSS
+feed:
+  #feed 类型 (atom/rss2)
+  type: atom
+  #rss 路径
+  path: atom.xml
+  #在 rss 中最多生成的文章数(0显示所有)
+  limit: 0
+
+
+# 自定义站点内容搜索
+# 需要先安装插件：
+# npm install hexo-generator-search --save
+search:
+  path: search.xml
+  # 如只想索引文章，可设置为post
+  field: all
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
@@ -71,7 +97,16 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+# deploy:
+#  type: git
+#  repository: https://github.com/AndyCuiYTT/AndyCuiYTT.github.io.git
+#  branch: master
+
 deploy:
   type: git
-  repository: https://github.com/AndyCuiYTT/AndyCuiYTT.github.io.git
+  repository:
+    github: https://github.com/AndyCuiYTT/AndyCuiYTT.github.io.git
+    gitcafe: https://git.coding.net/AndyCuiYTT/AndyCuiYTT.git
   branch: master
+  message: blog update
+
