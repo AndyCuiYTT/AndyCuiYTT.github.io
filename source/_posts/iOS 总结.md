@@ -275,19 +275,6 @@ UITableView 维护这两个队列,单前可视 cell 队列 visiableCells, 可重
 * 结合 SDWebImage 实现 cell 中图片异步加载以及缓存.
 
 
-# 常用三方库
-||库名|介绍|平台|
-|:-:|:-:|:-:|:-:|
-|网络请求|[AFNetworking](https://github.com/AFNetworking/AFNetworking)|轻量级网络请求开源框架|OC|
-|网络请求|[Alamofire](https://github.com/Alamofire/Alamofire)|swift 版 AFNetwoking|swift|
-|图片加载|[SDWebImage](https://github.com/rs/SDWebImage)|在网络下载并缓存图片|OC|
-|图片加载|[Kingfisher](https://github.com/onevcat/Kingfisher)|在网络下载并缓存图片|swift|
-|布局|[Masonry](https://github.com/SnapKit/Masonry)|自动布局框架|OC|
-|布局|[SnapKit](https://github.com/SnapKit/SnapKit)|自动布局框架|swift|
-|加载|[MJRefresh](https://github.com/CoderMJLee/MJRefresh)|下拉刷新框架|OC|
-|模型转换|[MJExtension](https://github.com/CoderMJLee/MJExtension)|json 转 model|OC|
-|模型转换|[HandyJSON](https://github.com/alibaba/HandyJSON)|json 转 model|swift|
-
 
 
 
