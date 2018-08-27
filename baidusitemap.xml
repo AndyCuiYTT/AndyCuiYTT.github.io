@@ -4,6 +4,58 @@
 
     
   <url>
+    <loc>http://andycui.top/2018/08/27/YTTCache/</loc>
+    <lastmod>2018-08-27T06:01:16.362Z</lastmod>
+    <data>
+        <display>
+        <title>YTTCache</title>
+        <pubTime>2018-08-27T03:00:26.000Z</pubTime>
+        
+        <tag>持久化</tag>
+         
+        <tag>三方库</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
+          
+             
+              <breadCrumb title="组件库" url="http://andycui.top/categories/iOS/%E7%BB%84%E4%BB%B6%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2017/07/14/PayDemo/</loc>
+    <lastmod>2018-08-27T03:19:35.787Z</lastmod>
+    <data>
+        <display>
+        <title>支付宝微信简单封装</title>
+        <pubTime>2017-07-14T10:57:25.000Z</pubTime>
+        
+        <tag>pay</tag>
+         
+        <tag>alipay</tag>
+         
+        <tag>wechatpay</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
+          
+             
+              <breadCrumb title="三方接入" url="http://andycui.top/categories/iOS/%E4%B8%89%E6%96%B9%E6%8E%A5%E5%85%A5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://andycui.top/2018/08/23/iOS%20%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E4%B8%89%E6%96%B9%E5%BA%93%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2018-08-23T01:58:00.454Z</lastmod>
     <data>
@@ -13,9 +65,9 @@
         
         <tag>swift</tag>
          
-        <tag>iOS</tag>
-         
         <tag>三方库</tag>
+         
+        <tag>iOS</tag>
          
          
            
@@ -413,33 +465,6 @@
           
              
               <breadCrumb title="自定义视图" url="http://andycui.top/categories/iOS/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://andycui.top/2017/07/14/PayDemo/</loc>
-    <lastmod>2018-05-30T04:44:13.108Z</lastmod>
-    <data>
-        <display>
-        <title>支付宝微信简单封装</title>
-        <pubTime>2017-07-14T10:57:25.000Z</pubTime>
-        
-        <tag>pay</tag>
-         
-        <tag>alipay</tag>
-         
-        <tag>wechatpay</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
-          
-             
-              <breadCrumb title="三方接入" url="http://andycui.top/categories/iOS/%E4%B8%89%E6%96%B9%E6%8E%A5%E5%85%A5/"/>
           
         </display>
     </data>

@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="TableViewCell,自适应" />
+  <meta name="keywords" content="cache,sqlite,SQLite.swift" />
 
 
 
@@ -97,18 +97,20 @@
 
 
 
-<meta name="description" content="UITableView 是开发中最常用到的控件,可以说没有哪个 APP 离得开 UITableView 控件,使用时难免会遇到各种各样的问题,其中 cell 高度自适应是最让人头疼的,简单说一下我在开发中总结.">
-<meta name="keywords" content="TableViewCell,自适应">
+<meta name="description" content="iOS 开发中经常会用到本地存储,加之最近在了解组件化,所以对本地存储这块做了组件化处理,且在完善中…">
+<meta name="keywords" content="cache,sqlite,SQLite.swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈 tableViewCell高度自适应">
-<meta property="og:url" content="http://andycui.top/2017/08/01/浅谈-tableViewCell高度自适应/index.html">
+<meta property="og:title" content="YTTCache">
+<meta property="og:url" content="http://andycui.top/2018/08/27/YTTCache/index.html">
 <meta property="og:site_name" content="AndyCuiの博客">
-<meta property="og:description" content="UITableView 是开发中最常用到的控件,可以说没有哪个 APP 离得开 UITableView 控件,使用时难免会遇到各种各样的问题,其中 cell 高度自适应是最让人头疼的,简单说一下我在开发中总结.">
+<meta property="og:description" content="iOS 开发中经常会用到本地存储,加之最近在了解组件化,所以对本地存储这块做了组件化处理,且在完善中…">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-31T06:59:35.788Z">
+<meta property="og:image" content="https://img.shields.io/github/release/AndyCuiYTT/YTTCache.svg?style=plastic">
+<meta property="og:updated_time" content="2018-08-27T06:01:16.362Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈 tableViewCell高度自适应">
-<meta name="twitter:description" content="UITableView 是开发中最常用到的控件,可以说没有哪个 APP 离得开 UITableView 控件,使用时难免会遇到各种各样的问题,其中 cell 高度自适应是最让人头疼的,简单说一下我在开发中总结.">
+<meta name="twitter:title" content="YTTCache">
+<meta name="twitter:description" content="iOS 开发中经常会用到本地存储,加之最近在了解组件化,所以对本地存储这块做了组件化处理,且在完善中…">
+<meta name="twitter:image" content="https://img.shields.io/github/release/AndyCuiYTT/YTTCache.svg?style=plastic">
 
 
 
@@ -136,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://andycui.top/2017/08/01/浅谈-tableViewCell高度自适应/"/>
+  <link rel="canonical" href="http://andycui.top/2018/08/27/YTTCache/"/>
 
 
 
 
 
-  <title>浅谈 tableViewCell高度自适应 | AndyCuiの博客</title>
+  <title>YTTCache | AndyCuiの博客</title>
   
 
 
@@ -296,7 +298,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andycui.top/2017/08/01/浅谈-tableViewCell高度自适应/">
+    <link itemprop="mainEntityOfPage" href="http://andycui.top/2018/08/27/YTTCache/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyCui">
@@ -313,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浅谈 tableViewCell高度自适应</h1>
+          <h1 class="post-title" itemprop="name headline">YTTCache</h1>
         
 
         <div class="post-meta">
@@ -325,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-01T18:10:43+08:00">
-                2017-08-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-27T11:00:26+08:00">
+                2018-08-27
               </time>
             
 
@@ -359,8 +361,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/TableView/" itemprop="url" rel="index">
-                    <span itemprop="name">TableView</span>
+                  <a href="/categories/iOS/组件库/" itemprop="url" rel="index">
+                    <span itemprop="name">组件库</span>
                   </a>
                 </span>
 
@@ -392,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  372
+                  328
                 </span>
               
 
@@ -426,16 +428,11 @@
       
 
       
-        <p> UITableView 是开发中最常用到的控件,可以说没有哪个 APP 离得开 UITableView 控件,使用时难免会遇到各种各样的问题,其中 cell 高度自适应是最让人头疼的,简单说一下我在开发中总结.<br><a id="more"></a><br>开发中面对 cell 的自适应有着各种各样的方法,无外乎以下几种:</p>
-<h2 id="根据数据源计算"><a href="#根据数据源计算" class="headerlink" title="根据数据源计算"></a>根据数据源计算</h2><blockquote>
-<p>通常做法为自定义 cell 添加类方法,传入当前 cell 的数据源,计算除 cell 的高度,返回.然后在 tableView 的代理方法中设置 cell 高度.<br>这种方法计算 cell 高度是需要注意:但计算 label 的高度时,要留意 label 的宽度和字体大小的设置,否则将会得到错误的高度</p>
-</blockquote>
-<h2 id="调用-tableView-的代理方法-拿到-cell-获取高度"><a href="#调用-tableView-的代理方法-拿到-cell-获取高度" class="headerlink" title="调用 tableView 的代理方法,拿到 cell 获取高度"></a>调用 tableView 的代理方法,拿到 cell 获取高度</h2><blockquote>
-<p>这种做法的缺点使cell 的生成代码重复执行.</p>
-</blockquote>
-<h2 id="iOS-8-0-以后可以与新引入-cell-自适应方法-在-xib-下使用"><a href="#iOS-8-0-以后可以与新引入-cell-自适应方法-在-xib-下使用" class="headerlink" title="iOS 8.0 以后可以与新引入 cell 自适应方法(在 xib 下使用)"></a>iOS 8.0 以后可以与新引入 cell 自适应方法(在 xib 下使用)</h2><blockquote>
-<p>需要设置 rowHeight( = UITableViewAutomaticDimension) 与 estimatedRowHeight 两个属性, rowHeight 设置表明使用自适应, estimatedRowHeight 一个参考值.<br>使用自适应如果 cell 中有图片,最好对 ImageView 的宽高进行限定,否则适配将会根据图片大小自适应.<br>当加载图片张数不确定时,可以添加一个 View, 在给 cell 赋值时用代码添加 ImgView, 将 view 的高度约束拖成属性,在图片添加完成后修改 view 的高度.</p>
-</blockquote>
+        <p><img src="https://img.shields.io/github/release/AndyCuiYTT/YTTCache.svg?style=plastic" alt="GitHub release"><br>iOS 开发中经常会用到本地存储,加之最近在了解组件化,所以对本地存储这块做了组件化处理,且在完善中…<br><a id="more"></a></p>
+<h2 id="YTTCache"><a href="#YTTCache" class="headerlink" title="YTTCache"></a><a href="https://github.com/AndyCuiYTT/YTTCache" target="_blank" rel="noopener">YTTCache</a></h2><p>使用 SQLite3 对数据进行存储,采用键值对形式存储数据.<br>使用 <a href="https://github.com/AndyCuiYTT/SQLite.swift" target="_blank" rel="noopener">SQLite.swift</a> 进行数据库操作.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>YTTCache  可以通过 <a href="https://cocoapods.org" target="_blank" rel="noopener">CocoaPods</a> 安装. 只需要在你的 Podfile 添加:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod <span class="string">'YTTCache'</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="Cache-for-String"><a href="#Cache-for-String" class="headerlink" title="Cache for String"></a>Cache for String</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> YTTCache</span><br><span class="line"></span><br><span class="line"><span class="comment">// 缓存数据</span></span><br><span class="line"><span class="type">YTTCache</span>.storeString(<span class="string">"value"</span>, key: <span class="string">"key"</span>)</span><br><span class="line"><span class="comment">// 刷新缓存数据</span></span><br><span class="line"><span class="type">YTTCache</span>.updateStoreString(<span class="string">"new value"</span>, key: <span class="string">"key"</span>)</span><br><span class="line"><span class="comment">// 获取缓存数据</span></span><br><span class="line"><span class="type">YTTCache</span>.stringForKey(<span class="string">"key"</span>)</span><br><span class="line"><span class="comment">// 删除缓存数据</span></span><br><span class="line"><span class="type">YTTCache</span>.removeCacheForKey(<span class="string">"key"</span>)</span><br><span class="line"><span class="comment">// 清空缓存</span></span><br><span class="line"><span class="type">YTTCache</span>.cleanCache()</span><br></pre></td></tr></table></figure>
+<h3 id="Cache-For-Request"><a href="#Cache-For-Request" class="headerlink" title="Cache For Request"></a>Cache For Request</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> YTTCache</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 缓存请求结果 JSON 数据</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Parameters:</span></span><br><span class="line"><span class="comment">///   - jsonStr: JSON 字符串</span></span><br><span class="line"><span class="comment">///   - url: 请求 URL 地址</span></span><br><span class="line"><span class="comment">///   - param: 请求参数</span></span><br><span class="line"><span class="comment">/// - Returns: 是否缓存成功</span></span><br><span class="line"><span class="type">YTTRequestCache</span>.storeJSONString(<span class="string">"&#123;/"</span>name/<span class="string">":/"</span><span class="type">AndyCui</span>/<span class="string">",/"</span>email/<span class="string">":/"</span><span class="type">AndyCuiYTT</span>@<span class="number">163</span>.com/<span class="string">"&#125;"</span>, url: <span class="string">"https:****"</span>, param: [<span class="string">"username"</span>:<span class="string">"AndyCui"</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 获取缓存 JSON 数据</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Parameters:</span></span><br><span class="line"><span class="comment">///   - url: 请求 URL 地址</span></span><br><span class="line"><span class="comment">///   - param: 请求参数</span></span><br><span class="line"><span class="comment">///   - timeoutIntervalForCache: 缓存时间(以秒为单位),默认永久</span></span><br><span class="line"><span class="comment">/// - Returns: 缓存 JSON 字符串,没有返回 nil</span></span><br><span class="line"><span class="type">YTTRequestCache</span>.<span class="type">JSONStringForKey</span>(url: <span class="string">"https:****"</span>, param: [<span class="string">"username"</span>:<span class="string">"AndyCui"</span>], timeoutIntervalForCache: <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 删除某条 JSON 数据</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Parameters:</span></span><br><span class="line"><span class="comment">///   - url: 请求 URL 地址</span></span><br><span class="line"><span class="comment">///   - param: 请求参数</span></span><br><span class="line"><span class="comment">/// - Returns: 是否删除成功</span></span><br><span class="line"><span class="type">YTTRequestCache</span>.removeJSONStringForKey(url: <span class="string">"https:****"</span>, param: [<span class="string">"username"</span>:<span class="string">"AndyCui"</span>])</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -464,7 +461,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andycui.top/2017/08/01/浅谈-tableViewCell高度自适应/" title="浅谈 tableViewCell高度自适应">http://andycui.top/2017/08/01/浅谈-tableViewCell高度自适应/</a>
+      <a href="http://andycui.top/2018/08/27/YTTCache/" title="YTTCache">http://andycui.top/2018/08/27/YTTCache/</a>
     </li>
     <!-- <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -485,7 +482,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/cell-自适应/" rel="tag"><i class="fa fa-tag"></i> cell 自适应</a>
+            <a href="/tags/持久化/" rel="tag"><i class="fa fa-tag"></i> 持久化</a>
+          
+            <a href="/tags/三方库/" rel="tag"><i class="fa fa-tag"></i> 三方库</a>
           
         </div>
       
@@ -498,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/25/swift-打包-framework/" rel="next" title="swift 打包 framework">
-                <i class="fa fa-chevron-left"></i> swift 打包 framework
+              <a href="/2018/08/23/iOS 开发常用三方库总结/" rel="next" title="iOS 开发常用三方库总结">
+                <i class="fa fa-chevron-left"></i> iOS 开发常用三方库总结
               </a>
             
           </div>
@@ -507,10 +506,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/29/Swift处理JSON - 转换JSON和Model/" rel="prev" title="Swift处理JSON - 转换JSON和Model">
-                Swift处理JSON - 转换JSON和Model <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -711,7 +706,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#根据数据源计算"><span class="nav-number">1.</span> <span class="nav-text">根据数据源计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用-tableView-的代理方法-拿到-cell-获取高度"><span class="nav-number">2.</span> <span class="nav-text">调用 tableView 的代理方法,拿到 cell 获取高度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS-8-0-以后可以与新引入-cell-自适应方法-在-xib-下使用"><span class="nav-number">3.</span> <span class="nav-text">iOS 8.0 以后可以与新引入 cell 自适应方法(在 xib 下使用)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#YTTCache"><span class="nav-number">1.</span> <span class="nav-text">YTTCache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation"><span class="nav-number">2.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Usage"><span class="nav-number">3.</span> <span class="nav-text">Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cache-for-String"><span class="nav-number">3.1.</span> <span class="nav-text">Cache for String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cache-For-Request"><span class="nav-number">3.2.</span> <span class="nav-text">Cache For Request</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[YTTCache]]></title>
+    <url>%2F2018%2F08%2F27%2FYTTCache%2F</url>
+    <content type="text"><![CDATA[iOS 开发中经常会用到本地存储,加之最近在了解组件化,所以对本地存储这块做了组件化处理,且在完善中… YTTCache使用 SQLite3 对数据进行存储,采用键值对形式存储数据.使用 SQLite.swift 进行数据库操作. InstallationYTTCache 可以通过 CocoaPods 安装. 只需要在你的 Podfile 添加:1pod 'YTTCache' UsageCache for String123456789101112import YTTCache// 缓存数据YTTCache.storeString("value", key: "key")// 刷新缓存数据YTTCache.updateStoreString("new value", key: "key")// 获取缓存数据YTTCache.stringForKey("key")// 删除缓存数据YTTCache.removeCacheForKey("key")// 清空缓存YTTCache.cleanCache() Cache For Request123456789101112131415161718192021222324252627import YTTCache/// 缓存请求结果 JSON 数据////// - Parameters:/// - jsonStr: JSON 字符串/// - url: 请求 URL 地址/// - param: 请求参数/// - Returns: 是否缓存成功YTTRequestCache.storeJSONString("&#123;/"name/":/"AndyCui/",/"email/":/"AndyCuiYTT@163.com/"&#125;", url: "https:****", param: ["username":"AndyCui"])/// 获取缓存 JSON 数据////// - Parameters:/// - url: 请求 URL 地址/// - param: 请求参数/// - timeoutIntervalForCache: 缓存时间(以秒为单位),默认永久/// - Returns: 缓存 JSON 字符串,没有返回 nilYTTRequestCache.JSONStringForKey(url: "https:****", param: ["username":"AndyCui"], timeoutIntervalForCache: 24 * 60 * 60)/// 删除某条 JSON 数据////// - Parameters:/// - url: 请求 URL 地址/// - param: 请求参数/// - Returns: 是否删除成功YTTRequestCache.removeJSONStringForKey(url: "https:****", param: ["username":"AndyCui"])]]></content>
+      <categories>
+        <category>iOS</category>
+        <category>组件库</category>
+      </categories>
+      <tags>
+        <tag>持久化</tag>
+        <tag>三方库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[iOS 开发常用三方库总结]]></title>
     <url>%2F2018%2F08%2F23%2FiOS%20%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E4%B8%89%E6%96%B9%E5%BA%93%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[iOS 开发中为了加快开发速度经常会引用一些三方库,对常用的库进行了总结. OC swift 介绍 网络请求 AFNetworking Alamofire 轻量级网络请求开源框架 图片加载 SDWebImage Kingfisher 在网络下载并缓存图片 布局 Masonry SnapKit 自动布局框架 加载 MJRefresh - 下拉刷新框架 模型转换 MJExtension/YYModel HandyJSON 模型序列化成JSON及反序列化库 SQLite FMDB SQLite.swift SQILite 管理工具]]></content>
@@ -10,8 +23,8 @@
       </categories>
       <tags>
         <tag>swift</tag>
-        <tag>iOS</tag>
         <tag>三方库</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
