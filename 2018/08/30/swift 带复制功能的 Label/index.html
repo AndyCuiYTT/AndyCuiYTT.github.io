@@ -105,12 +105,12 @@
 <meta property="og:site_name" content="AndyCuiの博客">
 <meta property="og:description" content="产品需求需要对 UILabel 展示的文本进行复制操作,针对这一需求想出了两种实现方式: 1.自定义控件,添加复制功能. 2.使用 UItextView 实现.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://andycui.top/2018/08/30/swift%20带复制功能的%20Label/YTTCopyLabel.png">
-<meta property="og:updated_time" content="2018-08-30T07:41:04.859Z">
+<meta property="og:image" content="http://andycui.top/2018/08/30/swift%20带复制功能的%20Label/YTTCopyLabel.PNG">
+<meta property="og:updated_time" content="2018-08-30T07:45:13.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift 带复制功能的 Label">
 <meta name="twitter:description" content="产品需求需要对 UILabel 展示的文本进行复制操作,针对这一需求想出了两种实现方式: 1.自定义控件,添加复制功能. 2.使用 UItextView 实现.">
-<meta name="twitter:image" content="http://andycui.top/2018/08/30/swift%20带复制功能的%20Label/YTTCopyLabel.png">
+<meta name="twitter:image" content="http://andycui.top/2018/08/30/swift%20带复制功能的%20Label/YTTCopyLabel.PNG">
 
 
 
@@ -483,7 +483,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> label = <span class="type">YTTCopyLabel</span>(frame: <span class="type">CGRect</span>(x: <span class="number">20</span>, y: <span class="number">100</span>, width: <span class="keyword">self</span>.view.frame.width - <span class="number">40</span>, height: <span class="number">30</span>))</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>运行效果如下:<br><img src="YTTCopyLabel.png" alt="copyLabel"><br><a href="YTTCopyLabel.zip">YTTCopyLabel.swift</a></p>
+<p>运行效果如下:<br><img src="YTTCopyLabel.PNG" alt="copyLabel"><br><a href="YTTCopyLabel.zip">YTTCopyLabel.swift</a></p>
 <h2 id="通过设置-UITextView-的属性实现"><a href="#通过设置-UITextView-的属性实现" class="headerlink" title="通过设置 UITextView 的属性实现"></a>通过设置 UITextView 的属性实现</h2><p>UITextView 本身就有复制的功能,他有两个属性，一个可控制其是否编辑，一个是可控制其是否可选,只需将其可编辑设为 false<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isEditable = <span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
 
       
