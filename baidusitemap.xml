@@ -3,9 +3,174 @@
 
 
     
+    
+    
+    
+  <url>
+    <loc>http://andycui.top/2017/07/12/%E9%80%9A%E8%BF%87-CGMutablePath-%E4%B8%BA-UIView-%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86/</loc>
+    <lastmod>2018-09-06T03:48:00.020Z</lastmod>
+    <data>
+        <display>
+        <title>通过 UIBezierPath 与 CAShapeLayer 为 UIView 添加边框</title>
+        <pubTime>2017-07-12T06:44:15.000Z</pubTime>
+        
+        <tag>UIBezierPath</tag>
+         
+        <tag>CAShapeLayer</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
+          
+             
+              <breadCrumb title="绘图" url="http://andycui.top/categories/iOS/%E7%BB%98%E5%9B%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2018/08/21/%E8%87%AA%E5%AE%9A%E4%B9%89Navigation%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE/</loc>
+    <lastmod>2018-09-06T03:48:00.018Z</lastmod>
+    <data>
+        <display>
+        <title>自定义 Navigation 返回按钮</title>
+        <pubTime>2018-08-21T02:27:52.000Z</pubTime>
+        
+        <tag>navigation</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
+          
+             
+              <breadCrumb title="总结" url="http://andycui.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2017/08/01/%E6%B5%85%E8%B0%88-tableViewCell%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94/</loc>
+    <lastmod>2018-09-06T03:48:00.011Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈 tableViewCell高度自适应</title>
+        <pubTime>2017-08-01T10:10:43.000Z</pubTime>
+        
+        <tag>cell 自适应</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
+          
+             
+              <breadCrumb title="TableView" url="http://andycui.top/categories/iOS/TableView/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2017/05/20/%E5%B8%B8%E9%98%85%E8%AF%BB%E7%9A%84%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2018-09-06T03:48:00.010Z</lastmod>
+    <data>
+        <display>
+        <title>常阅读的博客</title>
+        <pubTime>2017-05-20T08:55:18.000Z</pubTime>
+        
+        <tag>Other</tag>
+         
+        <tag>Blog</tag>
+         
+         
+           
+             
+              <breadCrumb title="Other" url="http://andycui.top/categories/Other/"/>
+          
+             
+              <breadCrumb title="阅读列表" url="http://andycui.top/categories/Other/%E9%98%85%E8%AF%BB%E5%88%97%E8%A1%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2018/05/23/%E5%AE%9E%E7%8E%B0cell%E5%9B%BE%E7%89%87%E8%87%AA%E9%80%82%E5%BA%94%E6%96%B9%E6%A1%88/</loc>
+    <lastmod>2018-09-06T03:47:59.995Z</lastmod>
+    <data>
+        <display>
+        <title>实现 cell 加载网络图片自适应方案</title>
+        <pubTime>2018-05-23T06:57:56.000Z</pubTime>
+        
+        <tag>cell 自适应</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
+          
+             
+              <breadCrumb title="TableView" url="http://andycui.top/categories/iOS/TableView/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2017/07/13/swift-%E6%98%9F%E7%BA%A7%E8%AF%84%E5%88%86/</loc>
+    <lastmod>2018-09-06T03:47:59.994Z</lastmod>
+    <data>
+        <display>
+        <title>[swift] 星级评分</title>
+        <pubTime>2017-07-13T03:39:29.000Z</pubTime>
+        
+        <tag>自定义视图</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
+          
+             
+              <breadCrumb title="自定义视图" url="http://andycui.top/categories/iOS/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2017/07/25/swift-%E6%89%93%E5%8C%85-framework/</loc>
+    <lastmod>2018-09-06T03:47:59.970Z</lastmod>
+    <data>
+        <display>
+        <title>swift 打包 framework</title>
+        <pubTime>2017-07-25T01:40:48.000Z</pubTime>
+        
+        <tag>framework</tag>
+         
+         
+           
+             
+              <breadCrumb title="Other" url="http://andycui.top/categories/Other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
   <url>
     <loc>http://andycui.top/2018/08/30/swift%20%E5%B8%A6%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E7%9A%84%20Label/</loc>
-    <lastmod>2018-09-05T07:55:29.217Z</lastmod>
+    <lastmod>2018-09-06T03:47:59.962Z</lastmod>
     <data>
         <display>
         <title>swift 带复制功能的 Label</title>
@@ -29,26 +194,19 @@
 
     
   <url>
-    <loc>http://andycui.top/2017/08/29/swift%E5%A4%84%E7%90%86JSON%20-%20%E8%BD%AC%E6%8D%A2JSON%E5%92%8CModel/</loc>
-    <lastmod>2018-08-30T07:10:06.863Z</lastmod>
+    <loc>http://andycui.top/2017/07/18/network-swift/</loc>
+    <lastmod>2018-09-06T03:47:59.961Z</lastmod>
     <data>
         <display>
-        <title>swift 处理 JSON - 转换 JSON 和 Model</title>
-        <pubTime>2017-08-29T01:28:19.000Z</pubTime>
+        <title>swift 网络请求</title>
+        <pubTime>2017-07-18T02:13:11.000Z</pubTime>
         
-        <tag>swift</tag>
-         
-        <tag>model</tag>
-         
-        <tag>JSON</tag>
+        <tag>network</tag>
          
          
            
              
               <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
-          
-             
-              <breadCrumb title="数据处理" url="http://andycui.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
           
         </display>
     </data>
@@ -56,16 +214,14 @@
 
     
   <url>
-    <loc>http://andycui.top/2018/08/27/YTTCache/</loc>
-    <lastmod>2018-08-27T06:01:16.362Z</lastmod>
+    <loc>http://andycui.top/2018/06/16/iOS%20%E9%9F%B3%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/</loc>
+    <lastmod>2018-09-06T03:47:59.946Z</lastmod>
     <data>
         <display>
-        <title>YTTCache</title>
-        <pubTime>2018-08-27T03:00:26.000Z</pubTime>
+        <title>iOS音视频播放</title>
+        <pubTime>2018-06-16T05:26:11.000Z</pubTime>
         
-        <tag>持久化</tag>
-         
-        <tag>三方库</tag>
+        <tag>音视频</tag>
          
          
            
@@ -73,7 +229,7 @@
               <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
           
              
-              <breadCrumb title="组件库" url="http://andycui.top/categories/iOS/%E7%BB%84%E4%BB%B6%E5%BA%93/"/>
+              <breadCrumb title="音视频" url="http://andycui.top/categories/iOS/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
           
         </display>
     </data>
@@ -81,18 +237,14 @@
 
     
   <url>
-    <loc>http://andycui.top/2017/07/14/PayDemo/</loc>
-    <lastmod>2018-08-27T03:19:35.787Z</lastmod>
+    <loc>http://andycui.top/2018/08/21/iOS%20%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/</loc>
+    <lastmod>2018-09-06T03:47:59.943Z</lastmod>
     <data>
         <display>
-        <title>支付宝微信简单封装</title>
-        <pubTime>2017-07-14T10:57:25.000Z</pubTime>
+        <title>iOS 获取系统信息</title>
+        <pubTime>2018-08-21T08:02:51.000Z</pubTime>
         
-        <tag>pay</tag>
-         
-        <tag>alipay</tag>
-         
-        <tag>wechatpay</tag>
+        <tag>系统信息</tag>
          
          
            
@@ -100,7 +252,49 @@
               <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
           
              
-              <breadCrumb title="三方接入" url="http://andycui.top/categories/iOS/%E4%B8%89%E6%96%B9%E6%8E%A5%E5%85%A5/"/>
+              <breadCrumb title="系统信息" url="http://andycui.top/categories/iOS/%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2018/05/31/iOS%20%E6%B2%99%E7%9B%92%E6%9C%BA%E5%88%B6/</loc>
+    <lastmod>2018-09-06T03:47:59.942Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 沙盒机制</title>
+        <pubTime>2018-05-31T07:02:15.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2018/06/21/iOS%20%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2018-09-06T03:47:59.893Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 总结</title>
+        <pubTime>2018-06-21T00:34:35.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>Other</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
           
         </display>
     </data>
@@ -109,7 +303,7 @@
     
   <url>
     <loc>http://andycui.top/2018/08/23/iOS%20%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E4%B8%89%E6%96%B9%E5%BA%93%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2018-08-23T01:58:00.454Z</lastmod>
+    <lastmod>2018-09-06T03:47:59.890Z</lastmod>
     <data>
         <display>
         <title>iOS 开发常用三方库总结</title>
@@ -135,21 +329,22 @@
 
     
   <url>
-    <loc>http://andycui.top/2018/06/21/iOS%20%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2018-08-23T01:43:59.337Z</lastmod>
+    <loc>http://andycui.top/2018/06/01/iOS%20%E5%BC%80%E5%8F%91%E4%B9%8B%20CoreData/</loc>
+    <lastmod>2018-09-06T03:47:59.830Z</lastmod>
     <data>
         <display>
-        <title>iOS 总结</title>
-        <pubTime>2018-06-21T00:34:35.000Z</pubTime>
+        <title>iOS 开发之 CoreData</title>
+        <pubTime>2018-06-01T05:52:05.000Z</pubTime>
         
-        <tag>iOS</tag>
-         
-        <tag>Other</tag>
+        <tag>CoreData</tag>
          
          
            
              
               <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
+          
+             
+              <breadCrumb title="数据处理" url="http://andycui.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
           
         </display>
     </data>
@@ -157,22 +352,19 @@
 
     
   <url>
-    <loc>http://andycui.top/2018/08/21/iOS%20%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/</loc>
-    <lastmod>2018-08-21T08:30:35.433Z</lastmod>
+    <loc>http://andycui.top/2017/10/20/hexo-version-control/</loc>
+    <lastmod>2018-09-06T03:47:59.829Z</lastmod>
     <data>
         <display>
-        <title>iOS 获取系统信息</title>
-        <pubTime>2018-08-21T08:02:51.000Z</pubTime>
+        <title>多台电脑共同管理hexo博客</title>
+        <pubTime>2017-10-20T01:57:30.000Z</pubTime>
         
-        <tag>系统信息</tag>
+        <tag>hexo</tag>
          
          
            
              
-              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
-          
-             
-              <breadCrumb title="系统信息" url="http://andycui.top/categories/iOS/%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/"/>
+              <breadCrumb title="Other" url="http://andycui.top/categories/Other/"/>
           
         </display>
     </data>
@@ -180,14 +372,39 @@
 
     
   <url>
-    <loc>http://andycui.top/2018/08/21/%E8%87%AA%E5%AE%9A%E4%B9%89Navigation%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE/</loc>
-    <lastmod>2018-08-21T03:06:28.708Z</lastmod>
+    <loc>http://andycui.top/2018/08/09/git%E5%BF%BD%E7%95%A5%E4%B8%8D%E5%BF%85%E8%A6%81%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2018-09-06T03:47:59.828Z</lastmod>
     <data>
         <display>
-        <title>自定义 Navigation 返回按钮</title>
-        <pubTime>2018-08-21T02:27:52.000Z</pubTime>
+        <title>Git 忽略不必要提交的文件</title>
+        <pubTime>2018-08-09T01:15:29.000Z</pubTime>
         
-        <tag>navigation</tag>
+        <tag>git</tag>
+         
+        <tag>版本控制</tag>
+         
+         
+           
+             
+              <breadCrumb title="版本控制" url="http://andycui.top/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
+          
+             
+              <breadCrumb title="Git" url="http://andycui.top/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2018/01/24/YTTCoder/</loc>
+    <lastmod>2018-09-06T03:47:59.812Z</lastmod>
+    <data>
+        <display>
+        <title>YTTCoder</title>
+        <pubTime>2018-01-24T02:17:18.000Z</pubTime>
+        
+        <tag>数据处理</tag>
          
          
            
@@ -195,7 +412,32 @@
               <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
           
              
-              <breadCrumb title="总结" url="http://andycui.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
+              <breadCrumb title="数据处理" url="http://andycui.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://andycui.top/2018/08/27/YTTCache/</loc>
+    <lastmod>2018-09-06T03:47:59.785Z</lastmod>
+    <data>
+        <display>
+        <title>YTTCache</title>
+        <pubTime>2018-08-27T03:00:26.000Z</pubTime>
+        
+        <tag>持久化</tag>
+         
+        <tag>三方库</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
+          
+             
+              <breadCrumb title="组件库" url="http://andycui.top/categories/iOS/%E7%BB%84%E4%BB%B6%E5%BA%93/"/>
           
         </display>
     </data>
@@ -204,7 +446,7 @@
     
   <url>
     <loc>http://andycui.top/2018/08/13/UILabel%E5%8A%A0%E8%BD%BDHTML/</loc>
-    <lastmod>2018-08-13T08:16:49.048Z</lastmod>
+    <lastmod>2018-09-06T03:47:59.783Z</lastmod>
     <data>
         <display>
         <title>UILabel 加载 HTML</title>
@@ -229,7 +471,7 @@
     
   <url>
     <loc>http://andycui.top/2018/08/10/UIButton%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E4%B8%8E%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE/</loc>
-    <lastmod>2018-08-13T08:06:56.005Z</lastmod>
+    <lastmod>2018-09-06T03:47:59.780Z</lastmod>
     <data>
         <display>
         <title>UIButton 设置图片与文字位置</title>
@@ -251,105 +493,18 @@
 
     
   <url>
-    <loc>http://andycui.top/2018/08/09/git%E5%BF%BD%E7%95%A5%E4%B8%8D%E5%BF%85%E8%A6%81%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6/</loc>
-    <lastmod>2018-08-10T01:38:39.200Z</lastmod>
+    <loc>http://andycui.top/2017/08/29/Swift%E5%A4%84%E7%90%86JSON%20-%20%E8%BD%AC%E6%8D%A2JSON%E5%92%8CModel/</loc>
+    <lastmod>2018-09-06T03:47:59.779Z</lastmod>
     <data>
         <display>
-        <title>Git 忽略不必要提交的文件</title>
-        <pubTime>2018-08-09T01:15:29.000Z</pubTime>
+        <title>swift 处理 JSON - 转换 JSON 和 Model</title>
+        <pubTime>2017-08-29T01:28:19.000Z</pubTime>
         
-        <tag>git</tag>
+        <tag>swift</tag>
          
-        <tag>版本控制</tag>
+        <tag>model</tag>
          
-         
-           
-             
-              <breadCrumb title="版本控制" url="http://andycui.top/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
-          
-             
-              <breadCrumb title="Git" url="http://andycui.top/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://andycui.top/2018/05/23/%E5%AE%9E%E7%8E%B0cell%E5%9B%BE%E7%89%87%E8%87%AA%E9%80%82%E5%BA%94%E6%96%B9%E6%A1%88/</loc>
-    <lastmod>2018-08-09T01:46:21.271Z</lastmod>
-    <data>
-        <display>
-        <title>实现 cell 加载网络图片自适应方案</title>
-        <pubTime>2018-05-23T06:57:56.000Z</pubTime>
-        
-        <tag>cell 自适应</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
-          
-             
-              <breadCrumb title="TableView" url="http://andycui.top/categories/iOS/TableView/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://andycui.top/2017/10/20/hexo-version-control/</loc>
-    <lastmod>2018-08-09T01:32:03.229Z</lastmod>
-    <data>
-        <display>
-        <title>多台电脑共同管理hexo博客</title>
-        <pubTime>2017-10-20T01:57:30.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="Other" url="http://andycui.top/categories/Other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://andycui.top/2018/06/16/iOS%20%E9%9F%B3%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/</loc>
-    <lastmod>2018-06-16T08:29:39.590Z</lastmod>
-    <data>
-        <display>
-        <title>iOS音视频播放</title>
-        <pubTime>2018-06-16T05:26:11.000Z</pubTime>
-        
-        <tag>音视频</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
-          
-             
-              <breadCrumb title="音视频" url="http://andycui.top/categories/iOS/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://andycui.top/2018/06/01/iOS%20%E5%BC%80%E5%8F%91%E4%B9%8B%20CoreData/</loc>
-    <lastmod>2018-06-01T08:16:17.757Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 开发之 CoreData</title>
-        <pubTime>2018-06-01T05:52:05.000Z</pubTime>
-        
-        <tag>CoreData</tag>
+        <tag>JSON</tag>
          
          
            
@@ -358,115 +513,6 @@
           
              
               <breadCrumb title="数据处理" url="http://andycui.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://andycui.top/2018/05/31/iOS%20%E6%B2%99%E7%9B%92%E6%9C%BA%E5%88%B6/</loc>
-    <lastmod>2018-05-31T07:59:04.596Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 沙盒机制</title>
-        <pubTime>2018-05-31T07:02:15.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://andycui.top/2017/08/01/%E6%B5%85%E8%B0%88-tableViewCell%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94/</loc>
-    <lastmod>2018-05-31T06:59:35.788Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈 tableViewCell高度自适应</title>
-        <pubTime>2017-08-01T10:10:43.000Z</pubTime>
-        
-        <tag>cell 自适应</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
-          
-             
-              <breadCrumb title="TableView" url="http://andycui.top/categories/iOS/TableView/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://andycui.top/2018/01/24/YTTCoder/</loc>
-    <lastmod>2018-05-30T04:46:26.446Z</lastmod>
-    <data>
-        <display>
-        <title>YTTCoder</title>
-        <pubTime>2018-01-24T02:17:18.000Z</pubTime>
-        
-        <tag>数据处理</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
-          
-             
-              <breadCrumb title="数据处理" url="http://andycui.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://andycui.top/2017/07/13/swift-%E6%98%9F%E7%BA%A7%E8%AF%84%E5%88%86/</loc>
-    <lastmod>2018-05-30T04:45:30.090Z</lastmod>
-    <data>
-        <display>
-        <title>[swift] 星级评分</title>
-        <pubTime>2017-07-13T03:39:29.000Z</pubTime>
-        
-        <tag>自定义视图</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
-          
-             
-              <breadCrumb title="自定义视图" url="http://andycui.top/categories/iOS/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://andycui.top/2017/07/25/swift-%E6%89%93%E5%8C%85-framework/</loc>
-    <lastmod>2018-05-30T04:45:06.039Z</lastmod>
-    <data>
-        <display>
-        <title>swift 打包 framework</title>
-        <pubTime>2017-07-25T01:40:48.000Z</pubTime>
-        
-        <tag>framework</tag>
-         
-         
-           
-             
-              <breadCrumb title="Other" url="http://andycui.top/categories/Other/"/>
           
         </display>
     </data>
@@ -475,7 +521,7 @@
     
   <url>
     <loc>http://andycui.top/2017/10/14/SliderViews/</loc>
-    <lastmod>2018-05-30T04:44:38.523Z</lastmod>
+    <lastmod>2018-09-06T03:47:59.746Z</lastmod>
     <data>
         <display>
         <title>SliderView</title>
@@ -497,36 +543,18 @@
 
     
   <url>
-    <loc>http://andycui.top/2017/07/18/network-swift/</loc>
-    <lastmod>2018-05-30T04:43:17.295Z</lastmod>
+    <loc>http://andycui.top/2017/07/14/PayDemo/</loc>
+    <lastmod>2018-09-06T03:47:59.745Z</lastmod>
     <data>
         <display>
-        <title>swift 网络请求</title>
-        <pubTime>2017-07-18T02:13:11.000Z</pubTime>
+        <title>支付宝微信简单封装</title>
+        <pubTime>2017-07-14T10:57:25.000Z</pubTime>
         
-        <tag>network</tag>
+        <tag>pay</tag>
          
+        <tag>alipay</tag>
          
-           
-             
-              <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://andycui.top/2017/07/12/%E9%80%9A%E8%BF%87-CGMutablePath-%E4%B8%BA-UIView-%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86/</loc>
-    <lastmod>2018-05-30T04:41:24.589Z</lastmod>
-    <data>
-        <display>
-        <title>通过 UIBezierPath 与 CAShapeLayer 为 UIView 添加边框</title>
-        <pubTime>2017-07-12T06:44:15.000Z</pubTime>
-        
-        <tag>UIBezierPath</tag>
-         
-        <tag>CAShapeLayer</tag>
+        <tag>wechatpay</tag>
          
          
            
@@ -534,7 +562,7 @@
               <breadCrumb title="iOS" url="http://andycui.top/categories/iOS/"/>
           
              
-              <breadCrumb title="绘图" url="http://andycui.top/categories/iOS/%E7%BB%98%E5%9B%BE/"/>
+              <breadCrumb title="三方接入" url="http://andycui.top/categories/iOS/%E4%B8%89%E6%96%B9%E6%8E%A5%E5%85%A5/"/>
           
         </display>
     </data>
@@ -543,7 +571,7 @@
     
   <url>
     <loc>http://andycui.top/2018/05/22/Carthage%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E5%88%9D%E6%AD%A5%E5%AE%9E%E7%94%A8/</loc>
-    <lastmod>2018-05-30T04:37:54.536Z</lastmod>
+    <lastmod>2018-09-06T03:47:59.724Z</lastmod>
     <data>
         <display>
         <title>Carthage 安装以及初步实用</title>
@@ -565,32 +593,4 @@
     </data>
     </url>
 
-    
-  <url>
-    <loc>http://andycui.top/2017/05/20/%E5%B8%B8%E9%98%85%E8%AF%BB%E7%9A%84%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2018-05-30T04:37:42.871Z</lastmod>
-    <data>
-        <display>
-        <title>常阅读的博客</title>
-        <pubTime>2017-05-20T08:55:18.000Z</pubTime>
-        
-        <tag>Other</tag>
-         
-        <tag>Blog</tag>
-         
-         
-           
-             
-              <breadCrumb title="Other" url="http://andycui.top/categories/Other/"/>
-          
-             
-              <breadCrumb title="阅读列表" url="http://andycui.top/categories/Other/%E9%98%85%E8%AF%BB%E5%88%97%E8%A1%A8/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-    
 </urlset>
