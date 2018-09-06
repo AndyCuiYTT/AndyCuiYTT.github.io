@@ -98,5 +98,77 @@ UITextView 本身就有复制的功能,他有两个属性，一个可控制其�
 ```swift
 isEditable = false
 ```
+* 创建 YTTCustomTextView,使其继承与 UITextView
+```swift
+class YTTCustomTextView: UITextView {
+}
+```
+* 重写父类方法,使其使其编辑功能
+```swift
+@IBInspectable
+var isAutoLayout: Bool = true  // 是否是自适应布局
+
+override func awakeFromNib() {
+    super.awakeFromNib()
+    setup()
+}
+
+override init(frame: CGRect, textContainer: NSTextContainer?) {
+    super.init(frame: frame, textContainer: textContainer)
+    setup()
+}
+
+private func setup() {
+    self.isEditable = false
+    self.isScrollEnabled = false // 设为 false 可自适应
+}
+```
+* 重写属性 text 与 attributedText, 进行自适应布局
+```swift
+override var text: String! {
+    get {
+        return super.text
+    }
+    set {
+        super.text = newValue
+        if !isAutoLayout {
+            let width = self.bounds.width - (self.contentInset.left + self.contentInset.right + self.textContainerInset.left + self.textContainerInset.right + self.textContainer.lineFragmentPadding * 2)
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineBreakMode = self.textContainer.lineBreakMode
+            let wordHeight = (self.text as NSString).boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [.font : self.font!, .paragraphStyle: paragraphStyle ], context: nil).height + self.textContainerInset.top + self.textContainerInset.bottom + self.textContainer.lineFragmentPadding * 2 + self.contentInset.top + self.contentInset.bottom
+            let rect = CGRect(x: self.frame.minX, y: self.frame.minY, width: width, height: wordHeight)
+            self.frame = rect
+        }
+    }
+}
+
+override var attributedText: NSAttributedString! {
+    get {
+        return super.attributedText
+    }
+    set {
+        super.attributedText = newValue
+        if !isAutoLayout {
+            let width = self.bounds.width - (self.contentInset.left + self.contentInset.right + self.textContainerInset.left + self.textContainerInset.right + self.textContainer.lineFragmentPadding * 2)
+            let wordHeight = newValue.boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil).height + self.textContainerInset.top + self.textContainerInset.bottom + self.textContainer.lineFragmentPadding * 2 + self.contentInset.top + self.contentInset.bottom
+            let rect = CGRect(x: self.frame.minX, y: self.frame.minY, width: width, height: wordHeight)
+            self.frame = rect
+        }
+    }
+}
+```
+* 判断屏幕点击事件是否在本视图,不是取消选中状态
+```swift
+// 设置点击空白取消选中效果
+override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+    // 判断点击点是否在本视图
+    if !self.point(inside: point, with: event) {
+        self.selectedRange = NSMakeRange(0, 0) // 设置为 NSMakeRange(0, 0) 取消选中效果
+    }
+    return super.hitTest(point, with: event)
+}
+```
+[YTTCustomTextView](YTTCustomTextView.zip)
+
 
 
