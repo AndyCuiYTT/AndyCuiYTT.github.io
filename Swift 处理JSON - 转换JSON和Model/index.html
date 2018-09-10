@@ -1,0 +1,1376 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="NVSaoGnOoB" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JSON,Model" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="AndyCuiの博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="iOS 开发中 model 数据模型是最长的一种数据处理方式，通常与服务器端数据交互时，服务端返回JSON文本，然后由客户端对JSON数据进行解析转化为model类型进行使用。主要针对与JSON转model进行简单描述。">
+<meta name="keywords" content="JSON,Model">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift 处理 JSON - 转换 JSON 和 Model">
+<meta property="og:url" content="http://andycui.top/Swift 处理JSON - 转换JSON和Model/index.html">
+<meta property="og:site_name" content="AndyCuiの博客">
+<meta property="og:description" content="iOS 开发中 model 数据模型是最长的一种数据处理方式，通常与服务器端数据交互时，服务端返回JSON文本，然后由客户端对JSON数据进行解析转化为model类型进行使用。主要针对与JSON转model进行简单描述。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-06T03:47:59.779Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swift 处理 JSON - 转换 JSON 和 Model">
+<meta name="twitter:description" content="iOS 开发中 model 数据模型是最长的一种数据处理方式，通常与服务器端数据交互时，服务端返回JSON文本，然后由客户端对JSON数据进行解析转化为model类型进行使用。主要针对与JSON转model进行简单描述。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://andycui.top/Swift 处理JSON - 转换JSON和Model/"/>
+
+
+
+
+
+  <title>swift 处理 JSON - 转换 JSON 和 Model | AndyCuiの博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9750942b8f833f09f3ea566f429f6799";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <!-- 添加自定义 fork me on github -->
+   
+
+
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AndyCuiの博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">既然认准了一条路，就不要去打听要走多久。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://andycui.top/Swift 处理JSON - 转换JSON和Model/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AndyCui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AndyCuiの博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">swift 处理 JSON - 转换 JSON 和 Model</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-29T09:28:19+08:00">
+                2017-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/数据处理/" itemprop="url" rel="index">
+                    <span itemprop="name">数据处理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2,017
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  iOS 开发中 model 数据模型是最长的一种数据处理方式，通常与服务器端数据交互时，服务端返回JSON文本，然后由客户端对JSON数据进行解析转化为model类型进行使用。主要针对与JSON转model进行简单描述。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>&emsp;&emsp;很多时候我们再服务端请求下来的数据都是<a href="https://baike.baidu.com/item/JSON/2462549" target="_blank" rel="noopener">JSON</a>格式，我们需要将这些数据展示在UI界面。我们一般都会先将JSON转化为数据模型或字典进行使用。<br>&emsp;&emsp;为了更快的开发我们时常会用到一些开源库，其中JSON解析的库必不可少，在OC开发中我们常用的JSON解析库如<a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="noopener">MJExtension</a>，<a href="https://github.com/jsonmodel/jsonmodel" target="_blank" rel="noopener">JSONModel</a>等,这些库基本都是利用runtime实现读取属性并利用kvc赋值的。在swift中由于runtime的局限性，产生了一些通过反射等机制实现的库，比如<a href="https://github.com/SwiftyJSON/SwiftyJSON" target="_blank" rel="noopener">SwiftyJSON</a>，<a href="https://github.com/Hearst-DD/ObjectMapper" target="_blank" rel="noopener">ObjectMapper</a>，<a href="https://github.com/alibaba/handyjson" target="_blank" rel="noopener">HandyJSON</a>等，而 HandyJSON 是其中使用最舒服的一个库，本文将介绍用  HandyJSON 来进行Model和JSON间的互相转换。</p>
+<h1 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h1><h2 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BasicTypes</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> int: <span class="type">Int</span> = <span class="number">2</span></span><br><span class="line">    <span class="keyword">var</span> doubleOptional: <span class="type">Double</span>?</span><br><span class="line">    <span class="keyword">var</span> stringImplicitlyUnwrapped: <span class="type">String</span>!</span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jsonString = <span class="string">"&#123;\"doubleOptional\":1.1,\"stringImplicitlyUnwrapped\":\"hello\",\"int\":1&#125;"</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> object = <span class="type">BasicTypes</span>.deserialize(from: jsonString) &#123;</span><br><span class="line">    <span class="built_in">print</span>(object.int)</span><br><span class="line">    <span class="built_in">print</span>(object.doubleOptional!)</span><br><span class="line">    <span class="built_in">print</span>(object.stringImplicitlyUnwrapped)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> object = <span class="type">BasicTypes</span>()</span><br><span class="line">object.int = <span class="number">1</span></span><br><span class="line">object.doubleOptional = <span class="number">1.1</span></span><br><span class="line">object.stringImplicitlyUnwrapped = “hello<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">print(object.toJSON()!) // serialize to dictionary</span></span><br><span class="line"><span class="string">print(object.toJSONString()!) // serialize to JSON string</span></span><br><span class="line"><span class="string">print(object.toJSONString(prettyPrint: true)!) // serialize to pretty JSON string</span></span><br></pre></td></tr></table></figure>
+<h1 id="文档目录"><a href="#文档目录" class="headerlink" title="文档目录"></a>文档目录</h1><ul>
+<li><a href="#特性">特性</a></li>
+<li><a href="#环境要求">环境要求</a></li>
+<li><a href="#安装">安装</a></li>
+<li><a href="#反序列化-1">反序列化</a><ul>
+<li><a href="#基本类型">基本类型</a></li>
+<li><a href="#支持struct">支持struct</a></li>
+<li><a href="#支持enum">支持enum</a></li>
+<li><a href="#可选隐式解包可选集合等">可选、隐式解包可选、集合等</a></li>
+<li><a href="#指定解析路径">指定解析路径</a></li>
+<li><a href="#组合对象">组合对象</a></li>
+<li><a href="#继承自父类的子类">继承自父类的子类</a></li>
+<li><a href="#json中的数组">JSON中的数组</a></li>
+<li><a href="#自定义解析规则">自定义解析规则</a></li>
+<li><a href="#排除指定属性">排除指定属性</a></li>
+<li><a href="#支持的属性类型">支持的属性类型</a></li>
+</ul>
+</li>
+<li><a href="#序列化-1">序列化</a><ul>
+<li><a href="#基本类型-1">基本类型</a></li>
+<li><a href="#自定义映射和排除">自定义映射和排除型</a></li>
+</ul>
+</li>
+<li><a href="#待办">待办</a></li>
+</ul>
+<h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><ul>
+<li><p>序列化Model到JSON、从JSON反序列化到Model</p>
+</li>
+<li><p>自然地以Model的属性名称作为解析JSON的Key，不需要额外指定</p>
+</li>
+<li><p>支持Swift中大部分类型</p>
+</li>
+<li><p>支持class、struct定义的Model</p>
+</li>
+<li><p>支持自定义解析规则</p>
+</li>
+<li><p>类型自适应，如JSON中是一个Int，但对应Model是String字段，会自动完成转化</p>
+</li>
+</ul>
+<p>具体支持的类型，可以参考代码文件: <a href="./HandyJSONTests/BasicTypes.swift">BasicTypes</a>。</p>
+<h1 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h1><ul>
+<li><p>iOS 8.0+/OSX 10.9+/watchOS 2.0+/tvOS 9.0+</p>
+</li>
+<li><p>Swift 2.3+ / Swift 3.0+</p>
+</li>
+</ul>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>HandyJSON只在Swift3.x版本上(master分支)开发新特性，在Swift2.x中使用，参见: <a href="https://github.com/alibaba/HandyJSON/tree/master_for_swift_2x" target="_blank" rel="noopener">swift2 branch</a></p>
+<p>具体操作指引参考 <a href="./README.md">英文版README</a> 的 <code>Installation</code> 章节。</p>
+<h1 id="反序列化-1"><a href="#反序列化-1" class="headerlink" title="反序列化"></a>反序列化</h1><h2 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h2><p>要支持从JSON串反序列化，Model定义时要声明服从<code>HandyJSON</code>协议。确实是一个协议，而不是继承自<code>NSObject</code>。</p>
+<p>服从<code>HandyJSON</code>协议，需要实现一个空的<code>init</code>方法。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BasicTypes</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> int: <span class="type">Int</span> = <span class="number">2</span></span><br><span class="line">    <span class="keyword">var</span> doubleOptional: <span class="type">Double</span>?</span><br><span class="line">    <span class="keyword">var</span> stringImplicitlyUnwrapped: <span class="type">String</span>!</span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jsonString = <span class="string">"&#123;\"doubleOptional\":1.1,\"stringImplicitlyUnwrapped\":\"hello\",\"int\":1&#125;"</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> object = <span class="type">BasicTypes</span>.deserialize(from: jsonString) &#123;</span><br><span class="line">    <span class="comment">// …</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="支持struct"><a href="#支持struct" class="headerlink" title="支持struct"></a>支持struct</h2><p>对于声明为<code>struct</code>的Model，由于<code>struct</code>默认提供了空的<code>init</code>方法，所以不需要额外声明。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BasicTypes</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> int: <span class="type">Int</span> = <span class="number">2</span></span><br><span class="line">    <span class="keyword">var</span> doubleOptional: <span class="type">Double</span>?</span><br><span class="line">    <span class="keyword">var</span> stringImplicitlyUnwrapped: <span class="type">String</span>!</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jsonString = <span class="string">"&#123;\"doubleOptional\":1.1,\"stringImplicitlyUnwrapped\":\"hello\",\"int\":1&#125;"</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> object = <span class="type">BasicTypes</span>.deserialize(from: jsonString) &#123;</span><br><span class="line">    <span class="comment">// …</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但需要注意，如果你为<code>struct</code>指定了别的构造函数，那就要显示声明一个空的<code>init</code>函数。</p>
+<h2 id="支持enum"><a href="#支持enum" class="headerlink" title="支持enum"></a>支持enum</h2><p>支持值类型的enum，且需要声明服从<code>HandyJSONEnum</code>协议。不再需要其他特殊处理了。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">AnimalType</span>: <span class="title">String</span>, <span class="title">HandyJSONEnum</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Cat</span> = <span class="string">"cat"</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">Dog</span> = <span class="string">"dog"</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">Bird</span> = <span class="string">"bird"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Animal</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</span><br><span class="line">    <span class="keyword">var</span> type: <span class="type">AnimalType</span>?</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jsonString = <span class="string">"&#123;\"type\":\"cat\",\"name\":\"Tom\"&#125;"</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> animal = <span class="type">Animal</span>.deserialize(from: jsonString) &#123;</span><br><span class="line">    <span class="built_in">print</span>(animal.type?.rawValue)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="可选、隐式解包可选、集合等"><a href="#可选、隐式解包可选、集合等" class="headerlink" title="可选、隐式解包可选、集合等"></a>可选、隐式解包可选、集合等</h2><p>HandyJSON支持这些非基础类型，包括嵌套结构。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BasicTypes</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bool: <span class="type">Bool</span> = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">var</span> intOptional: <span class="type">Int</span>?</span><br><span class="line">    <span class="keyword">var</span> doubleImplicitlyUnwrapped: <span class="type">Double</span>!</span><br><span class="line">    <span class="keyword">var</span> anyObjectOptional: <span class="type">Any</span>?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> arrayInt: <span class="type">Array</span>&lt;<span class="type">Int</span>&gt; = []</span><br><span class="line">    <span class="keyword">var</span> arrayStringOptional: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;?</span><br><span class="line">    <span class="keyword">var</span> setInt: <span class="type">Set</span>&lt;<span class="type">Int</span>&gt;?</span><br><span class="line">    <span class="keyword">var</span> dictAnyObject: <span class="type">Dictionary</span>&lt;<span class="type">String</span>, <span class="type">Any</span>&gt; = [:]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> nsNumber = <span class="number">2</span></span><br><span class="line">    <span class="keyword">var</span> nsString: <span class="type">NSString</span>?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> object = <span class="type">BasicTypes</span>()</span><br><span class="line">object.intOptional = <span class="number">1</span></span><br><span class="line">object.doubleImplicitlyUnwrapped = <span class="number">1.1</span></span><br><span class="line">object.anyObjectOptional = <span class="string">"StringValue"</span></span><br><span class="line">object.arrayInt = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">object.arrayStringOptional = [<span class="string">"a"</span>, <span class="string">"b"</span>]</span><br><span class="line">object.setInt = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">object.dictAnyObject = [<span class="string">"key1"</span>: <span class="number">1</span>, <span class="string">"key2"</span>: <span class="string">"stringValue"</span>]</span><br><span class="line">object.nsNumber = <span class="number">2</span></span><br><span class="line">object.nsString = <span class="string">"nsStringValue"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jsonString = object.toJSONString()!</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> object = <span class="type">BasicTypes</span>.deserialize(from: jsonString) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="指定解析路径"><a href="#指定解析路径" class="headerlink" title="指定解析路径"></a>指定解析路径</h2><p>HandyJSON支持指定从哪个具体路径开始解析，反序列化到Model。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> id: <span class="type">Int64</span>!</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span>!</span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jsonString = <span class="string">"&#123;\"code\":200,\"msg\":\"success\",\"data\":&#123;\"cat\":&#123;\"id\":12345,\"name\":\"Kitty\"&#125;&#125;&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> cat = <span class="type">Cat</span>.deserialize(from: jsonString, designatedPath: <span class="string">"data.cat"</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(cat.name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="组合对象"><a href="#组合对象" class="headerlink" title="组合对象"></a>组合对象</h2><p>注意，如果Model的属性不是基本类型或集合类型，那么它必须是一个服从<code>HandyJSON</code>协议的类型。</p>
+<p>如果是泛型集合类型，那么要求泛型实参是基本类型或者服从<code>HandyJSON</code>协议的类型。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Component</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> aInt: <span class="type">Int</span>?</span><br><span class="line">    <span class="keyword">var</span> aString: <span class="type">String</span>?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Composition</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> aInt: <span class="type">Int</span>?</span><br><span class="line">    <span class="keyword">var</span> comp1: <span class="type">Component</span>?</span><br><span class="line">    <span class="keyword">var</span> comp2: <span class="type">Component</span>?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jsonString = <span class="string">"&#123;\"num\":12345,\"comp1\":&#123;\"aInt\":1,\"aString\":\"aaaaa\"&#125;,\"comp2\":&#123;\"aInt\":2,\"aString\":\"bbbbb\"&#125;&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> composition = <span class="type">Composition</span>.deserialize(from: jsonString) &#123;</span><br><span class="line">    <span class="built_in">print</span>(composition)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="继承自父类的子类"><a href="#继承自父类的子类" class="headerlink" title="继承自父类的子类"></a>继承自父类的子类</h2><p>如果子类要支持反序列化，那么要求父类也服从<code>HandyJSON</code>协议。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> id: <span class="type">Int</span>?</span><br><span class="line">    <span class="keyword">var</span> color: <span class="type">String</span>?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>: <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jsonString = <span class="string">"&#123;\"id\":12345,\"color\":\"black\",\"name\":\"cat\"&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> cat = <span class="type">Cat</span>.deserialize(from: jsonString) &#123;</span><br><span class="line">    <span class="built_in">print</span>(cat)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="JSON数组"><a href="#JSON数组" class="headerlink" title="JSON数组"></a>JSON数组</h2><p>如果JSON的第一层表达的是数组，可以转化它到一个Model数组。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</span><br><span class="line">    <span class="keyword">var</span> id: <span class="type">String</span>?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jsonArrayString: <span class="type">String</span>? = <span class="string">"[&#123;\"name\":\"Bob\",\"id\":\"1\"&#125;, &#123;\"name\":\"Lily\",\"id\":\"2\"&#125;, &#123;\"name\":\"Lucy\",\"id\":\"3\"&#125;]"</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> cats = [<span class="type">Cat</span>].deserialize(from: jsonArrayString) &#123;</span><br><span class="line">    cats.forEach(&#123; (cat) <span class="keyword">in</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="自定义解析规则"><a href="#自定义解析规则" class="headerlink" title="自定义解析规则"></a>自定义解析规则</h2><p>HandyJSON支持自定义映射关系，或者自定义解析过程。你需要实现一个可选的<code>mapping</code>函数，在里边实现<code>NSString</code>值(HandyJSON会把对应的JSON字段转换为NSString)转换为你需要的字段类型。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> id: <span class="type">Int64</span>!</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span>!</span><br><span class="line">    <span class="keyword">var</span> parent: (<span class="type">String</span>, <span class="type">String</span>)?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">mapping</span><span class="params">(mapper: HelpingMapper)</span></span> &#123;</span><br><span class="line">        <span class="comment">// specify 'cat_id' field in json map to 'id' property in object</span></span><br><span class="line">        mapper &lt;&lt;&lt;</span><br><span class="line">            <span class="keyword">self</span>.id &lt;-- <span class="string">"cat_id"</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// specify 'parent' field in json parse as following to 'parent' property in object</span></span><br><span class="line">        mapper &lt;&lt;&lt;</span><br><span class="line">            <span class="keyword">self</span>.parent &lt;-- <span class="type">TransformOf</span>&lt;(<span class="type">String</span>, <span class="type">String</span>), <span class="type">String</span>&gt;(fromJSON: &#123; (rawString) -&gt; (<span class="type">String</span>, <span class="type">String</span>)? <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">let</span> parentNames = rawString?.characters.<span class="built_in">split</span>(separator: <span class="string">"/"</span>).<span class="built_in">map</span>(<span class="type">String</span>.<span class="keyword">init</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> (parentNames[<span class="number">0</span>], parentNames[<span class="number">1</span>])</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">            &#125;, toJSON: &#123; (tuple) -&gt; <span class="type">String</span>? <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">let</span> _tuple = tuple &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">"<span class="subst">\(_tuple.<span class="number">0</span>)</span>/<span class="subst">\(_tuple.<span class="number">1</span>)</span>"</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">            &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jsonString = <span class="string">"&#123;\"cat_id\":12345,\"name\":\"Kitty\",\"parent\":\"Tom/Lily\"&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> cat = <span class="type">Cat</span>.deserialize(from: jsonString) &#123;</span><br><span class="line">    <span class="built_in">print</span>(cat.id)</span><br><span class="line">    <span class="built_in">print</span>(cat.parent)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="排除指定属性"><a href="#排除指定属性" class="headerlink" title="排除指定属性"></a>排除指定属性</h2><p>如果在Model中存在因为某些原因不能实现<code>HandyJSON</code>协议的非基本字段，或者不能实现<code>HandyJSONEnum</code>协议的枚举字段，又或者说不希望反序列化影响某个字段，可以在<code>mapping</code>函数中将它排除。如果不这么做，可能会出现未定义的行为。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NotHandyJSONType</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dummy: <span class="type">String</span>?</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> id: <span class="type">Int64</span>!</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span>!</span><br><span class="line">    <span class="keyword">var</span> notHandyJSONTypeProperty: <span class="type">NotHandyJSONType</span>?</span><br><span class="line">    <span class="keyword">var</span> basicTypeButNotWantedProperty: <span class="type">String</span>?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">mapping</span><span class="params">(mapper: HelpingMapper)</span></span> &#123;</span><br><span class="line">        mapper &gt;&gt;&gt; <span class="keyword">self</span>.notHandyJSONTypeProperty</span><br><span class="line">        mapper &gt;&gt;&gt; <span class="keyword">self</span>.basicTypeButNotWantedProperty</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jsonString = <span class="string">"&#123;\"name\":\"cat\",\"id\":\"12345\"&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> cat = <span class="type">Cat</span>.deserialize(from: jsonString) &#123;</span><br><span class="line">    <span class="built_in">print</span>(cat)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="支持的属性类型"><a href="#支持的属性类型" class="headerlink" title="支持的属性类型"></a>支持的属性类型</h2><ul>
+<li><p><code>Int</code>/<code>Bool</code>/<code>Double</code>/<code>Float</code>/<code>String</code>/<code>NSNumber</code>/<code>NSString</code></p>
+</li>
+<li><p><code>NSArray/NSDictionary</code></p>
+</li>
+<li><p><code>Int8/Int16/Int32/Int64</code>/<code>UInt8/UInt16/UInt23/UInt64</code></p>
+</li>
+<li><p><code>Optional&lt;T&gt;/ImplicitUnwrappedOptional&lt;T&gt;</code> // T is one of the above types</p>
+</li>
+<li><p><code>Array&lt;T&gt;</code> // T is one of the above types</p>
+</li>
+<li><p><code>Dictionary&lt;String, T&gt;</code> // T is one of the above types</p>
+</li>
+<li><p>以上类型的嵌套</p>
+</li>
+</ul>
+<h1 id="序列化-1"><a href="#序列化-1" class="headerlink" title="序列化"></a>序列化</h1><h2 id="基本类型-1"><a href="#基本类型-1" class="headerlink" title="基本类型"></a>基本类型</h2><p>现在，序列化也要求Model声明服从<code>HandyJSON</code>协议。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BasicTypes</span>: <span class="title">HandyJSON</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> int: <span class="type">Int</span> = <span class="number">2</span></span><br><span class="line">    <span class="keyword">var</span> doubleOptional: <span class="type">Double</span>?</span><br><span class="line">    <span class="keyword">var</span> stringImplicitlyUnwrapped: <span class="type">String</span>!</span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> object = <span class="type">BasicTypes</span>()</span><br><span class="line">object.int = <span class="number">1</span></span><br><span class="line">object.doubleOptional = <span class="number">1.1</span></span><br><span class="line">object.stringImplicitlyUnwrapped = “hello<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">print(object.toJSON()!) // serialize to dictionary</span></span><br><span class="line"><span class="string">print(object.toJSONString()!) // serialize to JSON string</span></span><br><span class="line"><span class="string">print(object.toJSONString(prettyPrint: true)!) // serialize to pretty JSON string</span></span><br></pre></td></tr></table></figure>
+<h2 id="自定义映射和排除"><a href="#自定义映射和排除" class="headerlink" title="自定义映射和排除"></a>自定义映射和排除</h2><p>和反序列化一样，只要定义<code>mapping</code>和<code>exclude</code>就可以了。被排除的属性，序列化和反序列化都不再影响到它。而在<code>mapping</code>中定义的<code>Transformer</code>，同时定义了序列化和反序列的规则，所以只要为属性指明一个<code>Transformer</code>关系就可以了。</p>
+<h1 id="附加"><a href="#附加" class="headerlink" title="附加"></a>附加</h1><p>提供几个 JSON 字符串生成 model 类的工具：</p>
+<ul>
+<li><a href="https://github.com/Ahmed-Ali/JSONExport" target="_blank" rel="noopener">JSONExport</a></li>
+<li><a href="https://github.com/banxi1988/iOSCodeGenerator/blob/master/README.md" target="_blank" rel="noopener">iOS Code Generator</a></li>
+<li><a href="https://github.com/mozhenhau/D3Json" target="_blank" rel="noopener">D3Json</a></li>
+<li><a href="https://github.com/lucianomarisi/JSONUtilities" target="_blank" rel="noopener">JSONUtilities</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      AndyCui
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://andycui.top/Swift 处理JSON - 转换JSON和Model/" title="swift 处理 JSON - 转换 JSON 和 Model">http://andycui.top/Swift 处理JSON - 转换JSON和Model/</a>
+    </li>
+    <!-- <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li> -->
+    <!-- 自定义添加邮箱联系 -->
+    <li class="post-copyright-link">
+      <strong>联系作者：</strong>
+      <a href="mailto:AndyCuiYTT@163.com" title="AndyCui"> AndyCuiYTT@163.com </a>
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/model/" rel="tag"><i class="fa fa-tag"></i> model</a>
+          
+            <a href="/tags/JSON/" rel="tag"><i class="fa fa-tag"></i> JSON</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/浅谈-tableViewCell高度自适应/" rel="next" title="浅谈 tableViewCell高度自适应">
+                <i class="fa fa-chevron-left"></i> 浅谈 tableViewCell高度自适应
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/SliderViews/" rel="prev" title="SliderView">
+                SliderView <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzUyOC8xMDA4NA=="></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div id="sidebar-dimmer"></div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="AndyCui" />
+          <p class="site-author-name" itemprop="name">AndyCui</p>
+           
+              <p class="site-description motion-element" itemprop="description">既然认准了一条路，就不要去打听要走多久。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/AndyCuiYTT" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://my.oschina.net/AngeloTsui/blog" title="别情花如依丶" target="_blank">别情花如依丶</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单示例"><span class="nav-number">2.</span> <span class="nav-text">简单示例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#反序列化"><span class="nav-number">2.1.</span> <span class="nav-text">反序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#序列化"><span class="nav-number">2.2.</span> <span class="nav-text">序列化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文档目录"><span class="nav-number">3.</span> <span class="nav-text">文档目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特性"><span class="nav-number">4.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境要求"><span class="nav-number">5.</span> <span class="nav-text">环境要求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">6.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反序列化-1"><span class="nav-number">7.</span> <span class="nav-text">反序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本类型"><span class="nav-number">7.1.</span> <span class="nav-text">基本类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持struct"><span class="nav-number">7.2.</span> <span class="nav-text">支持struct</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持enum"><span class="nav-number">7.3.</span> <span class="nav-text">支持enum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可选、隐式解包可选、集合等"><span class="nav-number">7.4.</span> <span class="nav-text">可选、隐式解包可选、集合等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定解析路径"><span class="nav-number">7.5.</span> <span class="nav-text">指定解析路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合对象"><span class="nav-number">7.6.</span> <span class="nav-text">组合对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承自父类的子类"><span class="nav-number">7.7.</span> <span class="nav-text">继承自父类的子类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON数组"><span class="nav-number">7.8.</span> <span class="nav-text">JSON数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义解析规则"><span class="nav-number">7.9.</span> <span class="nav-text">自定义解析规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排除指定属性"><span class="nav-number">7.10.</span> <span class="nav-text">排除指定属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持的属性类型"><span class="nav-number">7.11.</span> <span class="nav-text">支持的属性类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#序列化-1"><span class="nav-number">8.</span> <span class="nav-text">序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本类型-1"><span class="nav-number">8.1.</span> <span class="nav-text">基本类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义映射和排除"><span class="nav-number">8.2.</span> <span class="nav-text">自定义映射和排除</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附加"><span class="nav-number">9.</span> <span class="nav-text">附加</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AndyCui</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Muse
+  </a>
+</div>
+
+<div class="hosted-by">
+  Hosted by <a href="https://pages.coding.me" style="font-weight: bold" rel="external nofollow">Coding Pages</a>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
