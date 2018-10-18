@@ -638,6 +638,30 @@
   </entry>
   
   <entry>
+    <title>iOS 调用系统自带导航功能实现</title>
+    <link href="http://andycui.top/2017/06/18/iOS%20%E8%B0%83%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6%E5%AF%BC%E8%88%AA%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://andycui.top/2017/06/18/iOS 调用系统自带导航功能实现/</id>
+    <published>2017-06-18T07:46:22.000Z</published>
+    <updated>2018-10-18T08:42:46.689Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用系统导航需要用到 MapKit 框架.通过调用 ‘MKMapItem.openMaps(with: [items], launchOptions: [options])’ 方法调起系统地图的导航功能.items 是一个数组,标记要经过的地方坐标 MKMapItem 类型,options 参数设置.<br>具体使用如下:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> startItem = <span class="type">MKMapItem</span>(placemark: <span class="type">MKPlacemark</span>(coordinate: <span class="type">CLLocationCoordinate2D</span>(latitude: <span class="number">36.7233600000</span>, longitude: <span class="number">116.9919300000</span>), addressDictionary: <span class="literal">nil</span>))</span><br><span class="line">startItem.name = <span class="string">"济南百里黄河风景区"</span> <span class="comment">// 地址名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> endItem = <span class="type">MKMapItem</span>(placemark: <span class="type">MKPlacemark</span>(coordinate: <span class="type">CLLocationCoordinate2D</span>(latitude: <span class="number">36.6709560000</span>, longitude: <span class="number">116.9908110000</span>), addressDictionary: <span class="literal">nil</span>))</span><br><span class="line">endItem.name = <span class="string">"济南站"</span> <span class="comment">// 地址名</span></span><br><span class="line">endItem.phoneNumber = <span class="string">"0531-82422002"</span> <span class="comment">// 电话</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*  key: MKLaunchOptionsDirectionsModeKey 导航模式</span></span><br><span class="line"><span class="comment">*       MKLaunchOptionsDirectionsModeDriving 汽车</span></span><br><span class="line"><span class="comment">*       MKLaunchOptionsDirectionsModeWalking 步行</span></span><br><span class="line"><span class="comment">*       MKLaunchOptionsDirectionsModeTransit 公交</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">*  key: MKLaunchOptionsMapTypeKey 地图类型</span></span><br><span class="line"><span class="comment">*       MKMapType 类型</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">*  key: MKLaunchOptionsShowsTrafficKey 是否显示详情按钮</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> options = [<span class="type">MKLaunchOptionsDirectionsModeKey</span>: <span class="type">MKLaunchOptionsDirectionsModeDriving</span>, <span class="type">MKLaunchOptionsShowsTrafficKey</span>: <span class="type">NSNumber</span>(booleanLiteral: <span class="literal">true</span>), <span class="type">MKLaunchOptionsMapTypeKey</span>: <span class="type">MKMapType</span>.hybrid.rawValue] <span class="keyword">as</span> [<span class="type">String</span> : <span class="type">Any</span>]</span><br><span class="line"></span><br><span class="line"><span class="type">MKMapItem</span>.openMaps(with: [startItem, endItem], launchOptions: options)</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      项目中需要用到导航功能,接收前人项目引用的高德地图,原本简单的项目因为引入高德导航使得包变大,决定使用系统自带的地图导航功能替代原有的导航.
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+    
+      <category term="地图" scheme="http://andycui.top/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
+    
+    
+      <category term="地图" scheme="http://andycui.top/tags/%E5%9C%B0%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>常阅读的博客</title>
     <link href="http://andycui.top/2017/05/20/%E5%B8%B8%E9%98%85%E8%AF%BB%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
     <id>http://andycui.top/2017/05/20/常阅读的博客/</id>

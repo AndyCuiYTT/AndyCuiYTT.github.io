@@ -310,6 +310,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[iOS 调用系统自带导航功能实现]]></title>
+    <url>%2F2017%2F06%2F18%2FiOS%20%E8%B0%83%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6%E5%AF%BC%E8%88%AA%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%2F</url>
+    <content type="text"><![CDATA[使用系统导航需要用到 MapKit 框架.通过调用 ‘MKMapItem.openMaps(with: [items], launchOptions: [options])’ 方法调起系统地图的导航功能.items 是一个数组,标记要经过的地方坐标 MKMapItem 类型,options 参数设置.具体使用如下:12345678910111213141516171819202122let startItem = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 36.7233600000, longitude: 116.9919300000), addressDictionary: nil))startItem.name = "济南百里黄河风景区" // 地址名let endItem = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 36.6709560000, longitude: 116.9908110000), addressDictionary: nil))endItem.name = "济南站" // 地址名endItem.phoneNumber = "0531-82422002" // 电话/*** key: MKLaunchOptionsDirectionsModeKey 导航模式* MKLaunchOptionsDirectionsModeDriving 汽车* MKLaunchOptionsDirectionsModeWalking 步行* MKLaunchOptionsDirectionsModeTransit 公交** key: MKLaunchOptionsMapTypeKey 地图类型* MKMapType 类型** key: MKLaunchOptionsShowsTrafficKey 是否显示详情按钮*/let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving, MKLaunchOptionsShowsTrafficKey: NSNumber(booleanLiteral: true), MKLaunchOptionsMapTypeKey: MKMapType.hybrid.rawValue] as [String : Any]MKMapItem.openMaps(with: [startItem, endItem], launchOptions: options)]]></content>
+      <categories>
+        <category>iOS</category>
+        <category>地图</category>
+      </categories>
+      <tags>
+        <tag>地图</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[常阅读的博客]]></title>
     <url>%2F2017%2F05%2F20%2F%E5%B8%B8%E9%98%85%E8%AF%BB%E7%9A%84%E5%8D%9A%E5%AE%A2%2F</url>
     <content type="text"><![CDATA[我要申明，排名不分前后 iOSObjC 中国 bang’s blog 唐巧的技术博客 蘑菇街李忠 雷纯锋的技术博客 Sergio Chan 自己的博客 casa 的博客 冰霜的博客 串神的博客 南栀的博客 卓同学的博客 判若两人丶的博客 draveness 的博客 Other廖雪峰的官方网站 pandar’s blog]]></content>
