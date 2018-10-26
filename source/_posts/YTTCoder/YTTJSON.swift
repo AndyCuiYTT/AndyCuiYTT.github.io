@@ -146,7 +146,7 @@ extension Array where Element: Decodable {
     ///
     /// - Parameter array: item 为字典数据
     /// - Returns: item 为 model 数组
-    static func deserializeFrom(array: Array) -> Array? {
+    static func deserializeFrom(array: Array<Dictionary<String, Any>>) -> Array? {
         do {
             let infoData = try JSONSerialization.data(withJSONObject: array, options: .prettyPrinted)
             let obj = try JSONDecoder().decode(self, from: infoData)
