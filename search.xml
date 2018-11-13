@@ -42,7 +42,7 @@
   <entry>
     <title><![CDATA[iOS 开发常用三方库总结]]></title>
     <url>%2F2018%2F08%2F23%2FiOS%20%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E4%B8%89%E6%96%B9%E5%BA%93%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[iOS 开发中为了加快开发速度经常会引用一些三方库,对常用的库进行了总结. OC swift 介绍 网络请求 AFNetworking Alamofire 轻量级网络请求开源框架 图片加载 SDWebImage Kingfisher 在网络下载并缓存图片 布局 Masonry SnapKit 自动布局框架 加载 MJRefresh - 下拉刷新框架 模型转换 MJExtension/YYModel HandyJSON 模型序列化成JSON及反序列化库 SQLite FMDB SQLite.swift SQILite 管理工具]]></content>
+    <content type="text"><![CDATA[iOS 开发中为了加快开发速度经常会引用一些三方库,对常用的库进行了总结. OC swift 介绍 网络请求 AFNetworking Alamofire 轻量级网络请求开源框架 图片加载 SDWebImage Kingfisher 在网络下载并缓存图片 轮播图 SDCycleScrollView ZCycleView ☆☆☆ “iOS图片、文字轮播器” ☆☆☆ 布局 Masonry SnapKit 自动布局框架 加载等待 MBProgressHUD/SVProgressHUD - 进度加载等待 加载 MJRefresh - 下拉刷新框架 模型转换 MJExtension/YYModel HandyJSON 模型序列化成JSON及反序列化库 SQLite FMDB SQLite.swift SQILite 管理工具 错误收集 Bugly - 用于项目上线后错误收集]]></content>
       <categories>
         <category>iOS</category>
         <category>总结</category>
