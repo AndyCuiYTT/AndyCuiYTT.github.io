@@ -13,7 +13,7 @@ categories:
 [SliderViews](https://github.com/AndyCuiYTT/SliderViews) : 简单易用的滑动标签工具,『标签栏工具』『滑动视图工具』可单独使用.
 <!-- more -->
 
-![](https://img.shields.io/badge/language-swift-green.svg) [![CRAN](https://img.shields.io/cocoapods/l/SliderViews.svg)]() ![](https://img.shields.io/cocoapods/v/SliderViews.svg) [![](https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg)](http://andycui.top)
+![Build Status](https://travis-ci.org/AndyCuiYTT/SliderViews.svg?branch=master) ![](https://img.shields.io/badge/language-swift-green.svg) [![CRAN](https://img.shields.io/cocoapods/l/SliderViews.svg)]() ![](https://img.shields.io/cocoapods/v/SliderViews.svg) [![](https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg)](http://andycui.top)
 ![](sliderview-02.gif)
 
 # 安装
@@ -24,12 +24,12 @@ pod 'SliderViews'
 
 # 使用示例
 
-## SegmentedControl 使用
- SegmentedControl: 标签栏工具,使用需要实现 YTTSegmentedDelegate 代理方法.
+## SegmentedView 使用
+ SegmentedView: 标签栏工具,使用需要实现 YTTSegmentedViewDelegate 代理方法.
  
 ```swift4
-let segmented = YTTSegmentedControl()
-segmented.delegate = self // 实现 YTTSegmentedDelegate
+let segmented = YTTSegmentedView()
+segmented.delegate = self // 实现 YTTSegmentedViewDelegate
 segmented.addTitleItems(["SliderView1","SliderView2","SliderView3"], isSelected: 1)
 segmented.backgroundColor = UIColor.cyan
 self.view.addSubview(segmented)
