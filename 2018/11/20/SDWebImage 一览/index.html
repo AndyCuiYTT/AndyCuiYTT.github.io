@@ -97,18 +97,17 @@
 
 
 
-<meta name="description" content="对 SDWebImage 源码进行解读.">
 <meta name="keywords" content="SDWebImage">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SDWebImage 一览">
+<meta property="og:title" content="SDWebImage 源码一览">
 <meta property="og:url" content="http://andycui.top/2018/11/20/SDWebImage 一览/index.html">
 <meta property="og:site_name" content="AndyCuiの博客">
-<meta property="og:description" content="对 SDWebImage 源码进行解读.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-20T08:33:50.639Z">
+<meta property="og:image" content="https://github.com/SDWebImage/SDWebImage/raw/master/SDWebImage_logo.png">
+<meta property="og:updated_time" content="2018-11-20T08:40:18.368Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SDWebImage 一览">
-<meta name="twitter:description" content="对 SDWebImage 源码进行解读.">
+<meta name="twitter:title" content="SDWebImage 源码一览">
+<meta name="twitter:image" content="https://github.com/SDWebImage/SDWebImage/raw/master/SDWebImage_logo.png">
 
 
 
@@ -142,7 +141,7 @@
 
 
 
-  <title>SDWebImage 一览 | AndyCuiの博客</title>
+  <title>SDWebImage 源码一览 | AndyCuiの博客</title>
   
 
 
@@ -347,7 +346,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SDWebImage 一览</h1>
+          <h1 class="post-title" itemprop="name headline">SDWebImage 源码一览</h1>
         
 
         <div class="post-meta">
@@ -449,10 +448,6 @@
           
 
           
-              <div class="post-description">
-                  对 SDWebImage 源码进行解读.
-              </div>
-          
 
         </div>
       </header>
@@ -464,7 +459,8 @@
       
 
       
-        <h2 id="SDImageCache"><a href="#SDImageCache" class="headerlink" title="SDImageCache"></a>SDImageCache</h2><h3 id="SDMemoryCache-只针对-iOS-其他系统与-NSCache-一样"><a href="#SDMemoryCache-只针对-iOS-其他系统与-NSCache-一样" class="headerlink" title="SDMemoryCache (只针对 iOS, 其他系统与 NSCache 一样)"></a>SDMemoryCache (只针对 iOS, 其他系统与 NSCache 一样)</h3><p>SDMemoryCache: 继承于NSCache. 声明三个私有属性:  config, weakCache, weakCacheLock</p>
+        <p><a href="https://github.com/SDWebImage/SDWebImage" target="_blank" rel="noopener"><img src="https://github.com/SDWebImage/SDWebImage/raw/master/SDWebImage_logo.png" alt=""></a><br><a id="more"></a></p>
+<h2 id="SDImageCache"><a href="#SDImageCache" class="headerlink" title="SDImageCache"></a>SDImageCache</h2><h3 id="SDMemoryCache-只针对-iOS-其他系统与-NSCache-一样"><a href="#SDMemoryCache-只针对-iOS-其他系统与-NSCache-一样" class="headerlink" title="SDMemoryCache (只针对 iOS, 其他系统与 NSCache 一样)"></a>SDMemoryCache (只针对 iOS, 其他系统与 NSCache 一样)</h3><p>SDMemoryCache: 继承于NSCache. 声明三个私有属性:  config, weakCache, weakCacheLock</p>
 <ul>
 <li>config: SDImageCacheConfig 缓存配置信息</li>
 <li>weakCache: NSMapTable<keytype, objecttype=""> 缓存信息</keytype,></li>
@@ -512,7 +508,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andycui.top/2018/11/20/SDWebImage 一览/" title="SDWebImage 一览">http://andycui.top/2018/11/20/SDWebImage 一览/</a>
+      <a href="http://andycui.top/2018/11/20/SDWebImage 一览/" title="SDWebImage 源码一览">http://andycui.top/2018/11/20/SDWebImage 一览/</a>
     </li>
     <!-- <li class="post-copyright-license">
       <strong>版权声明： </strong>
