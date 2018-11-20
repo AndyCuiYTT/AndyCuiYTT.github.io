@@ -1,5 +1,5 @@
 ---
-title: SDWebImage 一览
+title: SDWebImage 源码一览
 date: 2018-11-20 15:46:22
 keywords:
 - SDWebImage
@@ -8,8 +8,10 @@ tags:
 categories:
 - iOS
 - 源码解读
-description: 对 SDWebImage 源码进行解读.
+description: 
 ---
+[![](https://github.com/SDWebImage/SDWebImage/raw/master/SDWebImage_logo.png)](https://github.com/SDWebImage/SDWebImage)
+<!--more-->
 
 ## SDImageCache
 ### SDMemoryCache (只针对 iOS, 其他系统与 NSCache 一样)
@@ -17,6 +19,7 @@ SDMemoryCache: 继承于NSCache. 声明三个私有属性:  config, weakCache, w
 * config: SDImageCacheConfig 缓存配置信息
 * weakCache: NSMapTable<KeyType, ObjectType> 缓存信息
 * weakCacheLock: dispatch_semaphore_t 锁,保证数据安全
+
 ```swift 
  /// 初始化 config, weakCache, weakCacheLock 变量, 添加一个内存警告监听, 内存警告时释放内存.
  - (instancetype)initWithConfig:(SDImageCacheConfig *)config
