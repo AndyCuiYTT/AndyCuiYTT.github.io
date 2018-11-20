@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="支付" />
+  <meta name="keywords" content="SDWebImage" />
 
 
 
@@ -97,18 +97,18 @@
 
 
 
-<meta name="description" content="封装支付宝与微信支付,采用代理的方式接收支付结果.">
-<meta name="keywords" content="支付">
+<meta name="description" content="对 SDWebImage 源码进行解读.">
+<meta name="keywords" content="SDWebImage">
 <meta property="og:type" content="article">
-<meta property="og:title" content="支付宝微信简单封装">
-<meta property="og:url" content="http://andycui.top/2017/07/14/PayDemo/index.html">
+<meta property="og:title" content="SDWebImage 一览">
+<meta property="og:url" content="http://andycui.top/2018/11/20/SDWebImage 一览/index.html">
 <meta property="og:site_name" content="AndyCuiの博客">
-<meta property="og:description" content="封装支付宝与微信支付,采用代理的方式接收支付结果.">
+<meta property="og:description" content="对 SDWebImage 源码进行解读.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-06T03:47:59.745Z">
+<meta property="og:updated_time" content="2018-11-20T08:28:58.304Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="支付宝微信简单封装">
-<meta name="twitter:description" content="封装支付宝与微信支付,采用代理的方式接收支付结果.">
+<meta name="twitter:title" content="SDWebImage 一览">
+<meta name="twitter:description" content="对 SDWebImage 源码进行解读.">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://andycui.top/2017/07/14/PayDemo/"/>
+  <link rel="canonical" href="http://andycui.top/2018/11/20/SDWebImage 一览/"/>
 
 
 
 
 
-  <title>支付宝微信简单封装 | AndyCuiの博客</title>
+  <title>SDWebImage 一览 | AndyCuiの博客</title>
   
 
 
@@ -330,7 +330,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://andycui.top/2017/07/14/PayDemo/">
+    <link itemprop="mainEntityOfPage" href="http://andycui.top/2018/11/20/SDWebImage 一览/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AndyCui">
@@ -347,7 +347,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">支付宝微信简单封装</h1>
+          <h1 class="post-title" itemprop="name headline">SDWebImage 一览</h1>
         
 
         <div class="post-meta">
@@ -359,8 +359,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T18:57:25+08:00">
-                2017-07-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-20T15:46:22+08:00">
+                2018-11-20
               </time>
             
 
@@ -384,17 +384,6 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/iOS/" itemprop="url" rel="index">
                     <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/三方接入/" itemprop="url" rel="index">
-                    <span itemprop="name">三方接入</span>
                   </a>
                 </span>
 
@@ -426,7 +415,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  385
+                  1,130
                 </span>
               
 
@@ -442,12 +431,16 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2
+                  5
                 </span>
               
             </div>
           
 
+          
+              <div class="post-description">
+                  对 SDWebImage 源码进行解读.
+              </div>
           
 
         </div>
@@ -460,28 +453,26 @@
       
 
       
-        <p>封装支付宝与微信支付,采用代理的方式接收支付结果.<br><a id="more"></a></p>
-<h1 id="支付宝支付"><a href="#支付宝支付" class="headerlink" title="支付宝支付"></a>支付宝支付</h1><blockquote>
-<h2 id="调起支付"><a href="#调起支付" class="headerlink" title="调起支付"></a>调起支付</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 调起支付宝支付</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Parameters:</span></span><br><span class="line"><span class="comment">///   - orderinfo: 商品信息字符串</span></span><br><span class="line"><span class="comment">///   - signedString: 商户信息签名</span></span><br><span class="line"><span class="comment">///   - fromScheme: 应用注册scheme</span></span><br><span class="line"><span class="comment">///   - resultDic: 支付结果回调</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">pay</span><span class="params">(<span class="number">_</span> orderinfo: String, signedString: String, fromScheme: String)</span></span> -&gt; <span class="type">Void</span></span><br></pre></td></tr></table></figure>
-<h2 id="支付结果回调-遵守-AlipayDelegate-协议"><a href="#支付结果回调-遵守-AlipayDelegate-协议" class="headerlink" title="支付结果回调,遵守 AlipayDelegate 协议"></a>支付结果回调,遵守 AlipayDelegate 协议</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 支付成功</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">alipaySuccess</span><span class="params">(<span class="number">_</span> result: Any)</span></span> -&gt; <span class="type">Void</span>;</span><br><span class="line"><span class="comment">/// 支付失败</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">alipayFail</span><span class="params">(<span class="number">_</span> result: Any)</span></span> -&gt; <span class="type">Void</span>;</span><br><span class="line"><span class="comment">/// 支付取消</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">alipayCancel</span><span class="params">(<span class="number">_</span> result: Any)</span></span> -&gt; <span class="type">Void</span>;</span><br><span class="line"><span class="comment">/// 其他未知错误</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">alipayUnknownError</span><span class="params">(<span class="number">_</span> result: Any)</span></span> -&gt; <span class="type">Void</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h1 id="微信支付"><a href="#微信支付" class="headerlink" title="微信支付"></a>微信支付</h1><blockquote>
-<h2 id="调起支付-1"><a href="#调起支付-1" class="headerlink" title="调起支付"></a>调起支付</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 微信支付</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Parameter orderInfo: 支付信息(包含:partnerId,prepayId,package,nonceStr,timeStamp,sign等信息)</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">pay</span><span class="params">(<span class="number">_</span> orderInfo: [String : String])</span></span> -&gt; <span class="type">Void</span></span><br></pre></td></tr></table></figure>
-<h2 id="微信支付-item"><a href="#微信支付-item" class="headerlink" title="微信支付 item"></a>微信支付 item</h2><blockquote>
+        <h2 id="SDImageCache"><a href="#SDImageCache" class="headerlink" title="SDImageCache"></a>SDImageCache</h2><h3 id="SDMemoryCache-只针对-iOS-其他系统与-NSCache-一样"><a href="#SDMemoryCache-只针对-iOS-其他系统与-NSCache-一样" class="headerlink" title="SDMemoryCache (只针对 iOS, 其他系统与 NSCache 一样)"></a>SDMemoryCache (只针对 iOS, 其他系统与 NSCache 一样)</h3><p>SDMemoryCache: 继承于NSCache. 声明三个私有属性:  config, weakCache, weakCacheLock</p>
 <ul>
-<li>appid: 应用ID(微信开放平台审核通过的应用APPID)</li>
-<li>partnerid: 商户号(微信支付分配的商户号)</li>
-<li>prepayid: 预支付交易会话ID(微信返回的支付交易会话ID)</li>
-<li>package: 扩展字段(只读)</li>
-<li>noncestr： 随机字符串（只读）</li>
-<li>timestamp： 时间撮（只读）</li>
-<li>getSignDic()： 获取签名后的字典</li>
+<li>config: SDImageCacheConfig 缓存配置信息</li>
+<li>weakCache: NSMapTable<keytype, objecttype=""> 缓存信息</keytype,></li>
+<li><p>weakCacheLock: dispatch_semaphore_t 锁,保证数据安全</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 初始化 config, weakCache, weakCacheLock 变量, 添加一个内存警告监听, 内存警告时释放内存.</span></span><br><span class="line">- (instancetype)initWithConfig:(<span class="type">SDImageCacheConfig</span> *)config</span><br><span class="line"></span><br><span class="line"><span class="comment">// shouldUseWeakMemoryCache: 为 true 是将数保存到 weakCache, 反之不保存到 weakCache;获取是为 flase 是直接返回父类查出数据. 反之判断内存中是否有对应数据,没有再在 weakCache 获取,并保存到内存.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/// 保存数据 重写父类方法,首先将数据保存内存,然后再将数据存储在 weakCache.(weakCacheLock保证数据安全)</span></span><br><span class="line"><span class="comment">/// 如果 shouldUseWeakMemoryCache 为 false 则不存储到 weakCache.</span></span><br><span class="line">- (void)setObject:(id)obj forKey:(id)key cost:(<span class="type">NSUInteger</span>)g</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 获取数据 重写父类方法. 判断是否是弱内存缓存,否: 直接返回父类查询对象.是: 在 weakCache 取出相应对象并保存内存中返回.</span></span><br><span class="line">- (id)objectForKey:(id)key</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 根据 key 移除数据 重写父类方法. 如果 shouldUseWeakMemoryCache 为 false 只移除内存数据,为 true 移除 weakCache.</span></span><br><span class="line">- (void)removeObjectForKey:(id)key</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 移除数据 重写父类方法. 如果 shouldUseWeakMemoryCache 为 false 只移除内存数据,为 true 移除 weakCache.</span></span><br><span class="line">- (void)removeAllObjects</span><br></pre></td></tr></table></figure>
+<h3 id="SDImageCache-1"><a href="#SDImageCache-1" class="headerlink" title="SDImageCache"></a>SDImageCache</h3><p>SDImageCache: 图片缓存类</p>
+<ul>
+<li>memCache: SDMemoryCache 内存控制器</li>
+<li>diskCachePath: NSString 根路径</li>
+<li>customPaths: NSMutableArray<nsstring *=""> 自定义路径 只读路径</nsstring></li>
+<li>ioQueue: dispatch_queue_t 数据读取队列</li>
+<li>fileManager: NSFileManager 文件管理器</li>
 </ul>
-</blockquote>
-<h2 id="数据签名-获取签名字符串"><a href="#数据签名-获取签名字符串" class="headerlink" title="数据签名(获取签名字符串)"></a>数据签名(获取签名字符串)</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 获取签名字符串(MD5 签名)</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Parameters:</span></span><br><span class="line"><span class="comment">///   - orderInfo: 支付信息</span></span><br><span class="line"><span class="comment">///   - keyStr: API密钥</span></span><br><span class="line"><span class="comment">/// - Returns: 签名字符串</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getSignStr</span><span class="params">(<span class="number">_</span> orderInfo: [String : String] ,keyStr: String)</span></span> -&gt; <span class="type">String</span></span><br></pre></td></tr></table></figure>
-<h2 id="支付结果回调-遵守-WeChatPayDelegate-协议"><a href="#支付结果回调-遵守-WeChatPayDelegate-协议" class="headerlink" title="支付结果回调,遵守 WeChatPayDelegate 协议"></a>支付结果回调,遵守 WeChatPayDelegate 协议</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 微信未安装</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">WeChatPayWXAppUninstall</span><span class="params">()</span></span> -&gt; <span class="type">Void</span>;</span><br><span class="line"><span class="comment">/// 支付成功</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">WeChatPaySuccess</span><span class="params">()</span></span> -&gt; <span class="type">Void</span>;</span><br><span class="line"><span class="comment">/// 支付失败</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">WeChatPayFail</span><span class="params">(errStr: String)</span></span> -&gt; <span class="type">Void</span>;</span><br><span class="line"><span class="comment">/// 支付取消</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">WeChatPayCancel</span><span class="params">()</span></span> -&gt; <span class="type">Void</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><a href="https://github.com/AndyCuiYTT/PayDemo" target="_blank" rel="noopener">具体实现参考 Demo</a></p>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/// 提供单例方式创建</span></span><br><span class="line">+ (nonnull instancetype)sharedImageCache</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/// 给属性复制初始化. 默认为 NSCachesDirectory 下路径. 添加两个通知 删除旧数据</span></span><br><span class="line">- (nonnull instancetype)initWithNamespace:(nonnull <span class="type">NSString</span> *)ns</span><br><span class="line">diskCacheDirectory:(nonnull <span class="type">NSString</span> *)directory</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 省略一系列文件路径处理方法...</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/// 对 key MD5加密处理产生文件名</span></span><br><span class="line">- (nullable <span class="type">NSString</span> *)cachedFileNameForKey:(nullable <span class="type">NSString</span> *)key</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> 缓存数据</span></span><br><span class="line"><span class="comment"> self.config.shouldCacheImagesInMemory 为true 则保存内存,否则只保存磁盘</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> @param image 图片</span></span><br><span class="line"><span class="comment"> @param imageData 图片 Data</span></span><br><span class="line"><span class="comment"> @param key 键值</span></span><br><span class="line"><span class="comment"> @param toDisk 是否存磁盘</span></span><br><span class="line"><span class="comment"> @param completionBlock 存储回调</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (void)storeImage:(nullable <span class="type">UIImage</span> *)image imageData:(nullable <span class="type">NSData</span> *)imageData forKey:(nullable <span class="type">NSString</span> *)key toDisk:(<span class="type">BOOL</span>)toDisk completion:(nullable <span class="type">SDWebImageNoParamsBlock</span>)completionBlock</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存文件.通过写文件形式保存. self.config.shouldDisableiCloud 为 true 保存 iCloud</span></span><br><span class="line">- (void)_storeImageDataToDisk:(nullable <span class="type">NSData</span> *)imageData forKey:(nullable <span class="type">NSString</span> *)key </span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断是否有缓存文件存在</span></span><br><span class="line">- (void)diskImageExistsWithKey:(nullable <span class="type">NSString</span> *)key completion:(nullable <span class="type">SDWebImageCheckCacheCompletionBlock</span>)completionBlock</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取存储的数据</span></span><br><span class="line">- (nullable <span class="type">NSData</span> *)diskImageDataForKey:(nullable <span class="type">NSString</span> *)key</span><br><span class="line"></span><br><span class="line"><span class="comment">// 仅在内存查找缓存 </span></span><br><span class="line">- (nullable <span class="type">UIImage</span> *)imageFromMemoryCacheForKey:(nullable <span class="type">NSString</span> *)key</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在磁盘查找缓存 diskImage &amp;&amp; self.config.shouldCacheImagesInMemory 为 true 写入内存</span></span><br><span class="line">- (nullable <span class="type">UIImage</span> *)imageFromDiskCacheForKey:(nullable <span class="type">NSString</span> *)key</span><br><span class="line"></span><br><span class="line"><span class="comment">// 缓存查找 先查找内存,然后磁盘</span></span><br><span class="line">- (nullable <span class="type">NSOperation</span> *)queryCacheOperationForKey:(nullable <span class="type">NSString</span> *)key options:(<span class="type">SDImageCacheOptions</span>)options done:(nullable <span class="type">SDCacheQueryCompletedBlock</span>)doneBlock</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除缓存 (内存与磁盘)</span></span><br><span class="line">- (void)removeImageForKey:(nullable <span class="type">NSString</span> *)key fromDisk:(<span class="type">BOOL</span>)fromDisk withCompletion:(nullable <span class="type">SDWebImageNoParamsBlock</span>)completion</span><br></pre></td></tr></table></figure>
+<h2 id="UIImageView-加载图片"><a href="#UIImageView-加载图片" class="headerlink" title="UIImageView 加载图片"></a>UIImageView 加载图片</h2><h3 id="UIImageView-WebCache"><a href="#UIImageView-WebCache" class="headerlink" title="UIImageView+WebCache"></a>UIImageView+WebCache</h3><p>UIImageView 类扩展, 添加方法<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> UIImageView+WebCache 添加的方法最终都调用该方法.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> @param url 图片 URL 地址</span></span><br><span class="line"><span class="comment"> @param placeholder 占位图片</span></span><br><span class="line"><span class="comment"> @param options 加载模式</span></span><br><span class="line"><span class="comment"> @param progressBlock 进度</span></span><br><span class="line"><span class="comment"> @param completedBlock 加载完成回调</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">- (void)sd_setImageWithURL:(nullable <span class="type">NSURL</span> *)url laceholderImage:(nullable <span class="type">UIImage</span> *)placeholder options:(<span class="type">SDWebImageOptions</span>)options progress:(nullable <span class="type">SDWebImageDownloaderProgressBlock</span>)progressBlock completed:(nullable <span class="type">SDExternalCompletionBlock</span>)completedBlock</span><br></pre></td></tr></table></figure></p>
+<h3 id="UIView-WebCache"><a href="#UIView-WebCache" class="headerlink" title="UIView+WebCache"></a>UIView+WebCache</h3><p>UIImageView,UIButton 等添加的类目方法将调用该扩展方法.<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 该方法采用了大量的回调函数.</span></span><br><span class="line"><span class="comment"> * 1. 判断当前图片是否在加载,如果在加载取消加载.</span></span><br><span class="line"><span class="comment"> * 2. 设置占位图现在.</span></span><br><span class="line"><span class="comment"> * 3. 判断 URL 是否有效,无效调用 completedBlock 返回</span></span><br><span class="line"><span class="comment"> * 4. 初始化 SDWebImageManager 对象</span></span><br><span class="line"><span class="comment"> * 5. 调用 SDWebImageManager 图片加载方法.</span></span><br><span class="line"><span class="comment"> * 6. SDWebImageManager 回调中处理.</span></span><br><span class="line"><span class="comment"> * 6.1. 当前对象已销毁或者回调图片 URL 与需要加载不一致,返回</span></span><br><span class="line"><span class="comment"> * 6.2. 判断是否需要更新显示图片.调用 callCompletedBlockClojure 代码.</span></span><br><span class="line"><span class="comment"> * 6.3. 需要更新图片 调用图片更换方法</span></span><br><span class="line"><span class="comment"> * 6.4. 将 SDWebImageOperation 添加到 SDOperationsDictionary</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line">- (void)sd_internalSetImageWithURL:(nullable <span class="type">NSURL</span> *)url placeholderImage:(nullable <span class="type">UIImage</span> *)placeholder options:(<span class="type">SDWebImageOptions</span>)options operationKey:(nullable <span class="type">NSString</span> *)operationKey setImageBlock:(nullable <span class="type">SDSetImageBlock</span>)setImageBlock progress:(nullable <span class="type">SDWebImageDownloaderProgressBlock</span>)progressBlock completed:(nullable <span class="type">SDExternalCompletionBlock</span>)completedBlock context:(nullable <span class="type">NSDictionary</span>&lt;<span class="type">NSString</span> *, id&gt; *)context</span><br></pre></td></tr></table></figure></p>
+<h3 id="SDWebImageManager"><a href="#SDWebImageManager" class="headerlink" title="SDWebImageManager"></a>SDWebImageManager</h3><p>图片缓存查找以及下载处理<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 1. 创建 SDWebImageCombinedOperation</span></span><br><span class="line"><span class="comment"> * 2. 判断 URL 是否有效.无效直接返回</span></span><br><span class="line"><span class="comment"> * 3. 将 operation 加入到 runningOperations</span></span><br><span class="line"><span class="comment"> * 4. 调用 SDImageCache 中方法查找是否有缓存数据,如果找到回调 移除 Operation</span></span><br><span class="line"><span class="comment"> * 5. 找不到用 SDWebImageDownloader 下载图片.并保存缓存中.</span></span><br><span class="line"><span class="comment">- (id &lt;SDWebImageOperation&gt;)loadImageWithURL:(nullable NSURL *)url options:(SDWebImageOptions)options progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock completed:(nullable SDInternalCompletionBlock)completedBlock</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -510,7 +501,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://andycui.top/2017/07/14/PayDemo/" title="支付宝微信简单封装">http://andycui.top/2017/07/14/PayDemo/</a>
+      <a href="http://andycui.top/2018/11/20/SDWebImage 一览/" title="SDWebImage 一览">http://andycui.top/2018/11/20/SDWebImage 一览/</a>
     </li>
     <!-- <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -531,11 +522,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/pay/" rel="tag"><i class="fa fa-tag"></i> pay</a>
-          
-            <a href="/tags/alipay/" rel="tag"><i class="fa fa-tag"></i> alipay</a>
-          
-            <a href="/tags/wechatpay/" rel="tag"><i class="fa fa-tag"></i> wechatpay</a>
+            <a href="/tags/三方库/" rel="tag"><i class="fa fa-tag"></i> 三方库</a>
           
         </div>
       
@@ -548,8 +535,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/13/swift-星级评分/" rel="next" title="[swift] 星级评分">
-                <i class="fa fa-chevron-left"></i> [swift] 星级评分
+              <a href="/2018/09/10/swift 禁止 UIButton 连续点击/" rel="next" title="禁止 UIButton 连续点击">
+                <i class="fa fa-chevron-left"></i> 禁止 UIButton 连续点击
               </a>
             
           </div>
@@ -557,10 +544,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/18/network-swift/" rel="prev" title="swift 网络请求">
-                swift 网络请求 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -761,7 +744,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#支付宝支付"><span class="nav-number">1.</span> <span class="nav-text">支付宝支付</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#调起支付"><span class="nav-number">1.1.</span> <span class="nav-text">调起支付</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支付结果回调-遵守-AlipayDelegate-协议"><span class="nav-number">1.2.</span> <span class="nav-text">支付结果回调,遵守 AlipayDelegate 协议</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#微信支付"><span class="nav-number">2.</span> <span class="nav-text">微信支付</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#调起支付-1"><span class="nav-number">2.1.</span> <span class="nav-text">调起支付</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信支付-item"><span class="nav-number">2.2.</span> <span class="nav-text">微信支付 item</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据签名-获取签名字符串"><span class="nav-number">2.3.</span> <span class="nav-text">数据签名(获取签名字符串)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支付结果回调-遵守-WeChatPayDelegate-协议"><span class="nav-number">2.4.</span> <span class="nav-text">支付结果回调,遵守 WeChatPayDelegate 协议</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SDImageCache"><span class="nav-number">1.</span> <span class="nav-text">SDImageCache</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SDMemoryCache-只针对-iOS-其他系统与-NSCache-一样"><span class="nav-number">1.1.</span> <span class="nav-text">SDMemoryCache (只针对 iOS, 其他系统与 NSCache 一样)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SDImageCache-1"><span class="nav-number">1.2.</span> <span class="nav-text">SDImageCache</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIImageView-加载图片"><span class="nav-number">2.</span> <span class="nav-text">UIImageView 加载图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UIImageView-WebCache"><span class="nav-number">2.1.</span> <span class="nav-text">UIImageView+WebCache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIView-WebCache"><span class="nav-number">2.2.</span> <span class="nav-text">UIView+WebCache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SDWebImageManager"><span class="nav-number">2.3.</span> <span class="nav-text">SDWebImageManager</span></a></li></ol></li></ol></div>
             
 
           </div>
