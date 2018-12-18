@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[消除 UINavigationBar 底部黑线]]></title>
+    <url>%2F2018%2F12%2F18%2Fswift%20%E6%B6%88%E9%99%A4%20UINavigationBar%20%E5%BA%95%E9%83%A8%E9%BB%91%E7%BA%BF%2F</url>
+    <content type="text"><![CDATA[1. 通过设置背景图片与阴影图片清除123// 在自定义 UINavigationController 内self.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)self.navigationBar.shadowImage = UIImage() 2. 通过遍历 UINavigationBar 子视图,找到对应的 View,设置为隐藏1234567891011121314151617181920212223extension UINavigationBar &#123; func hideBottomHairline() &#123; findUnderImageView(self)?.isHidden = true &#125; func showBottomHairline() &#123; findUnderImageView(self)?.isHidden = true &#125; func findUnderImageView(_ view: UIView) -&gt; UIImageView? &#123; if view is UIImageView &amp;&amp; view.bounds.height &lt;= 1.0 &#123; return view as? UIImageView &#125; for subView in view.subviews &#123; return self.findUnderImageView(subView) &#125; return nil &#125;&#125; 使用时只需在 viewWillAppear 方法中添加 self.navigationController?.navigationBar.hideBottomHairline()]]></content>
+      <categories>
+        <category>iOS</category>
+        <category>导航栏</category>
+      </categories>
+      <tags>
+        <tag>UINavigationBar</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[SDWebImage 源码一览]]></title>
     <url>%2F2018%2F11%2F20%2FSDWebImage%20%E4%B8%80%E8%A7%88%2F</url>
     <content type="text"><![CDATA[SDImageCacheSDMemoryCache (只针对 iOS, 其他系统与 NSCache 一样)SDMemoryCache: 继承于NSCache. 声明三个私有属性: config, weakCache, weakCacheLock config: SDImageCacheConfig 缓存配置信息 weakCache: NSMapTable 缓存信息 weakCacheLock: dispatch_semaphore_t 锁,保证数据安全 123456789101112131415161718/// 初始化 config, weakCache, weakCacheLock 变量, 添加一个内存警告监听, 内存警告时释放内存.- (instancetype)initWithConfig:(SDImageCacheConfig *)config// shouldUseWeakMemoryCache: 为 true 是将数保存到 weakCache, 反之不保存到 weakCache;获取是为 flase 是直接返回父类查出数据. 反之判断内存中是否有对应数据,没有再在 weakCache 获取,并保存到内存./// 保存数据 重写父类方法,首先将数据保存内存,然后再将数据存储在 weakCache.(weakCacheLock保证数据安全)/// 如果 shouldUseWeakMemoryCache 为 false 则不存储到 weakCache.- (void)setObject:(id)obj forKey:(id)key cost:(NSUInteger)g/// 获取数据 重写父类方法. 判断是否是弱内存缓存,否: 直接返回父类查询对象.是: 在 weakCache 取出相应对象并保存内存中返回.- (id)objectForKey:(id)key/// 根据 key 移除数据 重写父类方法. 如果 shouldUseWeakMemoryCache 为 false 只移除内存数据,为 true 移除 weakCache.- (void)removeObjectForKey:(id)key/// 移除数据 重写父类方法. 如果 shouldUseWeakMemoryCache 为 false 只移除内存数据,为 true 移除 weakCache.- (void)removeAllObjects SDImageCache SDImageCache: 图片缓存类 memCache: SDMemoryCache 内存控制器 diskCachePath: NSString 根路径 customPaths: NSMutableArray 自定义路径 只读路径 ioQueue: dispatch_queue_t 数据读取队列 fileManager: NSFileManager 文件管理器 12345678910111213141516171819202122232425262728293031323334353637383940414243444546/// 提供单例方式创建+ (nonnull instancetype)sharedImageCache/// 给属性复制初始化. 默认为 NSCachesDirectory 下路径. 添加两个通知 删除旧数据- (nonnull instancetype)initWithNamespace:(nonnull NSString *)nsdiskCacheDirectory:(nonnull NSString *)directory/// 省略一系列文件路径处理方法.../// 对 key MD5加密处理产生文件名- (nullable NSString *)cachedFileNameForKey:(nullable NSString *)key/** 缓存数据 self.config.shouldCacheImagesInMemory 为true 则保存内存,否则只保存磁盘 @param image 图片 @param imageData 图片 Data @param key 键值 @param toDisk 是否存磁盘 @param completionBlock 存储回调 */- (void)storeImage:(nullable UIImage *)image imageData:(nullable NSData *)imageData forKey:(nullable NSString *)key toDisk:(BOOL)toDisk completion:(nullable SDWebImageNoParamsBlock)completionBlock// 保存文件.通过写文件形式保存. self.config.shouldDisableiCloud 为 true 保存 iCloud- (void)_storeImageDataToDisk:(nullable NSData *)imageData forKey:(nullable NSString *)key // 判断是否有缓存文件存在- (void)diskImageExistsWithKey:(nullable NSString *)key completion:(nullable SDWebImageCheckCacheCompletionBlock)completionBlock// 获取存储的数据- (nullable NSData *)diskImageDataForKey:(nullable NSString *)key// 仅在内存查找缓存 - (nullable UIImage *)imageFromMemoryCacheForKey:(nullable NSString *)key// 在磁盘查找缓存 diskImage &amp;&amp; self.config.shouldCacheImagesInMemory 为 true 写入内存- (nullable UIImage *)imageFromDiskCacheForKey:(nullable NSString *)key// 缓存查找 先查找内存,然后磁盘- (nullable NSOperation *)queryCacheOperationForKey:(nullable NSString *)key options:(SDImageCacheOptions)options done:(nullable SDCacheQueryCompletedBlock)doneBlock// 移除缓存 (内存与磁盘)- (void)removeImageForKey:(nullable NSString *)key fromDisk:(BOOL)fromDisk withCompletion:(nullable SDWebImageNoParamsBlock)completion UIImageView 加载图片UIImageView+WebCacheUIImageView 类扩展, 添加方法12345678910/** UIImageView+WebCache 添加的方法最终都调用该方法. @param url 图片 URL 地址 @param placeholder 占位图片 @param options 加载模式 @param progressBlock 进度 @param completedBlock 加载完成回调*/- (void)sd_setImageWithURL:(nullable NSURL *)url laceholderImage:(nullable UIImage *)placeholder options:(SDWebImageOptions)options progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock completed:(nullable SDExternalCompletionBlock)completedBlock UIView+WebCacheUIImageView,UIButton 等添加的类目方法将调用该扩展方法.123456789101112131415/** * 该方法采用了大量的回调函数. * 1. 判断当前图片是否在加载,如果在加载取消加载. * 2. 设置占位图现在. * 3. 判断 URL 是否有效,无效调用 completedBlock 返回 * 4. 初始化 SDWebImageManager 对象 * 5. 调用 SDWebImageManager 图片加载方法. * 6. SDWebImageManager 回调中处理. * 6.1. 当前对象已销毁或者回调图片 URL 与需要加载不一致,返回 * 6.2. 判断是否需要更新显示图片.调用 callCompletedBlockClojure 代码. * 6.3. 需要更新图片 调用图片更换方法 * 6.4. 将 SDWebImageOperation 添加到 SDOperationsDictionary */ - (void)sd_internalSetImageWithURL:(nullable NSURL *)url placeholderImage:(nullable UIImage *)placeholder options:(SDWebImageOptions)options operationKey:(nullable NSString *)operationKey setImageBlock:(nullable SDSetImageBlock)setImageBlock progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock completed:(nullable SDExternalCompletionBlock)completedBlock context:(nullable NSDictionary&lt;NSString *, id&gt; *)context SDWebImageManager图片缓存查找以及下载处理1234567/** * 1. 创建 SDWebImageCombinedOperation * 2. 判断 URL 是否有效.无效直接返回 * 3. 将 operation 加入到 runningOperations * 4. 调用 SDImageCache 中方法查找是否有缓存数据,如果找到回调 移除 Operation * 5. 找不到用 SDWebImageDownloader 下载图片.并保存缓存中.- (id &lt;SDWebImageOperation&gt;)loadImageWithURL:(nullable NSURL *)url options:(SDWebImageOptions)options progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock completed:(nullable SDInternalCompletionBlock)completedBlock]]></content>
@@ -54,14 +66,14 @@
   <entry>
     <title><![CDATA[iOS 开发常用三方库总结]]></title>
     <url>%2F2018%2F08%2F23%2FiOS%20%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E4%B8%89%E6%96%B9%E5%BA%93%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[iOS 开发中为了加快开发速度经常会引用一些三方库,对常用的库进行了总结. OC swift 介绍 网络请求 AFNetworking Alamofire 轻量级网络请求开源框架 图片加载 SDWebImage Kingfisher 在网络下载并缓存图片 轮播图 SDCycleScrollView ZCycleView ☆☆☆ “iOS图片、文字轮播器” ☆☆☆ 布局 Masonry SnapKit 自动布局框架 加载等待 MBProgressHUD/SVProgressHUD - 进度加载等待 加载 MJRefresh - 下拉刷新框架 模型转换 MJExtension/YYModel HandyJSON 模型序列化成JSON及反序列化库 SQLite FMDB SQLite.swift SQILite 管理工具 错误收集 Bugly - 用于项目上线后错误收集]]></content>
+    <content type="text"><![CDATA[iOS 开发中为了加快开发速度经常会引用一些三方库,对常用的库进行了总结. OC swift 介绍 网络请求 AFNetworking Alamofire 轻量级网络请求开源框架 图片加载 SDWebImage Kingfisher 在网络下载并缓存图片 轮播图 SDCycleScrollView ZCycleView ☆☆☆ “iOS图片、文字轮播器” ☆☆☆ 布局 Masonry SnapKit 自动布局框架 加载等待 MBProgressHUD/SVProgressHUD - 进度加载等待 加载 MJRefresh - 下拉刷新框架 模型转换 MJExtension/YYModel HandyJSON 模型序列化成JSON及反序列化库 SQLite FMDB SQLite.swift SQILite 管理工具 错误收集 Bugly - 用于项目上线后错误收集 银行卡扫描 FBYBankCardRecognition-iOS - 通过图像识别，可以快速、高效的识别银行卡信息。]]></content>
       <categories>
         <category>iOS</category>
         <category>总结</category>
       </categories>
       <tags>
-        <tag>三方库</tag>
         <tag>swift</tag>
+        <tag>三方库</tag>
         <tag>iOS</tag>
       </tags>
   </entry>
@@ -83,7 +95,7 @@
     <content type="text"><![CDATA[UINavigationController 是 iOS 开发中常用的空间,在开发中难免会遇到一些样式与我们需求不相符合,这里针对于返回按钮(backBarButtonItem)进行总结. 通过继承与 NavigationController 的子类实现自定义返回按钮 新建类继承与 UINavigationController 通过重写 pushViewController,方法设置返回按钮1234567override func pushViewController(_ viewController: UIViewController, animated: Bool) &#123; if self.viewControllers.count &gt; 0 &#123; viewController.hidesBottomBarWhenPushed = true viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_nav_back")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(back)) &#125; super.pushViewController(viewController, animated: true)&#125; 设置滑动返回如果使用系统的返回按钮是有轻扫左边缘返回的操作的,如果设置了 leftBarButtonItem 滑动返回将消失. 设置 interactivePopGestureRecognizer 的代理为当前类 实现 gestureRecognizerShouldBegin 代理方法123func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -&gt; Bool &#123; return self.viewControllers.count &gt; 1&#125;]]></content>
       <categories>
         <category>iOS</category>
-        <category>总结</category>
+        <category>导航栏</category>
       </categories>
       <tags>
         <tag>navigation</tag>

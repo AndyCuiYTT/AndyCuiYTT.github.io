@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://andycui.top/2018/08/21/swift%20%E8%87%AA%E5%AE%9A%E4%B9%89Navigation%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE/</loc>
+    
+    <lastmod>2018-12-18T06:02:32.742Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://andycui.top/2018/12/18/swift%20%E6%B6%88%E9%99%A4%20UINavigationBar%20%E5%BA%95%E9%83%A8%E9%BB%91%E7%BA%BF/</loc>
+    
+    <lastmod>2018-12-18T06:01:17.490Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://andycui.top/2018/08/23/iOS%20%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E4%B8%89%E6%96%B9%E5%BA%93%E6%80%BB%E7%BB%93/</loc>
+    
+    <lastmod>2018-11-21T01:56:02.145Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://andycui.top/2018/11/20/SDWebImage%20%E4%B8%80%E8%A7%88/</loc>
     
     <lastmod>2018-11-20T08:49:49.976Z</lastmod>
@@ -12,13 +33,6 @@
     <loc>http://andycui.top/2018/08/27/YTTCache/</loc>
     
     <lastmod>2018-11-19T06:38:32.798Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://andycui.top/2018/08/23/iOS%20%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E4%B8%89%E6%96%B9%E5%BA%93%E6%80%BB%E7%BB%93/</loc>
-    
-    <lastmod>2018-11-13T01:33:00.761Z</lastmod>
     
   </url>
   
@@ -96,13 +110,6 @@
     <loc>http://andycui.top/2017/07/12/swift%20%E9%80%9A%E8%BF%87-CGMutablePath-%E4%B8%BA-UIView-%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86/</loc>
     
     <lastmod>2018-09-06T03:48:00.020Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://andycui.top/2018/08/21/swift%20%E8%87%AA%E5%AE%9A%E4%B9%89Navigation%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE/</loc>
-    
-    <lastmod>2018-09-06T03:48:00.018Z</lastmod>
     
   </url>
   
