@@ -26,3 +26,4 @@ iOS 开发中为了加快开发速度经常会引用一些三方库,对常用的
 |模型转换|[MJExtension](https://github.com/CoderMJLee/MJExtension)/[YYModel](https://github.com/ibireme/YYModel)|[HandyJSON](https://github.com/alibaba/HandyJSON)|模型序列化成JSON及反序列化库|
 |SQLite|[FMDB](https://github.com/ccgus/fmdb)|[SQLite.swift](https://github.com/stephencelis/SQLite.swift)|SQILite 管理工具|
 |错误收集|[Bugly](https://github.com/BuglyDevTeam/Bugly-iOS)|-|用于项目上线后错误收集|
+|银行卡扫描|[FBYBankCardRecognition-iOS](https://github.com/fanbaoying/FBYBankCardRecognition-iOS)|-|通过图像识别，可以快速、高效的识别银行卡信息。|

@@ -8,7 +8,7 @@ tags:
 - navigation
 categories:
 - iOS
-- 总结
+- 导航栏
 ---
 UINavigationController 是 iOS 开发中常用的空间,在开发中难免会遇到一些样式与我们需求不相符合,这里针对于返回按钮(backBarButtonItem)进行总结.
 <!-- more -->
