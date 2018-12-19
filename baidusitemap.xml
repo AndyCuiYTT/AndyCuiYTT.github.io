@@ -3,15 +3,16 @@
 
 
     
+    
   <url>
-    <loc>http://andycui.top/2018/08/21/swift%20%E8%87%AA%E5%AE%9A%E4%B9%89Navigation%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE/</loc>
-    <lastmod>2018-12-18T06:02:32.742Z</lastmod>
+    <loc>http://andycui.top/2018/12/18/swift%20%E6%B6%88%E9%99%A4%20UINavigationBar%20%E5%BA%95%E9%83%A8%E9%BB%91%E7%BA%BF/</loc>
+    <lastmod>2018-12-18T06:17:22.524Z</lastmod>
     <data>
         <display>
-        <title>自定义 Navigation 返回按钮</title>
-        <pubTime>2018-08-21T02:27:52.000Z</pubTime>
+        <title>消除 UINavigationBar 底部黑线</title>
+        <pubTime>2018-12-18T05:50:41.000Z</pubTime>
         
-        <tag>navigation</tag>
+        <tag>UINavigationBar</tag>
          
          
            
@@ -27,14 +28,14 @@
 
     
   <url>
-    <loc>http://andycui.top/2018/12/18/swift%20%E6%B6%88%E9%99%A4%20UINavigationBar%20%E5%BA%95%E9%83%A8%E9%BB%91%E7%BA%BF/</loc>
-    <lastmod>2018-12-18T06:01:17.490Z</lastmod>
+    <loc>http://andycui.top/2018/08/21/swift%20%E8%87%AA%E5%AE%9A%E4%B9%89Navigation%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE/</loc>
+    <lastmod>2018-12-18T06:02:32.742Z</lastmod>
     <data>
         <display>
-        <title>消除 UINavigationBar 底部黑线</title>
-        <pubTime>2018-12-18T05:50:41.000Z</pubTime>
+        <title>自定义 Navigation 返回按钮</title>
+        <pubTime>2018-08-21T02:27:52.000Z</pubTime>
         
-        <tag>UINavigationBar</tag>
+        <tag>navigation</tag>
          
          
            
