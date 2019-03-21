@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andycui.top/"/>
-  <updated>2018-12-18T06:17:22.524Z</updated>
+  <updated>2019-03-21T06:09:12.571Z</updated>
   <id>http://andycui.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UITableView性能优化</title>
+    <link href="http://andycui.top/2019/02/21/UITableView%20%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <id>http://andycui.top/2019/02/21/UITableView 性能优化/</id>
+    <published>2019-02-21T05:54:45.000Z</published>
+    <updated>2019-03-21T06:09:12.571Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>提前计算并缓存好高度，因为heightForRow最频繁的调用。</li></ol><p><code>- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath;</code></p><ol><li><p>异步绘制，遇到复杂界面，性能瓶颈时，可能是突破口。</p></li><li><p>滑动时按需加载，这个在大量图片展示，网络加载时，很管用。（SDWebImage已经实现异步加载）。</p></li><li><p>重用cells。</p></li><li><p>如果cell内显示得内容来自web，使用异步加载，缓存结果请求。当cell中的部分View是非常独立的，并且不便于重用的，而且“体积”非常小，在内存可控的前提下，我们完全可以将这些view缓存起来。当然也是缓存在模型中。</p></li><li><p>少用或不用透明图层，使用不透明视图。对于不透明的View，设置opaque为YES，这样在绘制该View时，就不需要考虑被View覆盖的其他内容（尽量设置Cell的view为opaque，避免GPU对Cell下面的内容也进行绘制）</p></li><li><p>减少subViews。分析Cell结构，尽可能的将 相同内容的抽取到一种样式Cell中，前面已经提到了Cell的重用机制，这样就能保证UITbaleView要显示多少内容，真正创建出的Cell可能只比屏幕显示的Cell多一点。虽然Cell的’体积’可能会大点，但是因为Cell的数量不会很多，完全可以接受的</p></li><li><p>少用addView给cell动态添加view，可以初始化的时候就添加，然后通过hide控制是否显示。只定义一种Cell，那该如何显示不同类型的内容呢？答案就是，把所有不同类型的view都定义好，放在cell里面，通过hidden显示、隐藏，来显示不同类型的内容。毕竟，在用户快速滑动中，只是单纯的显示、隐藏subview比实时创建要快得多</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      TableView是App里最常用的一个UI控件了，优化TableView性能，使我们提高用户体验必须要考虑的问题。
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+    
+      <category term="TableView" scheme="http://andycui.top/categories/iOS/TableView/"/>
+    
+    
+      <category term="性能优化" scheme="http://andycui.top/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>消除 UINavigationBar 底部黑线</title>

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[UITableView性能优化]]></title>
+    <url>%2F2019%2F02%2F21%2FUITableView%20%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[提前计算并缓存好高度，因为heightForRow最频繁的调用。 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath; 异步绘制，遇到复杂界面，性能瓶颈时，可能是突破口。 滑动时按需加载，这个在大量图片展示，网络加载时，很管用。（SDWebImage已经实现异步加载）。 重用cells。 如果cell内显示得内容来自web，使用异步加载，缓存结果请求。当cell中的部分View是非常独立的，并且不便于重用的，而且“体积”非常小，在内存可控的前提下，我们完全可以将这些view缓存起来。当然也是缓存在模型中。 少用或不用透明图层，使用不透明视图。对于不透明的View，设置opaque为YES，这样在绘制该View时，就不需要考虑被View覆盖的其他内容（尽量设置Cell的view为opaque，避免GPU对Cell下面的内容也进行绘制） 减少subViews。分析Cell结构，尽可能的将 相同内容的抽取到一种样式Cell中，前面已经提到了Cell的重用机制，这样就能保证UITbaleView要显示多少内容，真正创建出的Cell可能只比屏幕显示的Cell多一点。虽然Cell的’体积’可能会大点，但是因为Cell的数量不会很多，完全可以接受的 少用addView给cell动态添加view，可以初始化的时候就添加，然后通过hide控制是否显示。只定义一种Cell，那该如何显示不同类型的内容呢？答案就是，把所有不同类型的view都定义好，放在cell里面，通过hidden显示、隐藏，来显示不同类型的内容。毕竟，在用户快速滑动中，只是单纯的显示、隐藏subview比实时创建要快得多]]></content>
+      <categories>
+        <category>iOS</category>
+        <category>TableView</category>
+      </categories>
+      <tags>
+        <tag>性能优化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[消除 UINavigationBar 底部黑线]]></title>
     <url>%2F2018%2F12%2F18%2Fswift%20%E6%B6%88%E9%99%A4%20UINavigationBar%20%E5%BA%95%E9%83%A8%E9%BB%91%E7%BA%BF%2F</url>
     <content type="text"><![CDATA[1. 通过设置背景图片与阴影图片清除123// 在自定义 UINavigationController 内self.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)self.navigationBar.shadowImage = UIImage() 2. 通过遍历 UINavigationBar 子视图,找到对应的 View,设置为隐藏1234567891011121314151617181920212223extension UINavigationBar &#123; func hideBottomHairline() &#123; findUnderImageView(self)?.isHidden = true &#125; func showBottomHairline() &#123; findUnderImageView(self)?.isHidden = true &#125; func findUnderImageView(_ view: UIView) -&gt; UIImageView? &#123; if view is UIImageView &amp;&amp; view.bounds.height &lt;= 1.0 &#123; return view as? UIImageView &#125; for subView in view.subviews &#123; return self.findUnderImageView(subView) &#125; return nil &#125;&#125; 使用时只需在 viewWillAppear 方法中添加 self.navigationController?.navigationBar.hideBottomHairline()]]></content>
