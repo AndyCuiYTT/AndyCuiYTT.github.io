@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://andycui.top/"/>
-  <updated>2019-03-21T06:09:12.571Z</updated>
+  <updated>2019-03-27T05:52:12.779Z</updated>
   <id>http://andycui.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WKWebView 在 iOS10 系统下显示不完全问题</title>
+    <link href="http://andycui.top/2019/03/27/WKWebView%E5%9C%A8iOS10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%AE%8C%E5%85%A8%E9%97%AE%E9%A2%98/"/>
+    <id>http://andycui.top/2019/03/27/WKWebView在iOS10系统下显示不完全问题/</id>
+    <published>2019-03-27T05:29:14.000Z</published>
+    <updated>2019-03-27T05:52:12.779Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="WKWebView与-UIWebView-比较"><a href="#WKWebView与-UIWebView-比较" class="headerlink" title="WKWebView与 UIWebView 比较"></a>WKWebView与 UIWebView 比较</h3><blockquote><p>UIWebView自iOS2就有，WKWebView从iOS8才有，毫无疑问WKWebView将逐步取代笨重的UIWebView。通过简单的测试即可发现UIWebView占用过多内存，且内存峰值更是夸张。WKWebView网页加载速度也有提升，但是并不像内存那样提升那么多。</p></blockquote><p>WKWebView 优势:</p><ul><li>更多的支持HTML5的特性</li><li>官方宣称的高达60fps的滚动刷新率以及内置手势</li><li>Safari相同的JavaScript引擎</li><li>将UIWebViewDelegate与UIWebView拆分成了14类与3个协议(<a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/WebKit/ObjC_classic/index.html" target="_blank" rel="noopener">官方文档说明</a>)</li><li>另外用的比较多的，增加加载进度属性：estimatedProgress</li></ul><p><a href="https://www.jianshu.com/p/5cf0d241ae12" target="_blank" rel="noopener">WKWebView 使用</a></p><h3 id="WKWebView-使用遇到问题"><a href="#WKWebView-使用遇到问题" class="headerlink" title="WKWebView 使用遇到问题"></a>WKWebView 使用遇到问题</h3><blockquote><p>在开发中为了提高加载速度,使用 WKWebView 替换了 UIWebView, 在 iOS8,iOS9,iOS11系统下均未发现问题,在 iOS10系统系下出现显示不完全问题.具体应用是在 UITableViewCell 中添加了 WKWebView,发现 WKWebView 无法完全显示,有大片空白存在,通过查询资料得知是由于 render 渲染问题,根据网上说明进行了修改:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in the UITableViewDelegate</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">scrollViewDidScroll</span><span class="params">(scrollView: UIScrollView)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> tableView = scrollView <span class="keyword">as</span>? <span class="type">UITableView</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> cell <span class="keyword">in</span> tableView.visibleCells &#123;</span><br><span class="line">            <span class="keyword">guard</span> <span class="keyword">let</span> cell = cell <span class="keyword">as</span>? <span class="type">MyCustomCellClass</span> <span class="keyword">else</span> &#123; <span class="keyword">continue</span> &#125;</span><br><span class="line">            cell.webView?.setNeedsLayout()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></blockquote><h3 id="WKWebView-高度自适应"><a href="#WKWebView-高度自适应" class="headerlink" title="WKWebView 高度自适应"></a>WKWebView 高度自适应</h3><blockquote><p> 为了用户体验,我们需要 WKWebView 根据网页数据进行高度自适应,通过 WKWebView 的 WKNavigationDelegate 代理实现:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in the WKNavigationDelegate</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">webView</span><span class="params">(<span class="number">_</span> webView: WKWebView, didFinish navigation: WKNavigation!)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 处理网页图片过大问题</span></span><br><span class="line">    <span class="keyword">let</span> js = <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">        function imgAutoFit() &#123;</span></span><br><span class="line"><span class="string">            var imgs = document.getElementsByTagName('img');</span></span><br><span class="line"><span class="string">            for (var i = 0; i &lt; imgs.length; ++i) &#123;</span></span><br><span class="line"><span class="string">                var img = imgs[i];</span></span><br><span class="line"><span class="string">                img.style.maxWidth = <span class="subst">\(kScreenWidth - <span class="number">20</span>)</span>;</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    "</span><span class="string">""</span></span><br><span class="line">    webView.evaluateJavaScript(js, completionHandler: <span class="literal">nil</span>)</span><br><span class="line">    webView.evaluateJavaScript(<span class="string">"imgAutoFit()"</span>, completionHandler: <span class="literal">nil</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取网页高度</span></span><br><span class="line">    webView.evaluateJavaScript(<span class="string">"document.body.scrollHeight"</span>) &#123; (obj, error) <span class="keyword">in</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> height = obj <span class="keyword">as</span>? <span class="type">CGFloat</span> &#123;</span><br><span class="line">            <span class="comment">// height 网页数据高度</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      WKWebView 在 iOS10系统下空白修复.
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+    
+      <category term="总结" scheme="http://andycui.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="WKWebView" scheme="http://andycui.top/tags/WKWebView/"/>
+    
+  </entry>
   
   <entry>
     <title>UITableView性能优化</title>
@@ -186,9 +210,9 @@
       <category term="总结" scheme="http://andycui.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="swift" scheme="http://andycui.top/tags/swift/"/>
-    
       <category term="三方库" scheme="http://andycui.top/tags/%E4%B8%89%E6%96%B9%E5%BA%93/"/>
+    
+      <category term="swift" scheme="http://andycui.top/tags/swift/"/>
     
       <category term="iOS" scheme="http://andycui.top/tags/iOS/"/>
     
