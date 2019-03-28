@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://andycui.top/about/index.html</loc>
+    
+    <lastmod>2019-03-28T06:26:09.816Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://andycui.top/2019/03/27/WKWebView%E5%9C%A8iOS10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%AE%8C%E5%85%A8%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2019-03-27T05:52:12.779Z</lastmod>
@@ -110,13 +117,6 @@
     <loc>http://andycui.top/categories/index.html</loc>
     
     <lastmod>2018-09-06T03:48:00.025Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://andycui.top/about/index.html</loc>
-    
-    <lastmod>2018-09-06T03:48:00.024Z</lastmod>
     
   </url>
   
