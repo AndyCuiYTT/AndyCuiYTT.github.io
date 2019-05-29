@@ -1,9 +1,9 @@
 ---
-title: AndyCuiYTT
+title: CuiXg
 date: 2017-07-11 18:34:05
 ---
 <br>
-<center>![](https://andycuiytt.github.io/uploads/avatar.png)</center><br><br>
+<!--<center>![](https://andycuiytt.github.io/uploads/avatar.png)</center><br><br>-->
 ## 基本资料
 > - 学历：本科
 > - 学校：德州学院
