@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://andycui.top/2018/06/16/iOS%20%E9%9F%B3%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/</loc>
+    
+    <lastmod>2019-07-09T01:28:01.302Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://andycui.top/2019/07/09/%E4%BC%9A%E6%97%8B%E8%BD%AC%E7%9A%84%20UIImageView/</loc>
+    
+    <lastmod>2019-07-09T00:53:25.420Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://andycui.top/2019/06/03/Keychain%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2019-06-03T02:17:46.190Z</lastmod>
@@ -184,13 +198,6 @@
   </url>
   
   <url>
-    <loc>http://andycui.top/2018/06/16/iOS%20%E9%9F%B3%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/</loc>
-    
-    <lastmod>2018-09-06T03:47:59.946Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://andycui.top/2018/08/21/iOS%20%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/</loc>
     
     <lastmod>2018-09-06T03:47:59.943Z</lastmod>
@@ -243,13 +250,6 @@
     <loc>http://andycui.top/2018/08/10/UIButton%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E4%B8%8E%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE/</loc>
     
     <lastmod>2018-09-06T03:47:59.780Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://andycui.top/2017/08/29/Swift%20%E5%A4%84%E7%90%86JSON%20-%20%E8%BD%AC%E6%8D%A2JSON%E5%92%8CModel/</loc>
-    
-    <lastmod>2018-09-06T03:47:59.779Z</lastmod>
     
   </url>
   
