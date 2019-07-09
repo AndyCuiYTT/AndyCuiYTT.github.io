@@ -238,7 +238,13 @@ func applicationDidEnterBackground(_ application: UIApplication) {
     
 }
 ```
+# 遇到的坑
+### 关于 rate 倍数播放
+对于 AVPlayer 的暂停和播放是通过 rate 的值来判断的,但 rate 为 1 时.播放状态,但其为 0 时为暂停.每次调用 play() 方法时,rate 的值都将会置为 1,所以当调用 play 方法时,需要重新设置 rate 的值.
+
+### 关于AVPlayerItem 切换
+在 iOS9 以上系统测试时AVPlayerItem切换正常,但当在 iOS8 系统下,切换了AVPlayerItem 发现无法进行播放,针对这进行百度得到解决方式,iOS8 对于replaceCurrentItem方法支持不是很好,需要每次重新创建 AVPlayer.
 # 其他
 
 * [AVPlayer那些坑](https://www.jianshu.com/p/b6e3ea118fc7)
-* [项目参考地址](https://github.com/AndyCuiYTT/AVPlayerTools)
+* [项目参考地址](https://github.com/AndyCuiYTT/CXGPlayerTools)
