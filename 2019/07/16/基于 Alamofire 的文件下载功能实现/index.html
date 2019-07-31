@@ -81,7 +81,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="SDWebImage" />
+  <meta name="keywords" content="文件下载,Alamofire,断点下载" />
 
 
 
@@ -99,17 +99,18 @@
 
 
 
-<meta name="keywords" content="SDWebImage">
+<meta name="description" content="项目需求需要添加文件下载功能,项目网络请求基于 Alamofire ,对 Alamofire 下载功能进行了整理.">
+<meta name="keywords" content="文件下载,Alamofire,断点下载">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SDWebImage 源码一览">
-<meta property="og:url" content="http://CuiXg.top/2018/11/20/SDWebImage 一览/index.html">
+<meta property="og:title" content="基于 Alamofire 的文件下载功能实现">
+<meta property="og:url" content="http://CuiXg.top/2019/07/16/基于 Alamofire 的文件下载功能实现/index.html">
 <meta property="og:site_name" content="CuiXgの博客">
+<meta property="og:description" content="项目需求需要添加文件下载功能,项目网络请求基于 Alamofire ,对 Alamofire 下载功能进行了整理.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/SDWebImage/SDWebImage/raw/master/SDWebImage_logo.png">
-<meta property="og:updated_time" content="2018-11-20T08:49:49.976Z">
+<meta property="og:updated_time" content="2019-07-16T02:09:55.943Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SDWebImage 源码一览">
-<meta name="twitter:image" content="https://github.com/SDWebImage/SDWebImage/raw/master/SDWebImage_logo.png">
+<meta name="twitter:title" content="基于 Alamofire 的文件下载功能实现">
+<meta name="twitter:description" content="项目需求需要添加文件下载功能,项目网络请求基于 Alamofire ,对 Alamofire 下载功能进行了整理.">
 
 
 
@@ -137,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://CuiXg.top/2018/11/20/SDWebImage 一览/"/>
+  <link rel="canonical" href="http://CuiXg.top/2019/07/16/基于 Alamofire 的文件下载功能实现/"/>
 
 
 
 
 
-  <title>SDWebImage 源码一览 | CuiXgの博客</title>
+  <title>基于 Alamofire 的文件下载功能实现 | CuiXgの博客</title>
   
 
 
@@ -331,7 +332,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://CuiXg.top/2018/11/20/SDWebImage 一览/">
+    <link itemprop="mainEntityOfPage" href="http://CuiXg.top/2019/07/16/基于 Alamofire 的文件下载功能实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CuiXg">
@@ -348,7 +349,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SDWebImage 源码一览</h1>
+          <h1 class="post-title" itemprop="name headline">基于 Alamofire 的文件下载功能实现</h1>
         
 
         <div class="post-meta">
@@ -360,8 +361,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-20T15:46:22+08:00">
-                2018-11-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-16T09:08:57+08:00">
+                2019-07-16
               </time>
             
 
@@ -394,8 +395,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/源码解读/" itemprop="url" rel="index">
-                    <span itemprop="name">源码解读</span>
+                  <a href="/categories/iOS/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
                   </a>
                 </span>
 
@@ -427,7 +428,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,130
+                  126
                 </span>
               
 
@@ -443,12 +444,16 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  5
+                  1
                 </span>
               
             </div>
           
 
+          
+              <div class="post-description">
+                  项目需求需要添加文件下载功能,项目网络请求基于 Alamofire ,对 Alamofire 下载功能进行了整理.
+              </div>
           
 
         </div>
@@ -461,26 +466,25 @@
       
 
       
-        <p><a href="https://github.com/SDWebImage/SDWebImage" target="_blank" rel="noopener"><img src="https://github.com/SDWebImage/SDWebImage/raw/master/SDWebImage_logo.png" alt=""></a><br><a id="more"></a></p>
-<h2 id="SDImageCache"><a href="#SDImageCache" class="headerlink" title="SDImageCache"></a>SDImageCache</h2><h3 id="SDMemoryCache-只针对-iOS-其他系统与-NSCache-一样"><a href="#SDMemoryCache-只针对-iOS-其他系统与-NSCache-一样" class="headerlink" title="SDMemoryCache (只针对 iOS, 其他系统与 NSCache 一样)"></a>SDMemoryCache (只针对 iOS, 其他系统与 NSCache 一样)</h3><p>SDMemoryCache: 继承于NSCache. 声明三个私有属性:  config, weakCache, weakCacheLock</p>
-<ul>
-<li>config: SDImageCacheConfig 缓存配置信息</li>
-<li>weakCache: NSMapTable<keytype, objecttype=""> 缓存信息</keytype,></li>
-<li>weakCacheLock: dispatch_semaphore_t 锁,保证数据安全</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 初始化 config, weakCache, weakCacheLock 变量, 添加一个内存警告监听, 内存警告时释放内存.</span></span><br><span class="line">- (instancetype)initWithConfig:(<span class="type">SDImageCacheConfig</span> *)config</span><br><span class="line"></span><br><span class="line"><span class="comment">// shouldUseWeakMemoryCache: 为 true 是将数保存到 weakCache, 反之不保存到 weakCache;获取是为 flase 是直接返回父类查出数据. 反之判断内存中是否有对应数据,没有再在 weakCache 获取,并保存到内存.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/// 保存数据 重写父类方法,首先将数据保存内存,然后再将数据存储在 weakCache.(weakCacheLock保证数据安全)</span></span><br><span class="line"><span class="comment">/// 如果 shouldUseWeakMemoryCache 为 false 则不存储到 weakCache.</span></span><br><span class="line">- (void)setObject:(id)obj forKey:(id)key cost:(<span class="type">NSUInteger</span>)g</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 获取数据 重写父类方法. 判断是否是弱内存缓存,否: 直接返回父类查询对象.是: 在 weakCache 取出相应对象并保存内存中返回.</span></span><br><span class="line">- (id)objectForKey:(id)key</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 根据 key 移除数据 重写父类方法. 如果 shouldUseWeakMemoryCache 为 false 只移除内存数据,为 true 移除 weakCache.</span></span><br><span class="line">- (void)removeObjectForKey:(id)key</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 移除数据 重写父类方法. 如果 shouldUseWeakMemoryCache 为 false 只移除内存数据,为 true 移除 weakCache.</span></span><br><span class="line">- (void)removeAllObjects</span><br></pre></td></tr></table></figure>
-<h3 id="SDImageCache-1"><a href="#SDImageCache-1" class="headerlink" title="SDImageCache"></a>SDImageCache</h3><p> SDImageCache: 图片缓存类</p>
-<ul>
-<li>memCache: SDMemoryCache 内存控制器</li>
-<li>diskCachePath: NSString 根路径</li>
-<li>customPaths: NSMutableArray<nsstring *=""> 自定义路径 只读路径</nsstring></li>
-<li>ioQueue: dispatch_queue_t 数据读取队列</li>
-<li>fileManager: NSFileManager 文件管理器</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/// 提供单例方式创建</span></span><br><span class="line">+ (nonnull instancetype)sharedImageCache</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/// 给属性复制初始化. 默认为 NSCachesDirectory 下路径. 添加两个通知 删除旧数据</span></span><br><span class="line">- (nonnull instancetype)initWithNamespace:(nonnull <span class="type">NSString</span> *)ns</span><br><span class="line">diskCacheDirectory:(nonnull <span class="type">NSString</span> *)directory</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 省略一系列文件路径处理方法...</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/// 对 key MD5加密处理产生文件名</span></span><br><span class="line">- (nullable <span class="type">NSString</span> *)cachedFileNameForKey:(nullable <span class="type">NSString</span> *)key</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> 缓存数据</span></span><br><span class="line"><span class="comment"> self.config.shouldCacheImagesInMemory 为true 则保存内存,否则只保存磁盘</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> @param image 图片</span></span><br><span class="line"><span class="comment"> @param imageData 图片 Data</span></span><br><span class="line"><span class="comment"> @param key 键值</span></span><br><span class="line"><span class="comment"> @param toDisk 是否存磁盘</span></span><br><span class="line"><span class="comment"> @param completionBlock 存储回调</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (void)storeImage:(nullable <span class="type">UIImage</span> *)image imageData:(nullable <span class="type">NSData</span> *)imageData forKey:(nullable <span class="type">NSString</span> *)key toDisk:(<span class="type">BOOL</span>)toDisk completion:(nullable <span class="type">SDWebImageNoParamsBlock</span>)completionBlock</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存文件.通过写文件形式保存. self.config.shouldDisableiCloud 为 true 保存 iCloud</span></span><br><span class="line">- (void)_storeImageDataToDisk:(nullable <span class="type">NSData</span> *)imageData forKey:(nullable <span class="type">NSString</span> *)key </span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断是否有缓存文件存在</span></span><br><span class="line">- (void)diskImageExistsWithKey:(nullable <span class="type">NSString</span> *)key completion:(nullable <span class="type">SDWebImageCheckCacheCompletionBlock</span>)completionBlock</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取存储的数据</span></span><br><span class="line">- (nullable <span class="type">NSData</span> *)diskImageDataForKey:(nullable <span class="type">NSString</span> *)key</span><br><span class="line"></span><br><span class="line"><span class="comment">// 仅在内存查找缓存 </span></span><br><span class="line">- (nullable <span class="type">UIImage</span> *)imageFromMemoryCacheForKey:(nullable <span class="type">NSString</span> *)key</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在磁盘查找缓存 diskImage &amp;&amp; self.config.shouldCacheImagesInMemory 为 true 写入内存</span></span><br><span class="line">- (nullable <span class="type">UIImage</span> *)imageFromDiskCacheForKey:(nullable <span class="type">NSString</span> *)key</span><br><span class="line"></span><br><span class="line"><span class="comment">// 缓存查找 先查找内存,然后磁盘</span></span><br><span class="line">- (nullable <span class="type">NSOperation</span> *)queryCacheOperationForKey:(nullable <span class="type">NSString</span> *)key options:(<span class="type">SDImageCacheOptions</span>)options done:(nullable <span class="type">SDCacheQueryCompletedBlock</span>)doneBlock</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除缓存 (内存与磁盘)</span></span><br><span class="line">- (void)removeImageForKey:(nullable <span class="type">NSString</span> *)key fromDisk:(<span class="type">BOOL</span>)fromDisk withCompletion:(nullable <span class="type">SDWebImageNoParamsBlock</span>)completion</span><br></pre></td></tr></table></figure>
-<h2 id="UIImageView-加载图片"><a href="#UIImageView-加载图片" class="headerlink" title="UIImageView 加载图片"></a>UIImageView 加载图片</h2><h3 id="UIImageView-WebCache"><a href="#UIImageView-WebCache" class="headerlink" title="UIImageView+WebCache"></a>UIImageView+WebCache</h3><p>UIImageView 类扩展, 添加方法<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> UIImageView+WebCache 添加的方法最终都调用该方法.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> @param url 图片 URL 地址</span></span><br><span class="line"><span class="comment"> @param placeholder 占位图片</span></span><br><span class="line"><span class="comment"> @param options 加载模式</span></span><br><span class="line"><span class="comment"> @param progressBlock 进度</span></span><br><span class="line"><span class="comment"> @param completedBlock 加载完成回调</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">- (void)sd_setImageWithURL:(nullable <span class="type">NSURL</span> *)url laceholderImage:(nullable <span class="type">UIImage</span> *)placeholder options:(<span class="type">SDWebImageOptions</span>)options progress:(nullable <span class="type">SDWebImageDownloaderProgressBlock</span>)progressBlock completed:(nullable <span class="type">SDExternalCompletionBlock</span>)completedBlock</span><br></pre></td></tr></table></figure></p>
-<h3 id="UIView-WebCache"><a href="#UIView-WebCache" class="headerlink" title="UIView+WebCache"></a>UIView+WebCache</h3><p>UIImageView,UIButton 等添加的类目方法将调用该扩展方法.<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 该方法采用了大量的回调函数.</span></span><br><span class="line"><span class="comment"> * 1. 判断当前图片是否在加载,如果在加载取消加载.</span></span><br><span class="line"><span class="comment"> * 2. 设置占位图现在.</span></span><br><span class="line"><span class="comment"> * 3. 判断 URL 是否有效,无效调用 completedBlock 返回</span></span><br><span class="line"><span class="comment"> * 4. 初始化 SDWebImageManager 对象</span></span><br><span class="line"><span class="comment"> * 5. 调用 SDWebImageManager 图片加载方法.</span></span><br><span class="line"><span class="comment"> * 6. SDWebImageManager 回调中处理.</span></span><br><span class="line"><span class="comment"> * 6.1. 当前对象已销毁或者回调图片 URL 与需要加载不一致,返回</span></span><br><span class="line"><span class="comment"> * 6.2. 判断是否需要更新显示图片.调用 callCompletedBlockClojure 代码.</span></span><br><span class="line"><span class="comment"> * 6.3. 需要更新图片 调用图片更换方法</span></span><br><span class="line"><span class="comment"> * 6.4. 将 SDWebImageOperation 添加到 SDOperationsDictionary</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line">- (void)sd_internalSetImageWithURL:(nullable <span class="type">NSURL</span> *)url placeholderImage:(nullable <span class="type">UIImage</span> *)placeholder options:(<span class="type">SDWebImageOptions</span>)options operationKey:(nullable <span class="type">NSString</span> *)operationKey setImageBlock:(nullable <span class="type">SDSetImageBlock</span>)setImageBlock progress:(nullable <span class="type">SDWebImageDownloaderProgressBlock</span>)progressBlock completed:(nullable <span class="type">SDExternalCompletionBlock</span>)completedBlock context:(nullable <span class="type">NSDictionary</span>&lt;<span class="type">NSString</span> *, id&gt; *)context</span><br></pre></td></tr></table></figure></p>
-<h3 id="SDWebImageManager"><a href="#SDWebImageManager" class="headerlink" title="SDWebImageManager"></a>SDWebImageManager</h3><p>图片缓存查找以及下载处理<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 1. 创建 SDWebImageCombinedOperation</span></span><br><span class="line"><span class="comment"> * 2. 判断 URL 是否有效.无效直接返回</span></span><br><span class="line"><span class="comment"> * 3. 将 operation 加入到 runningOperations</span></span><br><span class="line"><span class="comment"> * 4. 调用 SDImageCache 中方法查找是否有缓存数据,如果找到回调 移除 Operation</span></span><br><span class="line"><span class="comment"> * 5. 找不到用 SDWebImageDownloader 下载图片.并保存缓存中.</span></span><br><span class="line"><span class="comment">- (id &lt;SDWebImageOperation&gt;)loadImageWithURL:(nullable NSURL *)url options:(SDWebImageOptions)options progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock completed:(nullable SDInternalCompletionBlock)completedBlock</span></span><br></pre></td></tr></table></figure></p>
+        <h3 id="实现下载的流程"><a href="#实现下载的流程" class="headerlink" title="实现下载的流程"></a>实现下载的流程</h3><p><div id="flowchart-0" class="flow-chart"></div></p>
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始
+e=>end: 结束
+input=>inputoutput: 输入下载地址,参数
+rePath=>operation: 返回文件保存路径
+checkPath=>condition: 是否存在文件
+checkResumeData=>condition: 是否存在下载记录文件
+resumDownload=>operation: 继续下载
+newDownload=>operation: 开始下载
+checkDownload=>condition: 是否下载成功
+saveResumData=>operation: 保存下载信息
+
+st->input->checkPath
+checkPath(yes,right)->rePath->e
+checkPath(no)->checkResumeData
+checkResumeData(yes,right)->resumDownload->checkDownload
+checkResumeData(no)->newDownload->checkDownload
+checkDownload(yes)->rePath->e
+checkDownload(no,right)->saveResumData->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
 
       
     </div>
@@ -509,7 +513,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://CuiXg.top/2018/11/20/SDWebImage 一览/" title="SDWebImage 源码一览">http://CuiXg.top/2018/11/20/SDWebImage 一览/</a>
+      <a href="http://CuiXg.top/2019/07/16/基于 Alamofire 的文件下载功能实现/" title="基于 Alamofire 的文件下载功能实现">http://CuiXg.top/2019/07/16/基于 Alamofire 的文件下载功能实现/</a>
     </li>
     <!-- <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -530,7 +534,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/三方库/" rel="tag"><i class="fa fa-tag"></i> 三方库</a>
+            <a href="/tags/Alamofire/" rel="tag"><i class="fa fa-tag"></i> Alamofire</a>
+          
+            <a href="/tags/下载/" rel="tag"><i class="fa fa-tag"></i> 下载</a>
           
         </div>
       
@@ -543,8 +549,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/10/swift 禁止 UIButton 连续点击/" rel="next" title="禁止 UIButton 连续点击">
-                <i class="fa fa-chevron-left"></i> 禁止 UIButton 连续点击
+              <a href="/2019/07/09/会旋转的 UIImageView/" rel="next" title="会旋转的 UIImageView">
+                <i class="fa fa-chevron-left"></i> 会旋转的 UIImageView
               </a>
             
           </div>
@@ -552,10 +558,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/18/swift 消除 UINavigationBar 底部黑线/" rel="prev" title="消除 UINavigationBar 底部黑线">
-                消除 UINavigationBar 底部黑线 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -756,7 +758,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SDImageCache"><span class="nav-number">1.</span> <span class="nav-text">SDImageCache</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SDMemoryCache-只针对-iOS-其他系统与-NSCache-一样"><span class="nav-number">1.1.</span> <span class="nav-text">SDMemoryCache (只针对 iOS, 其他系统与 NSCache 一样)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SDImageCache-1"><span class="nav-number">1.2.</span> <span class="nav-text">SDImageCache</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIImageView-加载图片"><span class="nav-number">2.</span> <span class="nav-text">UIImageView 加载图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UIImageView-WebCache"><span class="nav-number">2.1.</span> <span class="nav-text">UIImageView+WebCache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIView-WebCache"><span class="nav-number">2.2.</span> <span class="nav-text">UIView+WebCache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SDWebImageManager"><span class="nav-number">2.3.</span> <span class="nav-text">SDWebImageManager</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现下载的流程"><span class="nav-number">1.</span> <span class="nav-text">实现下载的流程</span></a></li></ol></div>
             
 
           </div>

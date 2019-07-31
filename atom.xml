@@ -2,12 +2,12 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>CuiXgの博客</title>
   <icon>https://www.gravatar.com/avatar/f56b4eab9dc434aef450be6b05d1ce47</icon>
-  <subtitle>既然认准了一条路，就不要去打听要走多久。</subtitle>
+  <subtitle>每天进步一点点。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://andycui.top/"/>
-  <updated>2019-07-09T00:53:25.420Z</updated>
-  <id>http://andycui.top/</id>
+  <link href="http://CuiXg.top/"/>
+  <updated>2019-07-16T02:09:55.943Z</updated>
+  <id>http://CuiXg.top/</id>
   
   <author>
     <name>CuiXg</name>
@@ -17,9 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>基于 Alamofire 的文件下载功能实现</title>
+    <link href="http://CuiXg.top/2019/07/16/%E5%9F%BA%E4%BA%8E%20Alamofire%20%E7%9A%84%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://CuiXg.top/2019/07/16/基于 Alamofire 的文件下载功能实现/</id>
+    <published>2019-07-16T01:08:57.000Z</published>
+    <updated>2019-07-16T02:09:55.943Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="实现下载的流程"><a href="#实现下载的流程" class="headerlink" title="实现下载的流程"></a>实现下载的流程</h3><p><div id="flowchart-0" class="flow-chart"></div></p><p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始e=>end: 结束input=>inputoutput: 输入下载地址,参数rePath=>operation: 返回文件保存路径checkPath=>condition: 是否存在文件checkResumeData=>condition: 是否存在下载记录文件resumDownload=>operation: 继续下载newDownload=>operation: 开始下载checkDownload=>condition: 是否下载成功saveResumData=>operation: 保存下载信息st->input->checkPathcheckPath(yes,right)->rePath->echeckPath(no)->checkResumeDatacheckResumeData(yes,right)->resumDownload->checkDownloadcheckResumeData(no)->newDownload->checkDownloadcheckDownload(yes)->rePath->echeckDownload(no,right)->saveResumData->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>]]></content>
+    
+    <summary type="html">
+    
+      项目需求需要添加文件下载功能,项目网络请求基于 Alamofire ,对 Alamofire 下载功能进行了整理.
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
+    
+      <category term="网络" scheme="http://CuiXg.top/categories/iOS/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="Alamofire" scheme="http://CuiXg.top/tags/Alamofire/"/>
+    
+      <category term="下载" scheme="http://CuiXg.top/tags/%E4%B8%8B%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>会旋转的 UIImageView</title>
-    <link href="http://andycui.top/2019/07/09/%E4%BC%9A%E6%97%8B%E8%BD%AC%E7%9A%84%20UIImageView/"/>
-    <id>http://andycui.top/2019/07/09/会旋转的 UIImageView/</id>
+    <link href="http://CuiXg.top/2019/07/09/%E4%BC%9A%E6%97%8B%E8%BD%AC%E7%9A%84%20UIImageView/"/>
+    <id>http://CuiXg.top/2019/07/09/会旋转的 UIImageView/</id>
     <published>2019-07-09T00:35:14.000Z</published>
     <updated>2019-07-09T00:53:25.420Z</updated>
     
@@ -31,19 +57,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="自定义视图" scheme="http://andycui.top/categories/iOS/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
+      <category term="自定义视图" scheme="http://CuiXg.top/categories/iOS/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
     
     
-      <category term="CABasicAnimation" scheme="http://andycui.top/tags/CABasicAnimation/"/>
+      <category term="CABasicAnimation" scheme="http://CuiXg.top/tags/CABasicAnimation/"/>
     
   </entry>
   
   <entry>
     <title>Keychain的介绍和使用</title>
-    <link href="http://andycui.top/2019/06/03/Keychain%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/"/>
-    <id>http://andycui.top/2019/06/03/Keychain的介绍和使用/</id>
+    <link href="http://CuiXg.top/2019/06/03/Keychain%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/"/>
+    <id>http://CuiXg.top/2019/06/03/Keychain的介绍和使用/</id>
     <published>2019-06-03T01:50:26.000Z</published>
     <updated>2019-06-03T02:17:46.190Z</updated>
     
@@ -55,19 +81,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="数据处理" scheme="http://andycui.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+      <category term="数据处理" scheme="http://CuiXg.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
     
-      <category term="keychain" scheme="http://andycui.top/tags/keychain/"/>
+      <category term="keychain" scheme="http://CuiXg.top/tags/keychain/"/>
     
   </entry>
   
   <entry>
     <title>记录一次树形分级列表的实现</title>
-    <link href="http://andycui.top/2019/04/28/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E6%A0%91%E5%BD%A2%E5%88%86%E7%BA%A7%E5%88%97%E8%A1%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://andycui.top/2019/04/28/记录一次树形分级列表的实现/</id>
+    <link href="http://CuiXg.top/2019/04/28/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E6%A0%91%E5%BD%A2%E5%88%86%E7%BA%A7%E5%88%97%E8%A1%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://CuiXg.top/2019/04/28/记录一次树形分级列表的实现/</id>
     <published>2019-04-28T00:38:33.000Z</published>
     <updated>2019-04-28T01:12:59.158Z</updated>
     
@@ -79,21 +105,21 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="TableView" scheme="http://andycui.top/categories/iOS/TableView/"/>
+      <category term="TableView" scheme="http://CuiXg.top/categories/iOS/TableView/"/>
     
     
-      <category term="树形" scheme="http://andycui.top/tags/%E6%A0%91%E5%BD%A2/"/>
+      <category term="树形" scheme="http://CuiXg.top/tags/%E6%A0%91%E5%BD%A2/"/>
     
-      <category term="tableView" scheme="http://andycui.top/tags/tableView/"/>
+      <category term="tableView" scheme="http://CuiXg.top/tags/tableView/"/>
     
   </entry>
   
   <entry>
     <title>WKWebView 在 iOS10 系统下显示不完全问题</title>
-    <link href="http://andycui.top/2019/03/27/WKWebView%E5%9C%A8iOS10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%AE%8C%E5%85%A8%E9%97%AE%E9%A2%98/"/>
-    <id>http://andycui.top/2019/03/27/WKWebView在iOS10系统下显示不完全问题/</id>
+    <link href="http://CuiXg.top/2019/03/27/WKWebView%E5%9C%A8iOS10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%AE%8C%E5%85%A8%E9%97%AE%E9%A2%98/"/>
+    <id>http://CuiXg.top/2019/03/27/WKWebView在iOS10系统下显示不完全问题/</id>
     <published>2019-03-27T05:29:14.000Z</published>
     <updated>2019-03-27T05:52:12.779Z</updated>
     
@@ -105,19 +131,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="总结" scheme="http://andycui.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
+      <category term="总结" scheme="http://CuiXg.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="WKWebView" scheme="http://andycui.top/tags/WKWebView/"/>
+      <category term="WKWebView" scheme="http://CuiXg.top/tags/WKWebView/"/>
     
   </entry>
   
   <entry>
     <title>UITableView性能优化</title>
-    <link href="http://andycui.top/2019/02/21/UITableView%20%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    <id>http://andycui.top/2019/02/21/UITableView 性能优化/</id>
+    <link href="http://CuiXg.top/2019/02/21/UITableView%20%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <id>http://CuiXg.top/2019/02/21/UITableView 性能优化/</id>
     <published>2019-02-21T05:54:45.000Z</published>
     <updated>2019-03-21T06:09:12.571Z</updated>
     
@@ -129,19 +155,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="TableView" scheme="http://andycui.top/categories/iOS/TableView/"/>
+      <category term="TableView" scheme="http://CuiXg.top/categories/iOS/TableView/"/>
     
     
-      <category term="性能优化" scheme="http://andycui.top/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+      <category term="性能优化" scheme="http://CuiXg.top/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>消除 UINavigationBar 底部黑线</title>
-    <link href="http://andycui.top/2018/12/18/swift%20%E6%B6%88%E9%99%A4%20UINavigationBar%20%E5%BA%95%E9%83%A8%E9%BB%91%E7%BA%BF/"/>
-    <id>http://andycui.top/2018/12/18/swift 消除 UINavigationBar 底部黑线/</id>
+    <link href="http://CuiXg.top/2018/12/18/swift%20%E6%B6%88%E9%99%A4%20UINavigationBar%20%E5%BA%95%E9%83%A8%E9%BB%91%E7%BA%BF/"/>
+    <id>http://CuiXg.top/2018/12/18/swift 消除 UINavigationBar 底部黑线/</id>
     <published>2018-12-18T05:50:41.000Z</published>
     <updated>2018-12-18T06:17:22.524Z</updated>
     
@@ -153,19 +179,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="导航栏" scheme="http://andycui.top/categories/iOS/%E5%AF%BC%E8%88%AA%E6%A0%8F/"/>
+      <category term="导航栏" scheme="http://CuiXg.top/categories/iOS/%E5%AF%BC%E8%88%AA%E6%A0%8F/"/>
     
     
-      <category term="UINavigationBar" scheme="http://andycui.top/tags/UINavigationBar/"/>
+      <category term="UINavigationBar" scheme="http://CuiXg.top/tags/UINavigationBar/"/>
     
   </entry>
   
   <entry>
     <title>SDWebImage 源码一览</title>
-    <link href="http://andycui.top/2018/11/20/SDWebImage%20%E4%B8%80%E8%A7%88/"/>
-    <id>http://andycui.top/2018/11/20/SDWebImage 一览/</id>
+    <link href="http://CuiXg.top/2018/11/20/SDWebImage%20%E4%B8%80%E8%A7%88/"/>
+    <id>http://CuiXg.top/2018/11/20/SDWebImage 一览/</id>
     <published>2018-11-20T07:46:22.000Z</published>
     <updated>2018-11-20T08:49:49.976Z</updated>
     
@@ -177,19 +203,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="源码解读" scheme="http://andycui.top/categories/iOS/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/"/>
+      <category term="源码解读" scheme="http://CuiXg.top/categories/iOS/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/"/>
     
     
-      <category term="三方库" scheme="http://andycui.top/tags/%E4%B8%89%E6%96%B9%E5%BA%93/"/>
+      <category term="三方库" scheme="http://CuiXg.top/tags/%E4%B8%89%E6%96%B9%E5%BA%93/"/>
     
   </entry>
   
   <entry>
     <title>禁止 UIButton 连续点击</title>
-    <link href="http://andycui.top/2018/09/10/swift%20%E7%A6%81%E6%AD%A2%20UIButton%20%E8%BF%9E%E7%BB%AD%E7%82%B9%E5%87%BB/"/>
-    <id>http://andycui.top/2018/09/10/swift 禁止 UIButton 连续点击/</id>
+    <link href="http://CuiXg.top/2018/09/10/swift%20%E7%A6%81%E6%AD%A2%20UIButton%20%E8%BF%9E%E7%BB%AD%E7%82%B9%E5%87%BB/"/>
+    <id>http://CuiXg.top/2018/09/10/swift 禁止 UIButton 连续点击/</id>
     <published>2018-09-10T02:24:19.000Z</published>
     <updated>2018-10-19T00:24:45.992Z</updated>
     
@@ -201,21 +227,21 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="总结" scheme="http://andycui.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
+      <category term="总结" scheme="http://CuiXg.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="swift" scheme="http://andycui.top/tags/swift/"/>
+      <category term="swift" scheme="http://CuiXg.top/tags/swift/"/>
     
-      <category term="runtime" scheme="http://andycui.top/tags/runtime/"/>
+      <category term="runtime" scheme="http://CuiXg.top/tags/runtime/"/>
     
   </entry>
   
   <entry>
     <title>带复制功能的 Label</title>
-    <link href="http://andycui.top/2018/08/30/swift%20%E5%B8%A6%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E7%9A%84%20Label/"/>
-    <id>http://andycui.top/2018/08/30/swift 带复制功能的 Label/</id>
+    <link href="http://CuiXg.top/2018/08/30/swift%20%E5%B8%A6%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E7%9A%84%20Label/"/>
+    <id>http://CuiXg.top/2018/08/30/swift 带复制功能的 Label/</id>
     <published>2018-08-30T07:09:16.000Z</published>
     <updated>2018-10-19T00:25:00.671Z</updated>
     
@@ -227,21 +253,21 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="自定义视图" scheme="http://andycui.top/categories/iOS/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
+      <category term="自定义视图" scheme="http://CuiXg.top/categories/iOS/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
     
     
-      <category term="swift" scheme="http://andycui.top/tags/swift/"/>
+      <category term="swift" scheme="http://CuiXg.top/tags/swift/"/>
     
-      <category term="自定义视图" scheme="http://andycui.top/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
+      <category term="自定义视图" scheme="http://CuiXg.top/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
     
   </entry>
   
   <entry>
     <title>YTTCache</title>
-    <link href="http://andycui.top/2018/08/27/YTTCache/"/>
-    <id>http://andycui.top/2018/08/27/YTTCache/</id>
+    <link href="http://CuiXg.top/2018/08/27/YTTCache/"/>
+    <id>http://CuiXg.top/2018/08/27/YTTCache/</id>
     <published>2018-08-27T03:00:26.000Z</published>
     <updated>2018-11-19T06:38:32.798Z</updated>
     
@@ -253,21 +279,21 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="数据处理" scheme="http://andycui.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+      <category term="数据处理" scheme="http://CuiXg.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
     
-      <category term="三方库" scheme="http://andycui.top/tags/%E4%B8%89%E6%96%B9%E5%BA%93/"/>
+      <category term="三方库" scheme="http://CuiXg.top/tags/%E4%B8%89%E6%96%B9%E5%BA%93/"/>
     
-      <category term="持久化" scheme="http://andycui.top/tags/%E6%8C%81%E4%B9%85%E5%8C%96/"/>
+      <category term="持久化" scheme="http://CuiXg.top/tags/%E6%8C%81%E4%B9%85%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>iOS 开发常用三方库总结</title>
-    <link href="http://andycui.top/2018/08/23/iOS%20%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E4%B8%89%E6%96%B9%E5%BA%93%E6%80%BB%E7%BB%93/"/>
-    <id>http://andycui.top/2018/08/23/iOS 开发常用三方库总结/</id>
+    <link href="http://CuiXg.top/2018/08/23/iOS%20%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E4%B8%89%E6%96%B9%E5%BA%93%E6%80%BB%E7%BB%93/"/>
+    <id>http://CuiXg.top/2018/08/23/iOS 开发常用三方库总结/</id>
     <published>2018-08-23T01:40:06.000Z</published>
     <updated>2018-11-21T01:56:02.145Z</updated>
     
@@ -279,23 +305,23 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="总结" scheme="http://andycui.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
+      <category term="总结" scheme="http://CuiXg.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="swift" scheme="http://andycui.top/tags/swift/"/>
+      <category term="swift" scheme="http://CuiXg.top/tags/swift/"/>
     
-      <category term="三方库" scheme="http://andycui.top/tags/%E4%B8%89%E6%96%B9%E5%BA%93/"/>
+      <category term="三方库" scheme="http://CuiXg.top/tags/%E4%B8%89%E6%96%B9%E5%BA%93/"/>
     
-      <category term="iOS" scheme="http://andycui.top/tags/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS 获取系统信息</title>
-    <link href="http://andycui.top/2018/08/21/iOS%20%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/"/>
-    <id>http://andycui.top/2018/08/21/iOS 获取系统信息/</id>
+    <link href="http://CuiXg.top/2018/08/21/iOS%20%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/"/>
+    <id>http://CuiXg.top/2018/08/21/iOS 获取系统信息/</id>
     <published>2018-08-21T08:02:51.000Z</published>
     <updated>2018-09-06T03:47:59.943Z</updated>
     
@@ -307,19 +333,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="系统信息" scheme="http://andycui.top/categories/iOS/%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/"/>
+      <category term="系统信息" scheme="http://CuiXg.top/categories/iOS/%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/"/>
     
     
-      <category term="系统信息" scheme="http://andycui.top/tags/%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/"/>
+      <category term="系统信息" scheme="http://CuiXg.top/tags/%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/"/>
     
   </entry>
   
   <entry>
     <title>自定义 Navigation 返回按钮</title>
-    <link href="http://andycui.top/2018/08/21/swift%20%E8%87%AA%E5%AE%9A%E4%B9%89Navigation%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE/"/>
-    <id>http://andycui.top/2018/08/21/swift 自定义Navigation返回按钮/</id>
+    <link href="http://CuiXg.top/2018/08/21/swift%20%E8%87%AA%E5%AE%9A%E4%B9%89Navigation%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE/"/>
+    <id>http://CuiXg.top/2018/08/21/swift 自定义Navigation返回按钮/</id>
     <published>2018-08-21T02:27:52.000Z</published>
     <updated>2018-12-18T06:02:32.742Z</updated>
     
@@ -331,19 +357,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="导航栏" scheme="http://andycui.top/categories/iOS/%E5%AF%BC%E8%88%AA%E6%A0%8F/"/>
+      <category term="导航栏" scheme="http://CuiXg.top/categories/iOS/%E5%AF%BC%E8%88%AA%E6%A0%8F/"/>
     
     
-      <category term="navigation" scheme="http://andycui.top/tags/navigation/"/>
+      <category term="navigation" scheme="http://CuiXg.top/tags/navigation/"/>
     
   </entry>
   
   <entry>
     <title>UILabel 加载 HTML</title>
-    <link href="http://andycui.top/2018/08/13/UILabel%E5%8A%A0%E8%BD%BDHTML/"/>
-    <id>http://andycui.top/2018/08/13/UILabel加载HTML/</id>
+    <link href="http://CuiXg.top/2018/08/13/UILabel%E5%8A%A0%E8%BD%BDHTML/"/>
+    <id>http://CuiXg.top/2018/08/13/UILabel加载HTML/</id>
     <published>2018-08-13T08:04:32.000Z</published>
     <updated>2018-09-06T03:47:59.783Z</updated>
     
@@ -355,21 +381,21 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="总结" scheme="http://andycui.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
+      <category term="总结" scheme="http://CuiXg.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="HTML" scheme="http://andycui.top/tags/HTML/"/>
+      <category term="HTML" scheme="http://CuiXg.top/tags/HTML/"/>
     
-      <category term="富文本" scheme="http://andycui.top/tags/%E5%AF%8C%E6%96%87%E6%9C%AC/"/>
+      <category term="富文本" scheme="http://CuiXg.top/tags/%E5%AF%8C%E6%96%87%E6%9C%AC/"/>
     
   </entry>
   
   <entry>
     <title>UIButton 设置图片与文字位置</title>
-    <link href="http://andycui.top/2018/08/10/UIButton%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E4%B8%8E%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE/"/>
-    <id>http://andycui.top/2018/08/10/UIButton设置图片与文字位置/</id>
+    <link href="http://CuiXg.top/2018/08/10/UIButton%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E4%B8%8E%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE/"/>
+    <id>http://CuiXg.top/2018/08/10/UIButton设置图片与文字位置/</id>
     <published>2018-08-10T01:52:00.000Z</published>
     <updated>2018-09-06T03:47:59.780Z</updated>
     
@@ -381,19 +407,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="总结" scheme="http://andycui.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
+      <category term="总结" scheme="http://CuiXg.top/categories/iOS/%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="自定义视图" scheme="http://andycui.top/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
+      <category term="自定义视图" scheme="http://CuiXg.top/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
     
   </entry>
   
   <entry>
     <title>Git 忽略不必要提交的文件</title>
-    <link href="http://andycui.top/2018/08/09/git%E5%BF%BD%E7%95%A5%E4%B8%8D%E5%BF%85%E8%A6%81%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6/"/>
-    <id>http://andycui.top/2018/08/09/git忽略不必要提交的文件/</id>
+    <link href="http://CuiXg.top/2018/08/09/git%E5%BF%BD%E7%95%A5%E4%B8%8D%E5%BF%85%E8%A6%81%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6/"/>
+    <id>http://CuiXg.top/2018/08/09/git忽略不必要提交的文件/</id>
     <published>2018-08-09T01:15:29.000Z</published>
     <updated>2018-09-06T03:47:59.828Z</updated>
     
@@ -405,25 +431,25 @@
     
     </summary>
     
-      <category term="版本控制" scheme="http://andycui.top/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
+      <category term="版本控制" scheme="http://CuiXg.top/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
     
-      <category term="Git" scheme="http://andycui.top/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/"/>
+      <category term="Git" scheme="http://CuiXg.top/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/"/>
     
     
-      <category term="git" scheme="http://andycui.top/tags/git/"/>
+      <category term="git" scheme="http://CuiXg.top/tags/git/"/>
     
-      <category term="版本控制" scheme="http://andycui.top/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
+      <category term="版本控制" scheme="http://CuiXg.top/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
     
   </entry>
   
   <entry>
     <title>iOS 总结</title>
-    <link href="http://andycui.top/2018/06/21/iOS%20%E6%80%BB%E7%BB%93/"/>
-    <id>http://andycui.top/2018/06/21/iOS 总结/</id>
+    <link href="http://CuiXg.top/2018/06/21/iOS%20%E6%80%BB%E7%BB%93/"/>
+    <id>http://CuiXg.top/2018/06/21/iOS 总结/</id>
     <published>2018-06-21T00:34:35.000Z</published>
     <updated>2018-09-06T03:47:59.893Z</updated>
     
-    <content type="html"><![CDATA[<p>iOS是由苹果公司开发的移动操作系统.<br><a id="more"></a></p><h1 id="iOS-简介"><a href="#iOS-简介" class="headerlink" title="iOS 简介"></a>iOS 简介</h1><h2 id="开发语言"><a href="#开发语言" class="headerlink" title="开发语言"></a>开发语言</h2><h3 id="Object-C"><a href="#Object-C" class="headerlink" title="Object-C"></a>Object-C</h3><ul><li>通常写作ObjC或OC和较少用的Objective C或Obj-C，是扩充C的面向对象编程语言。OC 完全兼容 C语言.</li><li>面向对象语言(C 语言面向过程).</li><li>是MAC OSX和IOS开发的基础语言。</li></ul><h3 id="Swift"><a href="#Swift" class="headerlink" title="Swift"></a>Swift</h3><ul><li>苹果于2014年WWDC（苹果开发者大会）发布的新开发语言，可与Objective-C*共同运行于Mac OS和iOS平台，用于搭建基于苹果平台的应用程序.</li><li>Swift和Objective-C共用一套运行时环境,项目中可以通过桥接的方式互相调用.</li></ul><h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><ul><li>Xcode: 运行在操作系统Mac OS X上的集成开发工具（IDE），由苹果公司开发。</li></ul><h1 id="iOS-基础"><a href="#iOS-基础" class="headerlink" title="iOS 基础"></a>iOS 基础</h1><h2 id="APP-生命周期"><a href="#APP-生命周期" class="headerlink" title="APP 生命周期"></a>APP 生命周期</h2><p>iOS 应用有5中状态:</p><ul><li>Not running 应用还没启动或正在运行但是中途被系统停止</li><li>Inactive 应用正在前台运行(不接收事件)</li><li>Active 应用正在前台运行(接收事件)</li><li>Background 应用处于后台运行(还在执行代码)</li><li>Suspended 应用处于后台运行(停止执行代码)<br>对应的函数:<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//应用将要进入非活动调用   (不接受消息或事件)</span></span><br><span class="line">- (void)applicationWillResignActive:(<span class="type">UIApplication</span> *)application;</span><br><span class="line"><span class="comment">//应用进入活动调用        (接收消息或事件)</span></span><br><span class="line">- (void)applicationDidBecomeActive:(<span class="type">UIApplication</span> *)application;</span><br><span class="line"><span class="comment">//应用进入后台调用        (设置后台继续运行)</span></span><br><span class="line">- (void)applicationDidEnterBackground:(<span class="type">UIApplication</span> *)application;</span><br><span class="line"><span class="comment">//应用将要进入前台调用</span></span><br><span class="line">- (void)applicationWillEnterForeground:(<span class="type">UIApplication</span> *)application;</span><br><span class="line"><span class="comment">//应用将要退出调用        (保存数据,退出前清理)</span></span><br><span class="line">- (void)applicationWillTerminate:(<span class="type">UIApplication</span> *)application;</span><br><span class="line"><span class="comment">//应用被终止前调用        (内存清理,方式应用被终止)</span></span><br><span class="line">- (void)applicationDidReceiveMemoryWarning:(<span class="type">UIApplication</span> *)application;</span><br><span class="line"><span class="comment">//应用载入后调用</span></span><br><span class="line">- (<span class="type">BOOL</span>)application:(<span class="type">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="type">NSDictionary</span> *)launchOptions;</span><br><span class="line"><span class="comment">//应用打开URL时调用</span></span><br><span class="line">- (<span class="type">BOOL</span>)application:(<span class="type">UIApplication</span> *)application handleOpenURL:(<span class="type">NSURL</span> *)url;</span><br></pre></td></tr></table></figure></li></ul><h2 id="内存管理机制-引用计数"><a href="#内存管理机制-引用计数" class="headerlink" title="内存管理机制(引用计数)"></a>内存管理机制(引用计数)</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>OC 引入引用计数机制来跟踪并管理对象的生命周期.<br>iOS 5之前采用 MRC(手动内存管理) 管理内存.需用开发人员手动调用reatain,release等方法.<br>iOS 5之后采用 ARC(自动内存管理) 管理内存,不用开发人员去关心引用计数的变化.</p><table><thead><tr><th style="text-align:center">操作</th><th style="text-align:center">对应 OC 方法</th><th>引用计数变化</th></tr></thead><tbody><tr><td style="text-align:center">创建对象</td><td style="text-align:center">alloc,new 等</td><td>生成对象,引用计数设置为 1</td></tr><tr><td style="text-align:center">持有对象</td><td style="text-align:center">reatain</td><td>引用计数 +1</td></tr><tr><td style="text-align:center">释放对象</td><td style="text-align:center">release</td><td>引用计数 -1</td></tr><tr><td style="text-align:center">废弃对象</td><td style="text-align:center">dealloc</td><td>引用计数为0,释放内存</td></tr></tbody></table><p>alloc 与 dealloc,reatain与 release 成对存在, <strong>谁创建谁释放，谁retain谁释放</strong><br>只有当引用计数为 0 是对象才会销毁回收内存.</p><h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><ul><li>当我们创建(alloc)一个新对象A的时候，它的引用计数从零变为 1.</li><li>当有一个指针指向这个对象A，也就是某对象想通过引用保留(retain)该对象A时，引用计数加 1.</li><li>当某个指针/对象不再指向这个对象A，也就是释放(release)该引用后，我们将其引用计数减 1.</li><li>当对象A的引用计数变为 0 时，说明这个对象不再被任何指针指向(引用)了，这个时候我们就可以将对象A销毁，所占内存将被回收，且所有指向该对象的引用也都变得无效了。系统也会将其占用的内存标记为“可重用”(reuse).</li></ul><h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><p><code>@property(nonatomic, strong)UITextField *textField;</code><br>OC 采用 ‘@property’ 声明对象, 会默认生成一个 ‘_textField’ 成员变量与与之对应的 ‘setter/getter’ 方法.</p><h3 id="属性修饰符"><a href="#属性修饰符" class="headerlink" title="属性修饰符"></a>属性修饰符</h3><table><thead><tr><th style="text-align:center">修饰符</th><th style="text-align:center">描述</th><th style="text-align:center">引用计数变化</th></tr></thead><tbody><tr><td style="text-align:center">copy</td><td style="text-align:center">复制,创建一个新对象,通常修饰 NSString,NSArray,NSDictionary,NSSet</td><td style="text-align:center">新对象引用计数为 1,旧对象不变</td></tr><tr><td style="text-align:center">retain</td><td style="text-align:center">释放旧对象,主要用于(MRC)</td><td style="text-align:center">释放旧对象,计数 -1,新对象 retain, 计数 +1</td></tr><tr><td style="text-align:center">strong</td><td style="text-align:center">强引用,与 retain相似</td><td style="text-align:center">释放旧对象,计数 -1,新对象 retain, 计数 +1</td></tr><tr><td style="text-align:center">assign</td><td style="text-align:center">修饰基本数据类型</td><td style="text-align:center">不变</td></tr><tr><td style="text-align:center">weak</td><td style="text-align:center">与assign类似,修饰对象,对消销毁后自动变成 nil,主要用于修饰 delegate</td><td style="text-align:center">不变</td></tr><tr><td style="text-align:center">readwrite</td><td style="text-align:center">可读写,生成 setter 与 getter 方法</td><td style="text-align:center">-</td></tr><tr><td style="text-align:center">readonly</td><td style="text-align:center">只读,只为属性生成 getter 方法</td><td style="text-align:center">-</td></tr><tr><td style="text-align:center">nonatomic</td><td style="text-align:center">非原子属性,不为 setter 方式加锁,非线程安全,通常采用这种,执行效率高</td><td style="text-align:center">-</td></tr><tr><td style="text-align:center">atomic</td><td style="text-align:center">原子属性,为 setter 方式加锁,线程安全</td><td style="text-align:center">-</td></tr></tbody></table><h3 id="注意问题"><a href="#注意问题" class="headerlink" title="注意问题"></a>注意问题</h3><ul><li>对 block 修饰 Strong,copy 都可以,建议使用 copy. block 声明默认为栈变量,为了能够在block的声明域外使用，所以要把block拷贝（copy）到堆，所以说为了block属性声明和实际的操作一致，最好声明为copy。</li><li>NSString,NSArray,NSDictionary,NSSet 建议使用 copy. 当将 NSMutableString 赋值给 NSString 时, strong 修饰只会进行浅拷贝(引用计数 +1),NSMutableString与NSString 指向同一内存空间,NSMutableString修改时NSString会随之改变. copy 修饰深拷贝(复制内存单元),NSMutableString与NSString 指向不同内存空间,NSMutableString修改时NSString不会改变.</li><li>__weak __Strong __block 在 block 使用时有时为了避免造成循环引用会用 __weak __Strong 进行修饰下. 有时在 block 中,为了避免对象过早释放用 __Strong 修饰.</li></ul><h2 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h2><ul><li>读写文件: 比较复杂,对对象保存需要进行归档反归档处理.</li><li>云端存储: 需要后台配合.</li><li>本地数据库(SQLite,<a href="http://andycui.top/2018/06/01/iOS%20%E5%BC%80%E5%8F%91%E4%B9%8B%20CoreData/">CoreDate</a>): CoreDate 是 iOS5 之后出现的,实质是对 SQLite 的封装.</li><li>NSUserDefaults: 系统自带的持久化类,进行简单数据存储(用户登录信息等).</li></ul><h2 id="类继承关系-单继承"><a href="#类继承关系-单继承" class="headerlink" title="类继承关系(单继承)"></a>类继承关系(单继承)</h2><p>iOS 所有的类都继承与 NSObject, 主要分为 UI 和 NS 两大类. UI 主要为视图, NS 为数据操作.<br>图解:<br><img src="iOS 总结_1.png" alt="UI 系"><br><img src="iOS 总结_2.png" alt="UI 系"></p><p>其他:<br>UIViewController 生命周期: 初始化 –&gt; loadView –&gt; viewDidLoad –&gt; viewWillAppear –&gt; viewWillLayoutSubviews –&gt; viewDidLayoutSubviews –&gt; viewDidAppear –&gt; viewWillDisappear –&gt; viewDidDisappear –&gt; dealloc </p><h2 id="传值"><a href="#传值" class="headerlink" title="传值"></a>传值</h2><ul><li>属性传值</li><li>block 传值</li><li>代理传值</li><li>通知传值</li><li>单例传值</li><li>持久化传值</li></ul><h2 id="协议与代理"><a href="#协议与代理" class="headerlink" title="协议与代理"></a>协议与代理</h2><p>在iOS开发中，Protocol是一种经常用到的设计模式，苹果的系统框架中也普遍用到了这种方式,比如UITableView中的<uitableviewdelegate>.<br>协议声明:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">import</span> &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@<span class="class"><span class="keyword">protocol</span> <span class="title">ProtocolDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">// 必须实现方法</span></span><br><span class="line"><span class="class">@<span class="title">required</span></span></span><br><span class="line"><span class="class">- (<span class="title">NSString</span>*)<span class="title">getName</span>;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">// 可选方法</span></span><br><span class="line"><span class="class">@<span class="title">optional</span></span></span><br><span class="line"><span class="class">- (<span class="title">NSString</span>*)<span class="title">getAge</span>;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">@<span class="title">end</span></span></span><br></pre></td></tr></table></figure></uitableviewdelegate></p><p>协议使用</p><ul><li>协议是一系列标准的方法列表，可以被任何类实现.</li><li>协议中不能声明成员变量，只要一个类遵守了这个协议，也相当于拥有了该协议中所有方法的声明.</li><li>父类遵守了该协议，那么它的子类也就都遵守该协议,可以遵守多个协议.</li></ul><p>代理: 当前类(委托者)将一些操作委托给另一个类(代理)去完成.<br>委托者需要做的事：</p><ul><li>创建协议（也就是代理要实现的方法）</li><li>声明委托变量</li><li>设置代理（也可以在代理中设置）</li><li>利用委托变量来调用协议方法（也就是让代理者开始执行协议）<br>代理需要做的事：</li><li>遵循协议</li><li>实现协议方法</li></ul><h2 id="数据请求"><a href="#数据请求" class="headerlink" title="数据请求"></a>数据请求</h2><h1 id="iOS-中级"><a href="#iOS-中级" class="headerlink" title="iOS 中级"></a>iOS 中级</h1><h2 id="响应者链"><a href="#响应者链" class="headerlink" title="响应者链"></a>响应者链</h2><ul><li>响应对象: 继承自UIResponder的对象称之为响应者对象.</li><li>响应事件: 触摸事件、点按事件(长按,多次点击,轻点等)、加速事件和远程控制.</li><li>响应者链: 由多个响应者组合起来的链条</li></ul><h3 id="事件产生与传递"><a href="#事件产生与传递" class="headerlink" title="事件产生与传递"></a>事件产生与传递</h3><ul><li>发生触摸事件后，系统会将该事件加入到一个由UIApplication管理的事件队列中.</li><li>UIApplication会从事件队列中取出最前面的事件，并将事件分发下去以便处理，通常，先发送事件给应用程序的主窗口（keyWindow).</li><li>主窗口会在视图层次结构中找到一个最合适的视图来处理触摸事件，这也是整个事件处理过程的第一步.</li><li>找到合适的视图控件后，就会调用视图控件的touches方法来作具体的事件处理.</li><li>如果调用了[super touches….];就会将事件顺着响应者链条往上传递，传递给上一个响应者，调用上一个响应者的touches….方法<br><strong>注意:</strong> 如果父控件不能接受触摸事件，那么子控件就不可能接收到触摸事件<br><img src="iOS 总结_3.png" alt="UI 系"></li></ul><h3 id="事件响应"><a href="#事件响应" class="headerlink" title="事件响应"></a>事件响应</h3><ul><li>如果视图不响应事件，则将其传递给它的父视图</li><li>在最顶级的视图层次结构中，如果都不能处理收到的事件或消息，则其将事件或消息传递给UIWindow对象进行处理</li><li>如果UIWindow对象也不处理，则其将事件或消息传递给UIApplication对象处理</li><li>如果UIApplication也不能处理该事件或消息，则将该事件丢弃<br>如何判断上一个响应者<ul><li>如果当前这个view不是控制器的view, 那么它的父控件就是上一个响应者</li><li>如果当前这个view是控制器的view, 那么控制器就是上一个响应者</li></ul></li></ul><h3 id="UIView不能接收触摸事件的情况"><a href="#UIView不能接收触摸事件的情况" class="headerlink" title="UIView不能接收触摸事件的情况"></a>UIView不能接收触摸事件的情况</h3><ul><li>不允许交互: userInteractionEnabled = NO(eg: UIImageView)</li><li>隐藏</li><li>透明度: 透明度&lt;0.01</li><li>子视图超出了父视图区域</li><li>当前 View 被遮挡</li></ul><h2 id="分类-category-与类扩展-extension"><a href="#分类-category-与类扩展-extension" class="headerlink" title="分类(category)与类扩展(extension)"></a>分类(category)与类扩展(extension)</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul><li>在不改变原类的基础上为一个类扩展方法.</li><li>主要用法为系统类扩展方法</li><li>不可添加成员变量. 如果要添加成员变量需要自己实现 setter 和 getter 方法(runtime).</li><li>分类文件(.h,.m),以为 Person 添加分类为例,可以通过 Person 实例对象直接调用 playFootBall 方法(分类方法执行优先级高于本类).</li></ul><p>Person+sport.h<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">import</span> "Person.h"</span><br><span class="line"></span><br><span class="line">@interface <span class="type">Person</span> (sport)</span><br><span class="line"></span><br><span class="line">- (void)playFootBall;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p><p>Person+sport.m<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">import</span> "Person+sport.h"</span><br><span class="line"></span><br><span class="line">@implementation <span class="type">Person</span> (sport)</span><br><span class="line"></span><br><span class="line">- (void)playFootBall &#123;</span><br><span class="line">    <span class="type">NSLog</span>(@<span class="string">"playFootBall"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p><h3 id="类扩展"><a href="#类扩展" class="headerlink" title="类扩展"></a>类扩展</h3><p>类扩展是分类的一个特例,为一个类添加一些私有成员变量和方法(常用).<br>类扩展定义的方法，须在类的implement 中实现<br>类扩展可以定义属性<br>声明:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">import</span> "Person.h"</span><br><span class="line"></span><br><span class="line">@interface <span class="type">Person</span> ()</span><br><span class="line">- (void)say;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p><h3 id="分类与继承"><a href="#分类与继承" class="headerlink" title="分类与继承"></a>分类与继承</h3><p>iOS 中分类(Categories) 和 继承(Inherit)有相同的功能，但在一些细节上又有差异，如何选择。<br>使用继承:</p><ul><li>扩展方法与原方法名相同,还需要使用父类方法.</li><li>扩展类属性(分类不能扩展类属性)<br>使用分类:</li><li>为系统类添加方法(eg: 为 NSString 添加字符串校验).</li><li>开发人员针对自己的类,将相关方法分组到不同的文件.</li></ul><h2 id="UITableView-重用机制"><a href="#UITableView-重用机制" class="headerlink" title="UITableView 重用机制"></a>UITableView 重用机制</h2><p>UITableView 是 iOS 开发中最长用的控件,为了节省内存开销, UITableView 使用重用机制(重用 cell 单元格).</p><h3 id="使用重用机制创建-cell"><a href="#使用重用机制创建-cell" class="headerlink" title="使用重用机制创建 cell"></a>使用重用机制创建 cell</h3><ul><li>定义重用标示(static 修饰字符串).</li><li>在重用池取出 cell.</li><li>若重用池没有可用 cell, 创建新的 cell.<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="type">NSString</span> *reuseIndentifier = @<span class="string">"MyCell"</span>;  </span><br><span class="line"><span class="type">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:reuseIndentifier];  </span><br><span class="line"><span class="keyword">if</span> (!cell) &#123;  </span><br><span class="line">    cell = [[<span class="type">UITableViewCell</span> alloc] initWithStyle:<span class="type">UITableViewCellStyleDefault</span> reuseIdentifier:reuseIndentifier];  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>UITableView 维护这两个队列,单前可视 cell 队列 visiableCells, 可重用 cell 队列 reusableTableCells(重回池).<br>在最初visiableCells, reusableTableCells 都为空, “UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@”cell”];” 获取 cell 为 nil, 执行 cell 初始化方法创建显示并存入到 visiableCells.如果屏幕最多显示 cell 个数为10,当加载完第11个 cell 时创建的第一个 cell 在 visiableCells 移除加入到 reusableTableCells 中,所以在加载第12个 cell 时只需在 reusableTableCells 取出 cell 即可.第十二个 cell 加载完成后创建的第二个 cell 移出 visiableCells 进入 reusableTableCells 中,依次类推(理论讲只需创建11个 cell 就可).</p><h3 id="遇到问题和优化"><a href="#遇到问题和优化" class="headerlink" title="遇到问题和优化"></a>遇到问题和优化</h3><ul><li>重取出来的cell是有可能已经捆绑过数据或者加过子视图的，造成视图叠加混乱的现象<ul><li>删除已有数据或子视图.</li><li>放弃了重用机制，每次根据indexPath获取对应的cell返回(内存销耗特大).</li></ul></li><li>结合 MJFresh 实现数据分页加载.</li><li>结合 SDWebImage 实现 cell 中图片异步加载以及缓存.</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>iOS是由苹果公司开发的移动操作系统.<br><a id="more"></a></p><h1 id="iOS-简介"><a href="#iOS-简介" class="headerlink" title="iOS 简介"></a>iOS 简介</h1><h2 id="开发语言"><a href="#开发语言" class="headerlink" title="开发语言"></a>开发语言</h2><h3 id="Object-C"><a href="#Object-C" class="headerlink" title="Object-C"></a>Object-C</h3><ul><li>通常写作ObjC或OC和较少用的Objective C或Obj-C，是扩充C的面向对象编程语言。OC 完全兼容 C语言.</li><li>面向对象语言(C 语言面向过程).</li><li>是MAC OSX和IOS开发的基础语言。</li></ul><h3 id="Swift"><a href="#Swift" class="headerlink" title="Swift"></a>Swift</h3><ul><li>苹果于2014年WWDC（苹果开发者大会）发布的新开发语言，可与Objective-C*共同运行于Mac OS和iOS平台，用于搭建基于苹果平台的应用程序.</li><li>Swift和Objective-C共用一套运行时环境,项目中可以通过桥接的方式互相调用.</li></ul><h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><ul><li>Xcode: 运行在操作系统Mac OS X上的集成开发工具（IDE），由苹果公司开发。</li></ul><h1 id="iOS-基础"><a href="#iOS-基础" class="headerlink" title="iOS 基础"></a>iOS 基础</h1><h2 id="APP-生命周期"><a href="#APP-生命周期" class="headerlink" title="APP 生命周期"></a>APP 生命周期</h2><p>iOS 应用有5中状态:</p><ul><li>Not running 应用还没启动或正在运行但是中途被系统停止</li><li>Inactive 应用正在前台运行(不接收事件)</li><li>Active 应用正在前台运行(接收事件)</li><li>Background 应用处于后台运行(还在执行代码)</li><li>Suspended 应用处于后台运行(停止执行代码)<br>对应的函数:<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//应用将要进入非活动调用   (不接受消息或事件)</span></span><br><span class="line">- (void)applicationWillResignActive:(<span class="type">UIApplication</span> *)application;</span><br><span class="line"><span class="comment">//应用进入活动调用        (接收消息或事件)</span></span><br><span class="line">- (void)applicationDidBecomeActive:(<span class="type">UIApplication</span> *)application;</span><br><span class="line"><span class="comment">//应用进入后台调用        (设置后台继续运行)</span></span><br><span class="line">- (void)applicationDidEnterBackground:(<span class="type">UIApplication</span> *)application;</span><br><span class="line"><span class="comment">//应用将要进入前台调用</span></span><br><span class="line">- (void)applicationWillEnterForeground:(<span class="type">UIApplication</span> *)application;</span><br><span class="line"><span class="comment">//应用将要退出调用        (保存数据,退出前清理)</span></span><br><span class="line">- (void)applicationWillTerminate:(<span class="type">UIApplication</span> *)application;</span><br><span class="line"><span class="comment">//应用被终止前调用        (内存清理,方式应用被终止)</span></span><br><span class="line">- (void)applicationDidReceiveMemoryWarning:(<span class="type">UIApplication</span> *)application;</span><br><span class="line"><span class="comment">//应用载入后调用</span></span><br><span class="line">- (<span class="type">BOOL</span>)application:(<span class="type">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="type">NSDictionary</span> *)launchOptions;</span><br><span class="line"><span class="comment">//应用打开URL时调用</span></span><br><span class="line">- (<span class="type">BOOL</span>)application:(<span class="type">UIApplication</span> *)application handleOpenURL:(<span class="type">NSURL</span> *)url;</span><br></pre></td></tr></table></figure></li></ul><h2 id="内存管理机制-引用计数"><a href="#内存管理机制-引用计数" class="headerlink" title="内存管理机制(引用计数)"></a>内存管理机制(引用计数)</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>OC 引入引用计数机制来跟踪并管理对象的生命周期.<br>iOS 5之前采用 MRC(手动内存管理) 管理内存.需用开发人员手动调用reatain,release等方法.<br>iOS 5之后采用 ARC(自动内存管理) 管理内存,不用开发人员去关心引用计数的变化.</p><table><thead><tr><th style="text-align:center">操作</th><th style="text-align:center">对应 OC 方法</th><th>引用计数变化</th></tr></thead><tbody><tr><td style="text-align:center">创建对象</td><td style="text-align:center">alloc,new 等</td><td>生成对象,引用计数设置为 1</td></tr><tr><td style="text-align:center">持有对象</td><td style="text-align:center">reatain</td><td>引用计数 +1</td></tr><tr><td style="text-align:center">释放对象</td><td style="text-align:center">release</td><td>引用计数 -1</td></tr><tr><td style="text-align:center">废弃对象</td><td style="text-align:center">dealloc</td><td>引用计数为0,释放内存</td></tr></tbody></table><p>alloc 与 dealloc,reatain与 release 成对存在, <strong>谁创建谁释放，谁retain谁释放</strong><br>只有当引用计数为 0 是对象才会销毁回收内存.</p><h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><ul><li>当我们创建(alloc)一个新对象A的时候，它的引用计数从零变为 1.</li><li>当有一个指针指向这个对象A，也就是某对象想通过引用保留(retain)该对象A时，引用计数加 1.</li><li>当某个指针/对象不再指向这个对象A，也就是释放(release)该引用后，我们将其引用计数减 1.</li><li>当对象A的引用计数变为 0 时，说明这个对象不再被任何指针指向(引用)了，这个时候我们就可以将对象A销毁，所占内存将被回收，且所有指向该对象的引用也都变得无效了。系统也会将其占用的内存标记为“可重用”(reuse).</li></ul><h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><p><code>@property(nonatomic, strong)UITextField *textField;</code><br>OC 采用 ‘@property’ 声明对象, 会默认生成一个 ‘_textField’ 成员变量与与之对应的 ‘setter/getter’ 方法.</p><h3 id="属性修饰符"><a href="#属性修饰符" class="headerlink" title="属性修饰符"></a>属性修饰符</h3><table><thead><tr><th style="text-align:center">修饰符</th><th style="text-align:center">描述</th><th style="text-align:center">引用计数变化</th></tr></thead><tbody><tr><td style="text-align:center">copy</td><td style="text-align:center">复制,创建一个新对象,通常修饰 NSString,NSArray,NSDictionary,NSSet</td><td style="text-align:center">新对象引用计数为 1,旧对象不变</td></tr><tr><td style="text-align:center">retain</td><td style="text-align:center">释放旧对象,主要用于(MRC)</td><td style="text-align:center">释放旧对象,计数 -1,新对象 retain, 计数 +1</td></tr><tr><td style="text-align:center">strong</td><td style="text-align:center">强引用,与 retain相似</td><td style="text-align:center">释放旧对象,计数 -1,新对象 retain, 计数 +1</td></tr><tr><td style="text-align:center">assign</td><td style="text-align:center">修饰基本数据类型</td><td style="text-align:center">不变</td></tr><tr><td style="text-align:center">weak</td><td style="text-align:center">与assign类似,修饰对象,对消销毁后自动变成 nil,主要用于修饰 delegate</td><td style="text-align:center">不变</td></tr><tr><td style="text-align:center">readwrite</td><td style="text-align:center">可读写,生成 setter 与 getter 方法</td><td style="text-align:center">-</td></tr><tr><td style="text-align:center">readonly</td><td style="text-align:center">只读,只为属性生成 getter 方法</td><td style="text-align:center">-</td></tr><tr><td style="text-align:center">nonatomic</td><td style="text-align:center">非原子属性,不为 setter 方式加锁,非线程安全,通常采用这种,执行效率高</td><td style="text-align:center">-</td></tr><tr><td style="text-align:center">atomic</td><td style="text-align:center">原子属性,为 setter 方式加锁,线程安全</td><td style="text-align:center">-</td></tr></tbody></table><h3 id="注意问题"><a href="#注意问题" class="headerlink" title="注意问题"></a>注意问题</h3><ul><li>对 block 修饰 Strong,copy 都可以,建议使用 copy. block 声明默认为栈变量,为了能够在block的声明域外使用，所以要把block拷贝（copy）到堆，所以说为了block属性声明和实际的操作一致，最好声明为copy。</li><li>NSString,NSArray,NSDictionary,NSSet 建议使用 copy. 当将 NSMutableString 赋值给 NSString 时, strong 修饰只会进行浅拷贝(引用计数 +1),NSMutableString与NSString 指向同一内存空间,NSMutableString修改时NSString会随之改变. copy 修饰深拷贝(复制内存单元),NSMutableString与NSString 指向不同内存空间,NSMutableString修改时NSString不会改变.</li><li>__weak __Strong __block 在 block 使用时有时为了避免造成循环引用会用 __weak __Strong 进行修饰下. 有时在 block 中,为了避免对象过早释放用 __Strong 修饰.</li></ul><h2 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h2><ul><li>读写文件: 比较复杂,对对象保存需要进行归档反归档处理.</li><li>云端存储: 需要后台配合.</li><li>本地数据库(SQLite,<a href="http://andycui.top/2018/06/01/iOS%20%E5%BC%80%E5%8F%91%E4%B9%8B%20CoreData/" target="_blank" rel="noopener">CoreDate</a>): CoreDate 是 iOS5 之后出现的,实质是对 SQLite 的封装.</li><li>NSUserDefaults: 系统自带的持久化类,进行简单数据存储(用户登录信息等).</li></ul><h2 id="类继承关系-单继承"><a href="#类继承关系-单继承" class="headerlink" title="类继承关系(单继承)"></a>类继承关系(单继承)</h2><p>iOS 所有的类都继承与 NSObject, 主要分为 UI 和 NS 两大类. UI 主要为视图, NS 为数据操作.<br>图解:<br><img src="iOS 总结_1.png" alt="UI 系"><br><img src="iOS 总结_2.png" alt="UI 系"></p><p>其他:<br>UIViewController 生命周期: 初始化 –&gt; loadView –&gt; viewDidLoad –&gt; viewWillAppear –&gt; viewWillLayoutSubviews –&gt; viewDidLayoutSubviews –&gt; viewDidAppear –&gt; viewWillDisappear –&gt; viewDidDisappear –&gt; dealloc </p><h2 id="传值"><a href="#传值" class="headerlink" title="传值"></a>传值</h2><ul><li>属性传值</li><li>block 传值</li><li>代理传值</li><li>通知传值</li><li>单例传值</li><li>持久化传值</li></ul><h2 id="协议与代理"><a href="#协议与代理" class="headerlink" title="协议与代理"></a>协议与代理</h2><p>在iOS开发中，Protocol是一种经常用到的设计模式，苹果的系统框架中也普遍用到了这种方式,比如UITableView中的<uitableviewdelegate>.<br>协议声明:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">import</span> &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@<span class="class"><span class="keyword">protocol</span> <span class="title">ProtocolDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">// 必须实现方法</span></span><br><span class="line"><span class="class">@<span class="title">required</span></span></span><br><span class="line"><span class="class">- (<span class="title">NSString</span>*)<span class="title">getName</span>;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">// 可选方法</span></span><br><span class="line"><span class="class">@<span class="title">optional</span></span></span><br><span class="line"><span class="class">- (<span class="title">NSString</span>*)<span class="title">getAge</span>;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">@<span class="title">end</span></span></span><br></pre></td></tr></table></figure></uitableviewdelegate></p><p>协议使用</p><ul><li>协议是一系列标准的方法列表，可以被任何类实现.</li><li>协议中不能声明成员变量，只要一个类遵守了这个协议，也相当于拥有了该协议中所有方法的声明.</li><li>父类遵守了该协议，那么它的子类也就都遵守该协议,可以遵守多个协议.</li></ul><p>代理: 当前类(委托者)将一些操作委托给另一个类(代理)去完成.<br>委托者需要做的事：</p><ul><li>创建协议（也就是代理要实现的方法）</li><li>声明委托变量</li><li>设置代理（也可以在代理中设置）</li><li>利用委托变量来调用协议方法（也就是让代理者开始执行协议）<br>代理需要做的事：</li><li>遵循协议</li><li>实现协议方法</li></ul><h2 id="数据请求"><a href="#数据请求" class="headerlink" title="数据请求"></a>数据请求</h2><h1 id="iOS-中级"><a href="#iOS-中级" class="headerlink" title="iOS 中级"></a>iOS 中级</h1><h2 id="响应者链"><a href="#响应者链" class="headerlink" title="响应者链"></a>响应者链</h2><ul><li>响应对象: 继承自UIResponder的对象称之为响应者对象.</li><li>响应事件: 触摸事件、点按事件(长按,多次点击,轻点等)、加速事件和远程控制.</li><li>响应者链: 由多个响应者组合起来的链条</li></ul><h3 id="事件产生与传递"><a href="#事件产生与传递" class="headerlink" title="事件产生与传递"></a>事件产生与传递</h3><ul><li>发生触摸事件后，系统会将该事件加入到一个由UIApplication管理的事件队列中.</li><li>UIApplication会从事件队列中取出最前面的事件，并将事件分发下去以便处理，通常，先发送事件给应用程序的主窗口（keyWindow).</li><li>主窗口会在视图层次结构中找到一个最合适的视图来处理触摸事件，这也是整个事件处理过程的第一步.</li><li>找到合适的视图控件后，就会调用视图控件的touches方法来作具体的事件处理.</li><li>如果调用了[super touches….];就会将事件顺着响应者链条往上传递，传递给上一个响应者，调用上一个响应者的touches….方法<br><strong>注意:</strong> 如果父控件不能接受触摸事件，那么子控件就不可能接收到触摸事件<br><img src="iOS 总结_3.png" alt="UI 系"></li></ul><h3 id="事件响应"><a href="#事件响应" class="headerlink" title="事件响应"></a>事件响应</h3><ul><li>如果视图不响应事件，则将其传递给它的父视图</li><li>在最顶级的视图层次结构中，如果都不能处理收到的事件或消息，则其将事件或消息传递给UIWindow对象进行处理</li><li>如果UIWindow对象也不处理，则其将事件或消息传递给UIApplication对象处理</li><li>如果UIApplication也不能处理该事件或消息，则将该事件丢弃<br>如何判断上一个响应者<ul><li>如果当前这个view不是控制器的view, 那么它的父控件就是上一个响应者</li><li>如果当前这个view是控制器的view, 那么控制器就是上一个响应者</li></ul></li></ul><h3 id="UIView不能接收触摸事件的情况"><a href="#UIView不能接收触摸事件的情况" class="headerlink" title="UIView不能接收触摸事件的情况"></a>UIView不能接收触摸事件的情况</h3><ul><li>不允许交互: userInteractionEnabled = NO(eg: UIImageView)</li><li>隐藏</li><li>透明度: 透明度&lt;0.01</li><li>子视图超出了父视图区域</li><li>当前 View 被遮挡</li></ul><h2 id="分类-category-与类扩展-extension"><a href="#分类-category-与类扩展-extension" class="headerlink" title="分类(category)与类扩展(extension)"></a>分类(category)与类扩展(extension)</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul><li>在不改变原类的基础上为一个类扩展方法.</li><li>主要用法为系统类扩展方法</li><li>不可添加成员变量. 如果要添加成员变量需要自己实现 setter 和 getter 方法(runtime).</li><li>分类文件(.h,.m),以为 Person 添加分类为例,可以通过 Person 实例对象直接调用 playFootBall 方法(分类方法执行优先级高于本类).</li></ul><p>Person+sport.h<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">import</span> "Person.h"</span><br><span class="line"></span><br><span class="line">@interface <span class="type">Person</span> (sport)</span><br><span class="line"></span><br><span class="line">- (void)playFootBall;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p><p>Person+sport.m<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">import</span> "Person+sport.h"</span><br><span class="line"></span><br><span class="line">@implementation <span class="type">Person</span> (sport)</span><br><span class="line"></span><br><span class="line">- (void)playFootBall &#123;</span><br><span class="line">    <span class="type">NSLog</span>(@<span class="string">"playFootBall"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p><h3 id="类扩展"><a href="#类扩展" class="headerlink" title="类扩展"></a>类扩展</h3><p>类扩展是分类的一个特例,为一个类添加一些私有成员变量和方法(常用).<br>类扩展定义的方法，须在类的implement 中实现<br>类扩展可以定义属性<br>声明:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">import</span> "Person.h"</span><br><span class="line"></span><br><span class="line">@interface <span class="type">Person</span> ()</span><br><span class="line">- (void)say;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p><h3 id="分类与继承"><a href="#分类与继承" class="headerlink" title="分类与继承"></a>分类与继承</h3><p>iOS 中分类(Categories) 和 继承(Inherit)有相同的功能，但在一些细节上又有差异，如何选择。<br>使用继承:</p><ul><li>扩展方法与原方法名相同,还需要使用父类方法.</li><li>扩展类属性(分类不能扩展类属性)<br>使用分类:</li><li>为系统类添加方法(eg: 为 NSString 添加字符串校验).</li><li>开发人员针对自己的类,将相关方法分组到不同的文件.</li></ul><h2 id="UITableView-重用机制"><a href="#UITableView-重用机制" class="headerlink" title="UITableView 重用机制"></a>UITableView 重用机制</h2><p>UITableView 是 iOS 开发中最长用的控件,为了节省内存开销, UITableView 使用重用机制(重用 cell 单元格).</p><h3 id="使用重用机制创建-cell"><a href="#使用重用机制创建-cell" class="headerlink" title="使用重用机制创建 cell"></a>使用重用机制创建 cell</h3><ul><li>定义重用标示(static 修饰字符串).</li><li>在重用池取出 cell.</li><li>若重用池没有可用 cell, 创建新的 cell.<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="type">NSString</span> *reuseIndentifier = @<span class="string">"MyCell"</span>;  </span><br><span class="line"><span class="type">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:reuseIndentifier];  </span><br><span class="line"><span class="keyword">if</span> (!cell) &#123;  </span><br><span class="line">    cell = [[<span class="type">UITableViewCell</span> alloc] initWithStyle:<span class="type">UITableViewCellStyleDefault</span> reuseIdentifier:reuseIndentifier];  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>UITableView 维护这两个队列,单前可视 cell 队列 visiableCells, 可重用 cell 队列 reusableTableCells(重回池).<br>在最初visiableCells, reusableTableCells 都为空, “UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@”cell”];” 获取 cell 为 nil, 执行 cell 初始化方法创建显示并存入到 visiableCells.如果屏幕最多显示 cell 个数为10,当加载完第11个 cell 时创建的第一个 cell 在 visiableCells 移除加入到 reusableTableCells 中,所以在加载第12个 cell 时只需在 reusableTableCells 取出 cell 即可.第十二个 cell 加载完成后创建的第二个 cell 移出 visiableCells 进入 reusableTableCells 中,依次类推(理论讲只需创建11个 cell 就可).</p><h3 id="遇到问题和优化"><a href="#遇到问题和优化" class="headerlink" title="遇到问题和优化"></a>遇到问题和优化</h3><ul><li>重取出来的cell是有可能已经捆绑过数据或者加过子视图的，造成视图叠加混乱的现象<ul><li>删除已有数据或子视图.</li><li>放弃了重用机制，每次根据indexPath获取对应的cell返回(内存销耗特大).</li></ul></li><li>结合 MJFresh 实现数据分页加载.</li><li>结合 SDWebImage 实现 cell 中图片异步加载以及缓存.</li></ul>]]></content>
     
     <summary type="html">
     
@@ -431,19 +457,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://andycui.top/tags/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/tags/iOS/"/>
     
-      <category term="Other" scheme="http://andycui.top/tags/Other/"/>
+      <category term="Other" scheme="http://CuiXg.top/tags/Other/"/>
     
   </entry>
   
   <entry>
     <title>iOS音视频播放</title>
-    <link href="http://andycui.top/2018/06/16/iOS%20%E9%9F%B3%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/"/>
-    <id>http://andycui.top/2018/06/16/iOS 音视频播放/</id>
+    <link href="http://CuiXg.top/2018/06/16/iOS%20%E9%9F%B3%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/"/>
+    <id>http://CuiXg.top/2018/06/16/iOS 音视频播放/</id>
     <published>2018-06-16T05:26:11.000Z</published>
     <updated>2019-07-09T01:28:01.302Z</updated>
     
@@ -455,19 +481,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="音视频" scheme="http://andycui.top/categories/iOS/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+      <category term="音视频" scheme="http://CuiXg.top/categories/iOS/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
     
     
-      <category term="音视频" scheme="http://andycui.top/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+      <category term="音视频" scheme="http://CuiXg.top/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
     
   </entry>
   
   <entry>
     <title>iOS 开发之 CoreData</title>
-    <link href="http://andycui.top/2018/06/01/iOS%20%E5%BC%80%E5%8F%91%E4%B9%8B%20CoreData/"/>
-    <id>http://andycui.top/2018/06/01/iOS 开发之 CoreData/</id>
+    <link href="http://CuiXg.top/2018/06/01/iOS%20%E5%BC%80%E5%8F%91%E4%B9%8B%20CoreData/"/>
+    <id>http://CuiXg.top/2018/06/01/iOS 开发之 CoreData/</id>
     <published>2018-06-01T05:52:05.000Z</published>
     <updated>2018-09-06T03:47:59.830Z</updated>
     
@@ -479,19 +505,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="数据处理" scheme="http://andycui.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+      <category term="数据处理" scheme="http://CuiXg.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
     
-      <category term="CoreData" scheme="http://andycui.top/tags/CoreData/"/>
+      <category term="CoreData" scheme="http://CuiXg.top/tags/CoreData/"/>
     
   </entry>
   
   <entry>
     <title>iOS 沙盒机制</title>
-    <link href="http://andycui.top/2018/05/31/iOS%20%E6%B2%99%E7%9B%92%E6%9C%BA%E5%88%B6/"/>
-    <id>http://andycui.top/2018/05/31/iOS 沙盒机制/</id>
+    <link href="http://CuiXg.top/2018/05/31/iOS%20%E6%B2%99%E7%9B%92%E6%9C%BA%E5%88%B6/"/>
+    <id>http://CuiXg.top/2018/05/31/iOS 沙盒机制/</id>
     <published>2018-05-31T07:02:15.000Z</published>
     <updated>2018-09-06T03:47:59.942Z</updated>
     
@@ -503,17 +529,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://andycui.top/tags/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>实现 cell 加载网络图片自适应方案</title>
-    <link href="http://andycui.top/2018/05/23/%E5%AE%9E%E7%8E%B0cell%E5%9B%BE%E7%89%87%E8%87%AA%E9%80%82%E5%BA%94%E6%96%B9%E6%A1%88/"/>
-    <id>http://andycui.top/2018/05/23/实现cell图片自适应方案/</id>
+    <link href="http://CuiXg.top/2018/05/23/%E5%AE%9E%E7%8E%B0cell%E5%9B%BE%E7%89%87%E8%87%AA%E9%80%82%E5%BA%94%E6%96%B9%E6%A1%88/"/>
+    <id>http://CuiXg.top/2018/05/23/实现cell图片自适应方案/</id>
     <published>2018-05-23T06:57:56.000Z</published>
     <updated>2018-09-06T03:47:59.995Z</updated>
     
@@ -525,19 +551,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="TableView" scheme="http://andycui.top/categories/iOS/TableView/"/>
+      <category term="TableView" scheme="http://CuiXg.top/categories/iOS/TableView/"/>
     
     
-      <category term="cell 自适应" scheme="http://andycui.top/tags/cell-%E8%87%AA%E9%80%82%E5%BA%94/"/>
+      <category term="cell 自适应" scheme="http://CuiXg.top/tags/cell-%E8%87%AA%E9%80%82%E5%BA%94/"/>
     
   </entry>
   
   <entry>
     <title>Carthage 安装以及初步实用</title>
-    <link href="http://andycui.top/2018/05/22/Carthage%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E5%88%9D%E6%AD%A5%E5%AE%9E%E7%94%A8/"/>
-    <id>http://andycui.top/2018/05/22/Carthage安装以及初步实用/</id>
+    <link href="http://CuiXg.top/2018/05/22/Carthage%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E5%88%9D%E6%AD%A5%E5%AE%9E%E7%94%A8/"/>
+    <id>http://CuiXg.top/2018/05/22/Carthage安装以及初步实用/</id>
     <published>2018-05-22T02:49:52.000Z</published>
     <updated>2018-09-06T03:47:59.724Z</updated>
     
@@ -551,25 +577,25 @@
     
     </summary>
     
-      <category term="Other" scheme="http://andycui.top/categories/Other/"/>
+      <category term="Other" scheme="http://CuiXg.top/categories/Other/"/>
     
-      <category term="开发工具" scheme="http://andycui.top/categories/Other/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+      <category term="开发工具" scheme="http://CuiXg.top/categories/Other/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="swift" scheme="http://andycui.top/tags/swift/"/>
+      <category term="swift" scheme="http://CuiXg.top/tags/swift/"/>
     
-      <category term="开发工具" scheme="http://andycui.top/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+      <category term="开发工具" scheme="http://CuiXg.top/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>YTTCoder</title>
-    <link href="http://andycui.top/2018/01/24/YTTCoder/"/>
-    <id>http://andycui.top/2018/01/24/YTTCoder/</id>
+    <link href="http://CuiXg.top/2018/01/24/YTTCoder/"/>
+    <id>http://CuiXg.top/2018/01/24/YTTCoder/</id>
     <published>2018-01-24T02:17:18.000Z</published>
     <updated>2018-10-26T01:35:57.658Z</updated>
     
-    <content type="html"><![CDATA[<p>最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中)</p><p><a href="https://github.com/AndyCuiYTT/YTTCoder" target="_blank" rel="noopener">YTTCoder</a> : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等<br><a id="more"></a></p><p><img src="https://img.shields.io/badge/language-swift-green.svg" alt=""> <img src="https://img.shields.io/cocoapods/v/YTTCoder.svg" alt=""> <a href="http://andycui.top"><img src="https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg" alt=""></a></p><h4 id="YTTJsonCodable-JSON-与-Model-之间相互转化的工具类"><a href="#YTTJsonCodable-JSON-与-Model-之间相互转化的工具类" class="headerlink" title="YTTJsonCodable: JSON 与 Model 之间相互转化的工具类"></a>YTTJsonCodable: JSON 与 Model 之间相互转化的工具类</h4><blockquote><p>提供数据转化的类方法,可直接调用.</p></blockquote><h4 id="YTTJson-协议-继承Codable协议"><a href="#YTTJson-协议-继承Codable协议" class="headerlink" title="YTTJson: 协议,继承Codable协议"></a>YTTJson: 协议,继承Codable协议</h4><blockquote><p>定义 Model 实体类只需遵守该协议即可调用装换方法.</p></blockquote><h4 id="YTTArrayCoder-数组扩展类"><a href="#YTTArrayCoder-数组扩展类" class="headerlink" title="YTTArrayCoder: 数组扩展类"></a>YTTArrayCoder: 数组扩展类</h4><blockquote><p>调用使用 obj.ytt.toJson() 形式调用</p><ul><li>toJson: 数组转 JSON 字符串</li></ul></blockquote><h4 id="YTTDictionaryCoder-字典扩展类"><a href="#YTTDictionaryCoder-字典扩展类" class="headerlink" title="YTTDictionaryCoder: 字典扩展类"></a>YTTDictionaryCoder: 字典扩展类</h4><blockquote><p>调用使用 obj.ytt.toJson() 形式调用</p><ul><li>toJson: 字典转 JSON 字符串</li><li>getValue(withKeyPath): 根据路径获取值</li></ul></blockquote><h4 id="YTTStringCoder-字符串扩展类"><a href="#YTTStringCoder-字符串扩展类" class="headerlink" title="YTTStringCoder: 字符串扩展类"></a>YTTStringCoder: 字符串扩展类</h4><blockquote><p>调用使用 obj.ytt.toDictionary() 形式调用</p><ul><li>toDictionary: JSON 字符串转字典</li><li>toArray: JSON 字符串转数组</li><li>toDate: 时间字符串转 Date 对象</li></ul></blockquote><h4 id="YTTDateCoder-Date-扩展类"><a href="#YTTDateCoder-Date-扩展类" class="headerlink" title="YTTDateCoder: Date 扩展类"></a>YTTDateCoder: Date 扩展类</h4><blockquote><p>调用使用 obj.ytt.toString() 形式调用</p><ul><li>toString: Date 格式化</li></ul></blockquote><p><a href="YTTJSON.swift">项目开发用到的解析文件</a></p><h4 id="反馈"><a href="#反馈" class="headerlink" title="反馈"></a>反馈</h4><p>如果您有什么好的修改建议,可以发邮件到<a href="mailto://AndyCuiYTT@163.com" target="_blank" rel="noopener">AndyCuiYTT@163.com</a>, 也欢迎到我的博客<a href="http://andycui.top">AndyCuiの博客</a>一起讨论学习~</p>]]></content>
+    <content type="html"><![CDATA[<p>最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中)</p><p><a href="https://github.com/AndyCuiYTT/YTTCoder" target="_blank" rel="noopener">YTTCoder</a> : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等<br><a id="more"></a></p><p><img src="https://img.shields.io/badge/language-swift-green.svg" alt=""> <img src="https://img.shields.io/cocoapods/v/YTTCoder.svg" alt=""> <a href="http://andycui.top" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg" alt=""></a></p><h4 id="YTTJsonCodable-JSON-与-Model-之间相互转化的工具类"><a href="#YTTJsonCodable-JSON-与-Model-之间相互转化的工具类" class="headerlink" title="YTTJsonCodable: JSON 与 Model 之间相互转化的工具类"></a>YTTJsonCodable: JSON 与 Model 之间相互转化的工具类</h4><blockquote><p>提供数据转化的类方法,可直接调用.</p></blockquote><h4 id="YTTJson-协议-继承Codable协议"><a href="#YTTJson-协议-继承Codable协议" class="headerlink" title="YTTJson: 协议,继承Codable协议"></a>YTTJson: 协议,继承Codable协议</h4><blockquote><p>定义 Model 实体类只需遵守该协议即可调用装换方法.</p></blockquote><h4 id="YTTArrayCoder-数组扩展类"><a href="#YTTArrayCoder-数组扩展类" class="headerlink" title="YTTArrayCoder: 数组扩展类"></a>YTTArrayCoder: 数组扩展类</h4><blockquote><p>调用使用 obj.ytt.toJson() 形式调用</p><ul><li>toJson: 数组转 JSON 字符串</li></ul></blockquote><h4 id="YTTDictionaryCoder-字典扩展类"><a href="#YTTDictionaryCoder-字典扩展类" class="headerlink" title="YTTDictionaryCoder: 字典扩展类"></a>YTTDictionaryCoder: 字典扩展类</h4><blockquote><p>调用使用 obj.ytt.toJson() 形式调用</p><ul><li>toJson: 字典转 JSON 字符串</li><li>getValue(withKeyPath): 根据路径获取值</li></ul></blockquote><h4 id="YTTStringCoder-字符串扩展类"><a href="#YTTStringCoder-字符串扩展类" class="headerlink" title="YTTStringCoder: 字符串扩展类"></a>YTTStringCoder: 字符串扩展类</h4><blockquote><p>调用使用 obj.ytt.toDictionary() 形式调用</p><ul><li>toDictionary: JSON 字符串转字典</li><li>toArray: JSON 字符串转数组</li><li>toDate: 时间字符串转 Date 对象</li></ul></blockquote><h4 id="YTTDateCoder-Date-扩展类"><a href="#YTTDateCoder-Date-扩展类" class="headerlink" title="YTTDateCoder: Date 扩展类"></a>YTTDateCoder: Date 扩展类</h4><blockquote><p>调用使用 obj.ytt.toString() 形式调用</p><ul><li>toString: Date 格式化</li></ul></blockquote><p><a href="YTTJSON.swift">项目开发用到的解析文件</a></p><h4 id="反馈"><a href="#反馈" class="headerlink" title="反馈"></a>反馈</h4><p>如果您有什么好的修改建议,可以发邮件到<a href="mailto://AndyCuiYTT@163.com" target="_blank" rel="noopener">AndyCuiYTT@163.com</a>, 也欢迎到我的博客<a href="http://andycui.top" target="_blank" rel="noopener">AndyCuiの博客</a>一起讨论学习~</p>]]></content>
     
     <summary type="html">
     
@@ -578,19 +604,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="数据处理" scheme="http://andycui.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+      <category term="数据处理" scheme="http://CuiXg.top/categories/iOS/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
     
-      <category term="数据处理" scheme="http://andycui.top/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+      <category term="数据处理" scheme="http://CuiXg.top/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>多台电脑共同管理hexo博客</title>
-    <link href="http://andycui.top/2017/10/20/hexo-version-control/"/>
-    <id>http://andycui.top/2017/10/20/hexo-version-control/</id>
+    <link href="http://CuiXg.top/2017/10/20/hexo-version-control/"/>
+    <id>http://CuiXg.top/2017/10/20/hexo-version-control/</id>
     <published>2017-10-20T01:57:30.000Z</published>
     <updated>2018-09-06T03:47:59.829Z</updated>
     
@@ -602,21 +628,21 @@
     
     </summary>
     
-      <category term="Other" scheme="http://andycui.top/categories/Other/"/>
+      <category term="Other" scheme="http://CuiXg.top/categories/Other/"/>
     
     
-      <category term="hexo" scheme="http://andycui.top/tags/hexo/"/>
+      <category term="hexo" scheme="http://CuiXg.top/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>SliderView</title>
-    <link href="http://andycui.top/2017/10/14/SliderViews/"/>
-    <id>http://andycui.top/2017/10/14/SliderViews/</id>
+    <link href="http://CuiXg.top/2017/10/14/SliderViews/"/>
+    <id>http://CuiXg.top/2017/10/14/SliderViews/</id>
     <published>2017-10-14T04:57:30.000Z</published>
     <updated>2018-11-06T03:13:50.306Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://github.com/AndyCuiYTT/SliderViews" target="_blank" rel="noopener">SliderViews</a> : 简单易用的滑动标签工具,『标签栏工具』『滑动视图工具』可单独使用.<br><a id="more"></a></p><p><img src="https://travis-ci.org/AndyCuiYTT/SliderViews.svg?branch=master" alt="Build Status"> <img src="https://img.shields.io/badge/language-swift-green.svg" alt=""> <a href=""><img src="https://img.shields.io/cocoapods/l/SliderViews.svg" alt="CRAN"></a> <img src="https://img.shields.io/cocoapods/v/SliderViews.svg" alt=""> <a href="http://andycui.top"><img src="https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg" alt=""></a><br><img src="sliderview-02.gif" alt=""></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod &apos;SliderViews&apos;</span><br></pre></td></tr></table></figure><h1 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h1><h2 id="SegmentedView-使用"><a href="#SegmentedView-使用" class="headerlink" title="SegmentedView 使用"></a>SegmentedView 使用</h2><p> SegmentedView: 标签栏工具,使用需要实现 YTTSegmentedViewDelegate 代理方法.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let segmented = YTTSegmentedView()</span><br><span class="line">segmented.delegate = self // 实现 YTTSegmentedViewDelegate</span><br><span class="line">segmented.addTitleItems([&quot;SliderView1&quot;,&quot;SliderView2&quot;,&quot;SliderView3&quot;], isSelected: 1)</span><br><span class="line">segmented.backgroundColor = UIColor.cyan</span><br><span class="line">self.view.addSubview(segmented)</span><br><span class="line">segmented.snp.makeConstraints &#123; (make) in</span><br><span class="line">    make.left.right.centerY.equalToSuperview()</span><br><span class="line">    make.height.equalTo(50)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="sliderview-05.gif" alt=""></p><h2 id="SliderView-使用"><a href="#SliderView-使用" class="headerlink" title="SliderView 使用"></a>SliderView 使用</h2><p> SliderView: 滑动视图工具,使用需要实现YTTSliderViewDelegate代理</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let sliderView = YTTSliderView()</span><br><span class="line">sliderView = self // 实现 YTTSliderViewDelegate</span><br><span class="line">let view1 = UIView()</span><br><span class="line">view1.backgroundColor = UIColor.cyan</span><br><span class="line">let view2 = UIView()</span><br><span class="line">view2.backgroundColor = UIColor.orange</span><br><span class="line">let view3 = UIView()</span><br><span class="line">view3.backgroundColor = UIColor.blue</span><br><span class="line">sliderView.addChildViews([view1, view2, view3], isSelected: 1)</span><br><span class="line">self.view.addSubview(sliderView)</span><br><span class="line">sliderView.snp.makeConstraints &#123; (make) in</span><br><span class="line">    make.edges.equalToSuperview()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> <img src="sliderview-04.gif" alt=""></p><h2 id="TabSliderView-使用"><a href="#TabSliderView-使用" class="headerlink" title="TabSliderView 使用"></a>TabSliderView 使用</h2><p> TabSliderView: SegmentedControl 与 SliderView 组合使用.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let tabSliderView = YTTTabSliderView()</span><br><span class="line">tabSliderView.addSubviews([(&quot;SliderView1&quot;,view1),(&quot;SliderView2&quot;,view2),(&quot;SliderView3&quot;,view3)])</span><br><span class="line">view.addSubview(tabSliderView)</span><br><span class="line">tabSliderView.snp.makeConstraints &#123; (make) in</span><br><span class="line">    make.edges.equalToSuperview()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="sliderview-03.gif" alt=""></p><h1 id="反馈"><a href="#反馈" class="headerlink" title="反馈"></a>反馈</h1><p>如果您有什么好的修改建议,可以发邮件到<a href="mailto://AndyCuiYTT@163.com" target="_blank" rel="noopener">AndyCuiYTT@163.com</a>, 也欢迎到我的博客<a href="http://andycui.top">AndyCuiの博客</a>一起讨论学习~</p>]]></content>
+    <content type="html"><![CDATA[<p><a href="https://github.com/AndyCuiYTT/SliderViews" target="_blank" rel="noopener">SliderViews</a> : 简单易用的滑动标签工具,『标签栏工具』『滑动视图工具』可单独使用.<br><a id="more"></a></p><p><img src="https://travis-ci.org/AndyCuiYTT/SliderViews.svg?branch=master" alt="Build Status"> <img src="https://img.shields.io/badge/language-swift-green.svg" alt=""> <a href=""><img src="https://img.shields.io/cocoapods/l/SliderViews.svg" alt="CRAN"></a> <img src="https://img.shields.io/cocoapods/v/SliderViews.svg" alt=""> <a href="http://andycui.top" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg" alt=""></a><br><img src="sliderview-02.gif" alt=""></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod &apos;SliderViews&apos;</span><br></pre></td></tr></table></figure><h1 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h1><h2 id="SegmentedView-使用"><a href="#SegmentedView-使用" class="headerlink" title="SegmentedView 使用"></a>SegmentedView 使用</h2><p> SegmentedView: 标签栏工具,使用需要实现 YTTSegmentedViewDelegate 代理方法.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let segmented = YTTSegmentedView()</span><br><span class="line">segmented.delegate = self // 实现 YTTSegmentedViewDelegate</span><br><span class="line">segmented.addTitleItems([&quot;SliderView1&quot;,&quot;SliderView2&quot;,&quot;SliderView3&quot;], isSelected: 1)</span><br><span class="line">segmented.backgroundColor = UIColor.cyan</span><br><span class="line">self.view.addSubview(segmented)</span><br><span class="line">segmented.snp.makeConstraints &#123; (make) in</span><br><span class="line">    make.left.right.centerY.equalToSuperview()</span><br><span class="line">    make.height.equalTo(50)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="sliderview-05.gif" alt=""></p><h2 id="SliderView-使用"><a href="#SliderView-使用" class="headerlink" title="SliderView 使用"></a>SliderView 使用</h2><p> SliderView: 滑动视图工具,使用需要实现YTTSliderViewDelegate代理</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let sliderView = YTTSliderView()</span><br><span class="line">sliderView = self // 实现 YTTSliderViewDelegate</span><br><span class="line">let view1 = UIView()</span><br><span class="line">view1.backgroundColor = UIColor.cyan</span><br><span class="line">let view2 = UIView()</span><br><span class="line">view2.backgroundColor = UIColor.orange</span><br><span class="line">let view3 = UIView()</span><br><span class="line">view3.backgroundColor = UIColor.blue</span><br><span class="line">sliderView.addChildViews([view1, view2, view3], isSelected: 1)</span><br><span class="line">self.view.addSubview(sliderView)</span><br><span class="line">sliderView.snp.makeConstraints &#123; (make) in</span><br><span class="line">    make.edges.equalToSuperview()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> <img src="sliderview-04.gif" alt=""></p><h2 id="TabSliderView-使用"><a href="#TabSliderView-使用" class="headerlink" title="TabSliderView 使用"></a>TabSliderView 使用</h2><p> TabSliderView: SegmentedControl 与 SliderView 组合使用.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let tabSliderView = YTTTabSliderView()</span><br><span class="line">tabSliderView.addSubviews([(&quot;SliderView1&quot;,view1),(&quot;SliderView2&quot;,view2),(&quot;SliderView3&quot;,view3)])</span><br><span class="line">view.addSubview(tabSliderView)</span><br><span class="line">tabSliderView.snp.makeConstraints &#123; (make) in</span><br><span class="line">    make.edges.equalToSuperview()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="sliderview-03.gif" alt=""></p><h1 id="反馈"><a href="#反馈" class="headerlink" title="反馈"></a>反馈</h1><p>如果您有什么好的修改建议,可以发邮件到<a href="mailto://AndyCuiYTT@163.com" target="_blank" rel="noopener">AndyCuiYTT@163.com</a>, 也欢迎到我的博客<a href="http://andycui.top" target="_blank" rel="noopener">AndyCuiの博客</a>一起讨论学习~</p>]]></content>
     
     <summary type="html">
     
@@ -624,19 +650,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="自定义视图" scheme="http://andycui.top/categories/iOS/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
+      <category term="自定义视图" scheme="http://CuiXg.top/categories/iOS/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
     
     
-      <category term="slider" scheme="http://andycui.top/tags/slider/"/>
+      <category term="slider" scheme="http://CuiXg.top/tags/slider/"/>
     
   </entry>
   
   <entry>
     <title>浅谈 tableViewCell高度自适应</title>
-    <link href="http://andycui.top/2017/08/01/%E6%B5%85%E8%B0%88-tableViewCell%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94/"/>
-    <id>http://andycui.top/2017/08/01/浅谈-tableViewCell高度自适应/</id>
+    <link href="http://CuiXg.top/2017/08/01/%E6%B5%85%E8%B0%88-tableViewCell%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94/"/>
+    <id>http://CuiXg.top/2017/08/01/浅谈-tableViewCell高度自适应/</id>
     <published>2017-08-01T10:10:43.000Z</published>
     <updated>2018-09-06T03:48:00.011Z</updated>
     
@@ -648,19 +674,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="TableView" scheme="http://andycui.top/categories/iOS/TableView/"/>
+      <category term="TableView" scheme="http://CuiXg.top/categories/iOS/TableView/"/>
     
     
-      <category term="cell 自适应" scheme="http://andycui.top/tags/cell-%E8%87%AA%E9%80%82%E5%BA%94/"/>
+      <category term="cell 自适应" scheme="http://CuiXg.top/tags/cell-%E8%87%AA%E9%80%82%E5%BA%94/"/>
     
   </entry>
   
   <entry>
     <title>swift 打包 framework</title>
-    <link href="http://andycui.top/2017/07/25/swift-%E6%89%93%E5%8C%85-framework/"/>
-    <id>http://andycui.top/2017/07/25/swift-打包-framework/</id>
+    <link href="http://CuiXg.top/2017/07/25/swift-%E6%89%93%E5%8C%85-framework/"/>
+    <id>http://CuiXg.top/2017/07/25/swift-打包-framework/</id>
     <published>2017-07-25T01:40:48.000Z</published>
     <updated>2018-09-06T03:47:59.970Z</updated>
     
@@ -672,17 +698,17 @@
     
     </summary>
     
-      <category term="Other" scheme="http://andycui.top/categories/Other/"/>
+      <category term="Other" scheme="http://CuiXg.top/categories/Other/"/>
     
     
-      <category term="framework" scheme="http://andycui.top/tags/framework/"/>
+      <category term="framework" scheme="http://CuiXg.top/tags/framework/"/>
     
   </entry>
   
   <entry>
     <title>swift 网络请求</title>
-    <link href="http://andycui.top/2017/07/18/network-swift/"/>
-    <id>http://andycui.top/2017/07/18/network-swift/</id>
+    <link href="http://CuiXg.top/2017/07/18/network-swift/"/>
+    <id>http://CuiXg.top/2017/07/18/network-swift/</id>
     <published>2017-07-18T02:13:11.000Z</published>
     <updated>2018-09-06T03:47:59.961Z</updated>
     
@@ -694,17 +720,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
     
-      <category term="network" scheme="http://andycui.top/tags/network/"/>
+      <category term="network" scheme="http://CuiXg.top/tags/network/"/>
     
   </entry>
   
   <entry>
     <title>支付宝微信简单封装</title>
-    <link href="http://andycui.top/2017/07/14/PayDemo/"/>
-    <id>http://andycui.top/2017/07/14/PayDemo/</id>
+    <link href="http://CuiXg.top/2017/07/14/PayDemo/"/>
+    <id>http://CuiXg.top/2017/07/14/PayDemo/</id>
     <published>2017-07-14T10:57:25.000Z</published>
     <updated>2018-09-06T03:47:59.745Z</updated>
     
@@ -716,23 +742,23 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="三方接入" scheme="http://andycui.top/categories/iOS/%E4%B8%89%E6%96%B9%E6%8E%A5%E5%85%A5/"/>
+      <category term="三方接入" scheme="http://CuiXg.top/categories/iOS/%E4%B8%89%E6%96%B9%E6%8E%A5%E5%85%A5/"/>
     
     
-      <category term="pay" scheme="http://andycui.top/tags/pay/"/>
+      <category term="pay" scheme="http://CuiXg.top/tags/pay/"/>
     
-      <category term="alipay" scheme="http://andycui.top/tags/alipay/"/>
+      <category term="alipay" scheme="http://CuiXg.top/tags/alipay/"/>
     
-      <category term="wechatpay" scheme="http://andycui.top/tags/wechatpay/"/>
+      <category term="wechatpay" scheme="http://CuiXg.top/tags/wechatpay/"/>
     
   </entry>
   
   <entry>
     <title>[swift] 星级评分</title>
-    <link href="http://andycui.top/2017/07/13/swift-%E6%98%9F%E7%BA%A7%E8%AF%84%E5%88%86/"/>
-    <id>http://andycui.top/2017/07/13/swift-星级评分/</id>
+    <link href="http://CuiXg.top/2017/07/13/swift-%E6%98%9F%E7%BA%A7%E8%AF%84%E5%88%86/"/>
+    <id>http://CuiXg.top/2017/07/13/swift-星级评分/</id>
     <published>2017-07-13T03:39:29.000Z</published>
     <updated>2018-09-06T03:47:59.994Z</updated>
     
@@ -744,19 +770,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="自定义视图" scheme="http://andycui.top/categories/iOS/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
+      <category term="自定义视图" scheme="http://CuiXg.top/categories/iOS/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
     
     
-      <category term="自定义视图" scheme="http://andycui.top/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
+      <category term="自定义视图" scheme="http://CuiXg.top/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/"/>
     
   </entry>
   
   <entry>
     <title>通过 UIBezierPath 与 CAShapeLayer 为 UIView 添加边框</title>
-    <link href="http://andycui.top/2017/07/12/swift%20%E9%80%9A%E8%BF%87-CGMutablePath-%E4%B8%BA-UIView-%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86/"/>
-    <id>http://andycui.top/2017/07/12/swift 通过-CGMutablePath-为-UIView-添加边框/</id>
+    <link href="http://CuiXg.top/2017/07/12/swift%20%E9%80%9A%E8%BF%87-CGMutablePath-%E4%B8%BA-UIView-%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86/"/>
+    <id>http://CuiXg.top/2017/07/12/swift 通过-CGMutablePath-为-UIView-添加边框/</id>
     <published>2017-07-12T06:44:15.000Z</published>
     <updated>2018-09-06T03:48:00.020Z</updated>
     
@@ -768,21 +794,21 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="绘图" scheme="http://andycui.top/categories/iOS/%E7%BB%98%E5%9B%BE/"/>
+      <category term="绘图" scheme="http://CuiXg.top/categories/iOS/%E7%BB%98%E5%9B%BE/"/>
     
     
-      <category term="UIBezierPath" scheme="http://andycui.top/tags/UIBezierPath/"/>
+      <category term="UIBezierPath" scheme="http://CuiXg.top/tags/UIBezierPath/"/>
     
-      <category term="CAShapeLayer" scheme="http://andycui.top/tags/CAShapeLayer/"/>
+      <category term="CAShapeLayer" scheme="http://CuiXg.top/tags/CAShapeLayer/"/>
     
   </entry>
   
   <entry>
     <title>iOS 调用系统自带导航功能实现</title>
-    <link href="http://andycui.top/2017/06/18/iOS%20%E8%B0%83%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6%E5%AF%BC%E8%88%AA%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://andycui.top/2017/06/18/iOS 调用系统自带导航功能实现/</id>
+    <link href="http://CuiXg.top/2017/06/18/iOS%20%E8%B0%83%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6%E5%AF%BC%E8%88%AA%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://CuiXg.top/2017/06/18/iOS 调用系统自带导航功能实现/</id>
     <published>2017-06-18T07:46:22.000Z</published>
     <updated>2018-10-18T08:42:46.689Z</updated>
     
@@ -794,19 +820,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="地图" scheme="http://andycui.top/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
+      <category term="地图" scheme="http://CuiXg.top/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
     
     
-      <category term="地图" scheme="http://andycui.top/tags/%E5%9C%B0%E5%9B%BE/"/>
+      <category term="地图" scheme="http://CuiXg.top/tags/%E5%9C%B0%E5%9B%BE/"/>
     
   </entry>
   
   <entry>
     <title>常阅读的博客</title>
-    <link href="http://andycui.top/2017/05/20/%E5%B8%B8%E9%98%85%E8%AF%BB%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://andycui.top/2017/05/20/常阅读的博客/</id>
+    <link href="http://CuiXg.top/2017/05/20/%E5%B8%B8%E9%98%85%E8%AF%BB%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://CuiXg.top/2017/05/20/常阅读的博客/</id>
     <published>2017-05-20T08:55:18.000Z</published>
     <updated>2018-09-06T03:48:00.010Z</updated>
     
@@ -822,21 +848,21 @@
     
     </summary>
     
-      <category term="Other" scheme="http://andycui.top/categories/Other/"/>
+      <category term="Other" scheme="http://CuiXg.top/categories/Other/"/>
     
-      <category term="阅读列表" scheme="http://andycui.top/categories/Other/%E9%98%85%E8%AF%BB%E5%88%97%E8%A1%A8/"/>
+      <category term="阅读列表" scheme="http://CuiXg.top/categories/Other/%E9%98%85%E8%AF%BB%E5%88%97%E8%A1%A8/"/>
     
     
-      <category term="Other" scheme="http://andycui.top/tags/Other/"/>
+      <category term="Other" scheme="http://CuiXg.top/tags/Other/"/>
     
-      <category term="Blog" scheme="http://andycui.top/tags/Blog/"/>
+      <category term="Blog" scheme="http://CuiXg.top/tags/Blog/"/>
     
   </entry>
   
   <entry>
     <title>iOS 判断网络连接状态的几种方法</title>
-    <link href="http://andycui.top/2016/09/11/iOS%20%E5%88%A4%E6%96%AD%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E7%8A%B6%E6%80%81%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
-    <id>http://andycui.top/2016/09/11/iOS 判断网络连接状态的几种方法/</id>
+    <link href="http://CuiXg.top/2016/09/11/iOS%20%E5%88%A4%E6%96%AD%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E7%8A%B6%E6%80%81%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
+    <id>http://CuiXg.top/2016/09/11/iOS 判断网络连接状态的几种方法/</id>
     <published>2016-09-11T01:22:56.000Z</published>
     <updated>2018-10-19T01:48:16.686Z</updated>
     
@@ -848,27 +874,27 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="网络" scheme="http://andycui.top/categories/iOS/%E7%BD%91%E7%BB%9C/"/>
+      <category term="网络" scheme="http://CuiXg.top/categories/iOS/%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="iOS" scheme="http://andycui.top/tags/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/tags/iOS/"/>
     
-      <category term="network" scheme="http://andycui.top/tags/network/"/>
+      <category term="network" scheme="http://CuiXg.top/tags/network/"/>
     
-      <category term="Reachability" scheme="http://andycui.top/tags/Reachability/"/>
+      <category term="Reachability" scheme="http://CuiXg.top/tags/Reachability/"/>
     
-      <category term="AFNetwoking" scheme="http://andycui.top/tags/AFNetwoking/"/>
+      <category term="AFNetwoking" scheme="http://CuiXg.top/tags/AFNetwoking/"/>
     
-      <category term="Alamofire" scheme="http://andycui.top/tags/Alamofire/"/>
+      <category term="Alamofire" scheme="http://CuiXg.top/tags/Alamofire/"/>
     
   </entry>
   
   <entry>
     <title>简易音乐播放器制作</title>
-    <link href="http://andycui.top/2016/04/20/iOS%20%E7%AE%80%E6%98%93%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%88%B6%E4%BD%9C/"/>
-    <id>http://andycui.top/2016/04/20/iOS 简易音乐播放器制作/</id>
+    <link href="http://CuiXg.top/2016/04/20/iOS%20%E7%AE%80%E6%98%93%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%88%B6%E4%BD%9C/"/>
+    <id>http://CuiXg.top/2016/04/20/iOS 简易音乐播放器制作/</id>
     <published>2016-04-20T14:02:31.000Z</published>
     <updated>2018-10-18T09:13:48.752Z</updated>
     
@@ -880,12 +906,12 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://andycui.top/categories/iOS/"/>
+      <category term="iOS" scheme="http://CuiXg.top/categories/iOS/"/>
     
-      <category term="音视频" scheme="http://andycui.top/categories/iOS/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+      <category term="音视频" scheme="http://CuiXg.top/categories/iOS/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
     
     
-      <category term="音视频" scheme="http://andycui.top/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+      <category term="音视频" scheme="http://CuiXg.top/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
     
   </entry>
   
