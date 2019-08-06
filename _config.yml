@@ -4,17 +4,17 @@
 
 # Site
 title: CuiXgの博客
-subtitle: 既然认准了一条路，就不要去打听要走多久。
+subtitle: 每天进步一点点。
 description: 既然认准了一条路，就不要去打听要走多久。
 author: CuiXg
 language: zh-Hans
 timezone: Asia/Shanghai
 email: AndyCuiYTT@163.com
-keywords: Andy,AndyCui,AndyCuiYTT,AndyCuiの博客
+keywords: CuiXg,Andy,AndyCui,AndyCuiYTT,CuiXgの博客
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://andycui.top #https://andycuiytt.github.io #http://yoursite.com
+url: http://CuiXg.top #https://andycuiytt.github.io #http://yoursite.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

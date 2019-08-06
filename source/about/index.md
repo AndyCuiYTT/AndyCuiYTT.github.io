@@ -13,5 +13,5 @@ date: 2017-07-11 18:34:05
 
 ## 联系方式
 > - 邮箱：[AndyCuiYTT@163.com](mailto:AndyCuiYTT@163.com)
-> - 博客：[http://AndyCui.top](http://AndyCui.top)
+> - 博客：[http://CuiXg.top](http://CuiXg.top)
 > - github：[https://github.com/andycuiytt](https://github.com/andycuiytt)
