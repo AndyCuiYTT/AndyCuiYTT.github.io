@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://CuiXg.top/"/>
-  <updated>2019-08-06T00:47:06.225Z</updated>
+  <updated>2019-08-06T00:50:21.905Z</updated>
   <id>http://CuiXg.top/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://CuiXg.top/2019/07/16/%E5%9F%BA%E4%BA%8E%20Alamofire%20%E7%9A%84%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/"/>
     <id>http://CuiXg.top/2019/07/16/基于 Alamofire 的文件下载功能实现/</id>
     <published>2019-07-16T01:08:57.000Z</published>
-    <updated>2019-08-06T00:47:06.225Z</updated>
+    <updated>2019-08-06T00:50:21.905Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="实现下载的流程"><a href="#实现下载的流程" class="headerlink" title="实现下载的流程"></a>实现下载的流程</h3><p><div id="flowchart-0" class="flow-chart"></div></p><h3 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h3><p>查看 <a href="CXGDownloadTools.swift">CXGDownloadTools.swift</a></p><p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始e=>end: 结束input=>inputoutput: 输入下载地址,参数rePath=>operation: 返回文件保存路径checkPath=>condition: 是否存在文件checkResumeData=>condition: 是否存在下载记录文件resumDownload=>operation: 继续下载newDownload=>operation: 开始下载checkDownload=>condition: 是否下载成功saveResumData=>operation: 保存下载信息st->input->checkPathcheckPath(yes,right)->rePath->echeckPath(no)->checkResumeDatacheckResumeData(yes,right)->resumDownload->checkDownloadcheckResumeData(no)->newDownload->checkDownloadcheckDownload(yes)->rePath->echeckDownload(no,right)->saveResumData->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="实现下载的流程"><a href="#实现下载的流程" class="headerlink" title="实现下载的流程"></a>实现下载的流程</h3><p><div id="flowchart-0" class="flow-chart"></div></p><h3 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h3><p>查看 <a href="CXGDownloadTools.zip">CXGDownloadTools.swift</a></p><p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始e=>end: 结束input=>inputoutput: 输入下载地址,参数rePath=>operation: 返回文件保存路径checkPath=>condition: 是否存在文件checkResumeData=>condition: 是否存在下载记录文件resumDownload=>operation: 继续下载newDownload=>operation: 开始下载checkDownload=>condition: 是否下载成功saveResumData=>operation: 保存下载信息st->input->checkPathcheckPath(yes,right)->rePath->echeckPath(no)->checkResumeDatacheckResumeData(yes,right)->resumDownload->checkDownloadcheckResumeData(no)->newDownload->checkDownloadcheckDownload(yes)->rePath->echeckDownload(no,right)->saveResumData->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>]]></content>
     
     <summary type="html">
     
