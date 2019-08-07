@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[iOS 实现电子签名]]></title>
+    <url>%2F2019%2F08%2F07%2FiOS%20%E5%AE%9E%E7%8E%B0%E7%94%B5%E5%AD%90%E7%AD%BE%E5%90%8D%2F</url>
+    <content type="text"><![CDATA[实现原理 使用拖动手势记录获取用户签名路径. 当用户初次接触屏幕,生成一个新的UIBezierPath,并加入数组中.设置接触点为起点.在手指拖动过程中为UIBezierPath添加线条,并重新绘制,生成连续的线. 手指滑动中不断的重新绘制,形成签名效果. 签名完成,转化为UIImage保存.实现代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576class CXGSignView: UIView &#123; var path: UIBezierPath? var pathArray: [UIBezierPath] = [] override init(frame: CGRect) &#123; super.init(frame: frame) self.backgroundColor = UIColor.gray setupSubviews() &#125; required init?(coder aDecoder: NSCoder) &#123; fatalError("init(coder:) has not been implemented") &#125; func setupSubviews() &#123; let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction(_:))) self.addGestureRecognizer(panGestureRecognizer) &#125; @objc func panGestureRecognizerAction(_ sender: UIPanGestureRecognizer) &#123; // 获取当前点 let currentPoint = sender.location(in: self) if sender.state == .began &#123; self.path = UIBezierPath() path?.lineWidth = 2 path?.move(to: currentPoint) pathArray.append(path!) &#125;else if sender.state == .changed &#123; path?.addLine(to: currentPoint) &#125; self.setNeedsDisplay() &#125; // 根据 UIBezierPath 重新绘制 override func draw(_ rect: CGRect) &#123; for path in pathArray &#123; // 签名颜色 UIColor.black.set() path.stroke() &#125; &#125; // 清空 func clearSign() &#123; pathArray.removeAll() self.setNeedsDisplay() &#125; // 撤销 func undoSign() &#123; guard pathArray.count &gt; 0 else &#123; return &#125; pathArray.removeLast() self.setNeedsDisplay() &#125; /// 签名转化为图片 func saveSignToImage() -&gt; UIImage? &#123; UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.main.scale) guard let context = UIGraphicsGetCurrentContext() else &#123; return nil &#125; self.layer.render(in: context) let image = UIGraphicsGetImageFromCurrentImageContext() UIGraphicsEndImageContext() return image &#125;&#125;]]></content>
+      <categories>
+        <category>iOS</category>
+        <category>绘图</category>
+      </categories>
+      <tags>
+        <tag>UIBezierPath</tag>
+        <tag>签名</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[基于 Alamofire 的文件下载功能实现]]></title>
     <url>%2F2019%2F07%2F16%2F%E5%9F%BA%E4%BA%8E%20Alamofire%20%E7%9A%84%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%2F</url>
     <content type="text"><![CDATA[实现下载的流程 实现方法查看 CXGDownloadTools.swift st=>start: 开始 e=>end: 结束 input=>inputoutput: 输入下载地址,参数 rePath=>operation: 返回文件保存路径 checkPath=>condition: 是否存在文件 checkResumeData=>condition: 是否存在下载记录文件 resumDownload=>operation: 继续下载 newDownload=>operation: 开始下载 checkDownload=>condition: 是否下载成功 saveResumData=>operation: 保存下载信息 st->input->checkPath checkPath(yes,right)->rePath->e checkPath(no)->checkResumeData checkResumeData(yes,right)->resumDownload->checkDownload checkResumeData(no)->newDownload->checkDownload checkDownload(yes)->rePath->e checkDownload(no,right)->saveResumData->e{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12} var code = document.getElementById("flowchart-0-code").value; var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value)); var diagram = flowchart.parse(code); diagram.drawSVG("flowchart-0", options);]]></content>
