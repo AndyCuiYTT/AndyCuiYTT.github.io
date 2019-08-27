@@ -1,9 +1,8 @@
 //
-//  QWJSON.swift
-//  AndyCuiYTT
+//  Codable+CXG.swift
 //
-//  Created by AndyCui on 2018/7/4.
-//  Copyright © 2018年 AndyCuiYTT. All rights reserved.
+//  Created by CuiXg on 2019/8/27.
+//  Copyright © 2019 CuiXg. All rights reserved.
 //
 
 import Foundation
@@ -11,11 +10,11 @@ import Foundation
 
 // MARK: - 归档, model 转 json
 extension Encodable {
-
+    
     /// 当前对象转 JSON 字符串
     ///
     /// - Returns: JSON 字符串
-    func toJSON() -> String? {
+    func cxg_toJSON() -> String? {
         do {
             let encoder = JSONEncoder()
             encoder.outputFormatting = .prettyPrinted
@@ -33,7 +32,7 @@ extension Encodable {
     /// model 转字典
     ///
     /// - Returns: 数据字典
-    func toDictionary() -> Dictionary<String, Any>? {
+    func cxg_toDictionary() -> Dictionary<String, Any>? {
         
         do {
             let encoder = JSONEncoder()
@@ -56,7 +55,7 @@ extension Decodable {
     /// - Parameters:
     ///   - json:  JSON 字符串
     /// - Returns: 当前转换后的对象
-    static func deserializeFrom(json: String) -> Self? {
+    static func cxg_deserializeFrom(json: String) -> Self? {
         if let jsonData = json.data(using: .utf8) {
             do {
                 let object = try JSONDecoder().decode(Self.self, from: jsonData)
@@ -74,7 +73,7 @@ extension Decodable {
     ///
     /// - Parameter dictionary: 数据字典
     /// - Returns: 生成 model
-    static func deserializeFrom(dictionary: Dictionary<String, Any>) -> Self? {
+    static func cxg_deserializeFrom(dictionary: Dictionary<String, Any>) -> Self? {
         do {
             let infoData = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
             let object = try JSONDecoder().decode(Self.self, from: infoData)
@@ -92,12 +91,12 @@ extension Decodable {
 
 extension Array where Element: Encodable {
     
-   
+    
     
     /// 当前对象转 JSON 字符串
     ///
     /// - Returns: JSON 字符串
-    func toJSON() -> String? {
+    func cxg_toJSON() -> String? {
         do {
             let encoder = JSONEncoder()
             encoder.outputFormatting = .prettyPrinted
@@ -115,7 +114,7 @@ extension Array where Element: Encodable {
     /// model 数组转字典数组
     ///
     /// - Returns: 字典数组
-    func toArray() -> Array? {
+    func cxg_toArray() -> Array? {
         do {
             let encoder = JSONEncoder()
             let jsonData = try encoder.encode(self)
@@ -130,7 +129,7 @@ extension Array where Element: Encodable {
 
 extension Array where Element: Decodable {
     
-    static func deserializeFrom(json: String) -> Array? {
+    static func cxg_deserializeFrom(json: String) -> Array? {
         if let jsonData = json.data(using: .utf8) {
             do {
                 let obj = try JSONDecoder().decode(self, from: jsonData)
@@ -146,7 +145,7 @@ extension Array where Element: Decodable {
     ///
     /// - Parameter array: item 为字典数据
     /// - Returns: item 为 model 数组
-    static func deserializeFrom(array: Array<Dictionary<String, Any>>) -> Array? {
+    static func cxg_deserializeFrom(array: Array<Dictionary<String, Any>>) -> Array? {
         do {
             let infoData = try JSONSerialization.data(withJSONObject: array, options: .prettyPrinted)
             let obj = try JSONDecoder().decode(self, from: infoData)
@@ -167,3 +166,4 @@ extension KeyedDecodingContainer {
     }
     
 }
+
