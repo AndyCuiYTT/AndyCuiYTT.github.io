@@ -81,7 +81,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Coder,Codable" />
+  <meta name="keywords" content="Coder,Codable,Encodable,Decodable" />
 
 
 
@@ -99,22 +99,20 @@
 
 
 
-<meta name="description" content="最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中) YTTCoder : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等">
-<meta name="keywords" content="Coder,Codable">
+<meta name="description" content="最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中)">
+<meta name="keywords" content="Coder,Codable,Encodable,Decodable">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YTTCoder">
+<meta property="og:title" content="swift JSON 与 Model转换">
 <meta property="og:url" content="http://CuiXg.top/2018/01/24/YTTCoder/index.html">
 <meta property="og:site_name" content="CuiXgの博客">
-<meta property="og:description" content="最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中) YTTCoder : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等">
+<meta property="og:description" content="最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img.shields.io/badge/language-swift-green.svg">
-<meta property="og:image" content="https://img.shields.io/cocoapods/v/YTTCoder.svg">
 <meta property="og:image" content="https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg">
-<meta property="og:updated_time" content="2018-10-26T01:35:57.000Z">
+<meta property="og:updated_time" content="2019-08-27T07:54:25.145Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YTTCoder">
-<meta name="twitter:description" content="最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中) YTTCoder : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等">
-<meta name="twitter:image" content="https://img.shields.io/badge/language-swift-green.svg">
+<meta name="twitter:title" content="swift JSON 与 Model转换">
+<meta name="twitter:description" content="最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中)">
+<meta name="twitter:image" content="https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg">
 
 
 
@@ -148,7 +146,7 @@
 
 
 
-  <title>YTTCoder | CuiXgの博客</title>
+  <title>swift JSON 与 Model转换 | CuiXgの博客</title>
   
 
 
@@ -353,7 +351,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">YTTCoder</h1>
+          <h1 class="post-title" itemprop="name headline">swift JSON 与 Model转换</h1>
         
 
         <div class="post-meta">
@@ -432,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  305
+                  333
                 </span>
               
 
@@ -467,43 +465,66 @@
 
       
         <p>最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中)</p>
-<p><a href="https://github.com/AndyCuiYTT/YTTCoder" target="_blank" rel="noopener">YTTCoder</a> : 实现常用的数据解析,例如: JSON 转 Model, 字典转 JSON等<br><a id="more"></a></p>
-<p><img src="https://img.shields.io/badge/language-swift-green.svg" alt=""> <img src="https://img.shields.io/cocoapods/v/YTTCoder.svg" alt=""> <a href="http://andycui.top" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg" alt=""></a></p>
-<h4 id="YTTJsonCodable-JSON-与-Model-之间相互转化的工具类"><a href="#YTTJsonCodable-JSON-与-Model-之间相互转化的工具类" class="headerlink" title="YTTJsonCodable: JSON 与 Model 之间相互转化的工具类"></a>YTTJsonCodable: JSON 与 Model 之间相互转化的工具类</h4><blockquote>
-<p>提供数据转化的类方法,可直接调用.</p>
-</blockquote>
-<h4 id="YTTJson-协议-继承Codable协议"><a href="#YTTJson-协议-继承Codable协议" class="headerlink" title="YTTJson: 协议,继承Codable协议"></a>YTTJson: 协议,继承Codable协议</h4><blockquote>
-<p>定义 Model 实体类只需遵守该协议即可调用装换方法.</p>
-</blockquote>
-<h4 id="YTTArrayCoder-数组扩展类"><a href="#YTTArrayCoder-数组扩展类" class="headerlink" title="YTTArrayCoder: 数组扩展类"></a>YTTArrayCoder: 数组扩展类</h4><blockquote>
-<p>调用使用 obj.ytt.toJson() 形式调用</p>
-<ul>
-<li>toJson: 数组转 JSON 字符串</li>
-</ul>
-</blockquote>
-<h4 id="YTTDictionaryCoder-字典扩展类"><a href="#YTTDictionaryCoder-字典扩展类" class="headerlink" title="YTTDictionaryCoder: 字典扩展类"></a>YTTDictionaryCoder: 字典扩展类</h4><blockquote>
-<p>调用使用 obj.ytt.toJson() 形式调用</p>
-<ul>
-<li>toJson: 字典转 JSON 字符串</li>
-<li>getValue(withKeyPath): 根据路径获取值</li>
-</ul>
-</blockquote>
-<h4 id="YTTStringCoder-字符串扩展类"><a href="#YTTStringCoder-字符串扩展类" class="headerlink" title="YTTStringCoder: 字符串扩展类"></a>YTTStringCoder: 字符串扩展类</h4><blockquote>
-<p>调用使用 obj.ytt.toDictionary() 形式调用</p>
-<ul>
-<li>toDictionary: JSON 字符串转字典</li>
-<li>toArray: JSON 字符串转数组</li>
-<li>toDate: 时间字符串转 Date 对象</li>
-</ul>
-</blockquote>
-<h4 id="YTTDateCoder-Date-扩展类"><a href="#YTTDateCoder-Date-扩展类" class="headerlink" title="YTTDateCoder: Date 扩展类"></a>YTTDateCoder: Date 扩展类</h4><blockquote>
-<p>调用使用 obj.ytt.toString() 形式调用</p>
-<ul>
-<li>toString: Date 格式化</li>
-</ul>
-</blockquote>
-<p><a href="YTTJSON.swift">项目开发用到的解析文件</a></p>
-<h4 id="反馈"><a href="#反馈" class="headerlink" title="反馈"></a>反馈</h4><p>如果您有什么好的修改建议,可以发邮件到<a href="mailto://AndyCuiYTT@163.com" target="_blank" rel="noopener">AndyCuiYTT@163.com</a>, 也欢迎到我的博客<a href="http://andycui.top" target="_blank" rel="noopener">AndyCuiの博客</a>一起讨论学习~</p>
+<a id="more"></a>
+<p> <a href="http://CuiXg.top"><img src="https://img.shields.io/badge/blog-AndyCuiの博客-yellowgreen.svg" alt=""></a></p>
+<h3 id="Codable-CXG-通过对Codable添加扩展实现数据转换"><a href="#Codable-CXG-通过对Codable添加扩展实现数据转换" class="headerlink" title="Codable+CXG 通过对Codable添加扩展实现数据转换"></a>Codable+CXG 通过对Codable添加扩展实现数据转换</h3><p> ‘’‘swift<br> // MARK: - 归档, model 转 json<br> extension Encodable {</p>
+<pre><code>/// 当前对象转 JSON 字符串
+///
+/// - Returns: JSON 字符串
+func cxg_toJSON() -&gt; String?
+
+
+/// model 转字典
+///
+/// - Returns: 数据字典
+func cxg_toDictionary() -&gt; Dictionary&lt;String, Any&gt;? 
+</code></pre><p>}</p>
+<p> // MARK: - 反归档 json 转 model<br> extension Decodable {</p>
+<pre><code>/// JSON 字符串转 Model
+///
+/// - Parameters:
+///   - json:  JSON 字符串
+/// - Returns: 当前转换后的对象
+static func cxg_deserializeFrom(json: String) -&gt; Self? 
+
+
+/// 字典转 Model
+///
+/// - Parameter dictionary: 数据字典
+/// - Returns: 生成 model
+static func cxg_deserializeFrom(dictionary: Dictionary&lt;String, Any&gt;) -&gt; Self?
+</code></pre><p> }</p>
+<p> // Decodable &amp; Encodable<br> extension Array where Element: Encodable {</p>
+<pre><code>/// 当前对象转 JSON 字符串
+///
+/// - Returns: JSON 字符串
+func cxg_toJSON() -&gt; String? 
+
+/// model 数组转字典数组
+///
+/// - Returns: 字典数组
+func cxg_toArray() -&gt; Array?
+</code></pre><p> }</p>
+<p> extension Array where Element: Decodable {</p>
+<pre><code>static func cxg_deserializeFrom(json: String) -&gt; Array?
+
+/// 字典数组转 model 数组
+///
+/// - Parameter array: item 为字典数据
+/// - Returns: item 为 model 数组
+static func cxg_deserializeFrom(array: Array&lt;Dictionary&lt;String, Any&gt;&gt;) -&gt; Array? 
+</code></pre><p> }</p>
+<p> // 数据过滤<br> extension KeyedDecodingContainer {</p>
+<pre><code>public func decodeIfPresent&lt;T&gt;(_ type: T.Type, forKey key: K) throws -&gt; T? where T : Decodable {
+    if let value = try? decode(type, forKey: key) {
+    return value
+}
+    return nil
+}
+</code></pre><p> }</p>
+<p> ···</p>
+<p><a href="Codable+CXG.swift">项目开发用到的解析文件</a></p>
+<h4 id="反馈"><a href="#反馈" class="headerlink" title="反馈"></a>反馈</h4><p>如果您有什么好的修改建议,可以发邮件到<a href="mailto://AndyCuiYTT@163.com" target="_blank" rel="noopener">AndyCuiYTT@163.com</a>, 也欢迎到我的博客<a href="http://CuiXg.top">AndyCuiの博客</a>一起讨论学习~</p>
 
       
     </div>
@@ -532,7 +553,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://CuiXg.top/2018/01/24/YTTCoder/" title="YTTCoder">http://CuiXg.top/2018/01/24/YTTCoder/</a>
+      <a href="http://CuiXg.top/2018/01/24/YTTCoder/" title="swift JSON 与 Model转换">http://CuiXg.top/2018/01/24/YTTCoder/</a>
     </li>
     <!-- <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -779,7 +800,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTJsonCodable-JSON-与-Model-之间相互转化的工具类"><span class="nav-number">1.</span> <span class="nav-text">YTTJsonCodable: JSON 与 Model 之间相互转化的工具类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTJson-协议-继承Codable协议"><span class="nav-number">2.</span> <span class="nav-text">YTTJson: 协议,继承Codable协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTArrayCoder-数组扩展类"><span class="nav-number">3.</span> <span class="nav-text">YTTArrayCoder: 数组扩展类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTDictionaryCoder-字典扩展类"><span class="nav-number">4.</span> <span class="nav-text">YTTDictionaryCoder: 字典扩展类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTStringCoder-字符串扩展类"><span class="nav-number">5.</span> <span class="nav-text">YTTStringCoder: 字符串扩展类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTTDateCoder-Date-扩展类"><span class="nav-number">6.</span> <span class="nav-text">YTTDateCoder: Date 扩展类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反馈"><span class="nav-number">7.</span> <span class="nav-text">反馈</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Codable-CXG-通过对Codable添加扩展实现数据转换"><span class="nav-number">1.</span> <span class="nav-text">Codable+CXG 通过对Codable添加扩展实现数据转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#反馈"><span class="nav-number">1.1.</span> <span class="nav-text">反馈</span></a></li></ol></li></ol></div>
             
 
           </div>
