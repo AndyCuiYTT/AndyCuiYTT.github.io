@@ -300,7 +300,7 @@
   </entry>
   <entry>
     <title><![CDATA[swift JSON 与 Model转换]]></title>
-    <url>%2F2018%2F01%2F24%2FYTTCoder%2F</url>
+    <url>%2F2018%2F01%2F24%2Fswift%20JSON%20%E4%B8%8E%20Model%E8%BD%AC%E6%8D%A2%2F</url>
     <content type="text"><![CDATA[最近工作之余对开发中用到的数据解析相关进行了整理,整合了开发中常用到的数据解析,并将其封装成模块.(持续完善中) Codable+CXG 通过对Codable添加扩展实现数据转换 ‘’‘swift // MARK: - 归档, model 转 json extension Encodable { /// 当前对象转 JSON 字符串 /// /// - Returns: JSON 字符串 func cxg_toJSON() -&gt; String? /// model 转字典 /// /// - Returns: 数据字典 func cxg_toDictionary() -&gt; Dictionary&lt;String, Any&gt;? } // MARK: - 反归档 json 转 model extension Decodable { /// JSON 字符串转 Model /// /// - Parameters: /// - json: JSON 字符串 /// - Returns: 当前转换后的对象 static func cxg_deserializeFrom(json: String) -&gt; Self? /// 字典转 Model /// /// - Parameter dictionary: 数据字典 /// - Returns: 生成 model static func cxg_deserializeFrom(dictionary: Dictionary&lt;String, Any&gt;) -&gt; Self? } // Decodable &amp; Encodable extension Array where Element: Encodable { /// 当前对象转 JSON 字符串 /// /// - Returns: JSON 字符串 func cxg_toJSON() -&gt; String? /// model 数组转字典数组 /// /// - Returns: 字典数组 func cxg_toArray() -&gt; Array? } extension Array where Element: Decodable { static func cxg_deserializeFrom(json: String) -&gt; Array? /// 字典数组转 model 数组 /// /// - Parameter array: item 为字典数据 /// - Returns: item 为 model 数组 static func cxg_deserializeFrom(array: Array&lt;Dictionary&lt;String, Any&gt;&gt;) -&gt; Array? } // 数据过滤 extension KeyedDecodingContainer { public func decodeIfPresent&lt;T&gt;(_ type: T.Type, forKey key: K) throws -&gt; T? where T : Decodable { if let value = try? decode(type, forKey: key) { return value } return nil } } ··· 项目开发用到的解析文件 反馈如果您有什么好的修改建议,可以发邮件到AndyCuiYTT@163.com, 也欢迎到我的博客AndyCuiの博客一起讨论学习~]]></content>
       <categories>
         <category>iOS</category>
@@ -465,13 +465,13 @@
     <content type="text"><![CDATA[基本资料 学历：本科 学校：德州学院 学院：信息管理学院 专业：计算机科学与技术 届别：2016届 联系方式 邮箱：AndyCuiYTT@163.com 博客：http://CuiXg.top github：https://github.com/andycuiytt]]></content>
   </entry>
   <entry>
-    <title><![CDATA[分类]]></title>
-    <url>%2Fcategories%2Findex.html</url>
+    <title><![CDATA[标签]]></title>
+    <url>%2Ftags%2Findex.html</url>
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[标签]]></title>
-    <url>%2Ftags%2Findex.html</url>
+    <title><![CDATA[分类]]></title>
+    <url>%2Fcategories%2Findex.html</url>
     <content type="text"></content>
   </entry>
 </search>
