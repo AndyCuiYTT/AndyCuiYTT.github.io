@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://CuiXg.top/"/>
-  <updated>2019-09-06T06:13:38.729Z</updated>
+  <updated>2019-09-11T01:43:49.415Z</updated>
   <id>http://CuiXg.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初次尝试激活 navicat</title>
+    <link href="http://CuiXg.top/2019/09/10/%E5%88%9D%E6%AC%A1%E5%B0%9D%E8%AF%95%E6%BF%80%E6%B4%BB%20navicat/"/>
+    <id>http://CuiXg.top/2019/09/10/初次尝试激活 navicat/</id>
+    <published>2019-09-10T06:20:55.000Z</published>
+    <updated>2019-09-11T01:43:49.415Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>navicat 12.0 版本，有许多不在有rpk文件，这里提供代rpk文件的下载路径：<a href="https://pan.baidu.com/s/1jJiyyvPh7PwhDGWkZquZIA" target="_blank" rel="noopener">链接</a>  密码:b7ls</li><li>获取注册码工具：<a href="https://github.com/DoubleLabyrinth/navicat-keygen" target="_blank" rel="noopener">navicat-keygen</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      初次接触mysql数据，查看了许多可视化数据库管理工具，发现用的最多的是navicat，结合网上资料尝试激活navicat。
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://CuiXg.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="管理工具" scheme="http://CuiXg.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="navicat" scheme="http://CuiXg.top/tags/navicat/"/>
+    
+      <category term="MySql" scheme="http://CuiXg.top/tags/MySql/"/>
+    
+  </entry>
   
   <entry>
     <title>swift 获取图像指定点的颜色（UIColor）</title>
